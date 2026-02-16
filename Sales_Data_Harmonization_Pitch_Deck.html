@@ -58,42 +58,42 @@ p{color:var(--muted)}
 .pain-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,rgba(13,124,102,.1),rgba(13,124,102,.04));display:grid;place-items:center;margin-bottom:14px}
 .pain h3{margin-bottom:6px}.pain p{font-size:.88rem}
 
-/* ═══════ ARCHITECTURE ═══════ */
-.arch{display:grid;grid-template-columns:180px 1fr 200px;gap:0;margin-top:32px;position:relative}
-.arch-col{display:flex;flex-direction:column;gap:10px;padding:16px;position:relative;z-index:2}
-.arch-sources{background:linear-gradient(180deg,#f0f4f8,#e8edf3);border-radius:var(--rl) 0 0 var(--rl);border:1px solid #d4dee8;border-right:none}
-.arch-lake{background:linear-gradient(180deg,#f8fafc,#f0f4f8);border:1px solid #d4dee8;padding:20px}
-.arch-consume{background:linear-gradient(180deg,#faf8f4,#f4f0e8);border-radius:0 var(--rl) var(--rl) 0;border:1px solid #d4dee8;border-left:none}
-.arch-title{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);text-align:center;margin-bottom:10px}
-.arch-box{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.82rem;color:var(--ink);transition:var(--ease);cursor:default}
-.arch-box:hover{border-color:var(--teal);box-shadow:var(--sh-s)}
-.arch-box .ab-label{font-size:.68rem;color:var(--faint);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+/* ═══════ ARCHITECTURE (Blueprint) ═══════ */
+.arch-blueprint{margin-top:32px;background:#0F1B2D;border-radius:16px;padding:32px 28px 28px;position:relative;overflow:hidden;border:1px solid #1a2d47}
+.arch-blueprint::before{content:'';position:absolute;inset:0;background:
+  repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(74,127,212,.04) 39px,rgba(74,127,212,.04) 40px),
+  repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(74,127,212,.04) 39px,rgba(74,127,212,.04) 40px);pointer-events:none}
+.arch-blueprint::after{content:'PLATFORM ARCHITECTURE';position:absolute;top:12px;right:20px;font-size:.58rem;font-weight:700;letter-spacing:.18em;color:rgba(74,127,212,.25)}
+.bp-title{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:rgba(255,255,255,.3);margin-bottom:6px}
 
-/* Lakehouse layers */
-.lake-layer{border-radius:10px;padding:16px 18px;margin-bottom:10px;position:relative;transition:var(--ease)}
-.lake-layer:hover{transform:scale(1.005);box-shadow:var(--sh-s)}
-.lake-layer:last-child{margin-bottom:0}
-.ll-bronze{background:linear-gradient(135deg,#FDF4E8,#faebd7);border:1px solid #EDCE95}
-.ll-silver{background:linear-gradient(135deg,#EBF0FA,#e0e8f6);border:1px solid #B3C4E8}
-.ll-gold{background:linear-gradient(135deg,#FBF7E6,#f6efd0);border:1px solid #E4D49E}
-.ll-name{font-weight:700;font-size:.88rem;margin-bottom:2px}
-.ll-bronze .ll-name{color:#A06B15}.ll-silver .ll-name{color:#2E5090}.ll-gold .ll-name{color:#8A6D10}
-.ll-desc{font-size:.78rem;color:var(--muted)}
-.ll-sub{margin-top:6px;background:rgba(255,255,255,.7);border:1px solid rgba(0,0,0,.06);border-radius:6px;padding:6px 10px;font-size:.72rem;color:var(--muted)}
+/* SVG layer */
+.arch-svg{width:100%;height:auto;display:block}
+.arch-svg text{font-family:'Segoe UI',-apple-system,sans-serif}
 
-/* Arrows between columns */
-.arch-arrow{position:absolute;top:50%;width:24px;display:flex;align-items:center;justify-content:center;z-index:3}
-.arch-arrow svg{width:20px;height:20px}
-.arch-arrow-left{left:180px;transform:translateX(-50%) translateY(-50%)}
-.arch-arrow-right{right:200px;transform:translateX(50%) translateY(-50%)}
+/* Animated flow particles on SVG paths */
+@keyframes flowPath{0%{offset-distance:0%}100%{offset-distance:100%}}
+.svg-flow{r:3;fill:var(--teal-l);opacity:0;animation:svgPulse 3s ease-in-out infinite}
+@keyframes svgPulse{0%{opacity:0;offset-distance:0%}10%{opacity:.9}85%{opacity:.9}100%{opacity:0;offset-distance:100%}}
 
-/* Animated flow dots */
-@keyframes flowRight{0%{transform:translateX(-8px);opacity:0}30%{opacity:1}70%{opacity:1}100%{transform:translateX(8px);opacity:0}}
-.flow-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:flowRight 1.8s ease-in-out infinite}
-.flow-dot:nth-child(2){animation-delay:.4s}.flow-dot:nth-child(3){animation-delay:.8s}
-.arch-flow{display:flex;gap:4px;position:absolute;top:50%;z-index:4}
-.arch-flow-left{left:172px;transform:translateY(-50%)}
-.arch-flow-right{right:192px;transform:translateY(-50%)}
+/* Node hover */
+.arch-node{transition:filter .2s,transform .2s;cursor:default}
+.arch-node:hover{filter:brightness(1.2) drop-shadow(0 0 8px rgba(16,163,127,.4))}
+
+/* Zone labels */
+.zone-label{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;fill:rgba(255,255,255,.22)}
+.zone-box{fill:none;stroke:rgba(255,255,255,.06);stroke-width:1;stroke-dasharray:4 3;rx:8}
+
+/* Technology tags */
+.tech-tag{font-size:7.5px;font-weight:600;fill:rgba(255,255,255,.35);letter-spacing:.04em}
+
+/* Legend */
+.arch-legend{display:flex;gap:20px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.06)}
+.legend-item{display:flex;align-items:center;gap:6px;font-size:.68rem;color:rgba(255,255,255,.35);font-weight:600}
+.legend-dot{width:8px;height:8px;border-radius:50%}
+.legend-line{width:20px;height:2px;border-radius:1px}
+
+/* Responsive */
+@media(max-width:700px){.arch-blueprint{padding:20px 14px 18px}.arch-legend{flex-wrap:wrap;gap:12px}}
 
 /* ═══════ TIERS ═══════ */
 .tier-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
@@ -181,7 +181,7 @@ p{color:var(--muted)}
 .footer{padding:18px 0;text-align:center;font-size:.74rem;color:var(--faint);border-top:1px solid var(--line)}
 
 /* Responsive */
-@media(max-width:960px){.arch{grid-template-columns:1fr;}.arch-sources,.arch-consume{border-radius:var(--rl)}.arch-lake{border-radius:var(--rl)}.arch-flow,.arch-arrow{display:none}.tier-row,.addon-grid,.rec-grid,.pain-grid{grid-template-columns:1fr}.rec-form{grid-template-columns:1fr}}
+@media(max-width:960px){.arch-blueprint{overflow-x:auto;-webkit-overflow-scrolling:touch}.arch-svg{min-width:800px}.tier-row,.addon-grid,.rec-grid,.pain-grid{grid-template-columns:1fr}.rec-form{grid-template-columns:1fr}}
 @media(max-width:600px){.hero{padding:72px 0 56px}.slide{padding:56px 0}.hero-chips{gap:8px}.gantt-track{grid-template-columns:100px repeat(14,1fr)}}
 
 /* ═══════ NAV BAR ═══════ */
@@ -249,45 +249,245 @@ p{color:var(--muted)}
     <div class="rv"><div class="label">How It Works</div>
     <h2>Medallion Lakehouse Architecture</h2>
     <p class="subtitle">A three-layer data platform: raw capture, validated standardization, and business-ready conformed outputs.</p></div>
-    <div class="arch rv rv-d1">
-      <!-- Flow animations -->
-      <div class="arch-flow arch-flow-left"><div class="flow-dot"></div><div class="flow-dot"></div><div class="flow-dot"></div></div>
-      <div class="arch-flow arch-flow-right"><div class="flow-dot"></div><div class="flow-dot"></div><div class="flow-dot"></div></div>
+    <div class="arch-blueprint rv rv-d1">
+      <svg class="arch-svg" viewBox="0 0 960 520" fill="none" xmlns="http://www.w3.org/2000/svg">
 
-      <!-- Sources -->
-      <div class="arch-col arch-sources">
-        <div class="arch-title">Sources</div>
-        <div class="arch-box"><div class="ab-label">Daily</div>Internal Sales</div>
-        <div class="arch-box"><div class="ab-label">Weekly</div>POS Feeds</div>
-        <div class="arch-box"><div class="ab-label">Static</div>Reference Data</div>
-        <div class="arch-box"><div class="ab-label">Manual</div>Master Data Inputs</div>
-      </div>
+        <!-- Grid zones (dashed outlines) -->
+        <rect class="zone-box" x="16" y="30" width="160" height="460"/>
+        <rect class="zone-box" x="210" y="30" width="160" height="460"/>
+        <rect class="zone-box" x="404" y="30" width="195" height="460"/>
+        <rect class="zone-box" x="633" y="30" width="160" height="460"/>
+        <rect class="zone-box" x="827" y="30" width="120" height="460"/>
 
-      <!-- Lakehouse -->
-      <div class="arch-col arch-lake">
-        <div class="arch-title">Databricks Lakehouse</div>
-        <div class="lake-layer ll-bronze">
-          <div class="ll-name">Bronze — Raw Capture</div>
-          <div class="ll-desc">Schema contracts, audit metadata, append-first history for full traceability and replay</div>
-        </div>
-        <div class="lake-layer ll-silver">
-          <div class="ll-name">Silver — Validated &amp; Standardized</div>
-          <div class="ll-desc">Cleansing, normalization, deduplication, unit standardization, conformance preparation</div>
-          <div class="ll-sub">Master Data Engine: deterministic keys &#8594; rule-based heuristics &#8594; fuzzy matching &#8594; stewardship queue</div>
-        </div>
-        <div class="lake-layer ll-gold">
-          <div class="ll-name">Gold — Business Serving</div>
-          <div class="ll-desc">Conformed product &amp; customer dimensions, curated fact tables, semantic-ready KPI models</div>
-        </div>
-      </div>
+        <!-- Zone labels -->
+        <text class="zone-label" x="96" y="20" text-anchor="middle">DATA SOURCES</text>
+        <text class="zone-label" x="290" y="20" text-anchor="middle">INGESTION</text>
+        <text class="zone-label" x="501" y="20" text-anchor="middle">DATABRICKS LAKEHOUSE</text>
+        <text class="zone-label" x="713" y="20" text-anchor="middle">SERVING</text>
+        <text class="zone-label" x="887" y="20" text-anchor="middle">CONSUMPTION</text>
 
-      <!-- Consumption -->
-      <div class="arch-col arch-consume">
-        <div class="arch-title">Consumption</div>
-        <div class="arch-box"><div class="ab-label">Analytics</div>Semantic Layer + Power BI</div>
-        <div class="arch-box"><div class="ab-label">Operations</div>DQ Monitoring &amp; Alerts</div>
-        <div class="arch-box"><div class="ab-label">Governance</div>Lineage &amp; FinOps</div>
-        <div class="arch-box"><div class="ab-label">Stewardship</div>Mapping &amp; Override UI</div>
+        <!-- ═══ SOURCE NODES ═══ -->
+        <g class="arch-node" transform="translate(36,60)">
+          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <rect width="120" height="4" rx="2" fill="#10A37F"/>
+          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Internal Sales</text>
+          <text class="tech-tag" x="12" y="40">DELTA TABLE · DAILY</text>
+        </g>
+        <g class="arch-node" transform="translate(36,136)">
+          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <rect width="120" height="4" rx="2" fill="#10A37F"/>
+          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">POS Feeds</text>
+          <text class="tech-tag" x="12" y="40">CSV / SFTP · WEEKLY</text>
+        </g>
+        <g class="arch-node" transform="translate(36,212)">
+          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <rect width="120" height="4" rx="2" fill="#4A7FD4"/>
+          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Reference Data</text>
+          <text class="tech-tag" x="12" y="40">MASTER LISTS · STATIC</text>
+        </g>
+        <g class="arch-node" transform="translate(36,288)">
+          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <rect width="120" height="4" rx="2" fill="#4A7FD4"/>
+          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Stewardship</text>
+          <text class="tech-tag" x="12" y="40">MANUAL OVERRIDES</text>
+        </g>
+        <g class="arch-node" transform="translate(36,364)">
+          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <rect width="120" height="4" rx="2" fill="#E09A30"/>
+          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Add'l Sources</text>
+          <text class="tech-tag" x="12" y="40">PHARMACY / E-COM / API</text>
+        </g>
+
+        <!-- ═══ INGESTION NODES ═══ -->
+        <g class="arch-node" transform="translate(230,80)">
+          <rect width="120" height="50" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <text x="60" y="21" font-size="10" font-weight="700" fill="#10A37F" text-anchor="middle">Auto Loader</text>
+          <text class="tech-tag" x="60" y="36" text-anchor="middle">SCHEMA DETECTION</text>
+        </g>
+        <g class="arch-node" transform="translate(230,160)">
+          <rect width="120" height="50" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <text x="60" y="21" font-size="10" font-weight="700" fill="#10A37F" text-anchor="middle">File Ingestion</text>
+          <text class="tech-tag" x="60" y="36" text-anchor="middle">ADLS / BLOB MOUNT</text>
+        </g>
+        <g class="arch-node" transform="translate(230,250)">
+          <rect width="120" height="50" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <text x="60" y="21" font-size="10" font-weight="700" fill="#4A7FD4" text-anchor="middle">Schema Contracts</text>
+          <text class="tech-tag" x="60" y="36" text-anchor="middle">VALIDATION RULES</text>
+        </g>
+        <g class="arch-node" transform="translate(230,340)">
+          <rect width="120" height="50" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <text x="60" y="21" font-size="10" font-weight="700" fill="#E09A30" text-anchor="middle">DLT Pipeline</text>
+          <text class="tech-tag" x="60" y="36" text-anchor="middle">DELTA LIVE TABLES</text>
+        </g>
+
+        <!-- ═══ LAKEHOUSE LAYERS ═══ -->
+        <!-- Bronze -->
+        <g class="arch-node" transform="translate(414,55)">
+          <rect width="175" height="100" rx="8" fill="rgba(160,107,21,.08)" stroke="#A06B15" stroke-width="1.2" stroke-dasharray="0"/>
+          <rect width="175" height="5" rx="2.5" fill="#A06B15" opacity=".6"/>
+          <text x="14" y="26" font-size="11" font-weight="800" fill="#D4A03A">BRONZE</text>
+          <text x="14" y="42" font-size="9" fill="rgba(255,255,255,.55)">Raw append-only ingestion</text>
+          <text x="14" y="58" font-size="9" fill="rgba(255,255,255,.55)">Audit metadata &amp; lineage tags</text>
+          <text class="tech-tag" x="14" y="80">DELTA · UNITY CATALOG · APPEND</text>
+        </g>
+        <!-- Silver -->
+        <g class="arch-node" transform="translate(414,180)">
+          <rect width="175" height="130" rx="8" fill="rgba(46,80,144,.08)" stroke="#4A7FD4" stroke-width="1.2"/>
+          <rect width="175" height="5" rx="2.5" fill="#4A7FD4" opacity=".6"/>
+          <text x="14" y="26" font-size="11" font-weight="800" fill="#6BA3E8">SILVER</text>
+          <text x="14" y="42" font-size="9" fill="rgba(255,255,255,.55)">Cleansed &amp; standardized</text>
+          <text x="14" y="58" font-size="9" fill="rgba(255,255,255,.55)">Deduplication &amp; normalization</text>
+          <!-- Master Data Engine sub-block -->
+          <rect x="8" y="68" width="159" height="48" rx="5" fill="rgba(16,163,127,.08)" stroke="rgba(16,163,127,.3)" stroke-width="1"/>
+          <text x="16" y="84" font-size="8.5" font-weight="700" fill="#10A37F">MASTER DATA ENGINE</text>
+          <text x="16" y="100" font-size="7.5" fill="rgba(255,255,255,.4)">Deterministic → Rules → Fuzzy → Queue</text>
+        </g>
+        <!-- Gold -->
+        <g class="arch-node" transform="translate(414,335)">
+          <rect width="175" height="110" rx="8" fill="rgba(138,109,16,.08)" stroke="#C4A726" stroke-width="1.2"/>
+          <rect width="175" height="5" rx="2.5" fill="#C4A726" opacity=".6"/>
+          <text x="14" y="26" font-size="11" font-weight="800" fill="#E4C93A">GOLD</text>
+          <text x="14" y="42" font-size="9" fill="rgba(255,255,255,.55)">Conformed dimensions</text>
+          <text x="14" y="58" font-size="9" fill="rgba(255,255,255,.55)">Curated fact tables &amp; KPIs</text>
+          <text x="14" y="74" font-size="9" fill="rgba(255,255,255,.55)">SCD2 history (optional)</text>
+          <text class="tech-tag" x="14" y="95">STAR SCHEMA · SEMANTIC-READY</text>
+        </g>
+
+        <!-- Unity Catalog bar -->
+        <g transform="translate(414,470)">
+          <rect width="175" height="22" rx="4" fill="rgba(107,79,160,.15)" stroke="rgba(107,79,160,.4)" stroke-width="1"/>
+          <text x="87" y="15" font-size="8" font-weight="700" fill="#A78BDB" text-anchor="middle" letter-spacing=".12em">UNITY CATALOG · GOVERNANCE</text>
+        </g>
+
+        <!-- ═══ SERVING NODES ═══ -->
+        <g class="arch-node" transform="translate(653,70)">
+          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <rect width="120" height="4" rx="2" fill="#E4C93A"/>
+          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">SQL Warehouse</text>
+          <text class="tech-tag" x="12" y="40">SERVERLESS · LOW LATENCY</text>
+        </g>
+        <g class="arch-node" transform="translate(653,156)">
+          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <rect width="120" height="4" rx="2" fill="#10A37F"/>
+          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">DQ Monitor</text>
+          <text class="tech-tag" x="12" y="40">ALERTING · SLA CHECKS</text>
+        </g>
+        <g class="arch-node" transform="translate(653,242)">
+          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <rect width="120" height="4" rx="2" fill="#4A7FD4"/>
+          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Semantic Layer</text>
+          <text class="tech-tag" x="12" y="40">POWER BI DATASET</text>
+        </g>
+        <g class="arch-node" transform="translate(653,328)">
+          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <rect width="120" height="4" rx="2" fill="#A78BDB"/>
+          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Crosswalk API</text>
+          <text class="tech-tag" x="12" y="40">OVERRIDE / AUDIT</text>
+        </g>
+        <g class="arch-node" transform="translate(653,414)">
+          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <rect width="120" height="4" rx="2" fill="#E09A30"/>
+          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Lineage &amp; Catalog</text>
+          <text class="tech-tag" x="12" y="40">IMPACT ANALYSIS</text>
+        </g>
+
+        <!-- ═══ CONSUMPTION NODES ═══ -->
+        <g class="arch-node" transform="translate(843,80)">
+          <rect width="90" height="70" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <text x="45" y="30" font-size="18" text-anchor="middle">📊</text>
+          <text x="45" y="50" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">Power BI</text>
+          <text class="tech-tag" x="45" y="62" text-anchor="middle">DASHBOARDS</text>
+        </g>
+        <g class="arch-node" transform="translate(843,175)">
+          <rect width="90" height="70" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <text x="45" y="30" font-size="18" text-anchor="middle">🔔</text>
+          <text x="45" y="50" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">Alerts</text>
+          <text class="tech-tag" x="45" y="62" text-anchor="middle">TEAMS / EMAIL</text>
+        </g>
+        <g class="arch-node" transform="translate(843,270)">
+          <rect width="90" height="70" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <text x="45" y="30" font-size="18" text-anchor="middle">🖥️</text>
+          <text x="45" y="50" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">Stewardship UI</text>
+          <text class="tech-tag" x="45" y="62" text-anchor="middle">REVIEW / APPROVE</text>
+        </g>
+        <g class="arch-node" transform="translate(843,365)">
+          <rect width="90" height="70" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
+          <text x="45" y="30" font-size="18" text-anchor="middle">⚙️</text>
+          <text x="45" y="50" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">FinOps</text>
+          <text class="tech-tag" x="45" y="62" text-anchor="middle">COST MONITORING</text>
+        </g>
+
+        <!-- ═══ CONNECTION PATHS ═══ -->
+        <defs>
+          <!-- Source → Ingestion paths -->
+          <path id="p-s1" d="M156,88 C185,88 205,105 230,105" />
+          <path id="p-s2" d="M156,164 C185,164 205,185 230,185" />
+          <path id="p-s3" d="M156,240 C185,240 205,275 230,275" />
+          <path id="p-s4" d="M156,316 C185,316 210,350 230,365" />
+          <path id="p-s5" d="M156,392 C185,392 210,370 230,365" />
+          <!-- Ingestion → Bronze -->
+          <path id="p-i1" d="M350,105 C375,105 390,90 414,90" />
+          <path id="p-i2" d="M350,185 C375,185 390,110 414,110" />
+          <path id="p-i3" d="M350,275 C375,275 395,130 414,130" />
+          <path id="p-i4" d="M350,365 C375,365 395,140 414,140" />
+          <!-- Bronze → Silver -->
+          <path id="p-bs" d="M501,155 L501,180" />
+          <!-- Silver → Gold -->
+          <path id="p-sg" d="M501,310 L501,335" />
+          <!-- Gold → Serving -->
+          <path id="p-g1" d="M589,370 C610,370 630,98 653,98" />
+          <path id="p-g2" d="M589,390 C615,390 635,184 653,184" />
+          <path id="p-g3" d="M589,400 C620,400 640,270 653,270" />
+          <path id="p-g4" d="M589,410 C625,410 640,356 653,356" />
+          <path id="p-g5" d="M589,430 C625,430 640,442 653,442" />
+          <!-- Serving → Consumption -->
+          <path id="p-c1" d="M773,98 C800,98 820,115 843,115" />
+          <path id="p-c2" d="M773,184 C800,184 820,210 843,210" />
+          <path id="p-c3" d="M773,270 C800,270 820,305 843,305" />
+          <path id="p-c4" d="M773,356 C800,356 825,400 843,400" />
+        </defs>
+
+        <!-- Render paths (visible lines) -->
+        <g stroke="rgba(74,127,212,.18)" stroke-width="1.5" fill="none">
+          <use href="#p-s1"/><use href="#p-s2"/><use href="#p-s3"/><use href="#p-s4"/><use href="#p-s5"/>
+          <use href="#p-i1"/><use href="#p-i2"/><use href="#p-i3"/><use href="#p-i4"/>
+          <use href="#p-g1"/><use href="#p-g2"/><use href="#p-g3"/><use href="#p-g4"/><use href="#p-g5"/>
+          <use href="#p-c1"/><use href="#p-c2"/><use href="#p-c3"/><use href="#p-c4"/>
+        </g>
+        <!-- Vertical connectors between layers -->
+        <line x1="501" y1="155" x2="501" y2="180" stroke="rgba(74,127,212,.25)" stroke-width="2" stroke-dasharray="4 3"/>
+        <line x1="501" y1="310" x2="501" y2="335" stroke="rgba(74,127,212,.25)" stroke-width="2" stroke-dasharray="4 3"/>
+
+        <!-- Animated flow particles -->
+        <g>
+          <circle r="3" fill="#10A37F" opacity="0"><animateMotion dur="2.5s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" calcMode="spline"><mpath href="#p-s1"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.5s" repeatCount="indefinite"/></circle>
+          <circle r="3" fill="#10A37F" opacity="0"><animateMotion dur="2.8s" repeatCount="indefinite" begin="0.6s"><mpath href="#p-s2"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.8s" repeatCount="indefinite" begin="0.6s"/></circle>
+          <circle r="3" fill="#4A7FD4" opacity="0"><animateMotion dur="2.2s" repeatCount="indefinite" begin="1.2s"><mpath href="#p-i1"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.2s" repeatCount="indefinite" begin="1.2s"/></circle>
+          <circle r="3" fill="#4A7FD4" opacity="0"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0.3s"><mpath href="#p-i2"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.6s" repeatCount="indefinite" begin="0.3s"/></circle>
+          <circle r="3" fill="#E4C93A" opacity="0"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0.5s"><mpath href="#p-g1"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.4s" repeatCount="indefinite" begin="0.5s"/></circle>
+          <circle r="3" fill="#E4C93A" opacity="0"><animateMotion dur="2.7s" repeatCount="indefinite" begin="1s"><mpath href="#p-g3"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.7s" repeatCount="indefinite" begin="1s"/></circle>
+          <circle r="3" fill="#10A37F" opacity="0"><animateMotion dur="2.3s" repeatCount="indefinite" begin="0.8s"><mpath href="#p-c1"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.3s" repeatCount="indefinite" begin="0.8s"/></circle>
+          <circle r="3" fill="#A78BDB" opacity="0"><animateMotion dur="2.5s" repeatCount="indefinite" begin="1.4s"><mpath href="#p-c3"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.5s" repeatCount="indefinite" begin="1.4s"/></circle>
+        </g>
+
+        <!-- Arrow markers at key transition points -->
+        <g fill="rgba(74,127,212,.3)">
+          <polygon points="414,100 408,96 408,104" />
+          <polygon points="414,120 408,116 408,124" />
+          <polygon points="653,92 647,88 647,96" />
+          <polygon points="653,264 647,260 647,268" />
+          <polygon points="843,110 837,106 837,114" />
+          <polygon points="843,300 837,296 837,304" />
+        </g>
+      </svg>
+
+      <!-- Legend -->
+      <div class="arch-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:#10A37F"></div> Ingestion flow</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#4A7FD4"></div> Processing</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#E4C93A"></div> Serving</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#A78BDB"></div> Governance</div>
+        <div class="legend-item"><div class="legend-line" style="background:rgba(74,127,212,.25)"></div> Data path</div>
       </div>
     </div>
   </div>
