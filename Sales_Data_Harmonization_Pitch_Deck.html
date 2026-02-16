@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Sales Data Harmonization</title>
+<title>Sales Data Harmonization — Pitch Deck</title>
 <style>
 :root {
   --navy:#1B2A4A; --navy2:#243656; --blue:#2E5090; --blue-l:#4A7FD4;
@@ -102,14 +102,14 @@ p{color:var(--muted)}
 .tc-head{padding:22px 22px 14px}
 .tc.t1 .tc-head{background:linear-gradient(135deg,rgba(13,124,102,.06),transparent);border-bottom:2px solid var(--teal)}
 .tc.t2 .tc-head{background:linear-gradient(135deg,rgba(46,80,144,.06),transparent);border-bottom:2px solid var(--blue)}
-.tc.t3 .tc-head{background:linear-gradient(135deg,rgba(193,120,23,.06),transparent);border-bottom:2px solid var(--amber)}
+.tc.t3 .tc-head{background:linear-gradient(135deg,rgba(107,79,160,.06),transparent);border-bottom:2px solid var(--purple)}
 .tc-badge{display:inline-block;padding:3px 10px;border-radius:5px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
-.t1 .tc-badge{background:rgba(13,124,102,.1);color:var(--teal)}.t2 .tc-badge{background:rgba(46,80,144,.1);color:var(--blue)}.t3 .tc-badge{background:rgba(193,120,23,.1);color:var(--amber)}
+.t1 .tc-badge{background:rgba(13,124,102,.1);color:var(--teal)}.t2 .tc-badge{background:rgba(46,80,144,.1);color:var(--blue)}.t3 .tc-badge{background:rgba(107,79,160,.1);color:var(--purple)}
 .tc-body{padding:18px 22px 22px}
 .tc-feat{list-style:none;margin-bottom:18px}
 .tc-feat li{padding:5px 0;font-size:.84rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px}
 .tc-feat li::before{content:'';width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
-.t1 .tc-feat li::before{background:var(--teal)}.t2 .tc-feat li::before{background:var(--blue)}.t3 .tc-feat li::before{background:var(--amber)}
+.t1 .tc-feat li::before{background:var(--teal)}.t2 .tc-feat li::before{background:var(--blue)}.t3 .tc-feat li::before{background:var(--purple)}
 .tc-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:14px;border-top:1px solid var(--line-l)}
 .tc-m .mv{font-size:.95rem;font-weight:700;color:var(--navy)}.tc-m .ml{font-size:.7rem;color:var(--faint)}
 
@@ -142,7 +142,7 @@ p{color:var(--muted)}
 .gantt-bar:hover{filter:brightness(1.08);transform:scaleY(1.15)}
 .gantt-bar.b-teal{background:linear-gradient(90deg,var(--teal),var(--teal-l))}
 .gantt-bar.b-blue{background:linear-gradient(90deg,var(--blue),var(--blue-l))}
-.gantt-bar.b-amber{background:linear-gradient(90deg,var(--amber),var(--amber-l))}
+.gantt-bar.b-purple{background:linear-gradient(90deg,var(--purple),#8B6FC0)}
 /* Span helpers: bars span multiple columns */
 .span-2{grid-column:span 2}.span-3{grid-column:span 3}.span-4{grid-column:span 4}
 .span-5{grid-column:span 5}.span-6{grid-column:span 6}.span-7{grid-column:span 7}
@@ -198,10 +198,10 @@ p{color:var(--muted)}
 <nav class="topbar">
   <a href="index.html" class="tb-back">← Catalog</a>
   <span class="tb-brand"><span>SDH</span>&nbsp; Pitch Deck</span>
-  <a href="#architecture">Architecture</a>
   <a href="#tiers">Tiers</a>
-  <a href="#addons">Add-Ons</a>
   <a href="#model">Model</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#addons">Add-Ons</a>
   <a href="#timeline">Timeline</a>
   <a href="#investment">Investment</a>
   <a href="#recommend">Recommend</a>
@@ -239,6 +239,171 @@ p{color:var(--muted)}
       <div class="pain rv rv-d3">
         <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M2 8h16M7 8v9"/></svg></div>
         <h3>Manual Reconciliation</h3><p>Teams burn 100+ hours per month stitching spreadsheets instead of generating insight and making commercial decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TIERS ═══ -->
+<section class="slide" id="tiers">
+  <div class="container">
+    <div class="rv"><div class="label">Choose Your Starting Point</div>
+    <h2>Three Tiers — Scale to Your Needs</h2>
+    <p class="subtitle">Each tier builds on the previous. Start with what fits and expand as value is proven.</p></div>
+    <div class="tier-row">
+      <div class="tc t1 rv rv-d1">
+        <div class="tc-head"><div class="tc-badge">Tier 1</div><h3>Foundation</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 2 core sources</p></div>
+        <div class="tc-body">
+          <ul class="tc-feat">
+            <li>Conformed product &amp; customer dimensions</li>
+            <li>Bronze &#8594; Silver &#8594; Gold pipeline</li>
+            <li>Baseline DQ, reconciliation, alerting</li>
+            <li>Stewardship queue &amp; override workflow</li>
+            <li>UAT, runbook, handover</li>
+          </ul>
+          <div class="tc-metrics">
+            <div class="tc-m"><div class="mv">180 – 220 h</div><div class="ml">Build effort</div></div>
+            <div class="tc-m"><div class="mv">~ 5.5 weeks</div><div class="ml">Timeline</div></div>
+            <div class="tc-m"><div class="mv">$300 – 1,200</div><div class="ml">Platform /mo</div></div>
+            <div class="tc-m"><div class="mv">8 – 20 h</div><div class="ml">Eng support /mo</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc t2 rv rv-d2">
+        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 6 sources</p></div>
+        <div class="tc-body">
+          <ul class="tc-feat">
+            <li>Repeatable source onboarding framework</li>
+            <li>Higher mapping throughput &amp; automation</li>
+            <li>Expanded cross-source reconciliation</li>
+            <li>Data contract validation &amp; CI/CD</li>
+            <li>Advanced stewardship &amp; queue management</li>
+          </ul>
+          <div class="tc-metrics">
+            <div class="tc-m"><div class="mv">290 – 685 h</div><div class="ml">Build effort</div></div>
+            <div class="tc-m"><div class="mv">9 – 14 weeks</div><div class="ml">Timeline</div></div>
+            <div class="tc-m"><div class="mv">$800 – 3,500</div><div class="ml">Platform /mo</div></div>
+            <div class="tc-m"><div class="mv">16 – 40 h</div><div class="ml">Eng support /mo</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc t3 rv rv-d3">
+        <div class="tc-head"><div class="tc-badge">Tier 3</div><h3>PortCo Convergence</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">4 – 6 BUs, 2+ sources each</p></div>
+        <div class="tc-body">
+          <ul class="tc-feat">
+            <li>Unified PortCo product &amp; customer hierarchy</li>
+            <li>BU translation layer &amp; governance model</li>
+            <li>Wave-based rollout &amp; stabilization</li>
+            <li>Lineage catalog &amp; impact analysis</li>
+            <li>Role-based access &amp; audit package</li>
+          </ul>
+          <div class="tc-metrics">
+            <div class="tc-m"><div class="mv">820 – 1,900 h</div><div class="ml">Build effort</div></div>
+            <div class="tc-m"><div class="mv">27 – 36+ weeks</div><div class="ml">Timeline</div></div>
+            <div class="tc-m"><div class="mv">$3,000 – 15,000</div><div class="ml">Platform /mo</div></div>
+            <div class="tc-m"><div class="mv">40 – 120 h</div><div class="ml">Eng support /mo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DELIVERY MODEL ═══ -->
+<section class="slide" id="model">
+  <div class="container">
+    <div class="rv"><div class="label">Delivery Model</div>
+    <h2>Full Handover. Continuous Edge.</h2>
+    <p class="subtitle">You own everything — code, data, infrastructure. Our advantage is the accelerator library we maintain across all engagements.</p></div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px">
+      <!-- Accelerator -->
+      <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
+        <div style="padding:4px 0;background:linear-gradient(90deg,var(--teal),var(--teal-l))"></div>
+        <div style="padding:22px">
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Maintained by Us · Forked for You</div>
+          <h3 style="font-size:1.05rem">SDH Accelerator</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Battle-tested library of matching algorithms, pipeline templates, DQ rules, and source connectors — refined across every engagement.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">accelerator/</code> matching_engine</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">accelerator/</code> pipeline_factory</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">accelerator/</code> dq_framework</div>
+          </div>
+          <p style="font-size:.75rem;color:var(--teal);font-weight:600;margin-top:12px">You get v4.1 today. Six months from now, we're on v5.0 — with learnings from every engagement since yours.</p>
+        </div>
+      </div>
+      <!-- Config -->
+      <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
+        <div style="padding:4px 0;background:linear-gradient(90deg,var(--blue),var(--blue-l))"></div>
+        <div style="padding:22px">
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Your Code · Your Repo</div>
+          <h3 style="font-size:1.05rem">Configuration &amp; Logic</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your source schemas, matching rules, thresholds, and KPI definitions. Fully handed over in your Git repo.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">config/</code>sources.yaml</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">config/</code>matching_rules.yaml</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">notebooks/</code>run_pipeline.py</div>
+          </div>
+          <p style="font-size:.75rem;color:var(--blue);font-weight:600;margin-top:12px">Azure DevOps or GitHub. Full audit trail, PR reviews, CI/CD. You own and modify freely.</p>
+        </div>
+      </div>
+      <!-- Infra -->
+      <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
+        <div style="padding:4px 0;background:linear-gradient(90deg,var(--amber),var(--amber-l))"></div>
+        <div style="padding:22px">
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:6px">Your Workspace · Your Data</div>
+          <h3 style="font-size:1.05rem">Infrastructure</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your Databricks workspace, Azure storage, compute, and all data. We develop in your environment and hand over.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">Azure</code> Databricks + ADLS</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">Unity</code> Catalog &amp; Governance</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">All</code> Data: Bronze → Gold</div>
+          </div>
+          <p style="font-size:.75rem;color:var(--amber);font-weight:600;margin-top:12px">Everything is yours from day one. No lock-in, no dependencies on us to keep it running.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why we stay relevant -->
+    <div class="rv rv-d4" style="margin-top:20px;background:linear-gradient(135deg,rgba(13,124,102,.04),rgba(46,80,144,.04));border:1px solid var(--line);border-radius:var(--r);padding:22px 24px">
+      <h3 style="font-size:.95rem;margin-bottom:12px">Why This Model Works</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Speed</div>
+          <p style="font-size:.82rem;color:var(--muted)">We deliver in 5 weeks what takes 4 months from scratch — because the accelerator encodes patterns from every prior engagement.</p>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Cross-Portfolio Intelligence</div>
+          <p style="font-size:.82rem;color:var(--muted)">We see patterns across all BUs and PortCos. Which POS formats are common, which matching rules transfer, what governance models actually work.</p>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Continuous Improvement</div>
+          <p style="font-size:.82rem;color:var(--muted)">Six months after your handover, the accelerator is better. Upgrade engagements bring the latest algorithms, connectors, and best practices to your environment.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Engagement types -->
+    <div class="rv rv-d4" style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
+        <div style="font-size:.68rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.1em">Build</div>
+        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Project Engagement</p>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Configure, deploy, tune, hand over</p>
+      </div>
+      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
+        <div style="font-size:.68rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em">Upgrade</div>
+        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Evolution Sprint</p>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Apply latest accelerator improvements</p>
+      </div>
+      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
+        <div style="font-size:.68rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.1em">Support</div>
+        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Retainer (Optional)</p>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">For BUs that prefer managed ops</p>
+      </div>
+      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
+        <div style="font-size:.68rem;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.1em">Expand</div>
+        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">New Use Cases</p>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Analytics, ML, automation on top</p>
       </div>
     </div>
   </div>
@@ -494,71 +659,6 @@ p{color:var(--muted)}
   </div>
 </section>
 
-<!-- ═══ TIERS ═══ -->
-<section class="slide" id="tiers">
-  <div class="container">
-    <div class="rv"><div class="label">Choose Your Starting Point</div>
-    <h2>Three Tiers — Scale to Your Needs</h2>
-    <p class="subtitle">Each tier builds on the previous. Start with what fits and expand as value is proven.</p></div>
-    <div class="tier-row">
-      <div class="tc t1 rv rv-d1">
-        <div class="tc-head"><div class="tc-badge">Tier 1</div><h3>Foundation</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 2 core sources</p></div>
-        <div class="tc-body">
-          <ul class="tc-feat">
-            <li>Conformed product &amp; customer dimensions</li>
-            <li>Bronze &#8594; Silver &#8594; Gold pipeline</li>
-            <li>Baseline DQ, reconciliation, alerting</li>
-            <li>Stewardship queue &amp; override workflow</li>
-            <li>UAT, runbook, handover</li>
-          </ul>
-          <div class="tc-metrics">
-            <div class="tc-m"><div class="mv">180 – 220 h</div><div class="ml">Build effort</div></div>
-            <div class="tc-m"><div class="mv">~ 5.5 weeks</div><div class="ml">Timeline</div></div>
-            <div class="tc-m"><div class="mv">$300 – 1,200</div><div class="ml">Platform /mo</div></div>
-            <div class="tc-m"><div class="mv">8 – 20 h</div><div class="ml">Eng support /mo</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="tc t2 rv rv-d2">
-        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 6 sources</p></div>
-        <div class="tc-body">
-          <ul class="tc-feat">
-            <li>Repeatable source onboarding framework</li>
-            <li>Higher mapping throughput &amp; automation</li>
-            <li>Expanded cross-source reconciliation</li>
-            <li>Data contract validation &amp; CI/CD</li>
-            <li>Advanced stewardship &amp; queue management</li>
-          </ul>
-          <div class="tc-metrics">
-            <div class="tc-m"><div class="mv">290 – 685 h</div><div class="ml">Build effort</div></div>
-            <div class="tc-m"><div class="mv">9 – 14 weeks</div><div class="ml">Timeline</div></div>
-            <div class="tc-m"><div class="mv">$800 – 3,500</div><div class="ml">Platform /mo</div></div>
-            <div class="tc-m"><div class="mv">16 – 40 h</div><div class="ml">Eng support /mo</div></div>
-          </div>
-        </div>
-      </div>
-      <div class="tc t3 rv rv-d3">
-        <div class="tc-head"><div class="tc-badge">Tier 3</div><h3>PortCo Convergence</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">4 – 6 BUs, 2+ sources each</p></div>
-        <div class="tc-body">
-          <ul class="tc-feat">
-            <li>Unified PortCo product &amp; customer hierarchy</li>
-            <li>BU translation layer &amp; governance model</li>
-            <li>Wave-based rollout &amp; stabilization</li>
-            <li>Lineage catalog &amp; impact analysis</li>
-            <li>Role-based access &amp; audit package</li>
-          </ul>
-          <div class="tc-metrics">
-            <div class="tc-m"><div class="mv">820 – 1,900 h</div><div class="ml">Build effort</div></div>
-            <div class="tc-m"><div class="mv">27 – 36+ weeks</div><div class="ml">Timeline</div></div>
-            <div class="tc-m"><div class="mv">$3,000 – 15,000</div><div class="ml">Platform /mo</div></div>
-            <div class="tc-m"><div class="mv">40 – 120 h</div><div class="ml">Eng support /mo</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ ADD-ONS ═══ -->
 <section class="slide slide-alt" id="addons">
   <div class="container">
@@ -619,106 +719,6 @@ p{color:var(--muted)}
         <h3>Training &amp; Enablement</h3>
         <p>Workshops for business users, data stewards, and engineers. Documentation and knowledge transfer.</p>
         <div class="addon-meta"><span>+20 – 40 h</span><span>One-time</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ DELIVERY MODEL ═══ -->
-<section class="slide" id="model">
-  <div class="container">
-    <div class="rv"><div class="label">Delivery Model</div>
-    <h2>Full Handover. Continuous Edge.</h2>
-    <p class="subtitle">You own everything — code, data, infrastructure. Our advantage is the accelerator library we maintain across all engagements.</p></div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px">
-      <!-- Accelerator -->
-      <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
-        <div style="padding:4px 0;background:linear-gradient(90deg,var(--teal),var(--teal-l))"></div>
-        <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Maintained by Us · Forked for You</div>
-          <h3 style="font-size:1.05rem">SDH Accelerator</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Battle-tested library of matching algorithms, pipeline templates, DQ rules, and source connectors — refined across every engagement.</p>
-          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">accelerator/</code> matching_engine</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">accelerator/</code> pipeline_factory</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">accelerator/</code> dq_framework</div>
-          </div>
-          <p style="font-size:.75rem;color:var(--teal);font-weight:600;margin-top:12px">You get v4.1 today. Six months from now, we're on v5.0 — with learnings from every engagement since yours.</p>
-        </div>
-      </div>
-      <!-- Config -->
-      <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
-        <div style="padding:4px 0;background:linear-gradient(90deg,var(--blue),var(--blue-l))"></div>
-        <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Your Code · Your Repo</div>
-          <h3 style="font-size:1.05rem">Configuration &amp; Logic</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your source schemas, matching rules, thresholds, and KPI definitions. Fully handed over in your Git repo.</p>
-          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">config/</code>sources.yaml</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">config/</code>matching_rules.yaml</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">notebooks/</code>run_pipeline.py</div>
-          </div>
-          <p style="font-size:.75rem;color:var(--blue);font-weight:600;margin-top:12px">Azure DevOps or GitHub. Full audit trail, PR reviews, CI/CD. You own and modify freely.</p>
-        </div>
-      </div>
-      <!-- Infra -->
-      <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
-        <div style="padding:4px 0;background:linear-gradient(90deg,var(--amber),var(--amber-l))"></div>
-        <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:6px">Your Workspace · Your Data</div>
-          <h3 style="font-size:1.05rem">Infrastructure</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your Databricks workspace, Azure storage, compute, and all data. We develop in your environment and hand over.</p>
-          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">Azure</code> Databricks + ADLS</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">Unity</code> Catalog &amp; Governance</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">All</code> Data: Bronze → Gold</div>
-          </div>
-          <p style="font-size:.75rem;color:var(--amber);font-weight:600;margin-top:12px">Everything is yours from day one. No lock-in, no dependencies on us to keep it running.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Why we stay relevant -->
-    <div class="rv rv-d4" style="margin-top:20px;background:linear-gradient(135deg,rgba(13,124,102,.04),rgba(46,80,144,.04));border:1px solid var(--line);border-radius:var(--r);padding:22px 24px">
-      <h3 style="font-size:.95rem;margin-bottom:12px">Why This Model Works</h3>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
-        <div>
-          <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Speed</div>
-          <p style="font-size:.82rem;color:var(--muted)">We deliver in 5 weeks what takes 4 months from scratch — because the accelerator encodes patterns from every prior engagement.</p>
-        </div>
-        <div>
-          <div style="font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Cross-Portfolio Intelligence</div>
-          <p style="font-size:.82rem;color:var(--muted)">We see patterns across all BUs and PortCos. Which POS formats are common, which matching rules transfer, what governance models actually work.</p>
-        </div>
-        <div>
-          <div style="font-size:.72rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Continuous Improvement</div>
-          <p style="font-size:.82rem;color:var(--muted)">Six months after your handover, the accelerator is better. Upgrade engagements bring the latest algorithms, connectors, and best practices to your environment.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Engagement types -->
-    <div class="rv rv-d4" style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
-      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
-        <div style="font-size:.68rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.1em">Build</div>
-        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Project Engagement</p>
-        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Configure, deploy, tune, hand over</p>
-      </div>
-      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
-        <div style="font-size:.68rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em">Upgrade</div>
-        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Evolution Sprint</p>
-        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Apply latest accelerator improvements</p>
-      </div>
-      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
-        <div style="font-size:.68rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.1em">Support</div>
-        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Retainer (Optional)</p>
-        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">For BUs that prefer managed ops</p>
-      </div>
-      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
-        <div style="font-size:.68rem;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.1em">Expand</div>
-        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">New Use Cases</p>
-        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Analytics, ML, automation on top</p>
       </div>
     </div>
   </div>
@@ -792,22 +792,22 @@ p{color:var(--muted)}
 
         <!-- Tier 3 -->
         <div class="gantt-group">
-          <div class="gantt-group-label"><span class="gantt-group-dot" style="background:var(--amber)"></span>Tier 3 — PortCo Convergence (27 – 36+ weeks)</div>
+          <div class="gantt-group-label"><span class="gantt-group-dot" style="background:var(--purple)"></span>Tier 3 — PortCo Convergence (27 – 36+ weeks)</div>
           <div class="gantt-track">
             <div class="gantt-task">Global Design</div>
-            <div class="gantt-bar b-amber span-4" title="W1-W4: PortCo hierarchy & governance design"></div>
+            <div class="gantt-bar b-purple span-4" title="W1-W4: PortCo hierarchy & governance design"></div>
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
           </div>
           <div class="gantt-track">
             <div class="gantt-task">BU Waves</div>
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
-            <div class="gantt-bar b-amber span-10" title="W4-W32+: Iterative BU onboarding waves"></div>
+            <div class="gantt-bar b-purple span-10" title="W4-W32+: Iterative BU onboarding waves"></div>
             <div class="gantt-empty"></div>
           </div>
           <div class="gantt-track">
             <div class="gantt-task">Stabilize</div>
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
-            <div class="gantt-bar b-amber span-4" title="W28-W36: Stabilization & operational handover"></div>
+            <div class="gantt-bar b-purple span-4" title="W28-W36: Stabilization & operational handover"></div>
           </div>
         </div>
       </div>
@@ -826,7 +826,7 @@ p{color:var(--muted)}
       <tbody>
         <tr><td><span class="dot" style="background:var(--teal)"></span><strong>Tier 1</strong> Foundation</td><td>180 – 220 h</td><td>5 – 6 weeks</td><td>$300 – 1,200</td><td>8 – 20 h</td><td>2 – 8 h</td></tr>
         <tr><td><span class="dot" style="background:var(--blue)"></span><strong>Tier 2</strong> Multi-Source</td><td>290 – 685 h</td><td>9 – 14 weeks</td><td>$800 – 3,500</td><td>16 – 40 h</td><td>6 – 20 h</td></tr>
-        <tr><td><span class="dot" style="background:var(--amber)"></span><strong>Tier 3</strong> PortCo</td><td>820 – 1,900 h</td><td>27 – 36+ weeks</td><td>$3,000 – 15,000</td><td>40 – 120 h</td><td>16 – 60 h</td></tr>
+        <tr><td><span class="dot" style="background:var(--purple)"></span><strong>Tier 3</strong> PortCo</td><td>820 – 1,900 h</td><td>27 – 36+ weeks</td><td>$3,000 – 15,000</td><td>40 – 120 h</td><td>16 – 60 h</td></tr>
       </tbody>
     </table>
     <div class="inv-note rv">Platform costs assume daily/weekly incremental refresh cadence, serverless SQL warehouse, and standard retention. Costs scale primarily with source count, data volume, and SLA requirements. Add-on services carry their own incremental run costs as listed.</div>
@@ -883,7 +883,7 @@ function doRec(){
   let t,c,e,r,w,tl;
   if(score<=2){t='Tier 1 — Foundation';c='var(--teal)';e='180 – 220 h';r='$300 – 1,200 /mo';tl='~ 5.5 weeks';w='Single source with basic governance fits the foundation model. Fast time-to-value with minimal platform cost.';}
   else if(score<=5){t='Tier 2 — Multi-Source';c='var(--blue)';e='290 – 685 h';r='$800 – 3,500 /mo';tl='9 – 14 weeks';w='Multiple sources and/or advanced quality requirements push you into Tier 2. Good balance of scope and speed.';}
-  else{t='Tier 3 — PortCo Convergence';c='var(--amber)';e='820 – 1,900 h';r='$3,000 – 15,000 /mo';tl='27 – 36+ weeks';w='Full governance, lineage, and enterprise-scale requirements call for the convergence tier.';}
+  else{t='Tier 3 — PortCo Convergence';c='var(--purple)';e='820 – 1,900 h';r='$3,000 – 15,000 /mo';tl='27 – 36+ weeks';w='Full governance, lineage, and enterprise-scale requirements call for the convergence tier.';}
   let x='';
   if(scd==='yes')x+='<div class="ro-row"><span class="ro-rl">Add-on</span><span class="ro-rv">SCD2 Historical Tracking (+30-50h)</span></div>';
   if(gov==='high')x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Stewardship Portal (+60-120h)</span></div>';

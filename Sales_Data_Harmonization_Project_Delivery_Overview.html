@@ -663,13 +663,13 @@ p{color:var(--muted);font-size:.97rem}
       <p style="font-size:.88rem;margin:8px 0 20px">Quantify annual value, run cost, net benefit, and payback period for the harmonization investment.</p>
       <div class="g2">
         <div>
-          <div class="fg"><label>Manual Hours / Month</label><input type="number" id="bc-hours" value="120"></div>
-          <div class="fg"><label>Loaded Cost / Hour ($)</label><input type="number" id="bc-cost" value="90"></div>
-          <div class="fg"><label>Effort Reduction (%)</label><input type="number" id="bc-reduce" value="45"></div>
-          <div class="fg"><label>Decision Uplift / Month ($)</label><input type="number" id="bc-uplift" value="15000"></div>
-          <div class="fg"><label>Avoided Cost / Year ($)</label><input type="number" id="bc-avoided" value="60000"></div>
-          <div class="fg"><label>Run Cost / Month ($)</label><input type="number" id="bc-run" value="6000"></div>
-          <div class="fg"><label>Build Cost &mdash; One Time ($)</label><input type="number" id="bc-build" value="180000"></div>
+          <div class="fg"><label>Manual Hours / Month</label><input type="number" id="bc-hours" value="80"></div>
+          <div class="fg"><label>Loaded Cost / Hour ($)</label><input type="number" id="bc-cost" value="75"></div>
+          <div class="fg"><label>Effort Reduction (%)</label><input type="number" id="bc-reduce" value="30"></div>
+          <div class="fg"><label>Decision Uplift / Month ($)</label><input type="number" id="bc-uplift" value="8000"></div>
+          <div class="fg"><label>Avoided Cost / Year ($)</label><input type="number" id="bc-avoided" value="30000"></div>
+          <div class="fg"><label>Run Cost / Month ($)</label><input type="number" id="bc-run" value="4000"></div>
+          <div class="fg"><label>Build Cost &mdash; One Time ($)</label><input type="number" id="bc-build" value="150000"></div>
           <button class="btn btn-primary" onclick="runBizCase()">Calculate Business Case</button>
         </div>
         <div>
@@ -787,7 +787,6 @@ p{color:var(--muted);font-size:.97rem}
   </div>
 </section>
 
-<!-- ══════════════════ DELIVERY MODEL ══════════════════ -->
 <!-- ══════════════════ DELIVERY MODEL ══════════════════ -->
 <section id="model">
   <div class="wrap">
@@ -1277,12 +1276,12 @@ function renderRadar(){
     const rd=r*ring/5;
     let pts=[];
     for(let i=0;i<n;i++){const p=pol(startAngle+i*angleStep,rd);pts.push(p.x+','+p.y)}
-    svg+='<polygon points="'+pts.join(' ')+'" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>';
+    svg+='<polygon points="'+pts.join(' ')+'" fill="none" stroke="rgba(27,42,74,.1)" stroke-width="1"/>';
   }
   // Axes
   for(let i=0;i<n;i++){
     const p=pol(startAngle+i*angleStep,r);
-    svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+p.x+'" y2="'+p.y+'" stroke="rgba(255,255,255,.08)" stroke-width="1"/>';
+    svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+p.x+'" y2="'+p.y+'" stroke="rgba(27,42,74,.1)" stroke-width="1"/>';
     const lp=pol(startAngle+i*angleStep,r+18);
     svg+='<text x="'+lp.x+'" y="'+lp.y+'" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="600" fill="var(--muted)">'+dimLabels[i]+'</text>';
   }
@@ -1305,7 +1304,7 @@ function renderRadar(){
   let wave='<div style="margin-top:16px">';
   wave+='<h4 style="font-size:.85rem;margin-bottom:10px">Recommended Wave Sequence</h4>';
   bus.forEach((bu,i)=>{
-    const waveNum=i===0?'Wave 1 — Lighthouse':i<=1?'Wave 2 — Fast Follower':'Wave 3 — Remediation Track';
+    const waveNum = bu.avg >= 3.5 ? 'Wave 1 — Lighthouse' : bu.avg >= 2.5 ? 'Wave 2 — Fast Follower' : 'Wave 3 — Remediation Track';
     const ragClass=bu.avg>=3.5?'rag-green':bu.avg>=2.5?'rag-amber':'rag-red';
     wave+='<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-l)">'+
       '<div style="width:12px;height:12px;border-radius:3px;background:'+bu.color+'"></div>'+
