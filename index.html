@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sales Data Harmonization — Solutions Catalog</title>
+<meta name="description" content="Enterprise-grade sales data harmonization for FMCG. Unify POS, internal sales, and distributor data into a single source of truth."/>
+<style>
+:root {
+  --navy:#1B2A4A; --navy2:#243656; --blue:#2E5090; --blue-l:#4A7FD4;
+  --teal:#0D7C66; --teal-l:#10A37F; --amber:#C17817; --amber-l:#E09A30;
+  --purple:#6B4FA0;
+  --ink:#1A1A2E; --muted:#5A6B7F; --faint:#8896A6;
+  --bg:#F5F7FA; --card:#FFFFFF; --line:#E2E8F0;
+  --sh:0 4px 24px rgba(27,42,74,.08);
+  --sh-l:0 12px 48px rgba(27,42,74,.12);
+  --r:14px; --ease:.35s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+
+/* ── Topbar ── */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;padding:0 32px;background:rgba(27,42,74,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.topbar-brand{font-weight:700;font-size:.88rem;color:#fff;letter-spacing:.04em}
+.topbar-brand span{color:var(--teal-l);font-weight:800}
+
+/* ── Hero ── */
+.hero{position:relative;padding:160px 0 120px;background:linear-gradient(155deg,var(--navy) 0%,#162240 35%,#1a4068 65%,var(--navy2) 100%);color:#fff;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:140%;height:140%;background:radial-gradient(ellipse at 50% 30%,rgba(13,124,102,.15),transparent 60%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 28px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:6px 18px 6px 8px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px;backdrop-filter:blur(4px)}
+.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--teal-l);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.6;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
+.hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:18px}
+.hero h1 .accent{background:linear-gradient(135deg,var(--teal-l),var(--blue-l));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{color:rgba(255,255,255,.6);font-size:1.1rem;max-width:560px;margin:0 auto 48px}
+
+/* ── Cards Section ── */
+.cards-section{position:relative;z-index:2;margin-top:-60px;padding:0 28px 100px}
+.cards-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:680px){.cards-grid{grid-template-columns:1fr}}
+
+.doc-card{background:var(--card);border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--sh);padding:44px 40px 40px;display:flex;flex-direction:column;transition:transform var(--ease),box-shadow var(--ease);position:relative;overflow:hidden}
+.doc-card:hover{transform:translateY(-4px);box-shadow:var(--sh-l)}
+.doc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
+.doc-card.pitch::before{background:linear-gradient(90deg,var(--teal),var(--blue))}
+.doc-card.detail::before{background:linear-gradient(90deg,var(--blue),var(--purple))}
+
+.card-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:24px}
+.pitch .card-icon{background:rgba(13,124,102,.08);color:var(--teal)}
+.detail .card-icon{background:rgba(46,80,144,.08);color:var(--blue)}
+
+.card-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
+.pitch .card-label{color:var(--teal)}
+.detail .card-label{color:var(--blue)}
+
+.doc-card h2{font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.25}
+.doc-card .desc{color:var(--muted);font-size:.92rem;margin-bottom:24px;flex:1}
+
+.card-features{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
+.card-features li{font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:6px;background:var(--bg);color:var(--faint)}
+
+.card-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all var(--ease);border:none;cursor:pointer}
+.pitch .card-btn{background:var(--teal);color:#fff}
+.pitch .card-btn:hover{background:var(--teal-l);box-shadow:0 4px 16px rgba(13,124,102,.25)}
+.detail .card-btn{background:var(--blue);color:#fff}
+.detail .card-btn:hover{background:var(--blue-l);box-shadow:0 4px 16px rgba(46,80,144,.25)}
+.card-btn .arrow{transition:transform .2s}
+.card-btn:hover .arrow{transform:translateX(3px)}
+
+/* ── Highlights ── */
+.highlights{max-width:960px;margin:0 auto;padding:0 28px 100px}
+.highlights h2{text-align:center;margin-bottom:12px;font-size:1.3rem}
+.highlights .sub{text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:44px;max-width:500px;margin-left:auto;margin-right:auto}
+.hl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:800px){.hl-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.hl-grid{grid-template-columns:1fr}}
+.hl-item{text-align:center;padding:28px 16px;background:var(--card);border-radius:var(--r);border:1px solid var(--line);transition:transform var(--ease)}
+.hl-item:hover{transform:translateY(-2px)}
+.hl-num{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
+.hl-num.c1{color:var(--teal)}
+.hl-num.c2{color:var(--blue)}
+.hl-num.c3{color:var(--amber)}
+.hl-num.c4{color:var(--purple)}
+.hl-txt{font-size:.78rem;color:var(--faint);font-weight:600}
+
+/* ── Quick Glance ── */
+.glance{max-width:960px;margin:0 auto;padding:0 28px 100px}
+.glance h2{text-align:center;margin-bottom:40px;font-size:1.3rem}
+.glance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:700px){.glance-grid{grid-template-columns:1fr}}
+.glance-card{background:var(--card);border-radius:var(--r);border:1px solid var(--line);padding:28px 24px;position:relative}
+.glance-card h3{font-size:.95rem;margin-bottom:6px}
+.glance-card p{font-size:.82rem;color:var(--muted)}
+.glance-tier{position:absolute;top:16px;right:16px;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em}
+.t1 .glance-tier{background:rgba(13,124,102,.1);color:var(--teal)}
+.t2 .glance-tier{background:rgba(46,80,144,.1);color:var(--blue)}
+.t3 .glance-tier{background:rgba(107,79,160,.1);color:var(--purple)}
+
+/* ── Footer ── */
+.footer{margin-top:auto;padding:32px 28px;text-align:center;border-top:1px solid var(--line);background:var(--card)}
+.footer p{font-size:.78rem;color:var(--faint)}
+
+/* ── Reveal ── */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.rv.vis{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+
+/* ── Particles ── */
+.particles{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden}
+.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.12);animation:float linear infinite}
+@keyframes float{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) translateX(40px);opacity:0}}
+</style>
+</head>
+<body>
+
+<!-- Topbar -->
+<div class="topbar">
+  <div class="topbar-brand"><span>SDH</span> &nbsp;Solutions Catalog</div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="particles" id="particles"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="dot"></span> FMCG Data Solutions</div>
+    <h1>Sales Data<br/><span class="accent">Harmonization</span></h1>
+    <p>Unify POS, internal sales, and distributor data into a single source of truth on Databricks. Three delivery tiers, nine add-on services, one conformed model.</p>
+  </div>
+</section>
+
+<!-- Document Cards -->
+<div class="cards-section">
+  <div class="cards-grid rv" id="cards">
+
+    <!-- Pitch Deck -->
+    <div class="doc-card pitch rv rv-d1">
+      <div class="card-icon">
+        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="20" height="20" rx="3"/><path d="M8 12h10M8 8h6M8 16h8"/></svg>
+      </div>
+      <div class="card-label">Executive Summary</div>
+      <h2>Pitch Deck</h2>
+      <p class="desc">High-level overview for stakeholders. Covers the value proposition, architecture, delivery tiers, add-on services, timelines, and investment ranges.</p>
+      <ul class="card-features">
+        <li>Architecture Diagram</li>
+        <li>3 Delivery Tiers</li>
+        <li>9 Add-Ons</li>
+        <li>Gantt Timeline</li>
+        <li>ROI Calculator</li>
+      </ul>
+      <a href="Sales_Data_Harmonization_Pitch_Deck.html" class="card-btn">Open Pitch Deck <span class="arrow">&rarr;</span></a>
+    </div>
+
+    <!-- Detailed Overview -->
+    <div class="doc-card detail rv rv-d2">
+      <div class="card-icon">
+        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 012 2v14a2 2 0 01-2 2H4V4z"/><path d="M8 2v4M12 2v4M16 2v4M8 12h8M8 16h6"/></svg>
+      </div>
+      <div class="card-label">Technical Deep-Dive</div>
+      <h2>Project Delivery Overview</h2>
+      <p class="desc">Detailed technical reference. Effort breakdowns, mapping workstreams, interactive planning tools, SOW scope matrix, risk analysis, and prerequisites.</p>
+      <ul class="card-features">
+        <li>Effort Estimates</li>
+        <li>Mapping Workstreams</li>
+        <li>Planning Tools</li>
+        <li>SOW Matrix</li>
+        <li>Readiness Scorecard</li>
+      </ul>
+      <a href="Sales_Data_Harmonization_Project_Delivery_Overview.html" class="card-btn">Open Delivery Overview <span class="arrow">&rarr;</span></a>
+    </div>
+
+  </div>
+</div>
+
+<!-- Highlights -->
+<div class="highlights rv">
+  <h2>At a Glance</h2>
+  <p class="sub">Key numbers across all delivery options</p>
+  <div class="hl-grid">
+    <div class="hl-item rv rv-d1">
+      <div class="hl-num c1">3</div>
+      <div class="hl-txt">Delivery Tiers</div>
+    </div>
+    <div class="hl-item rv rv-d2">
+      <div class="hl-num c2">9</div>
+      <div class="hl-txt">Add-On Services</div>
+    </div>
+    <div class="hl-item rv rv-d3">
+      <div class="hl-num c3">180h</div>
+      <div class="hl-txt">Minimum Start</div>
+    </div>
+    <div class="hl-item rv rv-d4">
+      <div class="hl-num c4">$300</div>
+      <div class="hl-txt">Monthly From</div>
+    </div>
+  </div>
+</div>
+
+<!-- Quick Glance Tiers -->
+<div class="glance rv">
+  <h2>Delivery Tiers</h2>
+  <div class="glance-grid">
+    <div class="glance-card t1 rv rv-d1">
+      <span class="glance-tier">Tier 1</span>
+      <h3>Foundation</h3>
+      <p>Single country, 2 sources, conformed product & customer dimensions. 180-220 hours.</p>
+    </div>
+    <div class="glance-card t2 rv rv-d2">
+      <span class="glance-tier">Tier 2</span>
+      <h3>Multi-Source</h3>
+      <p>2-5 markets, 3-6 sources, cross-market harmonization. 290-685 hours.</p>
+    </div>
+    <div class="glance-card t3 rv rv-d3">
+      <span class="glance-tier">Tier 3</span>
+      <h3>PortCo Convergence</h3>
+      <p>Enterprise-wide unification across portfolio companies. 820-1,900 hours.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>Sales Data Harmonization Solutions Catalog &middot; Confidential</p>
+</footer>
+
+<script>
+/* Reveal on scroll */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+
+/* Particles */
+(function(){
+  const c = document.getElementById('particles');
+  for(let i = 0; i < 18; i++){
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.left = Math.random()*100 + '%';
+    p.style.top = (60 + Math.random()*40) + '%';
+    p.style.animationDuration = (6 + Math.random()*8) + 's';
+    p.style.animationDelay = Math.random()*6 + 's';
+    p.style.width = p.style.height = (2 + Math.random()*3) + 'px';
+    c.appendChild(p);
+  }
+})();
+</script>
+</body>
+</html>

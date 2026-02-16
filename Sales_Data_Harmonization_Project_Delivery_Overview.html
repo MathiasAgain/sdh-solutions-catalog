@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sales Data Harmonization — Project Delivery Overview</title>
+<style>
+:root{
+  --navy:#1B2A4A;--navy2:#243656;--blue:#2E5090;--blue-l:#4A7FD4;
+  --teal:#0D7C66;--teal-l:#10A37F;--amber:#C17817;--amber-l:#E09A30;
+  --purple:#6B4FA0;--red:#C53030;--green:#276749;
+  --ink:#1A1A2E;--muted:#5A6B7F;--faint:#8896A6;
+  --bg:#F5F7FA;--card:#FFFFFF;--line:#E2E8F0;--line-l:#EDF2F7;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* ── Sticky Nav ── */
+.topnav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;align-items:center;gap:4px;padding:0 24px;background:rgba(245,247,250,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line);transition:box-shadow .3s}
+.topnav.scrolled{box-shadow:0 2px 24px rgba(27,42,74,.10)}
+.topnav-brand{font-weight:700;font-size:.95rem;color:var(--navy);margin-right:auto;white-space:nowrap}
+.topnav a.nav-link{font-size:.78rem;font-weight:600;color:var(--muted);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.topnav a.nav-link:hover{color:var(--blue);background:rgba(46,80,144,.06)}
+.topnav a.nav-link.active{color:var(--blue);background:rgba(46,80,144,.10)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--navy);margin:5px 0;border-radius:2px;transition:.3s}
+.nav-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+
+@media(max-width:1100px){
+  .nav-links{position:fixed;top:64px;left:0;right:0;flex-direction:column;background:rgba(245,247,250,.96);backdrop-filter:blur(14px);padding:12px 24px;border-bottom:1px solid var(--line);transform:translateY(-110%);transition:transform .3s;gap:4px}
+  .nav-links.open{transform:translateY(0)}
+  .nav-toggle{display:block}
+  .topnav a.nav-link{width:100%;padding:10px 12px}
+}
+
+/* ── Layout ── */
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+section:first-of-type{padding-top:120px}
+
+/* ── Typography ── */
+h1{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,3vw,2rem);font-weight:700;line-height:1.25;letter-spacing:-.015em;color:var(--navy)}
+h3{font-size:1.15rem;font-weight:700;color:var(--navy)}
+h4{font-size:.95rem;font-weight:700;color:var(--navy)}
+p{color:var(--muted);font-size:.97rem}
+.label{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.label-blue{background:rgba(46,80,144,.10);color:var(--blue)}
+.label-teal{background:rgba(13,124,102,.10);color:var(--teal)}
+.label-amber{background:rgba(193,120,23,.10);color:var(--amber)}
+.label-purple{background:rgba(107,79,160,.10);color:var(--purple)}
+.label-red{background:rgba(197,48,48,.10);color:var(--red)}
+.label-green{background:rgba(39,103,73,.10);color:var(--green)}
+.sub{color:var(--muted);font-size:1.05rem;max-width:680px}
+
+/* ── Cards ── */
+.card{background:var(--card);border-radius:16px;border:1px solid var(--line);padding:32px;transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(27,42,74,.08)}
+.card-accent{border-top:3px solid}
+
+/* ── Grids ── */
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+@media(max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.g2,.g3,.g4{grid-template-columns:1fr}}
+
+/* ── Chips / KPI ── */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:24px;font-size:.82rem;font-weight:600;background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px)}
+.chip .num{font-size:1rem;font-weight:800}
+
+/* ── Hero ── */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 50%,var(--teal) 100%);color:#fff;padding:140px 0 80px;text-align:center}
+.hero .sub{color:rgba(255,255,255,.8);margin:16px auto 0;font-size:1.1rem}
+.hero h1{color:#fff}
+.chips-center{justify-content:center}
+
+/* ── Reveal ── */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+.rv.visible{opacity:1;transform:translateY(0)}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+
+/* ── Steps ── */
+.step-num{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;color:#fff;background:var(--blue);flex-shrink:0}
+
+/* ── Tier Badge ── */
+.tier-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:20px;font-size:.75rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.badge-teal{background:rgba(13,124,102,.12);color:var(--teal)}
+.badge-blue{background:rgba(46,80,144,.12);color:var(--blue)}
+.badge-purple{background:rgba(107,79,160,.12);color:var(--purple)}
+.badge-amber{background:rgba(193,120,23,.12);color:var(--amber)}
+
+/* ── Table ── */
+.tbl{width:100%;border-collapse:collapse;font-size:.88rem}
+.tbl th{text-align:left;font-weight:700;color:var(--navy);padding:12px 16px;background:var(--line-l);border-bottom:2px solid var(--line)}
+.tbl td{padding:12px 16px;border-bottom:1px solid var(--line-l);color:var(--muted)}
+.tbl tr:hover td{background:rgba(46,80,144,.03)}
+
+/* ── Accordion ── */
+.acc{border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:12px;background:var(--card)}
+.acc-head{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;cursor:pointer;font-weight:700;color:var(--navy);font-size:.95rem;user-select:none;transition:background .2s}
+.acc-head:hover{background:var(--line-l)}
+.acc-chevron{width:20px;height:20px;transition:transform .3s}
+.acc-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.acc.open .acc-body{max-height:2000px}
+.acc.open .acc-chevron{transform:rotate(180deg)}
+.acc-inner{padding:0 24px 24px}
+
+/* ── Form ── */
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:6px}
+.fg select,.fg input{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;color:var(--ink);background:var(--card);transition:border-color .2s;font-family:inherit}
+.fg select:focus,.fg input:focus{outline:none;border-color:var(--blue-l);box-shadow:0 0 0 3px rgba(74,127,212,.15)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:10px;font-size:.9rem;font-weight:700;border:none;cursor:pointer;transition:all .2s;font-family:inherit}
+.btn-primary{background:linear-gradient(135deg,var(--blue),var(--teal));color:#fff}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,80,144,.25)}
+.btn-outline{background:transparent;border:2px solid var(--blue);color:var(--blue)}
+.btn-outline:hover{background:rgba(46,80,144,.06)}
+
+/* ── Output panels ── */
+.output{background:var(--line-l);border-radius:12px;padding:24px;margin-top:16px;border:1px solid var(--line)}
+.metric-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:12px}
+.metric-box{flex:1;min-width:140px;background:var(--card);border-radius:10px;padding:16px;text-align:center;border:1px solid var(--line)}
+.metric-box .mv{font-size:1.4rem;font-weight:800;color:var(--navy)}
+.metric-box .ml{font-size:.75rem;color:var(--muted);margin-top:4px}
+
+/* ── Bar chart ── */
+.bar-chart{display:flex;align-items:flex-end;gap:16px;height:200px;padding:16px 0;margin-top:16px}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.bar{width:100%;border-radius:8px 8px 0 0;transition:height .6s cubic-bezier(.16,1,.3,1);min-height:4px}
+.bar-label{font-size:.72rem;font-weight:600;color:var(--muted);text-align:center}
+.bar-val{font-size:.8rem;font-weight:700;color:var(--navy)}
+
+/* ── RAG pills ── */
+.rag{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:20px;font-size:.82rem;font-weight:700}
+.rag-green{background:rgba(39,103,73,.12);color:var(--green)}
+.rag-amber{background:rgba(193,120,23,.12);color:var(--amber)}
+.rag-red{background:rgba(197,48,48,.12);color:var(--red)}
+.rag-dot{width:8px;height:8px;border-radius:50%;display:inline-block}
+.rag-green .rag-dot{background:var(--green)}
+.rag-amber .rag-dot{background:var(--amber)}
+.rag-red .rag-dot{background:var(--red)}
+
+/* ── Score ring ── */
+.score-ring{width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;font-weight:800;color:#fff;margin:0 auto 12px}
+
+/* ── Phase timeline ── */
+.phase-line{display:flex;gap:0;margin-top:32px}
+.phase-card{flex:1;padding:24px;border:1px solid var(--line);background:var(--card);position:relative}
+.phase-card:first-child{border-radius:12px 0 0 12px}
+.phase-card:last-child{border-radius:0 12px 12px 0}
+.phase-num{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+@media(max-width:800px){.phase-line{flex-direction:column;gap:12px}.phase-card,.phase-card:first-child,.phase-card:last-child{border-radius:12px}}
+
+/* ── Risk cards ── */
+.risk-pair{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:16px;border-radius:12px;overflow:hidden;border:1px solid var(--line)}
+.risk-l{background:rgba(197,48,48,.04);padding:24px;border-right:1px solid var(--line)}
+.risk-r{background:rgba(39,103,73,.04);padding:24px}
+@media(max-width:700px){.risk-pair{grid-template-columns:1fr}.risk-l{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* ── Checklist ── */
+.check-list{list-style:none;padding:0}
+.check-list li{padding:12px 0;border-bottom:1px solid var(--line-l);display:flex;align-items:flex-start;gap:12px;font-size:.92rem;color:var(--muted)}
+.check-list li::before{content:'';display:block;width:20px;height:20px;border:2px solid var(--line);border-radius:6px;flex-shrink:0;margin-top:1px}
+
+/* ── CTA ── */
+.cta-section{background:linear-gradient(135deg,var(--navy),var(--blue) 60%,var(--teal));color:#fff;text-align:center;padding:80px 0}
+.cta-section h2{color:#fff}
+.cta-section p{color:rgba(255,255,255,.8)}
+.btn-white{background:#fff;color:var(--navy);font-weight:700;padding:14px 32px;border-radius:10px;border:none;cursor:pointer;font-size:.95rem;transition:all .2s;font-family:inherit}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+
+/* ── Misc ── */
+.gap-top{margin-top:24px}
+.gap-top-sm{margin-top:12px}
+.text-center{text-align:center}
+.divider{height:1px;background:var(--line);margin:48px 0}
+.highlight{color:var(--blue);font-weight:700}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:12px;margin:2px}
+.tag-teal{background:rgba(13,124,102,.1);color:var(--teal)}
+.tag-blue{background:rgba(46,80,144,.1);color:var(--blue)}
+.tag-amber{background:rgba(193,120,23,.1);color:var(--amber)}
+.tag-purple{background:rgba(107,79,160,.1);color:var(--purple)}
+.card ul{list-style:none;padding:0}
+.card ul li{padding:6px 0;font-size:.88rem;color:var(--muted);position:relative;padding-left:18px}
+.card ul li::before{content:'';position:absolute;left:0;top:14px;width:6px;height:6px;border-radius:50%;background:var(--line)}
+.scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+@media(max-width:700px){.scenario-grid{grid-template-columns:1fr}}
+.tier4-strip{background:linear-gradient(135deg,rgba(193,120,23,.06),rgba(107,79,160,.06));border:1px dashed var(--amber);border-radius:12px;padding:24px;margin-top:24px}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav class="topnav" id="topnav">
+  <span class="topnav-brand">SDH Delivery</span>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <div class="nav-links" id="navLinks">
+    <a href="#hero" class="nav-link active">Overview</a>
+    <a href="#quickstart" class="nav-link">Quick Start</a>
+    <a href="#tiers" class="nav-link">Tiers</a>
+    <a href="#addons" class="nav-link">Add-Ons</a>
+    <a href="#effort" class="nav-link">Effort</a>
+    <a href="#mapping" class="nav-link">Mapping</a>
+    <a href="#tools" class="nav-link">Tools</a>
+    <a href="#packs" class="nav-link">Starter Packs</a>
+    <a href="#roadmap" class="nav-link">Roadmap</a>
+    <a href="#sow" class="nav-link">SOW</a>
+    <a href="#risks" class="nav-link">Risks</a>
+    <a href="#prereqs" class="nav-link">Prerequisites</a>
+  </div>
+</nav>
+
+<!-- ══════════════════ HERO ══════════════════ -->
+<section class="hero" id="hero">
+  <div class="wrap">
+    <span class="label" style="background:rgba(255,255,255,.15);color:#fff">Project Delivery Overview</span>
+    <h1 class="rv">Sales Data Harmonization<br>Project Delivery Overview</h1>
+    <p class="sub rv rv-d1">The complete decision guide &mdash; scope, effort, costs, tooling, and readiness assessment for harmonizing distributor &amp; direct sales data across your portfolio.</p>
+    <div class="chips chips-center rv rv-d2">
+      <span class="chip"><span class="num">3</span> Delivery Tiers</span>
+      <span class="chip"><span class="num">9</span> Add-On Services</span>
+      <span class="chip"><span class="num">180&ndash;1,900h</span> Effort Range</span>
+      <span class="chip"><span class="num">5.5&ndash;36+</span> Week Timelines</span>
+      <span class="chip"><span class="num">4</span> Starter Packs</span>
+      <span class="chip"><span class="num">3</span> Interactive Tools</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ QUICK START ══════════════════ -->
+<section id="quickstart">
+  <div class="wrap">
+    <span class="label label-teal">Quick Start</span>
+    <h2 class="rv">Three Steps to Get Started</h2>
+    <p class="sub rv rv-d1">Follow this lightweight framework to move from exploration to execution.</p>
+    <div class="g3 gap-top">
+      <div class="card rv rv-d1" style="display:flex;gap:16px;align-items:flex-start">
+        <div class="step-num">1</div>
+        <div><h4>Choose Your Tier</h4><p style="font-size:.88rem;margin-top:6px">Use the Tier Comparison and Recommendation Engine below to identify the delivery tier that matches your scope, timeline, and budget constraints.</p></div>
+      </div>
+      <div class="card rv rv-d2" style="display:flex;gap:16px;align-items:flex-start">
+        <div class="step-num" style="background:var(--teal)">2</div>
+        <div><h4>Run the Tools</h4><p style="font-size:.88rem;margin-top:6px">Use the Business Case Calculator and Data Readiness Scorecard to validate feasibility, quantify ROI, and surface risks before kick-off.</p></div>
+      </div>
+      <div class="card rv rv-d3" style="display:flex;gap:16px;align-items:flex-start">
+        <div class="step-num" style="background:var(--purple)">3</div>
+        <div><h4>Pick a Starter Pack</h4><p style="font-size:.88rem;margin-top:6px">Select the functional Starter Pack that aligns to your primary audience and use-case, then layer on add-ons as needed.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ TIER COMPARISON ══════════════════ -->
+<section id="tiers" style="background:var(--card)">
+  <div class="wrap">
+    <span class="label label-blue">Delivery Tiers</span>
+    <h2 class="rv">Tier Comparison</h2>
+    <p class="sub rv rv-d1">Three progressively broader scopes &mdash; each designed to be self-contained and valuable on its own.</p>
+    <div class="g3 gap-top">
+
+      <!-- Tier 1 -->
+      <div class="card card-accent rv rv-d1" style="border-top-color:var(--teal)">
+        <span class="tier-badge badge-teal">Tier 1 &mdash; Foundation</span>
+        <h3 style="margin-top:16px">Core Harmonization</h3>
+        <p style="font-size:.88rem;margin-top:8px">Single-source ingestion, product &amp; customer matching, standard DQ, and a unified sales fact table ready for BI.</p>
+        <div class="divider" style="margin:20px 0"></div>
+        <table class="tbl">
+          <tr><td style="font-weight:600;color:var(--navy)">Effort</td><td>180 &ndash; 220 h</td></tr>
+          <tr><td style="font-weight:600;color:var(--navy)">Timeline</td><td>~5.5 weeks</td></tr>
+          <tr><td style="font-weight:600;color:var(--navy)">Platform</td><td>$300 &ndash; 1,200 /mo</td></tr>
+          <tr><td style="font-weight:600;color:var(--navy)">Eng / mo</td><td>8 &ndash; 20 h</td></tr>
+        </table>
+      </div>
+
+      <!-- Tier 2 -->
+      <div class="card card-accent rv rv-d2" style="border-top-color:var(--blue)">
+        <span class="tier-badge badge-blue">Tier 2 &mdash; Intermediate</span>
+        <h3 style="margin-top:16px">Multi-Source + Advanced DQ</h3>
+        <p style="font-size:.88rem;margin-top:8px">Additional POS/distributor sources, advanced data-quality rules, alerting, SCD2 historical tracking, and enriched analytics.</p>
+        <div class="divider" style="margin:20px 0"></div>
+        <table class="tbl">
+          <tr><td style="font-weight:600;color:var(--navy)">Effort</td><td>290 &ndash; 685 h</td></tr>
+          <tr><td style="font-weight:600;color:var(--navy)">Timeline</td><td>9 &ndash; 14 weeks</td></tr>
+          <tr><td style="font-weight:600;color:var(--navy)">Platform</td><td>$800 &ndash; 3,500 /mo</td></tr>
+          <tr><td style="font-weight:600;color:var(--navy)">Eng / mo</td><td>16 &ndash; 40 h</td></tr>
+        </table>
+      </div>
+
+      <!-- Tier 3 -->
+      <div class="card card-accent rv rv-d3" style="border-top-color:var(--purple)">
+        <span class="tier-badge badge-purple">Tier 3 &mdash; Enterprise</span>
+        <h3 style="margin-top:16px">Full Platform + Governance</h3>
+        <p style="font-size:.88rem;margin-top:8px">Enterprise data mesh, stewardship portal, data lineage &amp; catalog, FinOps, cross-BU federation, and full governance framework.</p>
+        <div class="divider" style="margin:20px 0"></div>
+        <table class="tbl">
+          <tr><td style="font-weight:600;color:var(--navy)">Effort</td><td>820 &ndash; 1,900 h</td></tr>
+          <tr><td style="font-weight:600;color:var(--navy)">Timeline</td><td>27 &ndash; 36+ weeks</td></tr>
+          <tr><td style="font-weight:600;color:var(--navy)">Platform</td><td>$3,000 &ndash; 15,000 /mo</td></tr>
+          <tr><td style="font-weight:600;color:var(--navy)">Eng / mo</td><td>40 &ndash; 120 h</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tier 4 strip -->
+    <div class="tier4-strip rv rv-d3">
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <span class="tier-badge badge-amber">Tier 4 &mdash; Optional Overlay</span>
+        <div>
+          <h4 style="margin-bottom:4px">Currency &amp; Fiscal Normalization</h4>
+          <p style="font-size:.88rem">Multi-currency conversion, fiscal calendar alignment, and FX-rate management. Can be layered onto any tier.</p>
+        </div>
+        <div style="margin-left:auto;text-align:right;white-space:nowrap">
+          <span style="font-size:1.1rem;font-weight:800;color:var(--amber)">+120 &ndash; 320 h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ ADD-ON SERVICES ══════════════════ -->
+<section id="addons">
+  <div class="wrap">
+    <span class="label label-purple">Add-On Services</span>
+    <h2 class="rv">Modular Add-Ons</h2>
+    <p class="sub rv rv-d1">Layer these onto any tier to extend capability without changing the core delivery scope.</p>
+    <div class="g3 gap-top">
+      <div class="card rv rv-d1">
+        <span class="tag tag-blue">BI Layer</span>
+        <h4 style="margin-top:10px">Power BI Semantic Model</h4>
+        <p style="font-size:.85rem;margin-top:6px">Pre-built star schema, DAX measures, and report templates wired to the unified fact table.</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--blue);margin-top:10px">40 &ndash; 80 h &nbsp;&middot;&nbsp; $500 &ndash; 1,500 /mo</p>
+      </div>
+      <div class="card rv rv-d1">
+        <span class="tag tag-teal">Quality</span>
+        <h4 style="margin-top:10px">Advanced DQ &amp; Alerting</h4>
+        <p style="font-size:.85rem;margin-top:6px">Rule engine, anomaly detection, threshold alerting, and automated quarantine workflows.</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--teal);margin-top:10px">50 &ndash; 110 h &nbsp;&middot;&nbsp; $300 &ndash; 900 /mo</p>
+      </div>
+      <div class="card rv rv-d2">
+        <span class="tag tag-purple">Governance</span>
+        <h4 style="margin-top:10px">Stewardship Portal</h4>
+        <p style="font-size:.85rem;margin-top:6px">Web UI for business users to review, approve, and override mapping decisions with full audit trail.</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--purple);margin-top:10px">60 &ndash; 140 h &nbsp;&middot;&nbsp; $400 &ndash; 1,200 /mo</p>
+      </div>
+      <div class="card rv rv-d2">
+        <span class="tag tag-blue">History</span>
+        <h4 style="margin-top:10px">SCD2 Historical Tracking</h4>
+        <p style="font-size:.85rem;margin-top:6px">Slowly-changing-dimension Type 2 tracking for product and customer attributes with effective dating.</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--blue);margin-top:10px">30 &ndash; 50 h &nbsp;&middot;&nbsp; included in platform</p>
+      </div>
+      <div class="card rv rv-d2">
+        <span class="tag tag-teal">Integration</span>
+        <h4 style="margin-top:10px">Additional Source Integration</h4>
+        <p style="font-size:.85rem;margin-top:6px">Each additional POS or distributor feed: connector build, schema mapping, DQ extension, and reconciliation.</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--teal);margin-top:10px">40 &ndash; 85 h per source &nbsp;&middot;&nbsp; +$100 &ndash; 400 /mo</p>
+      </div>
+      <div class="card rv rv-d3">
+        <span class="tag tag-purple">Lineage</span>
+        <h4 style="margin-top:10px">Data Lineage &amp; Catalog</h4>
+        <p style="font-size:.85rem;margin-top:6px">End-to-end column-level lineage, searchable catalog, impact analysis, and documentation generation.</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--purple);margin-top:10px">80 &ndash; 180 h &nbsp;&middot;&nbsp; $500 &ndash; 2,000 /mo</p>
+      </div>
+      <div class="card rv rv-d3">
+        <span class="tag tag-amber">Finance</span>
+        <h4 style="margin-top:10px">Currency &amp; Fiscal Overlay</h4>
+        <p style="font-size:.85rem;margin-top:6px">Multi-currency FX conversion, fiscal calendar mapping, and period-over-period normalization.</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--amber);margin-top:10px">120 &ndash; 320 h &nbsp;&middot;&nbsp; $200 &ndash; 800 /mo</p>
+      </div>
+      <div class="card rv rv-d3">
+        <span class="tag tag-amber">FinOps</span>
+        <h4 style="margin-top:10px">FinOps Package</h4>
+        <p style="font-size:.85rem;margin-top:6px">Cloud cost monitoring, compute right-sizing, storage lifecycle policies, and monthly cost-optimization reports.</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--amber);margin-top:10px">30 &ndash; 60 h &nbsp;&middot;&nbsp; $200 &ndash; 600 /mo</p>
+      </div>
+      <div class="card rv rv-d4">
+        <span class="tag tag-teal">Enablement</span>
+        <h4 style="margin-top:10px">Training &amp; Enablement</h4>
+        <p style="font-size:.85rem;margin-top:6px">Role-based training curriculum, recorded sessions, runbooks, and hands-on workshops for engineering and business teams.</p>
+        <p style="font-size:.82rem;font-weight:700;color:var(--teal);margin-top:10px">20 &ndash; 50 h &nbsp;&middot;&nbsp; one-time</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ EFFORT ESTIMATES ══════════════════ -->
+<section id="effort" style="background:var(--card)">
+  <div class="wrap">
+    <span class="label label-blue">Effort Estimates</span>
+    <h2 class="rv">Detailed Effort Breakdown</h2>
+    <p class="sub rv rv-d1">Side-by-side comparison of Scenario A (no SCD) and Scenario B (with SCD2 historical tracking) for a single-source Tier 1 engagement.</p>
+
+    <div class="scenario-grid gap-top">
+      <!-- Scenario A -->
+      <div class="card rv rv-d1">
+        <span class="tier-badge badge-teal" style="margin-bottom:16px">Scenario A &mdash; No SCD</span>
+        <h4>180 &ndash; 220 h &nbsp;&middot;&nbsp; ~5 &ndash; 6 weeks</h4>
+        <table class="tbl" style="margin-top:16px">
+          <thead><tr><th>Workstream</th><th>Hours</th></tr></thead>
+          <tbody>
+            <tr><td>Discovery &amp; Requirements</td><td>10 &ndash; 15 h</td></tr>
+            <tr><td>Ingestion &amp; Pipelines</td><td>35 &ndash; 50 h</td></tr>
+            <tr><td>Product Matching</td><td>55 &ndash; 80 h</td></tr>
+            <tr><td>Customer Matching</td><td>20 &ndash; 35 h</td></tr>
+            <tr><td>Mapping Operations</td><td>12 &ndash; 20 h</td></tr>
+            <tr><td>DQ &amp; Reconciliation</td><td>22 &ndash; 32 h</td></tr>
+            <tr><td>UAT &amp; Handover</td><td>16 &ndash; 24 h</td></tr>
+            <tr><td>Contingency (~10%)</td><td>10 &ndash; 18 h</td></tr>
+          </tbody>
+          <tfoot><tr><td style="font-weight:700;color:var(--navy)">Total</td><td style="font-weight:700;color:var(--navy)">180 &ndash; 220 h</td></tr></tfoot>
+        </table>
+      </div>
+
+      <!-- Scenario B -->
+      <div class="card rv rv-d2">
+        <span class="tier-badge badge-blue" style="margin-bottom:16px">Scenario B &mdash; With SCD2</span>
+        <h4>210 &ndash; 270 h &nbsp;&middot;&nbsp; ~6 &ndash; 7 weeks</h4>
+        <table class="tbl" style="margin-top:16px">
+          <thead><tr><th>Workstream</th><th>Hours</th></tr></thead>
+          <tbody>
+            <tr><td>Discovery &amp; Requirements</td><td>10 &ndash; 15 h</td></tr>
+            <tr><td>Ingestion &amp; Pipelines</td><td>35 &ndash; 50 h</td></tr>
+            <tr><td>Product Matching</td><td>55 &ndash; 80 h</td></tr>
+            <tr><td>Customer Matching</td><td>20 &ndash; 35 h</td></tr>
+            <tr><td>Mapping Operations</td><td>12 &ndash; 20 h</td></tr>
+            <tr><td>DQ &amp; Reconciliation</td><td>22 &ndash; 32 h</td></tr>
+            <tr><td>UAT &amp; Handover</td><td>16 &ndash; 24 h</td></tr>
+            <tr><td style="color:var(--blue);font-weight:600">+ Surrogate Key Mgmt</td><td>8 &ndash; 12 h</td></tr>
+            <tr><td style="color:var(--blue);font-weight:600">+ Effective Dating</td><td>8 &ndash; 14 h</td></tr>
+            <tr><td style="color:var(--blue);font-weight:600">+ Additional QA</td><td>6 &ndash; 10 h</td></tr>
+            <tr><td style="color:var(--blue);font-weight:600">+ Backfill</td><td>8 &ndash; 14 h</td></tr>
+            <tr><td>Contingency (~10%)</td><td>12 &ndash; 22 h</td></tr>
+          </tbody>
+          <tfoot><tr><td style="font-weight:700;color:var(--navy)">Total</td><td style="font-weight:700;color:var(--navy)">210 &ndash; 270 h</td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+
+    <!-- Additional source -->
+    <div class="card rv rv-d3 gap-top">
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <div class="step-num" style="background:var(--amber)">+</div>
+        <div style="flex:1;min-width:200px">
+          <h4>Additional POS Source</h4>
+          <p style="font-size:.88rem">Each additional distributor or POS source adds <strong>40 &ndash; 85 h</strong> (most likely <strong>~60 h</strong>) for connector build, schema mapping, DQ extension, and reconciliation.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline translation -->
+    <div class="card rv rv-d4 gap-top" style="background:var(--line-l)">
+      <h4 style="margin-bottom:12px">Timeline Translation (at ~35&ndash;40h/week throughput)</h4>
+      <div class="g3">
+        <div style="text-align:center"><p style="font-size:1.3rem;font-weight:800;color:var(--teal)">~5 &ndash; 6 weeks</p><p style="font-size:.82rem">Scenario A &middot; 200 h midpoint</p></div>
+        <div style="text-align:center"><p style="font-size:1.3rem;font-weight:800;color:var(--blue)">~6 &ndash; 7 weeks</p><p style="font-size:.82rem">Scenario B &middot; 240 h midpoint</p></div>
+        <div style="text-align:center"><p style="font-size:1.3rem;font-weight:800;color:var(--amber)">+1.5 &ndash; 2 weeks</p><p style="font-size:.82rem">Per additional source &middot; 60 h</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ MAPPING WORKSTREAM ══════════════════ -->
+<section id="mapping">
+  <div class="wrap">
+    <span class="label label-teal">Mapping Workstream</span>
+    <h2 class="rv">Matching &amp; Mapping Deep Dive</h2>
+    <p class="sub rv rv-d1">Expand each workstream below for a detailed breakdown of techniques, steps, and effort.</p>
+
+    <div class="gap-top rv rv-d1">
+      <!-- Accordion 1 -->
+      <div class="acc" id="acc1">
+        <div class="acc-head" onclick="toggleAcc('acc1')">
+          <span>Product Conformance &nbsp;<span style="color:var(--faint);font-weight:400">(55 &ndash; 80 h)</span></span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="acc-body">
+          <div class="acc-inner">
+            <table class="tbl">
+              <thead><tr><th>Step</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td style="font-weight:600;color:var(--navy)">Canonicalization</td><td>Normalize product names, strip noise characters, standardize units and packaging descriptors</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Deterministic Matching</td><td>Exact-match on UPC/EAN/GTIN barcodes and known cross-reference codes</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Rule-Based Matching</td><td>Configurable business rules for brand + size + flavor combinations, handling known aliases</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Fuzzy Matching</td><td>Levenshtein, Jaro-Winkler, and token-set-ratio algorithms for near-matches above configurable thresholds</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Confidence Scoring</td><td>Each match pair receives a 0&ndash;100 confidence score; below threshold goes to manual review queue</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Survivorship</td><td>Golden-record construction: which source attribute wins for each field (brand, category, hierarchy)</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 2 -->
+      <div class="acc" id="acc2">
+        <div class="acc-head" onclick="toggleAcc('acc2')">
+          <span>Customer Conformance &nbsp;<span style="color:var(--faint);font-weight:400">(20 &ndash; 35 h)</span></span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="acc-body">
+          <div class="acc-inner">
+            <table class="tbl">
+              <thead><tr><th>Step</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td style="font-weight:600;color:var(--navy)">Chain / Banner Normalization</td><td>Standardize retailer names across sources (e.g., "Wal-Mart" / "Walmart" / "WMT")</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Deterministic Matching</td><td>Exact-match on GLN, DUNS, or internal customer IDs when available</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Rule-Based Matching</td><td>Name + geography + channel rules for known distribution patterns</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Fuzzy Matching</td><td>Address-level and name-level fuzzy matching for ship-to / bill-to resolution</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Crosswalk Table</td><td>Persistent source-to-canonical mapping table with override capability and audit trail</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion 3 -->
+      <div class="acc" id="acc3">
+        <div class="acc-head" onclick="toggleAcc('acc3')">
+          <span>Mapping Operations &nbsp;<span style="color:var(--faint);font-weight:400">(12 &ndash; 20 h)</span></span>
+          <svg class="acc-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="acc-body">
+          <div class="acc-inner">
+            <table class="tbl">
+              <thead><tr><th>Step</th><th>Description</th></tr></thead>
+              <tbody>
+                <tr><td style="font-weight:600;color:var(--navy)">Review Queue</td><td>Low-confidence matches surfaced to business users for approval, with batch review capability</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Override Mechanism</td><td>Manual overrides persisted to crosswalk with reason codes and expiry dates</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Crosswalk Persistence</td><td>Versioned mapping tables stored in the data warehouse, queryable for lineage and audit</td></tr>
+                <tr><td style="font-weight:600;color:var(--navy)">Reprocessing</td><td>Ability to re-run matching pipelines when new rules or overrides are added, without data loss</td></tr>
+              </tbody>
+            </table>
+            <div style="margin-top:16px;padding:12px 16px;background:rgba(107,79,160,.06);border-radius:8px;border-left:3px solid var(--purple)">
+              <p style="font-size:.85rem;color:var(--purple);font-weight:600">Note: Eddytor may assist with parts of the mapping operations workflow, potentially reducing manual effort in the review queue and override steps.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ INTERACTIVE TOOLS ══════════════════ -->
+<section id="tools" style="background:var(--card)">
+  <div class="wrap">
+    <span class="label label-amber">Interactive Tools</span>
+    <h2 class="rv">Decision-Support Tools</h2>
+    <p class="sub rv rv-d1">Three interactive tools to help you size, justify, and de-risk the project before kick-off.</p>
+
+    <!-- Tool 1: Tier Recommendation -->
+    <div class="card rv rv-d1 gap-top" id="tool-tier">
+      <h3>Tier Recommendation Engine</h3>
+      <p style="font-size:.88rem;margin:8px 0 20px">Answer four questions to receive an instant tier recommendation.</p>
+      <div class="g2">
+        <div>
+          <div class="fg">
+            <label>How many data sources?</label>
+            <select id="tr-sources"><option value="1">1 source</option><option value="2">2 &ndash; 3 sources</option><option value="3">4+ sources</option></select>
+          </div>
+          <div class="fg">
+            <label>Do you need historical (SCD2) tracking?</label>
+            <select id="tr-scd"><option value="no">No</option><option value="yes">Yes</option></select>
+          </div>
+          <div class="fg">
+            <label>Governance requirements?</label>
+            <select id="tr-gov"><option value="low">Low &mdash; basic DQ checks</option><option value="med">Medium &mdash; alerting &amp; review queue</option><option value="high">High &mdash; full stewardship &amp; lineage</option></select>
+          </div>
+          <div class="fg">
+            <label>Timeline constraint?</label>
+            <select id="tr-time"><option value="fast">Under 8 weeks</option><option value="med">8 &ndash; 16 weeks</option><option value="long">16+ weeks OK</option></select>
+          </div>
+          <button class="btn btn-primary" onclick="runTierEngine()">Get Recommendation</button>
+        </div>
+        <div class="output" id="tr-output" style="display:flex;align-items:center;justify-content:center;min-height:200px">
+          <p style="color:var(--faint);font-size:.9rem;text-align:center">Complete the inputs and click<br><strong>Get Recommendation</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tool 2: Business Case Calculator -->
+    <div class="card rv rv-d2 gap-top" id="tool-bcase">
+      <h3>Business Case Calculator</h3>
+      <p style="font-size:.88rem;margin:8px 0 20px">Quantify annual value, run cost, net benefit, and payback period for the harmonization investment.</p>
+      <div class="g2">
+        <div>
+          <div class="fg"><label>Manual Hours / Month</label><input type="number" id="bc-hours" value="120"></div>
+          <div class="fg"><label>Loaded Cost / Hour ($)</label><input type="number" id="bc-cost" value="90"></div>
+          <div class="fg"><label>Effort Reduction (%)</label><input type="number" id="bc-reduce" value="45"></div>
+          <div class="fg"><label>Decision Uplift / Month ($)</label><input type="number" id="bc-uplift" value="15000"></div>
+          <div class="fg"><label>Avoided Cost / Year ($)</label><input type="number" id="bc-avoided" value="60000"></div>
+          <div class="fg"><label>Run Cost / Month ($)</label><input type="number" id="bc-run" value="6000"></div>
+          <div class="fg"><label>Build Cost &mdash; One Time ($)</label><input type="number" id="bc-build" value="180000"></div>
+          <button class="btn btn-primary" onclick="runBizCase()">Calculate Business Case</button>
+        </div>
+        <div>
+          <div class="output" id="bc-output">
+            <p style="color:var(--faint);font-size:.9rem;text-align:center">Complete the inputs and click<br><strong>Calculate Business Case</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tool 3: Readiness Scorecard -->
+    <div class="card rv rv-d3 gap-top" id="tool-ready">
+      <h3>Data Readiness Scorecard</h3>
+      <p style="font-size:.88rem;margin:8px 0 20px">Rate five readiness dimensions to receive an overall score, RAG status, and actionable advice.</p>
+      <div class="g2">
+        <div>
+          <div class="fg"><label>Platform Access &amp; Infra</label><select id="rd-plat"><option value="2">Green &mdash; ready</option><option value="1">Amber &mdash; partial</option><option value="0">Red &mdash; not ready</option></select></div>
+          <div class="fg"><label>Source Data Quality</label><select id="rd-qual"><option value="2">Green &mdash; clean &amp; documented</option><option value="1">Amber &mdash; usable with caveats</option><option value="0">Red &mdash; significant gaps</option></select></div>
+          <div class="fg"><label>Business Readiness &amp; Sponsorship</label><select id="rd-biz"><option value="2">Green &mdash; sponsor engaged</option><option value="1">Amber &mdash; sponsor identified</option><option value="0">Red &mdash; no sponsor</option></select></div>
+          <div class="fg"><label>Governance Maturity</label><select id="rd-gov"><option value="2">Green &mdash; policies in place</option><option value="1">Amber &mdash; some standards</option><option value="0">Red &mdash; none</option></select></div>
+          <div class="fg"><label>KPI &amp; Reporting Clarity</label><select id="rd-kpi"><option value="2">Green &mdash; KPIs defined</option><option value="1">Amber &mdash; partially defined</option><option value="0">Red &mdash; undefined</option></select></div>
+          <button class="btn btn-primary" onclick="runReadiness()">Score Readiness</button>
+        </div>
+        <div class="output" id="rd-output" style="min-height:260px;display:flex;align-items:center;justify-content:center">
+          <p style="color:var(--faint);font-size:.9rem;text-align:center">Rate each dimension and click<br><strong>Score Readiness</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ STARTER PACKS ══════════════════ -->
+<section id="packs">
+  <div class="wrap">
+    <span class="label label-green">Functional Starter Packs</span>
+    <h2 class="rv">Pre-Configured for Your Audience</h2>
+    <p class="sub rv rv-d1">Each Starter Pack bundles a tier with targeted add-ons for a specific functional group.</p>
+    <div class="g2 gap-top">
+
+      <div class="card card-accent rv rv-d1" style="border-top-color:var(--teal)">
+        <span class="tier-badge badge-teal">Sales Leadership</span>
+        <p style="font-size:.78rem;color:var(--faint);margin-top:6px">BU / PortCo Sales Leaders</p>
+        <h4 style="margin-top:12px">Revenue &amp; Volume Trends, Channel Scorecards</h4>
+        <p style="font-size:.85rem;margin-top:8px">Unified view of sales performance across distributors. Revenue trends by channel, region, and product line with comparison to plan.</p>
+        <div class="divider" style="margin:16px 0"></div>
+        <p style="font-size:.78rem;font-weight:600;color:var(--navy)">Recommended Add-Ons:</p>
+        <div style="margin-top:6px"><span class="tag tag-blue">Semantic Factory</span><span class="tag tag-teal">DQ &amp; Alerting</span><span class="tag tag-purple">Stewardship</span></div>
+      </div>
+
+      <div class="card card-accent rv rv-d2" style="border-top-color:var(--blue)">
+        <span class="tier-badge badge-blue">Category &amp; Trade</span>
+        <p style="font-size:.78rem;color:var(--faint);margin-top:6px">Category Managers</p>
+        <h4 style="margin-top:12px">SKU Mix, Assortment &amp; Promo Analytics</h4>
+        <p style="font-size:.85rem;margin-top:8px">Product-level harmonization powering assortment analysis, promotional effectiveness, and distribution gap identification.</p>
+        <div class="divider" style="margin:16px 0"></div>
+        <p style="font-size:.78rem;font-weight:600;color:var(--navy)">Recommended Add-Ons:</p>
+        <div style="margin-top:6px"><span class="tag tag-teal">Enrichment</span><span class="tag tag-amber">Commercial Insights</span></div>
+      </div>
+
+      <div class="card card-accent rv rv-d3" style="border-top-color:var(--amber)">
+        <span class="tier-badge badge-amber">RGM</span>
+        <p style="font-size:.78rem;color:var(--faint);margin-top:6px">Revenue Growth Management</p>
+        <h4 style="margin-top:12px">Price-Pack &amp; Net Revenue Waterfall</h4>
+        <p style="font-size:.85rem;margin-top:8px">Price-pack architecture analysis, trade spend decomposition, and net revenue waterfall views across the harmonized data set.</p>
+        <div class="divider" style="margin:16px 0"></div>
+        <p style="font-size:.78rem;font-weight:600;color:var(--navy)">Recommended Add-Ons:</p>
+        <div style="margin-top:6px"><span class="tag tag-amber">Finance Overlay</span><span class="tag tag-teal">Enrichment</span></div>
+      </div>
+
+      <div class="card card-accent rv rv-d4" style="border-top-color:var(--purple)">
+        <span class="tier-badge badge-purple">PortCo Executive</span>
+        <p style="font-size:.78rem;color:var(--faint);margin-top:6px">Portfolio Leadership</p>
+        <h4 style="margin-top:12px">Cross-BU KPIs &amp; Portfolio View</h4>
+        <p style="font-size:.85rem;margin-top:8px">Enterprise-wide harmonization enabling cross-BU performance comparison, portfolio-level dashboards, and M&amp;A integration readiness.</p>
+        <div class="divider" style="margin:16px 0"></div>
+        <p style="font-size:.78rem;font-weight:600;color:var(--navy)">Recommended Add-Ons:</p>
+        <div style="margin-top:6px"><span class="tag tag-purple">Tier 3 Build</span><span class="tag tag-purple">Governance</span><span class="tag tag-amber">Tier 4 Overlay</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PHASED ROADMAP ══════════════════ -->
+<section id="roadmap" style="background:var(--card)">
+  <div class="wrap">
+    <span class="label label-blue">Phased Roadmap</span>
+    <h2 class="rv">Delivery Phases</h2>
+    <p class="sub rv rv-d1">A proven four-phase approach that delivers value early and iterates based on feedback.</p>
+    <div class="phase-line rv rv-d2">
+      <div class="phase-card" style="border-top:3px solid var(--faint)">
+        <p class="phase-num" style="color:var(--faint)">Phase 0</p>
+        <h4>Discovery</h4>
+        <p style="font-size:.82rem;font-weight:600;color:var(--blue);margin:6px 0">1 &ndash; 2 weeks</p>
+        <p style="font-size:.85rem">Stakeholder interviews, source inventory, data profiling, gap assessment, and initial backlog creation. Defines scope and success criteria.</p>
+      </div>
+      <div class="phase-card" style="border-top:3px solid var(--teal)">
+        <p class="phase-num" style="color:var(--teal)">Phase 1</p>
+        <h4>Foundation Build</h4>
+        <p style="font-size:.82rem;font-weight:600;color:var(--blue);margin:6px 0">4 &ndash; 8 weeks</p>
+        <p style="font-size:.85rem">Core pipeline construction: ingestion, product &amp; customer matching, DQ framework, unified fact table, and initial BI layer. First source live.</p>
+      </div>
+      <div class="phase-card" style="border-top:3px solid var(--blue)">
+        <p class="phase-num" style="color:var(--blue)">Phase 2</p>
+        <h4>Scale &amp; Harden</h4>
+        <p style="font-size:.82rem;font-weight:600;color:var(--blue);margin:6px 0">4 &ndash; 12 weeks</p>
+        <p style="font-size:.85rem">Additional sources onboarded, SCD2 if applicable, advanced DQ alerting, stewardship portal, performance tuning, and UAT hardening.</p>
+      </div>
+      <div class="phase-card" style="border-top:3px solid var(--purple)">
+        <p class="phase-num" style="color:var(--purple)">Phase 3</p>
+        <h4>Expand &amp; Operate</h4>
+        <p style="font-size:.82rem;font-weight:600;color:var(--blue);margin:6px 0">Ongoing</p>
+        <p style="font-size:.85rem">New BUs and sources, Tier 4 overlay, lineage &amp; catalog, FinOps optimization, training rollout, and transition to BAU support model.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ SOW SCOPE MATRIX ══════════════════ -->
+<section id="sow">
+  <div class="wrap">
+    <span class="label label-blue">SOW Scope Matrix</span>
+    <h2 class="rv">Scope, Assumptions &amp; Acceptance</h2>
+    <p class="sub rv rv-d1">Clear boundary definition to prevent scope creep and align stakeholder expectations.</p>
+
+    <div class="g2 gap-top">
+      <div class="card rv rv-d1" style="border-left:4px solid var(--teal)">
+        <h4 style="color:var(--teal)">In Scope</h4>
+        <ul style="margin-top:12px">
+          <li>Source-system connector build and ingestion pipelines</li>
+          <li>Product and customer matching / conformance logic</li>
+          <li>Unified sales fact table with standard DQ checks</li>
+          <li>Crosswalk tables with override and audit capability</li>
+          <li>Reconciliation reports (source vs. harmonized)</li>
+          <li>Power BI semantic model and starter dashboards (if add-on selected)</li>
+          <li>UAT support and production handover documentation</li>
+        </ul>
+      </div>
+      <div class="card rv rv-d2" style="border-left:4px solid var(--red)">
+        <h4 style="color:var(--red)">Out of Scope</h4>
+        <ul style="margin-top:12px">
+          <li>Source-system changes or remediation at origin</li>
+          <li>ERP or financial system integration</li>
+          <li>Custom ML model training beyond fuzzy matching</li>
+          <li>Ongoing BAU operations post-handover (unless contracted)</li>
+          <li>Organization change management</li>
+          <li>Third-party license procurement</li>
+          <li>Data migration from legacy BI tools</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="g2 gap-top">
+      <div class="card rv rv-d3" style="border-left:4px solid var(--amber)">
+        <h4 style="color:var(--amber)">Assumptions</h4>
+        <ul style="margin-top:12px">
+          <li>Client provides platform access within 5 business days of kick-off</li>
+          <li>Source data is available in agreed-upon format (CSV, API, or DB)</li>
+          <li>Business SME available for 2 &ndash; 4 h/week during matching iterations</li>
+          <li>Single cloud tenant (Azure or Databricks) pre-provisioned</li>
+          <li>No more than 50,000 unique SKUs per source in initial scope</li>
+          <li>English-language product and customer data</li>
+        </ul>
+      </div>
+      <div class="card rv rv-d4" style="border-left:4px solid var(--blue)">
+        <h4 style="color:var(--blue)">Acceptance Criteria</h4>
+        <ul style="margin-top:12px">
+          <li>Reconciliation variance &le; 1% between source and harmonized totals</li>
+          <li>Product match rate &ge; 92% automated (remaining to review queue)</li>
+          <li>Customer match rate &ge; 88% automated</li>
+          <li>Pipeline SLA: daily refresh completes within 90 minutes</li>
+          <li>DQ scorecard passes all critical-severity rules at go-live</li>
+          <li>UAT sign-off from designated business owner</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ RISKS & MITIGATIONS ══════════════════ -->
+<section id="risks" style="background:var(--card)">
+  <div class="wrap">
+    <span class="label label-red">Risks &amp; Mitigations</span>
+    <h2 class="rv">Key Risks &amp; Mitigations</h2>
+    <p class="sub rv rv-d1">Five primary risks identified during pre-engagement analysis, each paired with concrete mitigation actions.</p>
+
+    <div class="gap-top">
+      <div class="risk-pair rv rv-d1">
+        <div class="risk-l">
+          <span class="tag tag-amber" style="margin-bottom:8px;display:inline-block">Risk</span>
+          <h4>Source Data Quality Worse Than Expected</h4>
+          <p style="font-size:.85rem;margin-top:6px">Profiling reveals higher-than-anticipated nulls, duplicates, or schema drift, requiring additional cleansing effort.</p>
+        </div>
+        <div class="risk-r">
+          <span class="tag tag-teal" style="margin-bottom:8px;display:inline-block">Mitigation</span>
+          <h4>Early Profiling &amp; Contingency Budget</h4>
+          <p style="font-size:.85rem;margin-top:6px">Phase 0 includes deep profiling. 10% contingency hours built into every estimate. DQ add-on provides automated quarantine for bad records.</p>
+        </div>
+      </div>
+
+      <div class="risk-pair rv rv-d2">
+        <div class="risk-l">
+          <span class="tag tag-amber" style="margin-bottom:8px;display:inline-block">Risk</span>
+          <h4>Business SME Availability</h4>
+          <p style="font-size:.85rem;margin-top:6px">Limited access to domain experts delays matching validation and extends timeline.</p>
+        </div>
+        <div class="risk-r">
+          <span class="tag tag-teal" style="margin-bottom:8px;display:inline-block">Mitigation</span>
+          <h4>Structured Review Cadence</h4>
+          <p style="font-size:.85rem;margin-top:6px">Pre-schedule 2h/week SME review slots at kick-off. Batch review queue UI minimizes ad-hoc demands. Escalation path to sponsor if slots are missed.</p>
+        </div>
+      </div>
+
+      <div class="risk-pair rv rv-d2">
+        <div class="risk-l">
+          <span class="tag tag-amber" style="margin-bottom:8px;display:inline-block">Risk</span>
+          <h4>Platform Access Delays</h4>
+          <p style="font-size:.85rem;margin-top:6px">IT provisioning, security reviews, or network access takes longer than 5 business days, blocking Phase 1 start.</p>
+        </div>
+        <div class="risk-r">
+          <span class="tag tag-teal" style="margin-bottom:8px;display:inline-block">Mitigation</span>
+          <h4>Parallel Provisioning Track</h4>
+          <p style="font-size:.85rem;margin-top:6px">Submit access requests during Phase 0. Maintain a pre-approved sandbox environment for development. Readiness Scorecard flags this risk early.</p>
+        </div>
+      </div>
+
+      <div class="risk-pair rv rv-d3">
+        <div class="risk-l">
+          <span class="tag tag-amber" style="margin-bottom:8px;display:inline-block">Risk</span>
+          <h4>Scope Creep via Unstated Requirements</h4>
+          <p style="font-size:.85rem;margin-top:6px">New sources, KPIs, or audiences surface mid-build, expanding scope beyond agreed tier.</p>
+        </div>
+        <div class="risk-r">
+          <span class="tag tag-teal" style="margin-bottom:8px;display:inline-block">Mitigation</span>
+          <h4>Strict Change Control</h4>
+          <p style="font-size:.85rem;margin-top:6px">SOW scope matrix enforced. Any net-new scope routed through change-request process with impact assessment (hours + timeline + cost delta).</p>
+        </div>
+      </div>
+
+      <div class="risk-pair rv rv-d3">
+        <div class="risk-l">
+          <span class="tag tag-amber" style="margin-bottom:8px;display:inline-block">Risk</span>
+          <h4>Low Adoption Post-Launch</h4>
+          <p style="font-size:.85rem;margin-top:6px">Harmonized data is built but not consumed &mdash; users revert to legacy reports or manual processes.</p>
+        </div>
+        <div class="risk-r">
+          <span class="tag tag-teal" style="margin-bottom:8px;display:inline-block">Mitigation</span>
+          <h4>Embedded Training &amp; Quick Wins</h4>
+          <p style="font-size:.85rem;margin-top:6px">Starter Pack dashboards designed for day-1 value. Training add-on includes role-based workshops. Success metrics tracked from Phase 1 to demonstrate ROI early.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ PREREQUISITES ══════════════════ -->
+<section id="prereqs">
+  <div class="wrap">
+    <span class="label label-amber">Prerequisites</span>
+    <h2 class="rv">Engagement Prerequisites</h2>
+    <p class="sub rv rv-d1">Seven items to confirm before kick-off, plus gap-severity guidance if any are unmet.</p>
+
+    <div class="card rv rv-d1 gap-top">
+      <ul class="check-list">
+        <li><strong>Cloud platform access</strong> &mdash; Tenant, workspace, and service principal credentials provisioned (Azure / Databricks / Snowflake)</li>
+        <li><strong>Source data access</strong> &mdash; Read access to each in-scope distributor / POS source confirmed with IT and vendor</li>
+        <li><strong>Business sponsor identified</strong> &mdash; Named executive sponsor with authority to approve scope and sign off UAT</li>
+        <li><strong>SME availability committed</strong> &mdash; Minimum 2 h/week from product and customer domain experts during matching phases</li>
+        <li><strong>KPI definitions documented</strong> &mdash; At least draft definitions for primary sales KPIs (revenue, volume, ASP, distribution)</li>
+        <li><strong>Data governance baseline</strong> &mdash; Existing data classification, retention policies, or PII handling guidelines available</li>
+        <li><strong>Budget approval</strong> &mdash; Build cost and 12-month run cost approved through procurement / finance</li>
+      </ul>
+    </div>
+
+    <h4 class="rv rv-d2 gap-top" style="margin-bottom:16px">Gap Severity Guide</h4>
+    <div class="g3 rv rv-d3">
+      <div class="card" style="border-top:3px solid var(--green)">
+        <span class="rag rag-green"><span class="rag-dot"></span> Green</span>
+        <h4 style="margin-top:12px">Minor Gap</h4>
+        <p style="font-size:1.1rem;font-weight:800;color:var(--green);margin-top:8px">+10 &ndash; 25 h</p>
+        <p style="font-size:.85rem;margin-top:6px">Prerequisite partially met. Remediation can happen in parallel with Phase 0 / early Phase 1 without blocking delivery.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--amber)">
+        <span class="rag rag-amber"><span class="rag-dot"></span> Amber</span>
+        <h4 style="margin-top:12px">Moderate Gap</h4>
+        <p style="font-size:1.1rem;font-weight:800;color:var(--amber);margin-top:8px">+25 &ndash; 60 h</p>
+        <p style="font-size:.85rem;margin-top:6px">Prerequisite not met but path to resolution is clear. Requires dedicated remediation sprint before or during Phase 1.</p>
+      </div>
+      <div class="card" style="border-top:3px solid var(--red)">
+        <span class="rag rag-red"><span class="rag-dot"></span> Red</span>
+        <h4 style="margin-top:12px">Critical Gap</h4>
+        <p style="font-size:1.1rem;font-weight:800;color:var(--red);margin-top:8px">+1 &ndash; 3+ weeks</p>
+        <p style="font-size:.85rem;margin-top:6px">Prerequisite entirely unmet. Blocks project start. Requires executive intervention and dedicated remediation workstream.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ CTA ══════════════════ -->
+<section class="cta-section" id="cta">
+  <div class="wrap">
+    <h2 class="rv">Ready to Move Forward?</h2>
+    <p class="sub rv rv-d1" style="margin:16px auto 0;max-width:560px">Use the tools above to validate your tier, build the business case, and assess readiness &mdash; then let's schedule the kick-off.</p>
+    <div class="rv rv-d2" style="margin-top:32px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <button class="btn-white" onclick="document.getElementById('tool-tier').scrollIntoView({behavior:'smooth'})">Run Tier Engine</button>
+      <button class="btn-white" onclick="document.getElementById('tool-bcase').scrollIntoView({behavior:'smooth'})">Calculate Business Case</button>
+      <button class="btn-white" onclick="document.getElementById('tool-ready').scrollIntoView({behavior:'smooth'})">Score Readiness</button>
+    </div>
+  </div>
+</section>
+
+<script>
+/* ── Scroll Reveal ── */
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+/* ── Sticky Nav Scroll ── */
+const nav=document.getElementById('topnav');
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-link');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled',window.scrollY>20);
+  let current='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-100)current=s.getAttribute('id')});
+  navLinks.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+current)});
+},{passive:true});
+
+/* ── Mobile Nav Toggle ── */
+document.getElementById('navToggle').addEventListener('click',()=>{document.getElementById('navLinks').classList.toggle('open')});
+document.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',()=>{document.getElementById('navLinks').classList.remove('open')}));
+
+/* ── Accordion ── */
+function toggleAcc(id){document.getElementById(id).classList.toggle('open')}
+
+/* ── Tier Recommendation Engine ── */
+function runTierEngine(){
+  const src=document.getElementById('tr-sources').value;
+  const scd=document.getElementById('tr-scd').value;
+  const gov=document.getElementById('tr-gov').value;
+  const time=document.getElementById('tr-time').value;
+  let score=0;
+  if(src==='2')score+=2;else if(src==='3')score+=4;
+  if(scd==='yes')score+=2;
+  if(gov==='med')score+=1;else if(gov==='high')score+=3;
+  if(time==='med')score+=1;else if(time==='long')score+=2;
+  let tier,color,badge,desc,effort,timeline,platform,eng;
+  if(score<=2){
+    tier='Tier 1 \u2014 Foundation';color='var(--teal)';badge='badge-teal';
+    desc='Core harmonization with a single source is your best starting point. Fast time-to-value with minimal platform cost.';
+    effort='180 \u2013 220 h';timeline='\u223C5.5 weeks';platform='$300 \u2013 1,200 /mo';eng='8 \u2013 20 h/mo';
+  } else if(score<=5){
+    tier='Tier 2 \u2014 Intermediate';color='var(--blue)';badge='badge-blue';
+    desc='Multiple sources and/or advanced quality requirements push you into Tier 2. Good balance of scope and speed.';
+    effort='290 \u2013 685 h';timeline='9 \u2013 14 weeks';platform='$800 \u2013 3,500 /mo';eng='16 \u2013 40 h/mo';
+  } else {
+    tier='Tier 3 \u2014 Enterprise';color='var(--purple)';badge='badge-purple';
+    desc='Full governance, lineage, and multi-BU requirements call for the enterprise tier. Plan for a longer runway.';
+    effort='820 \u2013 1,900 h';timeline='27 \u2013 36+ weeks';platform='$3,000 \u2013 15,000 /mo';eng='40 \u2013 120 h/mo';
+  }
+  const out=document.getElementById('tr-output');
+  out.style.display='block';
+  out.innerHTML='<div style="text-align:center"><span class="tier-badge '+badge+'" style="font-size:.85rem">'+tier+'</span>'+
+    '<p style="font-size:.9rem;margin:16px 0 12px">'+desc+'</p>'+
+    '<div class="metric-row">'+
+      '<div class="metric-box"><div class="mv" style="color:'+color+'">'+effort+'</div><div class="ml">Effort</div></div>'+
+      '<div class="metric-box"><div class="mv" style="color:'+color+'">'+timeline+'</div><div class="ml">Timeline</div></div>'+
+    '</div>'+
+    '<div class="metric-row" style="margin-top:8px">'+
+      '<div class="metric-box"><div class="mv" style="color:'+color+'">'+platform+'</div><div class="ml">Platform Cost</div></div>'+
+      '<div class="metric-box"><div class="mv" style="color:'+color+'">'+eng+'</div><div class="ml">Engineering</div></div>'+
+    '</div></div>';
+}
+
+/* ── Business Case Calculator ── */
+function runBizCase(){
+  const hrs=+document.getElementById('bc-hours').value;
+  const cost=+document.getElementById('bc-cost').value;
+  const red=+document.getElementById('bc-reduce').value/100;
+  const uplift=+document.getElementById('bc-uplift').value;
+  const avoided=+document.getElementById('bc-avoided').value;
+  const run=+document.getElementById('bc-run').value;
+  const build=+document.getElementById('bc-build').value;
+  const laborSave=hrs*cost*red*12;
+  const decisionVal=uplift*12;
+  const grossAnnual=laborSave+decisionVal+avoided;
+  const annualRun=run*12;
+  const netAnnual=grossAnnual-annualRun;
+  const payback=netAnnual>0?(build/netAnnual*12):999;
+  const fmt=n=>'$'+Math.round(n).toLocaleString();
+  const maxBar=Math.max(grossAnnual,annualRun,Math.abs(netAnnual),build);
+  const bh=n=>Math.max(4,Math.round(Math.abs(n)/maxBar*160));
+  const out=document.getElementById('bc-output');
+  out.innerHTML=
+    '<div class="bar-chart">'+
+      '<div class="bar-col"><div class="bar-val">'+fmt(grossAnnual)+'</div><div class="bar" style="height:'+bh(grossAnnual)+'px;background:linear-gradient(180deg,var(--teal-l),var(--teal))"></div><div class="bar-label">Annual Gross</div></div>'+
+      '<div class="bar-col"><div class="bar-val">'+fmt(annualRun)+'</div><div class="bar" style="height:'+bh(annualRun)+'px;background:linear-gradient(180deg,var(--amber-l),var(--amber))"></div><div class="bar-label">Annual Run Cost</div></div>'+
+      '<div class="bar-col"><div class="bar-val">'+fmt(netAnnual)+'</div><div class="bar" style="height:'+bh(netAnnual)+'px;background:linear-gradient(180deg,var(--blue-l),var(--blue))"></div><div class="bar-label">Annual Net</div></div>'+
+      '<div class="bar-col"><div class="bar-val">'+fmt(build)+'</div><div class="bar" style="height:'+bh(build)+'px;background:linear-gradient(180deg,var(--faint),var(--muted))"></div><div class="bar-label">Build Cost</div></div>'+
+    '</div>'+
+    '<div class="metric-row">'+
+      '<div class="metric-box"><div class="mv" style="color:var(--teal)">'+fmt(grossAnnual)+'</div><div class="ml">Annual Gross Value</div></div>'+
+      '<div class="metric-box"><div class="mv" style="color:var(--amber)">'+fmt(annualRun)+'</div><div class="ml">Annual Run Cost</div></div>'+
+    '</div>'+
+    '<div class="metric-row" style="margin-top:8px">'+
+      '<div class="metric-box"><div class="mv" style="color:var(--blue)">'+fmt(netAnnual)+'</div><div class="ml">Annual Net Value</div></div>'+
+      '<div class="metric-box"><div class="mv" style="color:'+(payback<=12?'var(--green)':payback<=24?'var(--amber)':'var(--red)')+'">'+
+        (payback<999?payback.toFixed(1)+' mo':'N/A')+'</div><div class="ml">Payback Period</div></div>'+
+    '</div>';
+}
+
+/* ── Readiness Scorecard ── */
+function runReadiness(){
+  const dims=[
+    {id:'rd-plat',label:'Platform Access'},
+    {id:'rd-qual',label:'Source Quality'},
+    {id:'rd-biz',label:'Business Readiness'},
+    {id:'rd-gov',label:'Governance'},
+    {id:'rd-kpi',label:'KPI / Reporting'}
+  ];
+  let total=0;
+  const results=dims.map(d=>{const v=+document.getElementById(d.id).value;total+=v;return{...d,v}});
+  const score=total;const max=10;
+  let rag,ragClass,advice;
+  if(score>=8){rag='Green';ragClass='rag-green';advice='Strong readiness. Proceed to Phase 0 with confidence. Minor gaps can be closed in parallel.'}
+  else if(score>=5){rag='Amber';ragClass='rag-amber';advice='Moderate readiness. Address amber/red dimensions before or during Phase 0. Plan for +25\u201360h remediation.'}
+  else{rag='Red';ragClass='rag-red';advice='Significant gaps detected. Recommend a dedicated readiness sprint (1\u20133 weeks) before project kick-off.'}
+  const ringColor=score>=8?'var(--green)':score>=5?'var(--amber)':'var(--red)';
+  const dimHtml=results.map(r=>{
+    const s=r.v===2?'Green':r.v===1?'Amber':'Red';
+    const rc=r.v===2?'rag-green':r.v===1?'rag-amber':'rag-red';
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line-l)">'+
+      '<span style="font-size:.85rem;color:var(--muted)">'+r.label+'</span>'+
+      '<span class="rag '+rc+'" style="font-size:.75rem"><span class="rag-dot"></span> '+s+'</span></div>';
+  }).join('');
+  const out=document.getElementById('rd-output');
+  out.style.display='block';
+  out.innerHTML='<div style="width:100%"><div style="text-align:center">'+
+    '<div class="score-ring" style="background:'+ringColor+'">'+score+'/'+max+'</div>'+
+    '<span class="rag '+ragClass+'" style="font-size:.9rem"><span class="rag-dot"></span> '+rag+'</span>'+
+    '<p style="font-size:.88rem;margin-top:12px;max-width:400px;margin-left:auto;margin-right:auto">'+advice+'</p>'+
+    '</div><div style="margin-top:20px">'+dimHtml+'</div></div>';
+}
+</script>
+</body>
+</html>

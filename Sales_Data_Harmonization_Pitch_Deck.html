@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sales Data Harmonization</title>
+<style>
+:root {
+  --navy:#1B2A4A; --navy2:#243656; --blue:#2E5090; --blue-l:#4A7FD4;
+  --teal:#0D7C66; --teal-l:#10A37F; --amber:#C17817; --amber-l:#E09A30;
+  --purple:#6B4FA0; --red:#C53030; --green:#276749;
+  --ink:#1A1A2E; --muted:#5A6B7F; --faint:#8896A6;
+  --bg:#F5F7FA; --card:#FFFFFF; --line:#E2E8F0; --line-l:#EDF2F7;
+  --sh-s:0 1px 3px rgba(27,42,74,.05);
+  --sh-m:0 4px 16px rgba(27,42,74,.08);
+  --sh-l:0 12px 40px rgba(27,42,74,.1);
+  --r:12px; --rl:16px;
+  --ease:.3s cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* Typography */
+h1{font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.025em}
+h2{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--navy)}
+h3{font-size:1.05rem;font-weight:600;color:var(--navy)}
+p{color:var(--muted)}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* Sections */
+.slide{padding:88px 0;position:relative}
+.slide-alt{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:14px}
+.label::before{content:'';width:22px;height:2px;background:var(--teal);border-radius:1px}
+.subtitle{margin-top:8px;max-width:620px;font-size:1.05rem}
+
+/* Reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.rv.vis{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.25s}.rv-d4{transition-delay:.35s}
+
+/* ═══════ HERO ═══════ */
+.hero{background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 45%,#1a4a7a 100%);color:#fff;padding:110px 0 88px;overflow:hidden;position:relative}
+.hero::after{content:'';position:absolute;top:-30%;right:-10%;width:55%;height:160%;background:radial-gradient(ellipse,rgba(13,124,102,.12),transparent 70%);pointer-events:none}
+.hero .container{position:relative;z-index:1}
+.hero h1{color:#fff;margin-bottom:14px}
+.hero p{color:rgba(255,255,255,.68);font-size:1.12rem;max-width:640px;margin-bottom:44px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:12px 20px;backdrop-filter:blur(6px);transition:var(--ease)}
+.chip:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+.chip .cv{font-size:1.15rem;font-weight:700}.chip .cl{font-size:.76rem;color:rgba(255,255,255,.5);margin-top:2px}
+
+/* ═══════ PROBLEM ═══════ */
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:32px}
+.pain{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:var(--ease);position:relative;overflow:hidden}
+.pain:hover{box-shadow:var(--sh-m);transform:translateY(-3px)}
+.pain-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,rgba(13,124,102,.1),rgba(13,124,102,.04));display:grid;place-items:center;margin-bottom:14px}
+.pain h3{margin-bottom:6px}.pain p{font-size:.88rem}
+
+/* ═══════ ARCHITECTURE ═══════ */
+.arch{display:grid;grid-template-columns:180px 1fr 200px;gap:0;margin-top:32px;position:relative}
+.arch-col{display:flex;flex-direction:column;gap:10px;padding:16px;position:relative;z-index:2}
+.arch-sources{background:linear-gradient(180deg,#f0f4f8,#e8edf3);border-radius:var(--rl) 0 0 var(--rl);border:1px solid #d4dee8;border-right:none}
+.arch-lake{background:linear-gradient(180deg,#f8fafc,#f0f4f8);border:1px solid #d4dee8;padding:20px}
+.arch-consume{background:linear-gradient(180deg,#faf8f4,#f4f0e8);border-radius:0 var(--rl) var(--rl) 0;border:1px solid #d4dee8;border-left:none}
+.arch-title{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--faint);text-align:center;margin-bottom:10px}
+.arch-box{background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:.82rem;color:var(--ink);transition:var(--ease);cursor:default}
+.arch-box:hover{border-color:var(--teal);box-shadow:var(--sh-s)}
+.arch-box .ab-label{font-size:.68rem;color:var(--faint);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+
+/* Lakehouse layers */
+.lake-layer{border-radius:10px;padding:16px 18px;margin-bottom:10px;position:relative;transition:var(--ease)}
+.lake-layer:hover{transform:scale(1.005);box-shadow:var(--sh-s)}
+.lake-layer:last-child{margin-bottom:0}
+.ll-bronze{background:linear-gradient(135deg,#FDF4E8,#faebd7);border:1px solid #EDCE95}
+.ll-silver{background:linear-gradient(135deg,#EBF0FA,#e0e8f6);border:1px solid #B3C4E8}
+.ll-gold{background:linear-gradient(135deg,#FBF7E6,#f6efd0);border:1px solid #E4D49E}
+.ll-name{font-weight:700;font-size:.88rem;margin-bottom:2px}
+.ll-bronze .ll-name{color:#A06B15}.ll-silver .ll-name{color:#2E5090}.ll-gold .ll-name{color:#8A6D10}
+.ll-desc{font-size:.78rem;color:var(--muted)}
+.ll-sub{margin-top:6px;background:rgba(255,255,255,.7);border:1px solid rgba(0,0,0,.06);border-radius:6px;padding:6px 10px;font-size:.72rem;color:var(--muted)}
+
+/* Arrows between columns */
+.arch-arrow{position:absolute;top:50%;width:24px;display:flex;align-items:center;justify-content:center;z-index:3}
+.arch-arrow svg{width:20px;height:20px}
+.arch-arrow-left{left:180px;transform:translateX(-50%) translateY(-50%)}
+.arch-arrow-right{right:200px;transform:translateX(50%) translateY(-50%)}
+
+/* Animated flow dots */
+@keyframes flowRight{0%{transform:translateX(-8px);opacity:0}30%{opacity:1}70%{opacity:1}100%{transform:translateX(8px);opacity:0}}
+.flow-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:flowRight 1.8s ease-in-out infinite}
+.flow-dot:nth-child(2){animation-delay:.4s}.flow-dot:nth-child(3){animation-delay:.8s}
+.arch-flow{display:flex;gap:4px;position:absolute;top:50%;z-index:4}
+.arch-flow-left{left:172px;transform:translateY(-50%)}
+.arch-flow-right{right:192px;transform:translateY(-50%)}
+
+/* ═══════ TIERS ═══════ */
+.tier-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.tc{background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-s);transition:var(--ease)}
+.tc:hover{box-shadow:var(--sh-l);transform:translateY(-4px)}
+.tc-head{padding:22px 22px 14px}
+.tc.t1 .tc-head{background:linear-gradient(135deg,rgba(13,124,102,.06),transparent);border-bottom:2px solid var(--teal)}
+.tc.t2 .tc-head{background:linear-gradient(135deg,rgba(46,80,144,.06),transparent);border-bottom:2px solid var(--blue)}
+.tc.t3 .tc-head{background:linear-gradient(135deg,rgba(193,120,23,.06),transparent);border-bottom:2px solid var(--amber)}
+.tc-badge{display:inline-block;padding:3px 10px;border-radius:5px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.t1 .tc-badge{background:rgba(13,124,102,.1);color:var(--teal)}.t2 .tc-badge{background:rgba(46,80,144,.1);color:var(--blue)}.t3 .tc-badge{background:rgba(193,120,23,.1);color:var(--amber)}
+.tc-body{padding:18px 22px 22px}
+.tc-feat{list-style:none;margin-bottom:18px}
+.tc-feat li{padding:5px 0;font-size:.84rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px}
+.tc-feat li::before{content:'';width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
+.t1 .tc-feat li::before{background:var(--teal)}.t2 .tc-feat li::before{background:var(--blue)}.t3 .tc-feat li::before{background:var(--amber)}
+.tc-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:14px;border-top:1px solid var(--line-l)}
+.tc-m .mv{font-size:.95rem;font-weight:700;color:var(--navy)}.tc-m .ml{font-size:.7rem;color:var(--faint)}
+
+/* ═══════ ADD-ONS ═══════ */
+.addon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.addon{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;transition:var(--ease);position:relative;cursor:default}
+.addon:hover{border-color:var(--teal);box-shadow:var(--sh-m);transform:translateY(-2px)}
+.addon-icon{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;margin-bottom:12px;font-size:.9rem}
+.addon h3{font-size:.95rem;margin-bottom:4px}
+.addon p{font-size:.82rem;margin-bottom:12px}
+.addon-meta{display:flex;gap:12px;font-size:.75rem;color:var(--faint);font-weight:600}
+.addon-meta span{display:flex;align-items:center;gap:4px}
+.ai-teal .addon-icon{background:rgba(13,124,102,.08);color:var(--teal)}
+.ai-blue .addon-icon{background:rgba(46,80,144,.08);color:var(--blue)}
+.ai-amber .addon-icon{background:rgba(193,120,23,.08);color:var(--amber)}
+.ai-purple .addon-icon{background:rgba(107,79,160,.08);color:var(--purple)}
+
+/* ═══════ GANTT ═══════ */
+.gantt-wrap{margin-top:28px;overflow-x:auto}
+.gantt{min-width:800px}
+.gantt-header{display:grid;grid-template-columns:160px repeat(14,1fr);gap:2px;margin-bottom:6px}
+.gantt-wk{font-size:.65rem;color:var(--faint);text-align:center;font-weight:600;padding:4px 0}
+.gantt-group{margin-bottom:16px}
+.gantt-group-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.gantt-group-dot{width:8px;height:8px;border-radius:50%}
+.gantt-track{display:grid;grid-template-columns:160px repeat(14,1fr);gap:2px;align-items:center;margin-bottom:3px;height:32px}
+.gantt-task{font-size:.78rem;color:var(--muted);font-weight:500;padding-right:8px}
+.gantt-empty{height:100%;background:var(--line-l);border-radius:3px}
+.gantt-bar{height:100%;border-radius:6px;position:relative;transition:var(--ease);cursor:default}
+.gantt-bar:hover{filter:brightness(1.08);transform:scaleY(1.15)}
+.gantt-bar.b-teal{background:linear-gradient(90deg,var(--teal),var(--teal-l))}
+.gantt-bar.b-blue{background:linear-gradient(90deg,var(--blue),var(--blue-l))}
+.gantt-bar.b-amber{background:linear-gradient(90deg,var(--amber),var(--amber-l))}
+/* Span helpers: bars span multiple columns */
+.span-2{grid-column:span 2}.span-3{grid-column:span 3}.span-4{grid-column:span 4}
+.span-5{grid-column:span 5}.span-6{grid-column:span 6}.span-7{grid-column:span 7}
+.span-8{grid-column:span 8}.span-10{grid-column:span 10}
+
+/* ═══════ INVESTMENT ═══════ */
+.inv-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:.88rem;margin-top:24px}
+.inv-table thead th{background:var(--navy);color:#fff;padding:14px 18px;font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;text-align:left}
+.inv-table tbody td{padding:14px 18px;border-bottom:1px solid var(--line-l);vertical-align:middle}
+.inv-table tbody tr:last-child td{border-bottom:none}
+.inv-table tbody tr{transition:var(--ease)}.inv-table tbody tr:hover{background:rgba(13,124,102,.02)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.inv-note{margin-top:14px;padding:16px;background:var(--line-l);border-radius:var(--r);font-size:.84rem;color:var(--muted)}
+
+/* ═══════ RECOMMENDATION ═══════ */
+.rec-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px;align-items:start}
+.rec-form{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fg label{display:block;font-size:.76rem;font-weight:600;color:var(--muted);margin-bottom:5px;text-transform:uppercase;letter-spacing:.04em}
+.fg input,.fg select{width:100%;padding:11px 13px;font-size:.92rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);transition:var(--ease);font-family:inherit}
+.fg input:focus,.fg select:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,124,102,.1)}
+.rec-btn{grid-column:1/-1;padding:13px 24px;font-size:.92rem;font-weight:600;background:var(--navy);color:#fff;border:none;border-radius:8px;cursor:pointer;transition:var(--ease);font-family:inherit}
+.rec-btn:hover{background:var(--blue);transform:translateY(-1px);box-shadow:var(--sh-m)}
+.rec-out{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:24px;min-height:280px;display:flex;flex-direction:column;justify-content:center}
+.rec-out .ph{color:var(--muted);text-align:center;font-size:.92rem}
+.ro-tier{font-size:1.5rem;font-weight:700;margin-bottom:6px}
+.ro-why{color:var(--muted);font-size:.9rem;margin-bottom:14px}
+.ro-row{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--line-l)}
+.ro-rl{font-size:.84rem;color:var(--muted)}.ro-rv{font-size:.84rem;font-weight:700;color:var(--navy)}
+
+/* ═══════ CTA ═══════ */
+.cta{background:linear-gradient(140deg,var(--navy),var(--blue));color:#fff;text-align:center;padding:88px 0}
+.cta h2{color:#fff;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.65);max-width:500px;margin:0 auto 32px;font-size:1rem}
+.cta-btn{display:inline-block;padding:15px 40px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:var(--ease);font-family:inherit}
+.cta-btn:hover{background:var(--teal-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,124,102,.3)}
+.footer{padding:18px 0;text-align:center;font-size:.74rem;color:var(--faint);border-top:1px solid var(--line)}
+
+/* Responsive */
+@media(max-width:960px){.arch{grid-template-columns:1fr;}.arch-sources,.arch-consume{border-radius:var(--rl)}.arch-lake{border-radius:var(--rl)}.arch-flow,.arch-arrow{display:none}.tier-row,.addon-grid,.rec-grid,.pain-grid{grid-template-columns:1fr}.rec-form{grid-template-columns:1fr}}
+@media(max-width:600px){.hero{padding:72px 0 56px}.slide{padding:56px 0}.hero-chips{gap:8px}.gantt-track{grid-template-columns:100px repeat(14,1fr)}}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="container">
+    <div class="rv"><h1>Sales Data Harmonization</h1>
+    <p>Unify fragmented sales sources into one trusted, analytics-ready view. Conformed dimensions, automated pipelines, and self-service insights — built on Databricks Lakehouse.</p></div>
+    <div class="hero-chips rv rv-d1">
+      <div class="chip"><div class="cv">3 Tiers</div><div class="cl">Scale to your needs</div></div>
+      <div class="chip"><div class="cv">9 Add-Ons</div><div class="cl">Customize your solution</div></div>
+      <div class="chip"><div class="cv">5 - 36 Weeks</div><div class="cl">Delivery range</div></div>
+      <div class="chip"><div class="cv">Databricks + Power BI</div><div class="cl">End-to-end platform</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROBLEM ═══ -->
+<section class="slide">
+  <div class="container">
+    <div class="rv"><div class="label">The Problem</div>
+    <h2>Fragmented data costs more than you think</h2>
+    <p class="subtitle">FMCG organizations run on multiple sales sources that never agree. The result: wasted effort, unreliable KPIs, and slow commercial decisions.</p></div>
+    <div class="pain-grid">
+      <div class="pain rv rv-d1">
+        <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/><path d="M9 5.5h2.5V11"/></svg></div>
+        <h3>Siloed Sources</h3><p>Internal shipments and POS feeds live in different formats, cadences, and naming conventions with no common key.</p>
+      </div>
+      <div class="pain rv rv-d2">
+        <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="6" cy="8" r="4"/><circle cx="14" cy="8" r="4"/><path d="M10 5v6" opacity=".4"/></svg></div>
+        <h3>Mismatched Hierarchies</h3><p>Product names, pack sizes, and customer chains don't align across sources — making comparison manual and unreliable.</p>
+      </div>
+      <div class="pain rv rv-d3">
+        <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M2 8h16M7 8v9"/></svg></div>
+        <h3>Manual Reconciliation</h3><p>Teams burn 100+ hours per month stitching spreadsheets instead of generating insight and making commercial decisions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ARCHITECTURE ═══ -->
+<section class="slide slide-alt" id="architecture">
+  <div class="container">
+    <div class="rv"><div class="label">How It Works</div>
+    <h2>Medallion Lakehouse Architecture</h2>
+    <p class="subtitle">A three-layer data platform: raw capture, validated standardization, and business-ready conformed outputs.</p></div>
+    <div class="arch rv rv-d1">
+      <!-- Flow animations -->
+      <div class="arch-flow arch-flow-left"><div class="flow-dot"></div><div class="flow-dot"></div><div class="flow-dot"></div></div>
+      <div class="arch-flow arch-flow-right"><div class="flow-dot"></div><div class="flow-dot"></div><div class="flow-dot"></div></div>
+
+      <!-- Sources -->
+      <div class="arch-col arch-sources">
+        <div class="arch-title">Sources</div>
+        <div class="arch-box"><div class="ab-label">Daily</div>Internal Sales</div>
+        <div class="arch-box"><div class="ab-label">Weekly</div>POS Feeds</div>
+        <div class="arch-box"><div class="ab-label">Static</div>Reference Data</div>
+        <div class="arch-box"><div class="ab-label">Manual</div>Master Data Inputs</div>
+      </div>
+
+      <!-- Lakehouse -->
+      <div class="arch-col arch-lake">
+        <div class="arch-title">Databricks Lakehouse</div>
+        <div class="lake-layer ll-bronze">
+          <div class="ll-name">Bronze — Raw Capture</div>
+          <div class="ll-desc">Schema contracts, audit metadata, append-first history for full traceability and replay</div>
+        </div>
+        <div class="lake-layer ll-silver">
+          <div class="ll-name">Silver — Validated &amp; Standardized</div>
+          <div class="ll-desc">Cleansing, normalization, deduplication, unit standardization, conformance preparation</div>
+          <div class="ll-sub">Master Data Engine: deterministic keys &#8594; rule-based heuristics &#8594; fuzzy matching &#8594; stewardship queue</div>
+        </div>
+        <div class="lake-layer ll-gold">
+          <div class="ll-name">Gold — Business Serving</div>
+          <div class="ll-desc">Conformed product &amp; customer dimensions, curated fact tables, semantic-ready KPI models</div>
+        </div>
+      </div>
+
+      <!-- Consumption -->
+      <div class="arch-col arch-consume">
+        <div class="arch-title">Consumption</div>
+        <div class="arch-box"><div class="ab-label">Analytics</div>Semantic Layer + Power BI</div>
+        <div class="arch-box"><div class="ab-label">Operations</div>DQ Monitoring &amp; Alerts</div>
+        <div class="arch-box"><div class="ab-label">Governance</div>Lineage &amp; FinOps</div>
+        <div class="arch-box"><div class="ab-label">Stewardship</div>Mapping &amp; Override UI</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TIERS ═══ -->
+<section class="slide" id="tiers">
+  <div class="container">
+    <div class="rv"><div class="label">Choose Your Starting Point</div>
+    <h2>Three Tiers — Scale to Your Needs</h2>
+    <p class="subtitle">Each tier builds on the previous. Start with what fits and expand as value is proven.</p></div>
+    <div class="tier-row">
+      <div class="tc t1 rv rv-d1">
+        <div class="tc-head"><div class="tc-badge">Tier 1</div><h3>Foundation</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 2 core sources</p></div>
+        <div class="tc-body">
+          <ul class="tc-feat">
+            <li>Conformed product &amp; customer dimensions</li>
+            <li>Bronze &#8594; Silver &#8594; Gold pipeline</li>
+            <li>Baseline DQ, reconciliation, alerting</li>
+            <li>Stewardship queue &amp; override workflow</li>
+            <li>UAT, runbook, handover</li>
+          </ul>
+          <div class="tc-metrics">
+            <div class="tc-m"><div class="mv">180 – 220 h</div><div class="ml">Build effort</div></div>
+            <div class="tc-m"><div class="mv">~ 5.5 weeks</div><div class="ml">Timeline</div></div>
+            <div class="tc-m"><div class="mv">$300 – 1,200</div><div class="ml">Platform /mo</div></div>
+            <div class="tc-m"><div class="mv">8 – 20 h</div><div class="ml">Eng support /mo</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc t2 rv rv-d2">
+        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 6 sources</p></div>
+        <div class="tc-body">
+          <ul class="tc-feat">
+            <li>Repeatable source onboarding framework</li>
+            <li>Higher mapping throughput &amp; automation</li>
+            <li>Expanded cross-source reconciliation</li>
+            <li>Data contract validation &amp; CI/CD</li>
+            <li>Advanced stewardship &amp; queue management</li>
+          </ul>
+          <div class="tc-metrics">
+            <div class="tc-m"><div class="mv">290 – 685 h</div><div class="ml">Build effort</div></div>
+            <div class="tc-m"><div class="mv">9 – 14 weeks</div><div class="ml">Timeline</div></div>
+            <div class="tc-m"><div class="mv">$800 – 3,500</div><div class="ml">Platform /mo</div></div>
+            <div class="tc-m"><div class="mv">16 – 40 h</div><div class="ml">Eng support /mo</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tc t3 rv rv-d3">
+        <div class="tc-head"><div class="tc-badge">Tier 3</div><h3>PortCo Convergence</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">4 – 6 BUs, 2+ sources each</p></div>
+        <div class="tc-body">
+          <ul class="tc-feat">
+            <li>Unified PortCo product &amp; customer hierarchy</li>
+            <li>BU translation layer &amp; governance model</li>
+            <li>Wave-based rollout &amp; stabilization</li>
+            <li>Lineage catalog &amp; impact analysis</li>
+            <li>Role-based access &amp; audit package</li>
+          </ul>
+          <div class="tc-metrics">
+            <div class="tc-m"><div class="mv">820 – 1,900 h</div><div class="ml">Build effort</div></div>
+            <div class="tc-m"><div class="mv">27 – 36+ weeks</div><div class="ml">Timeline</div></div>
+            <div class="tc-m"><div class="mv">$3,000 – 15,000</div><div class="ml">Platform /mo</div></div>
+            <div class="tc-m"><div class="mv">40 – 120 h</div><div class="ml">Eng support /mo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ADD-ONS ═══ -->
+<section class="slide slide-alt" id="addons">
+  <div class="container">
+    <div class="rv"><div class="label">Customize Your Solution</div>
+    <h2>Add-On Services</h2>
+    <p class="subtitle">Layer these on top of any tier to extend value. Each is independently scoped and priced.</p></div>
+    <div class="addon-grid">
+      <div class="addon ai-teal rv rv-d1">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 10l2 2 4-5"/></svg></div>
+        <h3>Power BI Semantic Model</h3>
+        <p>Measures, DAX logic, relationships, and row-level security built on Gold for self-service analytics.</p>
+        <div class="addon-meta"><span>+40 – 80 h build</span><span>+$200 – 600 /mo</span></div>
+      </div>
+      <div class="addon ai-blue rv rv-d1">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 14l4-4 3 3 5-6"/><circle cx="15" cy="4" r="2"/></svg></div>
+        <h3>Advanced DQ &amp; Alerting</h3>
+        <p>Anomaly detection, SLA monitoring, DQ trend dashboards, and automated incident workflows.</p>
+        <div class="addon-meta"><span>+30 – 60 h build</span><span>+$100 – 400 /mo</span></div>
+      </div>
+      <div class="addon ai-purple rv rv-d2">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="14" height="12" rx="2"/><path d="M2 8h14"/><circle cx="6" cy="12" r="1" fill="currentColor"/></svg></div>
+        <h3>Stewardship Portal</h3>
+        <p>Web UI for business users to review matching suggestions, approve/reject, and manage override mappings.</p>
+        <div class="addon-meta"><span>+60 – 120 h build</span><span>+$100 – 400 /mo</span></div>
+      </div>
+      <div class="addon ai-teal rv rv-d2">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg></div>
+        <h3>SCD2 Historical Tracking</h3>
+        <p>Type 2 slowly changing dimensions with surrogate keys, effective dating, and backfill for historical reporting.</p>
+        <div class="addon-meta"><span>+30 – 50 h build</span><span>+$50 – 150 /mo</span></div>
+      </div>
+      <div class="addon ai-amber rv rv-d3">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v14M2 9h14"/><circle cx="9" cy="9" r="7"/></svg></div>
+        <h3>Additional Source Integration</h3>
+        <p>Per-source onboarding: profiling, ingestion, mapping rules, validation, and reconciliation extension.</p>
+        <div class="addon-meta"><span>+40 – 85 h build</span><span>+$100 – 400 /mo</span></div>
+      </div>
+      <div class="addon ai-blue rv rv-d3">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h10M4 9h10M4 14h6"/><circle cx="15" cy="14" r="2"/></svg></div>
+        <h3>Data Lineage &amp; Catalog</h3>
+        <p>Full lineage visualization, impact analysis, and Unity Catalog enrichment for governance.</p>
+        <div class="addon-meta"><span>+25 – 50 h build</span><span>+$50 – 200 /mo</span></div>
+      </div>
+      <div class="addon ai-purple rv rv-d4">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12l5-5 3 3 6-7"/><path d="M12 3h4v4"/></svg></div>
+        <h3>Currency &amp; Fiscal Overlay</h3>
+        <p>FX conversion engine, multi-currency support, fiscal calendar alignment for cross-market reporting.</p>
+        <div class="addon-meta"><span>+120 – 320 h build</span><span>+$200 – 800 /mo</span></div>
+      </div>
+      <div class="addon ai-teal rv rv-d4">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2a7 7 0 110 14 7 7 0 010-14zM6 9h6"/></svg></div>
+        <h3>FinOps Package</h3>
+        <p>Cluster optimization, job cost monitoring, and usage dashboards. Typically pays for itself within months.</p>
+        <div class="addon-meta"><span>+15 – 30 h build</span><span>Saves cost</span></div>
+      </div>
+      <div class="addon ai-amber rv rv-d4">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v3M9 13v3M2 9h3M13 9h3"/><circle cx="9" cy="9" r="4"/></svg></div>
+        <h3>Training &amp; Enablement</h3>
+        <p>Workshops for business users, data stewards, and engineers. Documentation and knowledge transfer.</p>
+        <div class="addon-meta"><span>+20 – 40 h</span><span>One-time</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TIMELINE ═══ -->
+<section class="slide" id="timeline">
+  <div class="container">
+    <div class="rv"><div class="label">Delivery Timeline</div>
+    <h2>Indicative Project Plans by Tier</h2>
+    <p class="subtitle">Based on 1 engineer with AI tooling support. Timelines adjust with allocation and dependency readiness.</p></div>
+    <div class="gantt-wrap rv rv-d1">
+      <div class="gantt">
+        <div class="gantt-header">
+          <div></div>
+          <div class="gantt-wk">W1</div><div class="gantt-wk">W2</div><div class="gantt-wk">W3</div><div class="gantt-wk">W4</div>
+          <div class="gantt-wk">W5</div><div class="gantt-wk">W6</div><div class="gantt-wk">W7</div><div class="gantt-wk">W8</div>
+          <div class="gantt-wk">W9</div><div class="gantt-wk">W10</div><div class="gantt-wk">W11</div><div class="gantt-wk">W12</div>
+          <div class="gantt-wk">...</div><div class="gantt-wk">W36</div>
+        </div>
+
+        <!-- Tier 1 -->
+        <div class="gantt-group">
+          <div class="gantt-group-label"><span class="gantt-group-dot" style="background:var(--teal)"></span>Tier 1 — Foundation (5 – 6 weeks)</div>
+          <div class="gantt-track">
+            <div class="gantt-task">Discovery</div>
+            <div class="gantt-bar b-teal span-2" title="W1-W2: Discovery & design"></div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-task">Pipeline Build</div>
+            <div class="gantt-empty"></div>
+            <div class="gantt-bar b-teal span-3" title="W2-W4: Ingestion + medallion pipelines"></div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-task">Conformance</div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div>
+            <div class="gantt-bar b-teal span-3" title="W3-W5: Product & customer matching"></div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-task">UAT &amp; Handover</div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+            <div class="gantt-bar b-teal span-2" title="W5-W6: Testing, docs, handover"></div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+          </div>
+        </div>
+
+        <!-- Tier 2 -->
+        <div class="gantt-group">
+          <div class="gantt-group-label"><span class="gantt-group-dot" style="background:var(--blue)"></span>Tier 2 — Multi-Source (9 – 14 weeks)</div>
+          <div class="gantt-track">
+            <div class="gantt-task">Discovery</div>
+            <div class="gantt-bar b-blue span-3" title="W1-W3: Multi-source profiling"></div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-task">Source Waves</div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div>
+            <div class="gantt-bar b-blue span-7" title="W3-W9: Iterative source onboarding waves"></div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-task">Harden &amp; Ops</div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+            <div class="gantt-bar b-blue span-4" title="W8-W11: Governance hardening, DQ, FinOps"></div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+          </div>
+        </div>
+
+        <!-- Tier 3 -->
+        <div class="gantt-group">
+          <div class="gantt-group-label"><span class="gantt-group-dot" style="background:var(--amber)"></span>Tier 3 — PortCo Convergence (27 – 36+ weeks)</div>
+          <div class="gantt-track">
+            <div class="gantt-task">Global Design</div>
+            <div class="gantt-bar b-amber span-4" title="W1-W4: PortCo hierarchy & governance design"></div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-task">BU Waves</div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+            <div class="gantt-bar b-amber span-10" title="W4-W32+: Iterative BU onboarding waves"></div>
+            <div class="gantt-empty"></div>
+          </div>
+          <div class="gantt-track">
+            <div class="gantt-task">Stabilize</div>
+            <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
+            <div class="gantt-bar b-amber span-4" title="W28-W36: Stabilization & operational handover"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INVESTMENT ═══ -->
+<section class="slide slide-alt" id="investment">
+  <div class="container">
+    <div class="rv"><div class="label">Investment</div>
+    <h2>Build Effort &amp; Monthly Platform Costs</h2>
+    <p class="subtitle">Platform costs cover Databricks compute, storage, and SQL warehouse. Engineering support hours are additional.</p></div>
+    <table class="inv-table rv rv-d1">
+      <thead><tr><th>Tier</th><th>Build Effort</th><th>Timeline</th><th>Platform /mo</th><th>Eng Support /mo</th><th>Business Hours /mo</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dot" style="background:var(--teal)"></span><strong>Tier 1</strong> Foundation</td><td>180 – 220 h</td><td>5 – 6 weeks</td><td>$300 – 1,200</td><td>8 – 20 h</td><td>2 – 8 h</td></tr>
+        <tr><td><span class="dot" style="background:var(--blue)"></span><strong>Tier 2</strong> Multi-Source</td><td>290 – 685 h</td><td>9 – 14 weeks</td><td>$800 – 3,500</td><td>16 – 40 h</td><td>6 – 20 h</td></tr>
+        <tr><td><span class="dot" style="background:var(--amber)"></span><strong>Tier 3</strong> PortCo</td><td>820 – 1,900 h</td><td>27 – 36+ weeks</td><td>$3,000 – 15,000</td><td>40 – 120 h</td><td>16 – 60 h</td></tr>
+      </tbody>
+    </table>
+    <div class="inv-note rv">Platform costs assume daily/weekly incremental refresh cadence, serverless SQL warehouse, and standard retention. Costs scale primarily with source count, data volume, and SLA requirements. Add-on services carry their own incremental run costs as listed.</div>
+  </div>
+</section>
+
+<!-- ═══ RECOMMENDATION ═══ -->
+<section class="slide" id="recommend">
+  <div class="container">
+    <div class="rv"><div class="label">Interactive Tool</div>
+    <h2>Which tier fits your organization?</h2>
+    <p class="subtitle">Answer four questions for an instant baseline recommendation.</p></div>
+    <div class="rec-grid rv rv-d1">
+      <div>
+        <div class="rec-form">
+          <div class="fg"><label>Total Sources (Phase 1)</label><input id="rS" type="number" min="2" max="20" value="3"/></div>
+          <div class="fg"><label>Business Units in Scope</label><input id="rB" type="number" min="1" max="10" value="1"/></div>
+          <div class="fg"><label>Need SCD2 History?</label><select id="rH"><option value="no">No</option><option value="yes">Yes</option></select></div>
+          <div class="fg"><label>Currency Harmonization?</label><select id="rF"><option value="no">No</option><option value="yes">Yes</option></select></div>
+          <button class="rec-btn" onclick="doRec()">Get Recommendation</button>
+        </div>
+      </div>
+      <div class="rec-out" id="rOut"><div class="ph">Configure inputs and click <strong>Get Recommendation</strong>.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta">
+  <div class="container rv">
+    <h2>Ready to unify your sales data?</h2>
+    <p>Start with a 1 – 2 week calibration discovery to lock your tier, shortlist add-ons, and produce a proposal-grade estimate.</p>
+    <button class="cta-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Start the Conversation</button>
+  </div>
+</section>
+<footer class="footer"><div class="container">Sales Data Harmonization — Confidential</div></footer>
+
+<script>
+// Scroll reveal
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');obs.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+
+// Recommendation
+function doRec(){
+  const s=+document.getElementById('rS').value,b=+document.getElementById('rB').value;
+  const scd=document.getElementById('rH').value==='yes',fx=document.getElementById('rF').value==='yes';
+  let t,c,e,r,w,tl;
+  if(b>=4){t='Tier 3 — PortCo Convergence';c='var(--amber)';e='820 – 1,900 h';r='$3,000 – 15,000 /mo';tl='27 – 36+ weeks';w='Multi-BU convergence requires PortCo-level hierarchy governance and wave-based rollout.';}
+  else if(b>1||s>=3){t='Tier 2 — Multi-Source';c='var(--blue)';e='290 – 685 h';r='$800 – 3,500 /mo';tl='9 – 14 weeks';w='Multi-source integration requires stronger onboarding, mapping automation, and operational controls.';}
+  else{t='Tier 1 — Foundation';c='var(--teal)';e='180 – 220 h';r='$300 – 1,200 /mo';tl='~ 5.5 weeks';w='Single BU with limited source count fits the foundation model.';}
+  if(scd)e+=' + SCD2 uplift (~30-50h)';
+  let x='';
+  if(fx)x+='<div class="ro-row"><span class="ro-rl">Add-on</span><span class="ro-rv" style="color:var(--purple)">Currency & Fiscal Overlay (+120-320h)</span></div>';
+  if(s>=4)x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Stewardship Portal for exception queue</span></div>';
+  if(s>=3)x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Advanced DQ & Alerting (+30-60h)</span></div>';
+  document.getElementById('rOut').innerHTML=
+    '<div class="ro-tier" style="color:'+c+'">'+t+'</div><div class="ro-why">'+w+'</div>'+
+    '<div class="ro-row"><span class="ro-rl">Build Estimate</span><span class="ro-rv">'+e+'</span></div>'+
+    '<div class="ro-row"><span class="ro-rl">Timeline</span><span class="ro-rv">'+tl+'</span></div>'+
+    '<div class="ro-row"><span class="ro-rl">Platform Cost</span><span class="ro-rv">'+r+'</span></div>'+x;
+}
+</script>
+</body>
+</html>
