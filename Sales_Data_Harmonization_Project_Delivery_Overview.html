@@ -203,12 +203,14 @@ p{color:var(--muted);font-size:.97rem}
     <a href="#hero" class="nav-link active">Overview</a>
     <a href="#quickstart" class="nav-link">Quick Start</a>
     <a href="#tiers" class="nav-link">Tiers</a>
+    <a href="#autonomy" class="nav-link">Autonomy</a>
     <a href="#addons" class="nav-link">Add-Ons</a>
     <a href="#effort" class="nav-link">Effort</a>
     <a href="#mapping" class="nav-link">Mapping</a>
     <a href="#tools" class="nav-link">Tools</a>
     <a href="#packs" class="nav-link">Starter Packs</a>
     <a href="#roadmap" class="nav-link">Roadmap</a>
+    <a href="#model" class="nav-link">Model</a>
     <a href="#sow" class="nav-link">SOW</a>
     <a href="#risks" class="nav-link">Risks</a>
     <a href="#prereqs" class="nav-link">Prerequisites</a>
@@ -316,6 +318,81 @@ p{color:var(--muted);font-size:.97rem}
         </div>
         <div style="margin-left:auto;text-align:right;white-space:nowrap">
           <span style="font-size:1.1rem;font-weight:800;color:var(--amber)">+120 &ndash; 320 h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════ FEDERATED AUTONOMY ══════════════════ -->
+<section id="autonomy">
+  <div class="wrap">
+    <span class="label label-purple">Multi-BU Model</span>
+    <h2 class="rv">Federated Autonomy</h2>
+    <p class="sub rv rv-d1">Every portfolio company and business unit wants full autonomy over their data. But maturity levels vary dramatically. Our delivery model embraces both realities.</p>
+
+    <div class="g2 gap-top">
+      <div class="card rv rv-d1" style="border-top:3px solid var(--purple)">
+        <h4 style="color:var(--purple)">The Challenge</h4>
+        <p style="font-size:.88rem;margin-top:8px">In a multi-BU engagement, you rarely find uniform readiness. One BU may have clean EAN codes and a mature data team; another may run on spreadsheets with inconsistent naming. A one-size-fits-all rollout will either move too slowly for the leaders or overwhelm the laggards.</p>
+      </div>
+      <div class="card rv rv-d2" style="border-top:3px solid var(--teal)">
+        <h4 style="color:var(--teal)">The Approach</h4>
+        <p style="font-size:.88rem;margin-top:8px">We deploy in <strong>maturity-sequenced waves</strong>. The highest-maturity BU goes first as the "lighthouse" &mdash; proving the model, refining the framework, and generating early ROI. Subsequent BUs onboard in order of readiness, each inheriting a more battle-tested platform.</p>
+      </div>
+    </div>
+
+    <!-- Maturity Radar Tool -->
+    <div class="card rv rv-d2 gap-top" id="tool-maturity">
+      <h3>BU Maturity Assessment</h3>
+      <p style="font-size:.88rem;margin:8px 0 20px">Score up to 4 business units across five readiness dimensions. The radar chart instantly reveals the maturity spread and suggests a wave sequence.</p>
+      <div class="g2">
+        <div>
+          <div style="display:flex;gap:12px;align-items:center;margin-bottom:16px;flex-wrap:wrap">
+            <button class="btn btn-outline btn-sm" onclick="addBU()" id="addBuBtn" style="font-size:.8rem;padding:8px 16px">+ Add BU</button>
+            <span style="font-size:.78rem;color:var(--faint)" id="buCount">1 of 4 BUs</span>
+          </div>
+          <div id="buForms">
+            <div class="bu-form" data-bu="0">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+                <div style="width:12px;height:12px;border-radius:3px;background:var(--teal)"></div>
+                <input type="text" value="BU Alpha" style="border:none;font-size:.9rem;font-weight:700;color:var(--navy);background:transparent;width:140px;font-family:inherit" class="bu-name"/>
+              </div>
+              <div class="fg"><label>Platform Readiness</label><select class="bu-dim" data-dim="0"><option value="1">1 — None</option><option value="2">2 — Minimal</option><option value="3" selected>3 — Partial</option><option value="4">4 — Operational</option><option value="5">5 — Mature</option></select></div>
+              <div class="fg"><label>Data Quality</label><select class="bu-dim" data-dim="1"><option value="1">1 — Poor</option><option value="2" selected>2 — Weak</option><option value="3">3 — Adequate</option><option value="4">4 — Good</option><option value="5">5 — Excellent</option></select></div>
+              <div class="fg"><label>Governance &amp; Standards</label><select class="bu-dim" data-dim="2"><option value="1">1 — None</option><option value="2" selected>2 — Ad-hoc</option><option value="3">3 — Defined</option><option value="4">4 — Managed</option><option value="5">5 — Optimized</option></select></div>
+              <div class="fg"><label>KPI &amp; Reporting Clarity</label><select class="bu-dim" data-dim="3"><option value="1">1 — Undefined</option><option value="2">2 — Draft</option><option value="3" selected>3 — Defined</option><option value="4">4 — Measured</option><option value="5">5 — Automated</option></select></div>
+              <div class="fg"><label>Team Capability</label><select class="bu-dim" data-dim="4"><option value="1">1 — No data team</option><option value="2">2 — Basic SQL</option><option value="3" selected>3 — Analysts</option><option value="4">4 — Data engineers</option><option value="5">5 — Full platform team</option></select></div>
+            </div>
+          </div>
+          <button class="btn btn-primary gap-top-sm" onclick="renderRadar()" style="width:100%">Generate Maturity Radar</button>
+        </div>
+        <div>
+          <div class="output" id="radar-output" style="min-height:380px;display:flex;align-items:center;justify-content:center">
+            <p style="color:var(--faint);font-size:.9rem;text-align:center">Add BUs, score each dimension, then click<br><strong>Generate Maturity Radar</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Wave sequencing explainer -->
+    <div class="card rv rv-d3 gap-top" style="background:var(--line-l)">
+      <h4 style="margin-bottom:12px">Wave Sequencing Logic</h4>
+      <div class="g3">
+        <div style="text-align:center;padding:16px">
+          <div style="font-size:2rem;margin-bottom:6px">&#x1F3D7;&#xFE0F;</div>
+          <p style="font-size:.82rem;font-weight:700;color:var(--teal)">Wave 1 — Lighthouse</p>
+          <p style="font-size:.82rem">Highest-maturity BU. Proves the model, refines matching rules, validates ROI. Typically Tier 1 scope.</p>
+        </div>
+        <div style="text-align:center;padding:16px">
+          <div style="font-size:2rem;margin-bottom:6px">&#x1F4C8;</div>
+          <p style="font-size:.82rem;font-weight:700;color:var(--blue)">Wave 2 — Fast Followers</p>
+          <p style="font-size:.82rem">Medium-maturity BUs. Inherit proven framework and mapping rules. Shorter ramp, lower risk.</p>
+        </div>
+        <div style="text-align:center;padding:16px">
+          <div style="font-size:2rem;margin-bottom:6px">&#x1F527;</div>
+          <p style="font-size:.82rem;font-weight:700;color:var(--amber)">Wave 3 — Remediation Track</p>
+          <p style="font-size:.82rem">Lower-maturity BUs. May need data remediation or platform setup before onboarding. Parallel readiness sprint.</p>
         </div>
       </div>
     </div>
@@ -710,6 +787,108 @@ p{color:var(--muted);font-size:.97rem}
   </div>
 </section>
 
+<!-- ══════════════════ DELIVERY MODEL ══════════════════ -->
+<section id="model">
+  <div class="wrap">
+    <span class="label label-teal">Delivery Model</span>
+    <h2 class="rv">Three-Layer Architecture</h2>
+    <p class="sub rv rv-d1">You own your infrastructure and data. We provide the engine. Clean separation of IP, full transparency, and continuous improvement.</p>
+
+    <div class="g3 gap-top">
+      <div class="card card-accent rv rv-d1" style="border-top-color:var(--teal)">
+        <div style="font-size:1.6rem;margin-bottom:8px">&#x2699;&#xFE0F;</div>
+        <span class="tier-badge badge-teal">Licensed</span>
+        <h4 style="margin-top:12px">SDH Core Framework</h4>
+        <p style="font-size:.85rem;margin-top:8px">Private, versioned Python package installed in your workspace. Contains the matching engine, DQ framework, pipeline factory, and crosswalk manager.</p>
+        <div class="divider" style="margin:16px 0"></div>
+        <p style="font-size:.78rem;font-weight:600;color:var(--navy)">What's inside:</p>
+        <ul style="margin-top:8px">
+          <li>Deterministic + rule-based + fuzzy matching engine</li>
+          <li>Configurable DQ rule framework &amp; scoring</li>
+          <li>Medallion pipeline factory (Bronze/Silver/Gold)</li>
+          <li>Crosswalk persistence &amp; versioning</li>
+          <li>Reconciliation &amp; variance engine</li>
+        </ul>
+        <div style="margin-top:14px;padding:10px 14px;background:rgba(13,124,102,.06);border-radius:8px">
+          <p style="font-size:.78rem;color:var(--teal);font-weight:600">Updates, bug fixes, and new algorithms delivered as package versions. All customers benefit from the ecosystem.</p>
+        </div>
+      </div>
+
+      <div class="card card-accent rv rv-d2" style="border-top-color:var(--blue)">
+        <div style="font-size:1.6rem;margin-bottom:8px">&#x1F4CB;</div>
+        <span class="tier-badge badge-blue">Customer-Owned</span>
+        <h4 style="margin-top:12px">Configuration Layer</h4>
+        <p style="font-size:.85rem;margin-top:8px">Your business rules, source definitions, and matching thresholds. YAML/JSON configs that plug into the framework — fully transparent and version-controlled.</p>
+        <div class="divider" style="margin:16px 0"></div>
+        <p style="font-size:.78rem;font-weight:600;color:var(--navy)">What you define:</p>
+        <ul style="margin-top:8px">
+          <li>Source schemas &amp; ingestion contracts</li>
+          <li>Matching rules &amp; confidence thresholds</li>
+          <li>DQ rule definitions &amp; alerting policies</li>
+          <li>KPI formulas &amp; business logic</li>
+          <li>Hierarchy mappings &amp; override rules</li>
+        </ul>
+        <div style="margin-top:14px;padding:10px 14px;background:rgba(46,80,144,.06);border-radius:8px">
+          <p style="font-size:.78rem;color:var(--blue);font-weight:600">Stored in your Git repo (Azure DevOps or GitHub). Full audit trail, PR-based changes, CI/CD integration.</p>
+        </div>
+      </div>
+
+      <div class="card card-accent rv rv-d3" style="border-top-color:var(--amber)">
+        <div style="font-size:1.6rem;margin-bottom:8px">&#x2601;&#xFE0F;</div>
+        <span class="tier-badge badge-amber">Customer-Owned</span>
+        <h4 style="margin-top:12px">Infrastructure</h4>
+        <p style="font-size:.85rem;margin-top:8px">Your Databricks workspace, your Azure storage, your compute. Notebooks call the framework — you see and own every line of orchestration code.</p>
+        <div class="divider" style="margin:16px 0"></div>
+        <p style="font-size:.78rem;font-weight:600;color:var(--navy)">What you own:</p>
+        <ul style="margin-top:8px">
+          <li>Databricks workspace &amp; Unity Catalog</li>
+          <li>ADLS / Blob storage accounts</li>
+          <li>SQL Warehouses &amp; job clusters</li>
+          <li>Orchestration notebooks &amp; workflows</li>
+          <li>All data &mdash; Bronze, Silver, Gold, crosswalks</li>
+        </ul>
+        <div style="margin-top:14px;padding:10px 14px;background:rgba(193,120,23,.06);border-radius:8px">
+          <p style="font-size:.78rem;color:var(--amber);font-weight:600">No vendor lock-in. If you ever walk away, your data, configs, and notebooks are fully yours. The framework is the only licensed component.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- How it works in practice -->
+    <div class="card rv rv-d3 gap-top" style="border-left:4px solid var(--purple)">
+      <h4 style="color:var(--purple)">How It Works In Practice</h4>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:12px 16px;margin-top:14px;font-size:.88rem">
+        <code style="background:var(--line-l);padding:4px 10px;border-radius:4px;font-size:.78rem;color:var(--teal);font-weight:600;white-space:nowrap">pip install sdh-core</code>
+        <span style="color:var(--muted)">Framework installed as a private package in your workspace</span>
+        <code style="background:var(--line-l);padding:4px 10px;border-radius:4px;font-size:.78rem;color:var(--blue);font-weight:600;white-space:nowrap">config/sources.yaml</code>
+        <span style="color:var(--muted)">You define your source schemas, refresh cadences, and field mappings</span>
+        <code style="background:var(--line-l);padding:4px 10px;border-radius:4px;font-size:.78rem;color:var(--blue);font-weight:600;white-space:nowrap">config/matching.yaml</code>
+        <span style="color:var(--muted)">Your matching rules, thresholds, and survivorship preferences</span>
+        <code style="background:var(--line-l);padding:4px 10px;border-radius:4px;font-size:.78rem;color:var(--amber);font-weight:600;white-space:nowrap">notebooks/run_pipeline.py</code>
+        <span style="color:var(--muted)">Thin orchestration that imports from the framework and runs your configs</span>
+      </div>
+    </div>
+
+    <!-- Revenue model -->
+    <div class="g3 gap-top rv rv-d4">
+      <div class="card" style="text-align:center;border-top:3px solid var(--teal)">
+        <p style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.1em">One-Time</p>
+        <h4 style="margin-top:8px">Build Fee</h4>
+        <p style="font-size:.82rem;margin-top:6px">Configuration, customization, source onboarding, UAT, and handover for your specific environment.</p>
+      </div>
+      <div class="card" style="text-align:center;border-top:3px solid var(--blue)">
+        <p style="font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em">Monthly / Annual</p>
+        <h4 style="margin-top:8px">Framework License</h4>
+        <p style="font-size:.82rem;margin-top:6px">Access to SDH Core package, version updates, new algorithms, and bug fixes. All customers benefit from ecosystem improvements.</p>
+      </div>
+      <div class="card" style="text-align:center;border-top:3px solid var(--amber)">
+        <p style="font-size:.72rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.1em">Optional</p>
+        <h4 style="margin-top:8px">Managed Support</h4>
+        <p style="font-size:.82rem;margin-top:6px">SLA-backed engineering support, proactive monitoring, quarterly optimization reviews, and priority issue resolution.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════════ SOW SCOPE MATRIX ══════════════════ -->
 <section id="sow">
   <div class="wrap">
@@ -1038,6 +1217,101 @@ function runReadiness(){
     '<span class="rag '+ragClass+'" style="font-size:.9rem"><span class="rag-dot"></span> '+rag+'</span>'+
     '<p style="font-size:.88rem;margin-top:12px;max-width:400px;margin-left:auto;margin-right:auto">'+advice+'</p>'+
     '</div><div style="margin-top:20px">'+dimHtml+'</div></div>';
+}
+
+/* ── BU Maturity Radar ── */
+const buColors=['var(--teal)','var(--blue)','var(--amber)','var(--purple)'];
+const buColorHex=['#0D7C66','#2E5090','#C17817','#6B4FA0'];
+const dimLabels=['Platform','Data Quality','Governance','KPI Clarity','Team Capability'];
+let buCount=1;
+
+function addBU(){
+  if(buCount>=4)return;
+  const idx=buCount;
+  const names=['BU Alpha','BU Beta','BU Gamma','BU Delta'];
+  const div=document.createElement('div');
+  div.className='bu-form';
+  div.dataset.bu=idx;
+  div.style.marginTop='20px';
+  div.style.paddingTop='20px';
+  div.style.borderTop='1px solid var(--line)';
+  div.innerHTML='<div style="display:flex;align-items:center;gap:8px;margin-bottom:10px"><div style="width:12px;height:12px;border-radius:3px;background:'+buColors[idx]+'"></div><input type="text" value="'+names[idx]+'" style="border:none;font-size:.9rem;font-weight:700;color:var(--navy);background:transparent;width:140px;font-family:inherit" class="bu-name"/></div>'+
+    dimLabels.map((d,i)=>'<div class="fg"><label>'+d+'</label><select class="bu-dim" data-dim="'+i+'"><option value="1">1</option><option value="2">2</option><option value="3" selected>3</option><option value="4">4</option><option value="5">5</option></select></div>').join('');
+  document.getElementById('buForms').appendChild(div);
+  buCount++;
+  document.getElementById('buCount').textContent=buCount+' of 4 BUs';
+  if(buCount>=4)document.getElementById('addBuBtn').style.display='none';
+}
+
+function renderRadar(){
+  const forms=document.querySelectorAll('.bu-form');
+  const bus=[];
+  forms.forEach((f,i)=>{
+    const name=f.querySelector('.bu-name').value;
+    const dims=Array.from(f.querySelectorAll('.bu-dim')).map(s=>+s.value);
+    const avg=dims.reduce((a,b)=>a+b,0)/dims.length;
+    bus.push({name,dims,avg,color:buColorHex[i],idx:i});
+  });
+  bus.sort((a,b)=>b.avg-a.avg);
+
+  const cx=170,cy=170,r=130;
+  const n=5;
+  const angleStep=Math.PI*2/n;
+  const startAngle=-Math.PI/2;
+
+  function pol(angle,dist){return{x:cx+Math.cos(angle)*dist,y:cy+Math.sin(angle)*dist}}
+
+  // Grid
+  let svg='<svg viewBox="0 0 340 340" style="width:100%;max-width:340px;margin:0 auto;display:block">';
+  for(let ring=1;ring<=5;ring++){
+    const rd=r*ring/5;
+    let pts=[];
+    for(let i=0;i<n;i++){const p=pol(startAngle+i*angleStep,rd);pts.push(p.x+','+p.y)}
+    svg+='<polygon points="'+pts.join(' ')+'" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"/>';
+  }
+  // Axes
+  for(let i=0;i<n;i++){
+    const p=pol(startAngle+i*angleStep,r);
+    svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+p.x+'" y2="'+p.y+'" stroke="rgba(255,255,255,.08)" stroke-width="1"/>';
+    const lp=pol(startAngle+i*angleStep,r+18);
+    svg+='<text x="'+lp.x+'" y="'+lp.y+'" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="600" fill="var(--muted)">'+dimLabels[i]+'</text>';
+  }
+  // BU polygons
+  bus.forEach(bu=>{
+    let pts=[];
+    for(let i=0;i<n;i++){
+      const p=pol(startAngle+i*angleStep,r*bu.dims[i]/5);
+      pts.push(p.x+','+p.y);
+    }
+    svg+='<polygon points="'+pts.join(' ')+'" fill="'+bu.color+'" fill-opacity=".12" stroke="'+bu.color+'" stroke-width="2"/>';
+    for(let i=0;i<n;i++){
+      const p=pol(startAngle+i*angleStep,r*bu.dims[i]/5);
+      svg+='<circle cx="'+p.x+'" cy="'+p.y+'" r="3.5" fill="'+bu.color+'"/>';
+    }
+  });
+  svg+='</svg>';
+
+  // Wave recommendation
+  let wave='<div style="margin-top:16px">';
+  wave+='<h4 style="font-size:.85rem;margin-bottom:10px">Recommended Wave Sequence</h4>';
+  bus.forEach((bu,i)=>{
+    const waveNum=i===0?'Wave 1 — Lighthouse':i<=1?'Wave 2 — Fast Follower':'Wave 3 — Remediation Track';
+    const ragClass=bu.avg>=3.5?'rag-green':bu.avg>=2.5?'rag-amber':'rag-red';
+    wave+='<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line-l)">'+
+      '<div style="width:12px;height:12px;border-radius:3px;background:'+bu.color+'"></div>'+
+      '<span style="font-size:.88rem;font-weight:700;color:var(--navy);min-width:100px">'+bu.name+'</span>'+
+      '<span class="rag '+ragClass+'" style="font-size:.75rem"><span class="rag-dot"></span> '+(bu.avg).toFixed(1)+'/5</span>'+
+      '<span style="font-size:.78rem;color:var(--muted);margin-left:auto">'+waveNum+'</span>'+
+    '</div>';
+  });
+  wave+='</div>';
+
+  const out=document.getElementById('radar-output');
+  out.style.display='block';
+  out.innerHTML='<div style="width:100%">'+svg+
+    '<div style="display:flex;justify-content:center;gap:16px;margin-top:12px;flex-wrap:wrap">'+
+    bus.map(bu=>'<span style="display:flex;align-items:center;gap:5px;font-size:.78rem;font-weight:600;color:var(--muted)"><span style="width:10px;height:10px;border-radius:3px;background:'+bu.color+'"></span>'+bu.name+'</span>').join('')+
+    '</div>'+wave+'</div>';
 }
 </script>
 </body>

@@ -181,7 +181,7 @@ p{color:var(--muted)}
 .footer{padding:18px 0;text-align:center;font-size:.74rem;color:var(--faint);border-top:1px solid var(--line)}
 
 /* Responsive */
-@media(max-width:960px){.arch-blueprint{overflow-x:auto;-webkit-overflow-scrolling:touch}.arch-svg{min-width:800px}.tier-row,.addon-grid,.rec-grid,.pain-grid{grid-template-columns:1fr}.rec-form{grid-template-columns:1fr}}
+@media(max-width:960px){.arch-blueprint{overflow-x:auto;-webkit-overflow-scrolling:touch}.arch-svg{min-width:800px}.tier-row,.addon-grid,.rec-grid,.pain-grid{grid-template-columns:1fr}.rec-form{grid-template-columns:1fr}#model .container>div:nth-child(2){grid-template-columns:1fr!important}}
 @media(max-width:600px){.hero{padding:72px 0 56px}.slide{padding:56px 0}.hero-chips{gap:8px}.gantt-track{grid-template-columns:100px repeat(14,1fr)}}
 
 /* ═══════ NAV BAR ═══════ */
@@ -201,6 +201,7 @@ p{color:var(--muted)}
   <a href="#architecture">Architecture</a>
   <a href="#tiers">Tiers</a>
   <a href="#addons">Add-Ons</a>
+  <a href="#model">Model</a>
   <a href="#timeline">Timeline</a>
   <a href="#investment">Investment</a>
   <a href="#recommend">Recommend</a>
@@ -618,6 +619,76 @@ p{color:var(--muted)}
         <h3>Training &amp; Enablement</h3>
         <p>Workshops for business users, data stewards, and engineers. Documentation and knowledge transfer.</p>
         <div class="addon-meta"><span>+20 – 40 h</span><span>One-time</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DELIVERY MODEL ═══ -->
+<section class="slide" id="model">
+  <div class="container">
+    <div class="rv"><div class="label">Delivery Model</div>
+    <h2>You Own the Platform. We Power the Engine.</h2>
+    <p class="subtitle">Clean separation between licensed framework, your configuration, and your infrastructure. No lock-in, full transparency.</p></div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px">
+      <!-- Framework -->
+      <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
+        <div style="padding:4px 0;background:linear-gradient(90deg,var(--teal),var(--teal-l))"></div>
+        <div style="padding:22px">
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Licensed · Maintained by Us</div>
+          <h3 style="font-size:1.05rem">SDH Core Framework</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Private Python package: matching engine, DQ framework, pipeline factory, crosswalk manager.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">from sdh_core import</code> MatchingEngine</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">from sdh_core import</code> PipelineFactory</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">from sdh_core import</code> DQFramework</div>
+          </div>
+          <p style="font-size:.75rem;color:var(--teal);font-weight:600;margin-top:12px">Updates &amp; new algorithms flow to all customers via versioned releases.</p>
+        </div>
+      </div>
+      <!-- Config -->
+      <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
+        <div style="padding:4px 0;background:linear-gradient(90deg,var(--blue),var(--blue-l))"></div>
+        <div style="padding:22px">
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Customer-Owned · Git-Controlled</div>
+          <h3 style="font-size:1.05rem">Configuration Layer</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your source schemas, matching rules, thresholds, and KPI definitions in YAML/JSON configs.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">config/</code>sources.yaml</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">config/</code>matching_rules.yaml</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">config/</code>dq_policies.yaml</div>
+          </div>
+          <p style="font-size:.75rem;color:var(--blue);font-weight:600;margin-top:12px">Stored in your Azure DevOps or GitHub. Full audit trail, PR reviews, CI/CD.</p>
+        </div>
+      </div>
+      <!-- Infra -->
+      <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
+        <div style="padding:4px 0;background:linear-gradient(90deg,var(--amber),var(--amber-l))"></div>
+        <div style="padding:22px">
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:6px">Customer-Owned · Your Cloud</div>
+          <h3 style="font-size:1.05rem">Infrastructure</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your Databricks workspace, Azure storage, compute, and all data. You see and own every line.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">Azure</code> Databricks + ADLS</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">Unity</code> Catalog &amp; Governance</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">All</code> Data: Bronze → Gold</div>
+          </div>
+          <p style="font-size:.75rem;color:var(--amber);font-weight:600;margin-top:12px">No vendor lock-in. Walk away any time with your data, configs, and notebooks.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom callout -->
+    <div class="rv rv-d4" style="margin-top:20px;background:linear-gradient(135deg,rgba(13,124,102,.04),rgba(46,80,144,.04));border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+      <div style="flex:1;min-width:200px">
+        <h3 style="font-size:.95rem">Revenue Model</h3>
+        <p style="font-size:.84rem;color:var(--muted);margin-top:4px">One-time <strong>build fee</strong> for configuration + deployment. Monthly <strong>framework license</strong> for ongoing access &amp; updates. Optional <strong>managed support</strong> with SLA.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <span style="font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:6px;background:rgba(13,124,102,.08);color:var(--teal)">Build Fee</span>
+        <span style="font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:6px;background:rgba(46,80,144,.08);color:var(--blue)">License /mo</span>
+        <span style="font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:6px;background:rgba(193,120,23,.08);color:var(--amber)">Support (opt)</span>
       </div>
     </div>
   </div>
