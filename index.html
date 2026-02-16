@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Sales Data Harmonization — Solutions Catalog</title>
 <meta name="description" content="Enterprise-grade sales data harmonization for FMCG. Unify POS, internal sales, and distributor data into a single source of truth."/>
+<meta property="og:title" content="Sales Data Harmonization — Solutions Catalog"/>
+<meta property="og:description" content="Unify POS, internal sales, and distributor data into a single source of truth. Three delivery tiers, nine add-on services."/>
+<meta property="og:type" content="website"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B2A4A'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' fill='%2310A37F' font-size='18' font-weight='800' font-family='sans-serif'>S</text></svg>"/>
 <style>
 :root {
   --navy:#1B2A4A; --navy2:#243656; --blue:#2E5090; --blue-l:#4A7FD4;
@@ -99,9 +103,17 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;backgrou
 .t2 .glance-tier{background:rgba(46,80,144,.1);color:var(--blue)}
 .t3 .glance-tier{background:rgba(107,79,160,.1);color:var(--purple)}
 
+/* ── CTA ── */
+.cta{background:linear-gradient(140deg,var(--navy) 0%,var(--blue) 60%,#1a4a7a 100%);color:#fff;text-align:center;padding:72px 28px}
+.cta h2{color:#fff;font-size:clamp(1.4rem,3vw,1.8rem);font-weight:700;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.6);font-size:.95rem;max-width:480px;margin:0 auto 28px}
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--teal);color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:600;text-decoration:none;cursor:pointer;transition:all var(--ease);font-family:inherit}
+.cta-btn:hover{background:var(--teal-l);transform:translateY(-2px);box-shadow:0 6px 20px rgba(13,124,102,.3)}
+.cta-sub{margin-top:14px;font-size:.82rem;color:rgba(255,255,255,.45)}
+
 /* ── Footer ── */
-.footer{margin-top:auto;padding:32px 28px;text-align:center;border-top:1px solid var(--line);background:var(--card)}
-.footer p{font-size:.78rem;color:var(--faint)}
+.footer{margin-top:auto;padding:24px 28px;text-align:center;border-top:1px solid var(--line);background:var(--card)}
+.footer p{font-size:.75rem;color:var(--faint)}
 
 /* ── Reveal ── */
 .rv{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
@@ -220,9 +232,17 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;backgrou
   </div>
 </div>
 
+<!-- CTA -->
+<section class="cta rv">
+  <h2>Ready to explore?</h2>
+  <p>Start with the Pitch Deck for a high-level overview, or dive into the Delivery Overview for detailed planning tools and effort estimates.</p>
+  <a href="mailto:contact@example.com" class="cta-btn">Get in Touch &rarr;</a>
+  <div class="cta-sub">Or scroll up to explore the documents</div>
+</section>
+
 <!-- Footer -->
 <footer class="footer">
-  <p>Sales Data Harmonization Solutions Catalog &middot; Confidential</p>
+  <p>Sales Data Harmonization &mdash; Solutions Catalog v1.0 &middot; February 2026 &middot; Confidential</p>
 </footer>
 
 <script>

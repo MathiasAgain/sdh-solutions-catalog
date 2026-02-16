@@ -41,7 +41,7 @@ p{color:var(--muted)}
 .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.25s}.rv-d4{transition-delay:.35s}
 
 /* ═══════ HERO ═══════ */
-.hero{background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 45%,#1a4a7a 100%);color:#fff;padding:110px 0 88px;overflow:hidden;position:relative}
+.hero{background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 45%,#1a4a7a 100%);color:#fff;padding:140px 0 88px;overflow:hidden;position:relative}
 .hero::after{content:'';position:absolute;top:-30%;right:-10%;width:55%;height:160%;background:radial-gradient(ellipse,rgba(13,124,102,.12),transparent 70%);pointer-events:none}
 .hero .container{position:relative;z-index:1}
 .hero h1{color:#fff;margin-bottom:14px}
@@ -183,9 +183,28 @@ p{color:var(--muted)}
 /* Responsive */
 @media(max-width:960px){.arch{grid-template-columns:1fr;}.arch-sources,.arch-consume{border-radius:var(--rl)}.arch-lake{border-radius:var(--rl)}.arch-flow,.arch-arrow{display:none}.tier-row,.addon-grid,.rec-grid,.pain-grid{grid-template-columns:1fr}.rec-form{grid-template-columns:1fr}}
 @media(max-width:600px){.hero{padding:72px 0 56px}.slide{padding:56px 0}.hero-chips{gap:8px}.gantt-track{grid-template-columns:100px repeat(14,1fr)}}
+
+/* ═══════ NAV BAR ═══════ */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;gap:6px;padding:0 28px;background:rgba(27,42,74,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
+.topbar a{font-size:.76rem;font-weight:600;color:rgba(255,255,255,.6);text-decoration:none;padding:5px 10px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.topbar a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.topbar a.active{color:#fff;background:rgba(255,255,255,.14)}
+.topbar .tb-brand{font-weight:700;font-size:.85rem;color:#fff;margin-right:auto;letter-spacing:.03em}
+.topbar .tb-brand span{color:var(--teal-l)}
+.topbar .tb-back{color:var(--teal-l);margin-right:8px}
 </style>
 </head>
 <body>
+<nav class="topbar">
+  <a href="index.html" class="tb-back">← Catalog</a>
+  <span class="tb-brand"><span>SDH</span>&nbsp; Pitch Deck</span>
+  <a href="#architecture">Architecture</a>
+  <a href="#tiers">Tiers</a>
+  <a href="#addons">Add-Ons</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#investment">Investment</a>
+  <a href="#recommend">Recommend</a>
+</nav>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
@@ -362,7 +381,7 @@ p{color:var(--muted)}
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="14" height="12" rx="2"/><path d="M2 8h14"/><circle cx="6" cy="12" r="1" fill="currentColor"/></svg></div>
         <h3>Stewardship Portal</h3>
         <p>Web UI for business users to review matching suggestions, approve/reject, and manage override mappings.</p>
-        <div class="addon-meta"><span>+60 – 120 h build</span><span>+$100 – 400 /mo</span></div>
+        <div class="addon-meta"><span>+60 – 120 h build</span><span>+$150 – 500 /mo</span></div>
       </div>
       <div class="addon ai-teal rv rv-d2">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg></div>
@@ -380,7 +399,7 @@ p{color:var(--muted)}
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h10M4 9h10M4 14h6"/><circle cx="15" cy="14" r="2"/></svg></div>
         <h3>Data Lineage &amp; Catalog</h3>
         <p>Full lineage visualization, impact analysis, and Unity Catalog enrichment for governance.</p>
-        <div class="addon-meta"><span>+25 – 50 h build</span><span>+$50 – 200 /mo</span></div>
+        <div class="addon-meta"><span>+40 – 80 h build</span><span>+$100 – 400 /mo</span></div>
       </div>
       <div class="addon ai-purple rv rv-d4">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12l5-5 3 3 6-7"/><path d="M12 3h4v4"/></svg></div>
@@ -392,7 +411,7 @@ p{color:var(--muted)}
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2a7 7 0 110 14 7 7 0 010-14zM6 9h6"/></svg></div>
         <h3>FinOps Package</h3>
         <p>Cluster optimization, job cost monitoring, and usage dashboards. Typically pays for itself within months.</p>
-        <div class="addon-meta"><span>+15 – 30 h build</span><span>Saves cost</span></div>
+        <div class="addon-meta"><span>+20 – 40 h build</span><span>Net savings</span></div>
       </div>
       <div class="addon ai-amber rv rv-d4">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v3M9 13v3M2 9h3M13 9h3"/><circle cx="9" cy="9" r="4"/></svg></div>
@@ -522,10 +541,10 @@ p{color:var(--muted)}
     <div class="rec-grid rv rv-d1">
       <div>
         <div class="rec-form">
-          <div class="fg"><label>Total Sources (Phase 1)</label><input id="rS" type="number" min="2" max="20" value="3"/></div>
-          <div class="fg"><label>Business Units in Scope</label><input id="rB" type="number" min="1" max="10" value="1"/></div>
+          <div class="fg"><label>Data Sources</label><select id="rS"><option value="1">1 source</option><option value="2">2–3 sources</option><option value="3">4+ sources</option></select></div>
           <div class="fg"><label>Need SCD2 History?</label><select id="rH"><option value="no">No</option><option value="yes">Yes</option></select></div>
-          <div class="fg"><label>Currency Harmonization?</label><select id="rF"><option value="no">No</option><option value="yes">Yes</option></select></div>
+          <div class="fg"><label>Governance Requirements</label><select id="rG"><option value="low">Low — basic DQ</option><option value="med">Medium — alerting &amp; review</option><option value="high">High — full stewardship &amp; lineage</option></select></div>
+          <div class="fg"><label>Timeline Constraint</label><select id="rT"><option value="fast">Under 8 weeks</option><option value="med">8–16 weeks</option><option value="long">16+ weeks OK</option></select></div>
           <button class="rec-btn" onclick="doRec()">Get Recommendation</button>
         </div>
       </div>
@@ -539,10 +558,10 @@ p{color:var(--muted)}
   <div class="container rv">
     <h2>Ready to unify your sales data?</h2>
     <p>Start with a 1 – 2 week calibration discovery to lock your tier, shortlist add-ons, and produce a proposal-grade estimate.</p>
-    <button class="cta-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})">Start the Conversation</button>
+    <a href="mailto:contact@example.com" class="cta-btn" style="text-decoration:none">Get in Touch</a>
   </div>
 </section>
-<footer class="footer"><div class="container">Sales Data Harmonization — Confidential</div></footer>
+<footer class="footer"><div class="container">Sales Data Harmonization — Solutions Catalog v1.0 · February 2026 · Confidential</div></footer>
 
 <script>
 // Scroll reveal
@@ -551,23 +570,33 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
 // Recommendation
 function doRec(){
-  const s=+document.getElementById('rS').value,b=+document.getElementById('rB').value;
-  const scd=document.getElementById('rH').value==='yes',fx=document.getElementById('rF').value==='yes';
+  const src=document.getElementById('rS').value;
+  const scd=document.getElementById('rH').value;
+  const gov=document.getElementById('rG').value;
+  const time=document.getElementById('rT').value;
+  let score=0;
+  if(src==='2')score+=2;else if(src==='3')score+=4;
+  if(scd==='yes')score+=2;
+  if(gov==='med')score+=1;else if(gov==='high')score+=3;
+  if(time==='med')score+=1;else if(time==='long')score+=2;
   let t,c,e,r,w,tl;
-  if(b>=4){t='Tier 3 — PortCo Convergence';c='var(--amber)';e='820 – 1,900 h';r='$3,000 – 15,000 /mo';tl='27 – 36+ weeks';w='Multi-BU convergence requires PortCo-level hierarchy governance and wave-based rollout.';}
-  else if(b>1||s>=3){t='Tier 2 — Multi-Source';c='var(--blue)';e='290 – 685 h';r='$800 – 3,500 /mo';tl='9 – 14 weeks';w='Multi-source integration requires stronger onboarding, mapping automation, and operational controls.';}
-  else{t='Tier 1 — Foundation';c='var(--teal)';e='180 – 220 h';r='$300 – 1,200 /mo';tl='~ 5.5 weeks';w='Single BU with limited source count fits the foundation model.';}
-  if(scd)e+=' + SCD2 uplift (~30-50h)';
+  if(score<=2){t='Tier 1 — Foundation';c='var(--teal)';e='180 – 220 h';r='$300 – 1,200 /mo';tl='~ 5.5 weeks';w='Single source with basic governance fits the foundation model. Fast time-to-value with minimal platform cost.';}
+  else if(score<=5){t='Tier 2 — Multi-Source';c='var(--blue)';e='290 – 685 h';r='$800 – 3,500 /mo';tl='9 – 14 weeks';w='Multiple sources and/or advanced quality requirements push you into Tier 2. Good balance of scope and speed.';}
+  else{t='Tier 3 — PortCo Convergence';c='var(--amber)';e='820 – 1,900 h';r='$3,000 – 15,000 /mo';tl='27 – 36+ weeks';w='Full governance, lineage, and enterprise-scale requirements call for the convergence tier.';}
   let x='';
-  if(fx)x+='<div class="ro-row"><span class="ro-rl">Add-on</span><span class="ro-rv" style="color:var(--purple)">Currency & Fiscal Overlay (+120-320h)</span></div>';
-  if(s>=4)x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Stewardship Portal for exception queue</span></div>';
-  if(s>=3)x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Advanced DQ & Alerting (+30-60h)</span></div>';
+  if(scd==='yes')x+='<div class="ro-row"><span class="ro-rl">Add-on</span><span class="ro-rv">SCD2 Historical Tracking (+30-50h)</span></div>';
+  if(gov==='high')x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Stewardship Portal (+60-120h)</span></div>';
+  if(src==='3')x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Advanced DQ & Alerting (+30-60h)</span></div>';
   document.getElementById('rOut').innerHTML=
     '<div class="ro-tier" style="color:'+c+'">'+t+'</div><div class="ro-why">'+w+'</div>'+
     '<div class="ro-row"><span class="ro-rl">Build Estimate</span><span class="ro-rv">'+e+'</span></div>'+
     '<div class="ro-row"><span class="ro-rl">Timeline</span><span class="ro-rv">'+tl+'</span></div>'+
     '<div class="ro-row"><span class="ro-rl">Platform Cost</span><span class="ro-rv">'+r+'</span></div>'+x;
 }
+
+// Nav active state
+const navObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){document.querySelectorAll('.topbar a[href^="#"]').forEach(a=>a.classList.remove('active'));const a=document.querySelector('.topbar a[href="#'+x.target.id+'"]');if(a)a.classList.add('active')}})},{threshold:.2,rootMargin:'-52px 0px -60% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>navObs.observe(s));
 </script>
 </body>
 </html>
