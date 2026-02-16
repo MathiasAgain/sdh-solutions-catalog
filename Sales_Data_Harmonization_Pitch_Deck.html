@@ -628,67 +628,97 @@ p{color:var(--muted)}
 <section class="slide" id="model">
   <div class="container">
     <div class="rv"><div class="label">Delivery Model</div>
-    <h2>You Own the Platform. We Power the Engine.</h2>
-    <p class="subtitle">Clean separation between licensed framework, your configuration, and your infrastructure. No lock-in, full transparency.</p></div>
+    <h2>Full Handover. Continuous Edge.</h2>
+    <p class="subtitle">You own everything — code, data, infrastructure. Our advantage is the accelerator library we maintain across all engagements.</p></div>
 
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px">
-      <!-- Framework -->
+      <!-- Accelerator -->
       <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
         <div style="padding:4px 0;background:linear-gradient(90deg,var(--teal),var(--teal-l))"></div>
         <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Licensed · Maintained by Us</div>
-          <h3 style="font-size:1.05rem">SDH Core Framework</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Private Python package: matching engine, DQ framework, pipeline factory, crosswalk manager.</p>
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Maintained by Us · Forked for You</div>
+          <h3 style="font-size:1.05rem">SDH Accelerator</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Battle-tested library of matching algorithms, pipeline templates, DQ rules, and source connectors — refined across every engagement.</p>
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">from sdh_core import</code> MatchingEngine</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">from sdh_core import</code> PipelineFactory</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">from sdh_core import</code> DQFramework</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">accelerator/</code> matching_engine</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">accelerator/</code> pipeline_factory</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--teal);font-weight:600;font-size:.72rem">accelerator/</code> dq_framework</div>
           </div>
-          <p style="font-size:.75rem;color:var(--teal);font-weight:600;margin-top:12px">Updates &amp; new algorithms flow to all customers via versioned releases.</p>
+          <p style="font-size:.75rem;color:var(--teal);font-weight:600;margin-top:12px">You get v4.1 today. Six months from now, we're on v5.0 — with learnings from every engagement since yours.</p>
         </div>
       </div>
       <!-- Config -->
       <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
         <div style="padding:4px 0;background:linear-gradient(90deg,var(--blue),var(--blue-l))"></div>
         <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Customer-Owned · Git-Controlled</div>
-          <h3 style="font-size:1.05rem">Configuration Layer</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your source schemas, matching rules, thresholds, and KPI definitions in YAML/JSON configs.</p>
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Your Code · Your Repo</div>
+          <h3 style="font-size:1.05rem">Configuration &amp; Logic</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your source schemas, matching rules, thresholds, and KPI definitions. Fully handed over in your Git repo.</p>
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
             <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">config/</code>sources.yaml</div>
             <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">config/</code>matching_rules.yaml</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">config/</code>dq_policies.yaml</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--blue);font-weight:600;font-size:.72rem">notebooks/</code>run_pipeline.py</div>
           </div>
-          <p style="font-size:.75rem;color:var(--blue);font-weight:600;margin-top:12px">Stored in your Azure DevOps or GitHub. Full audit trail, PR reviews, CI/CD.</p>
+          <p style="font-size:.75rem;color:var(--blue);font-weight:600;margin-top:12px">Azure DevOps or GitHub. Full audit trail, PR reviews, CI/CD. You own and modify freely.</p>
         </div>
       </div>
       <!-- Infra -->
       <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
         <div style="padding:4px 0;background:linear-gradient(90deg,var(--amber),var(--amber-l))"></div>
         <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:6px">Customer-Owned · Your Cloud</div>
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:6px">Your Workspace · Your Data</div>
           <h3 style="font-size:1.05rem">Infrastructure</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your Databricks workspace, Azure storage, compute, and all data. You see and own every line.</p>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your Databricks workspace, Azure storage, compute, and all data. We develop in your environment and hand over.</p>
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
             <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">Azure</code> Databricks + ADLS</div>
             <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">Unity</code> Catalog &amp; Governance</div>
             <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><code style="color:var(--amber);font-weight:600;font-size:.72rem">All</code> Data: Bronze → Gold</div>
           </div>
-          <p style="font-size:.75rem;color:var(--amber);font-weight:600;margin-top:12px">No vendor lock-in. Walk away any time with your data, configs, and notebooks.</p>
+          <p style="font-size:.75rem;color:var(--amber);font-weight:600;margin-top:12px">Everything is yours from day one. No lock-in, no dependencies on us to keep it running.</p>
         </div>
       </div>
     </div>
 
-    <!-- Bottom callout -->
-    <div class="rv rv-d4" style="margin-top:20px;background:linear-gradient(135deg,rgba(13,124,102,.04),rgba(46,80,144,.04));border:1px solid var(--line);border-radius:var(--r);padding:20px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-      <div style="flex:1;min-width:200px">
-        <h3 style="font-size:.95rem">Revenue Model</h3>
-        <p style="font-size:.84rem;color:var(--muted);margin-top:4px">One-time <strong>build fee</strong> for configuration + deployment. Monthly <strong>framework license</strong> for ongoing access &amp; updates. Optional <strong>managed support</strong> with SLA.</p>
+    <!-- Why we stay relevant -->
+    <div class="rv rv-d4" style="margin-top:20px;background:linear-gradient(135deg,rgba(13,124,102,.04),rgba(46,80,144,.04));border:1px solid var(--line);border-radius:var(--r);padding:22px 24px">
+      <h3 style="font-size:.95rem;margin-bottom:12px">Why This Model Works</h3>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Speed</div>
+          <p style="font-size:.82rem;color:var(--muted)">We deliver in 5 weeks what takes 4 months from scratch — because the accelerator encodes patterns from every prior engagement.</p>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Cross-Portfolio Intelligence</div>
+          <p style="font-size:.82rem;color:var(--muted)">We see patterns across all BUs and PortCos. Which POS formats are common, which matching rules transfer, what governance models actually work.</p>
+        </div>
+        <div>
+          <div style="font-size:.72rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px">Continuous Improvement</div>
+          <p style="font-size:.82rem;color:var(--muted)">Six months after your handover, the accelerator is better. Upgrade engagements bring the latest algorithms, connectors, and best practices to your environment.</p>
+        </div>
       </div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <span style="font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:6px;background:rgba(13,124,102,.08);color:var(--teal)">Build Fee</span>
-        <span style="font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:6px;background:rgba(46,80,144,.08);color:var(--blue)">License /mo</span>
-        <span style="font-size:.72rem;font-weight:700;padding:6px 14px;border-radius:6px;background:rgba(193,120,23,.08);color:var(--amber)">Support (opt)</span>
+    </div>
+
+    <!-- Engagement types -->
+    <div class="rv rv-d4" style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
+        <div style="font-size:.68rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.1em">Build</div>
+        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Project Engagement</p>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Configure, deploy, tune, hand over</p>
+      </div>
+      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
+        <div style="font-size:.68rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em">Upgrade</div>
+        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Evolution Sprint</p>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Apply latest accelerator improvements</p>
+      </div>
+      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
+        <div style="font-size:.68rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.1em">Support</div>
+        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Retainer (Optional)</p>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">For BUs that prefer managed ops</p>
+      </div>
+      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
+        <div style="font-size:.68rem;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.1em">Expand</div>
+        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">New Use Cases</p>
+        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Analytics, ML, automation on top</p>
       </div>
     </div>
   </div>
