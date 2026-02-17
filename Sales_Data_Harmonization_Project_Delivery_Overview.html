@@ -269,7 +269,7 @@ p{color:var(--muted);font-size:.97rem}
       <div class="card card-accent rv rv-d1" style="border-top-color:var(--teal)">
         <span class="tier-badge badge-teal">Tier 1 &mdash; Foundation</span>
         <h3 style="margin-top:16px">Core Harmonization</h3>
-        <p style="font-size:.88rem;margin-top:8px">Single-source ingestion, product &amp; customer matching, standard DQ, and a unified sales fact table ready for BI.</p>
+        <p style="font-size:.88rem;margin-top:8px">Two-source ingestion, product &amp; customer matching, standard DQ, and a unified sales fact table ready for BI.</p>
         <div class="divider" style="margin:20px 0"></div>
         <table class="tbl">
           <tr><td style="font-weight:600;color:var(--navy)">Effort</td><td>180 &ndash; 220 h</td></tr>
@@ -469,7 +469,7 @@ p{color:var(--muted);font-size:.97rem}
   <div class="wrap">
     <span class="label label-blue">Effort Estimates</span>
     <h2 class="rv">Detailed Effort Breakdown</h2>
-    <p class="sub rv rv-d1">Side-by-side comparison of Scenario A (no SCD) and Scenario B (with SCD2 historical tracking) for a single-source Tier 1 engagement.</p>
+    <p class="sub rv rv-d1">Side-by-side comparison of Scenario A (no SCD) and Scenario B (with SCD2 historical tracking) for a two-source Tier 1 engagement.</p>
 
     <div class="scenario-grid gap-top">
       <!-- Scenario A -->
@@ -635,7 +635,7 @@ p{color:var(--muted);font-size:.97rem}
         <div>
           <div class="fg">
             <label>How many data sources?</label>
-            <select id="tr-sources"><option value="1">1 source</option><option value="2">2 &ndash; 3 sources</option><option value="3">4+ sources</option></select>
+            <select id="tr-sources"><option value="1">2 sources</option><option value="2">3 &ndash; 4 sources</option><option value="3">5+ sources</option></select>
           </div>
           <div class="fg">
             <label>Do you need historical (SCD2) tracking?</label>
@@ -1133,7 +1133,7 @@ function runTierEngine(){
   let tier,color,badge,desc,effort,timeline,platform,eng;
   if(score<=2){
     tier='Tier 1 \u2014 Foundation';color='var(--teal)';badge='badge-teal';
-    desc='Single source with basic governance fits the foundation model. Fast time-to-value with minimal platform cost.';
+    desc='Two core sources with basic quality checks is a good starting point. Quick to deliver with minimal running costs.';
     effort='180 \u2013 220 h';timeline='\u223C5.5 weeks';platform='$50 \u2013 300 /mo';eng='8 \u2013 20 h/mo';
   } else if(score<=5){
     tier='Tier 2 \u2014 Multi-Source';color='var(--blue)';badge='badge-blue';

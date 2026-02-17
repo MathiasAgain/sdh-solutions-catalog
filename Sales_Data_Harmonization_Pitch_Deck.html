@@ -251,7 +251,7 @@ p{color:var(--muted)}
     <p class="subtitle">Each tier builds on the previous. Pick the one that matches where you are today — you can always grow from there.</p></div>
     <div class="tier-row">
       <div class="tc t1 rv rv-d1">
-        <div class="tc-head"><div class="tc-badge">Tier 1</div><h3>Foundation</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, single source</p></div>
+        <div class="tc-head"><div class="tc-badge">Tier 1</div><h3>Foundation</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 2 core sources</p></div>
         <div class="tc-body">
           <ul class="tc-feat">
             <li>Unified product &amp; customer lists across source</li>
@@ -269,7 +269,7 @@ p{color:var(--muted)}
         </div>
       </div>
       <div class="tc t2 rv rv-d2">
-        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 6 sources</p></div>
+        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 5 sources</p></div>
         <div class="tc-body">
           <ul class="tc-feat">
             <li>Repeatable process to add new data sources</li>
@@ -841,7 +841,7 @@ p{color:var(--muted)}
     <div class="rec-grid rv rv-d1">
       <div>
         <div class="rec-form">
-          <div class="fg"><label>Data Sources</label><select id="rS"><option value="1">1 source</option><option value="2">2–3 sources</option><option value="3">4+ sources</option></select></div>
+          <div class="fg"><label>Data Sources</label><select id="rS"><option value="1">2 sources</option><option value="2">3–4 sources</option><option value="3">5+ sources</option></select></div>
           <div class="fg"><label>Need historical tracking?</label><select id="rH"><option value="no">No — current state is enough</option><option value="yes">Yes — need to see how data changed over time</option></select></div>
           <div class="fg"><label>Data quality &amp; oversight</label><select id="rG"><option value="low">Basic — catch obvious errors</option><option value="med">Moderate — alerts &amp; review workflows</option><option value="high">Comprehensive — full audit trail &amp; traceability</option></select></div>
           <div class="fg"><label>Timeline Constraint</label><select id="rT"><option value="fast">Under 8 weeks</option><option value="med">8–16 weeks</option><option value="long">16+ weeks OK</option></select></div>
@@ -880,7 +880,7 @@ function doRec(){
   if(gov==='med')score+=1;else if(gov==='high')score+=3;
   if(time==='med')score+=1;else if(time==='long')score+=2;
   let t,c,e,r,w,tl;
-  if(score<=2){t='Tier 1 — Foundation';c='var(--teal)';e='180 – 220 h';r='$50 – 300 /mo';tl='~ 5.5 weeks';w='A single source with basic quality checks is a good starting point. Quick to deliver with minimal running costs.';}
+  if(score<=2){t='Tier 1 — Foundation';c='var(--teal)';e='180 – 220 h';r='$50 – 300 /mo';tl='~ 5.5 weeks';w='Two core sources with basic quality checks is a good starting point. Quick to deliver with minimal running costs.';}
   else if(score<=5){t='Tier 2 — Multi-Source';c='var(--blue)';e='290 – 685 h';r='$150 – 600 /mo';tl='9 – 14 weeks';w='Multiple sources and/or stronger quality requirements point to Tier 2. A good balance of scope and speed.';}
   else{t='Tier 3 — PortCo Convergence';c='var(--purple)';e='820 – 1,900 h';r='$400 – 1,500 /mo';tl='27 – 36+ weeks';w='Full traceability, cross-BU alignment, and enterprise-scale requirements call for the convergence tier.';}
   let x='';
