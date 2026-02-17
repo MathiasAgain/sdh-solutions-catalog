@@ -13,7 +13,7 @@ Customer-facing microsite for an internal consulting team offering **Sales Data 
 | File | Purpose | Audience |
 |------|---------|----------|
 | `index.html` | Landing microsite — two-card entry point | Everyone |
-| `Sales_Data_Harmonization_Pitch_Deck.html` | Executive pitch — value prop, tiers, delivery model, architecture, investment | Decision-makers, sponsors |
+| `Sales_Data_Harmonization_Pitch_Deck.html` | Solutions Overview — challenge, outcomes, delivery model, tiers, architecture, investment | Decision-makers, sponsors |
 | `Sales_Data_Harmonization_Project_Delivery_Overview.html` | Technical deep-dive — effort breakdowns, interactive tools, SOW, risks, prerequisites | Project managers, data leads |
 
 ## Key Context
@@ -46,7 +46,7 @@ Internal consultants (not external vendors). We hand over everything — code, d
 ### Tier Colors (consistent across both docs)
 - Tier 1 Foundation → **teal**
 - Tier 2 Multi-Source → **blue**
-- Tier 3 PortCo Convergence → **purple**
+- Tier 3 Enterprise → **purple**
 - Currency & Fiscal Overlay → **amber** (add-on, NOT "Tier 4")
 
 ## Canonical Numbers
@@ -56,7 +56,7 @@ Internal consultants (not external vendors). We hand over everything — code, d
 |------|-------|----------|-------------|----------------|
 | Foundation | 180–220h | ~5.5 weeks | $50–300 | 8–20h |
 | Multi-Source | 290–685h | 9–14 weeks | $150–600 | 16–40h |
-| PortCo Convergence | 820–1,900h | 27–36+ weeks | $400–1,500 | 40–120h |
+| Enterprise | 820–1,900h | 27–36+ weeks | $400–1,500 | 40–120h |
 
 ### Add-Ons
 | Add-On | Hours | Monthly |
@@ -73,18 +73,19 @@ Internal consultants (not external vendors). We hand over everything — code, d
 
 **Important**: If you change a number, update it in BOTH HTML files. The same values appear in tier cards, investment tables, recommendation engines, and effort breakdowns.
 
-## Pitch Deck Section Order
+## Solutions Overview Section Order
 Deliberate narrative flow — do not rearrange without reason:
 1. Hero
-2. Problem (pain points)
-3. **Tiers** (what you can buy)
+2. Challenge (FMCG-specific pain: sell-in/sell-out, distributor formats, promotional reconciliation)
+3. **Outcomes** (what life looks like after harmonization)
 4. **Delivery Model** (why us — the accelerator)
-5. **Architecture** (how it works — for the curious)
-6. Add-Ons
-7. Timeline (Gantt)
-8. Investment (cost table)
-9. Recommendation Engine
-10. CTA
+5. **Tiers** (scope levels with deliverables list)
+6. **Architecture** (behind expand/toggle — for the curious)
+7. Add-Ons
+8. Timeline (Gantt)
+9. Investment (cost table)
+10. Recommendation Engine
+11. CTA
 
 ## Interactive Tools
 Both docs have JavaScript-powered tools. Keep logic in sync:
@@ -98,20 +99,26 @@ Both docs have JavaScript-powered tools. Keep logic in sync:
 ### Placeholder
 - `contact@example.com` appears in 3 places (2 files). Replace when real email provided.
 
-### Content Gaps (from deep review, not yet addressed)
-1. **Problem section too generic** — needs FMCG-specific pain (sell-in vs sell-out, distributor format variance, promotional reconciliation)
-2. **No outcome framing** — missing "what life looks like after harmonization"
-3. **Tiers lead with tech, not business value** — should lead with outcomes ("one set of numbers for commercial reviews")
-4. **Delivery model claims unsubstantiated** — "5 weeks vs 4 months" needs evidence or softening
-5. **No competitive positioning** — why us vs SI, MDM tool, or DIY
-6. **Add-on descriptions feature-focused** — should be benefit-focused
-7. **No social proof** — no past engagement references
-8. **"Tier 4" label confusing** — Currency overlay is an add-on, not a tier. Consider dropping "Tier 4" framing in Overview.
-9. **Calculator needs guidance** — benchmark ranges / tooltips for inputs
-10. **Missing content**: deliverables list, before/after visual, post-handover guide, FAQ section
-11. **Federated Autonomy section operationally thin** — needs detail on what each wave actually delivers
-12. **No mobile hamburger nav on Pitch Deck** — nav overflows on small screens
-13. **No print stylesheet** — documents won't PDF cleanly (fixed navs, hidden reveal elements)
+### Remaining Content Gaps
+- **No competitive positioning** — why us vs SI, MDM tool, or DIY
+- **No social proof** — no past engagement references
+- **Calculator needs guidance** — benchmark ranges / tooltips for inputs
+- **Missing content**: before/after visual, post-handover guide, FAQ section
+- **No mobile hamburger nav on Solutions Overview** — nav overflows on small screens
+- **No print stylesheet** — documents won't PDF cleanly (fixed navs, hidden reveal elements)
+
+### Resolved (Feb 2026)
+- Problem section → FMCG-specific (sell-in/sell-out, distributor formats, promotional reconciliation)
+- Outcome framing → new "What You Get" section added
+- Tiers → deliverables list added per tier
+- "Tier 4" label → removed, now "Optional Overlay" in Overview
+- Deliverables list → added to each tier card
+- Section order → Challenge → Outcomes → Delivery → Tiers → Architecture (toggle) → ...
+- "PortCo Convergence" → renamed to "Enterprise"
+- "Business Hours /mo" → renamed to "Your Team's Time /mo"
+- Gantt jargon → "Conformance" → "Matching", "Harden & Ops" → "Quality & Testing", "UAT & Handover" → "Testing & Handover"
+- Architecture diagram → behind expand/toggle
+- Landing page → updated numbers, jargon removed, "Pitch Deck" → "Solutions Overview"
 
 ## Architecture Diagram
 The Pitch Deck has a full SVG blueprint-style architecture diagram (`id="architecture"`). It uses:

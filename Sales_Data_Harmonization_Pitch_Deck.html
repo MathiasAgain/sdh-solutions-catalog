@@ -19,7 +19,8 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
+.hero{order:1}#challenge{order:2}#outcomes{order:3}#model{order:4}#tiers{order:5}#architecture{order:6}#addons{order:7}#timeline{order:8}#investment{order:9}#recommend{order:10}.cta{order:11}.footer{order:12}
 
 /* Typography */
 h1{font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.025em}
@@ -185,21 +186,40 @@ p{color:var(--muted)}
 @media(max-width:600px){.hero{padding:72px 0 56px}.slide{padding:56px 0}.hero-chips{gap:8px}.gantt-track{grid-template-columns:100px repeat(14,1fr)}}
 
 /* ═══════ NAV BAR ═══════ */
-.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;gap:6px;padding:0 28px;background:rgba(27,42,74,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;order:0;height:52px;display:flex;align-items:center;gap:6px;padding:0 28px;background:rgba(27,42,74,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
 .topbar a{font-size:.76rem;font-weight:600;color:rgba(255,255,255,.6);text-decoration:none;padding:5px 10px;border-radius:6px;transition:all .2s;white-space:nowrap}
 .topbar a:hover{color:#fff;background:rgba(255,255,255,.1)}
 .topbar a.active{color:#fff;background:rgba(255,255,255,.14)}
 .topbar .tb-brand{font-weight:700;font-size:.85rem;color:#fff;margin-right:auto;letter-spacing:.03em}
 .topbar .tb-brand span{color:var(--teal-l)}
 .topbar .tb-back{color:var(--teal-l);margin-right:8px}
+
+/* ═══════ ARCHITECTURE TOGGLE ═══════ */
+.arch-toggle{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 20px;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.88rem;font-weight:600;color:var(--navy);cursor:pointer;transition:var(--ease);font-family:inherit}
+.arch-toggle:hover{background:var(--bg);border-color:var(--blue);box-shadow:var(--sh-s)}
+.arch-toggle .arrow{transition:transform .3s;display:inline-block}
+.arch-toggle.open .arrow{transform:rotate(90deg)}
+.arch-content{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1),opacity .4s;opacity:0}
+.arch-content.open{max-height:2000px;opacity:1}
+
+/* ═══════ OUTCOMES ═══════ */
+.outcome-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+@media(max-width:600px){.outcome-grid{grid-template-columns:1fr}}
+
+/* ═══════ DELIVERABLES ═══════ */
+.tc-deliverables{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-l)}
+.tc-deliverables-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:6px}
+.tc-deliverables ul{list-style:none;display:flex;flex-wrap:wrap;gap:5px}
+.tc-deliverables li{font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:5px;background:var(--bg);color:var(--faint)}
 </style>
 </head>
 <body>
 <nav class="topbar">
   <a href="index.html" class="tb-back">← Catalog</a>
   <span class="tb-brand"><span>SDH</span>&nbsp; Solutions Overview</span>
-  <a href="#tiers">Tiers</a>
+  <a href="#outcomes">Outcomes</a>
   <a href="#model">Model</a>
+  <a href="#tiers">Tiers</a>
   <a href="#architecture">Architecture</a>
   <a href="#addons">Add-Ons</a>
   <a href="#timeline">Timeline</a>
@@ -221,7 +241,7 @@ p{color:var(--muted)}
 </section>
 
 <!-- ═══ PROBLEM ═══ -->
-<section class="slide">
+<section class="slide" id="challenge">
   <div class="container">
     <div class="rv"><div class="label">The Challenge</div>
     <h2>Sales data that doesn't add up</h2>
@@ -229,22 +249,49 @@ p{color:var(--muted)}
     <div class="pain-grid">
       <div class="pain rv rv-d1">
         <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/><path d="M9 5.5h2.5V11"/></svg></div>
-        <h3>Disconnected Sources</h3><p>Internal shipments and point-of-sale feeds live in different formats, arrive at different times, and use different naming — with no way to link them.</p>
+        <h3>Sell-in vs Sell-out Disconnect</h3><p>Shipment data from your ERP and point-of-sale data from retailers tell different stories. Without linking them, you can't see the full picture from factory to shelf — or spot where stock is building up.</p>
       </div>
       <div class="pain rv rv-d2">
         <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="6" cy="8" r="4"/><circle cx="14" cy="8" r="4"/><path d="M10 5v6" opacity=".4"/></svg></div>
-        <h3>Mismatched Hierarchies</h3><p>Product names, pack sizes, and customer chains don't align across sources — making comparison manual and unreliable.</p>
+        <h3>Distributor Format Chaos</h3><p>Every retailer and distributor sends data in their own format, product coding, and delivery schedule. Getting a like-for-like comparison across channels takes manual effort every single time.</p>
       </div>
       <div class="pain rv rv-d3">
         <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="3" width="16" height="14" rx="2"/><path d="M2 8h16M7 8v9"/></svg></div>
-        <h3>Manual Reconciliation</h3><p>Teams spend weeks every month stitching spreadsheets instead of focusing on insights and commercial decisions.</p>
+        <h3>Promotional Reconciliation</h3><p>Matching promotional plans to actual sales across channels takes weeks, delaying commercial reviews and forecast updates. By the time the numbers are ready, the window to act has passed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OUTCOMES ═══ -->
+<section class="slide slide-alt" id="outcomes">
+  <div class="container">
+    <div class="rv"><div class="label">What You Get</div>
+    <h2>What life looks like after harmonization</h2>
+    <p class="subtitle">The end result is a single, trusted view of sales data — refreshed automatically and ready for reporting.</p></div>
+    <div class="outcome-grid">
+      <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
+        <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">One set of numbers</div>
+        <p style="font-size:.88rem;color:var(--muted)">Commercial reviews, forecasting, and executive reporting all work from the same figures. No more "my numbers say something different."</p>
+      </div>
+      <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
+        <div style="font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Reports in hours, not weeks</div>
+        <p style="font-size:.88rem;color:var(--muted)">Automated pipelines refresh data daily or weekly. No manual stitching, no waiting for someone to update a spreadsheet.</p>
+      </div>
+      <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
+        <div style="font-size:.72rem;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Self-service analytics</div>
+        <p style="font-size:.88rem;color:var(--muted)">Commercial teams can slice and filter by channel, customer, product, and period — without depending on a data team to prepare each view.</p>
+      </div>
+      <div class="rv rv-d4" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
+        <div style="font-size:.72rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Clear ownership &amp; auditability</div>
+        <p style="font-size:.88rem;color:var(--muted)">Every number traces back to its source. Business rules are documented and versioned. You know exactly what was matched, how, and when.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ═══ TIERS ═══ -->
-<section class="slide" id="tiers">
+<section class="slide slide-alt" id="tiers">
   <div class="container">
     <div class="rv"><div class="label">Service Tiers</div>
     <h2>Three levels of scope</h2>
@@ -266,10 +313,14 @@ p{color:var(--muted)}
             <div class="tc-m"><div class="mv">$50 – 300</div><div class="ml">Platform /mo</div></div>
             <div class="tc-m"><div class="mv">8 – 20 h</div><div class="ml">Eng support /mo</div></div>
           </div>
+          <div class="tc-deliverables">
+            <div class="tc-deliverables-title">You receive</div>
+            <ul><li>Configured pipelines</li><li>Matched product &amp; customer lists</li><li>Quality dashboard</li><li>Documentation package</li><li>Full handover</li></ul>
+          </div>
         </div>
       </div>
       <div class="tc t2 rv rv-d2">
-        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 5 sources</p></div>
+        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 5 sources</p><p style="font-size:.78rem;color:var(--blue);margin-top:6px;font-weight:500">For when you need to bring in additional retailer feeds, distributor data, or POS channels beyond two core sources.</p></div>
         <div class="tc-body">
           <ul class="tc-feat">
             <li>Repeatable process to add new data sources</li>
@@ -284,10 +335,14 @@ p{color:var(--muted)}
             <div class="tc-m"><div class="mv">$150 – 600</div><div class="ml">Platform /mo</div></div>
             <div class="tc-m"><div class="mv">16 – 40 h</div><div class="ml">Eng support /mo</div></div>
           </div>
+          <div class="tc-deliverables">
+            <div class="tc-deliverables-title">You receive</div>
+            <ul><li>Everything in Tier 1</li><li>Source onboarding playbook</li><li>Cross-source reconciliation</li><li>Automated quality gates</li></ul>
+          </div>
         </div>
       </div>
       <div class="tc t3 rv rv-d3">
-        <div class="tc-head"><div class="tc-badge">Tier 3</div><h3>PortCo Convergence</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">4 – 6 BUs, 2+ sources each</p></div>
+        <div class="tc-head"><div class="tc-badge">Tier 3</div><h3>Enterprise</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">4 – 6 BUs, 2+ sources each</p></div>
         <div class="tc-body">
           <ul class="tc-feat">
             <li>Shared product &amp; customer hierarchy across BUs</li>
@@ -301,6 +356,10 @@ p{color:var(--muted)}
             <div class="tc-m"><div class="mv">27 – 36+ weeks</div><div class="ml">Timeline</div></div>
             <div class="tc-m"><div class="mv">$400 – 1,500</div><div class="ml">Platform /mo</div></div>
             <div class="tc-m"><div class="mv">40 – 120 h</div><div class="ml">Eng support /mo</div></div>
+          </div>
+          <div class="tc-deliverables">
+            <div class="tc-deliverables-title">You receive</div>
+            <ul><li>Everything in Tier 2</li><li>Shared hierarchy model</li><li>BU-specific views</li><li>Governance framework</li><li>Rollout playbook</li></ul>
           </div>
         </div>
       </div>
@@ -409,11 +468,13 @@ p{color:var(--muted)}
 </section>
 
 <!-- ═══ ARCHITECTURE ═══ -->
-<section class="slide slide-alt" id="architecture">
+<section class="slide" id="architecture">
   <div class="container">
     <div class="rv"><div class="label">How It Works</div>
     <h2>From raw data to trusted reports</h2>
-    <p class="subtitle">Data flows through three layers: capture it as-is, clean and standardize it, then shape it for reporting and decisions.</p></div>
+    <p class="subtitle">Data flows through three layers: capture it as-is, clean and standardize it, then shape it for reporting and decisions.</p>
+    <button class="arch-toggle rv rv-d1" onclick="this.classList.toggle('open');document.getElementById('archContent').classList.toggle('open')"><span class="arrow">&#9654;</span> Show platform architecture diagram</button></div>
+    <div class="arch-content" id="archContent">
     <div class="arch-blueprint rv rv-d1">
       <svg class="arch-svg" viewBox="0 0 960 520" fill="none" xmlns="http://www.w3.org/2000/svg">
 
@@ -655,6 +716,7 @@ p{color:var(--muted)}
         <div class="legend-item"><div class="legend-line" style="background:rgba(74,127,212,.25)"></div> Data path</div>
       </div>
     </div>
+    </div>
   </div>
 </section>
 
@@ -728,7 +790,7 @@ p{color:var(--muted)}
   <div class="container">
     <div class="rv"><div class="label">Delivery Timeline</div>
     <h2>Indicative Project Plans by Tier</h2>
-    <p class="subtitle">Based on 1 engineer with AI tooling support. Timelines adjust with allocation and dependency readiness.</p></div>
+    <p class="subtitle">Indicative timelines. Actual pace depends on team allocation and data readiness.</p></div>
     <div class="gantt-wrap rv rv-d1">
       <div class="gantt">
         <div class="gantt-header">
@@ -754,13 +816,13 @@ p{color:var(--muted)}
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
           </div>
           <div class="gantt-track">
-            <div class="gantt-task">Conformance</div>
+            <div class="gantt-task">Matching</div>
             <div class="gantt-empty"></div><div class="gantt-empty"></div>
             <div class="gantt-bar b-teal span-3" title="W3-W5: Product & customer matching"></div>
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
           </div>
           <div class="gantt-track">
-            <div class="gantt-task">UAT &amp; Handover</div>
+            <div class="gantt-task">Testing &amp; Handover</div>
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
             <div class="gantt-bar b-teal span-2" title="W5-W6: Testing, docs, handover"></div>
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
@@ -782,7 +844,7 @@ p{color:var(--muted)}
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
           </div>
           <div class="gantt-track">
-            <div class="gantt-task">Harden &amp; Ops</div>
+            <div class="gantt-task">Quality &amp; Testing</div>
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
             <div class="gantt-bar b-blue span-4" title="W8-W11: Governance hardening, DQ, FinOps"></div>
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
@@ -791,10 +853,10 @@ p{color:var(--muted)}
 
         <!-- Tier 3 -->
         <div class="gantt-group">
-          <div class="gantt-group-label"><span class="gantt-group-dot" style="background:var(--purple)"></span>Tier 3 — PortCo Convergence (27 – 36+ weeks)</div>
+          <div class="gantt-group-label"><span class="gantt-group-dot" style="background:var(--purple)"></span>Tier 3 — Enterprise (27 – 36+ weeks)</div>
           <div class="gantt-track">
             <div class="gantt-task">Global Design</div>
-            <div class="gantt-bar b-purple span-4" title="W1-W4: PortCo hierarchy & governance design"></div>
+            <div class="gantt-bar b-purple span-4" title="W1-W4: Cross-BU hierarchy & governance design"></div>
             <div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div><div class="gantt-empty"></div>
           </div>
           <div class="gantt-track">
@@ -821,11 +883,11 @@ p{color:var(--muted)}
     <h2>Build Effort &amp; Monthly Platform Costs</h2>
     <p class="subtitle">Platform costs cover cloud processing, storage, and reporting infrastructure. Engineering support hours are additional.</p></div>
     <table class="inv-table rv rv-d1">
-      <thead><tr><th>Tier</th><th>Build Effort</th><th>Timeline</th><th>Platform /mo</th><th>Eng Support /mo</th><th>Business Hours /mo</th></tr></thead>
+      <thead><tr><th>Tier</th><th>Build Effort</th><th>Timeline</th><th>Platform /mo</th><th>Eng Support /mo</th><th>Your Team's Time /mo</th></tr></thead>
       <tbody>
         <tr><td><span class="dot" style="background:var(--teal)"></span><strong>Tier 1</strong> Foundation</td><td>180 – 220 h</td><td>~5.5 weeks</td><td>$50 – 300</td><td>8 – 20 h</td><td>2 – 8 h</td></tr>
         <tr><td><span class="dot" style="background:var(--blue)"></span><strong>Tier 2</strong> Multi-Source</td><td>290 – 685 h</td><td>9 – 14 weeks</td><td>$150 – 600</td><td>16 – 40 h</td><td>6 – 20 h</td></tr>
-        <tr><td><span class="dot" style="background:var(--purple)"></span><strong>Tier 3</strong> PortCo</td><td>820 – 1,900 h</td><td>27 – 36+ weeks</td><td>$400 – 1,500</td><td>40 – 120 h</td><td>16 – 60 h</td></tr>
+        <tr><td><span class="dot" style="background:var(--purple)"></span><strong>Tier 3</strong> Enterprise</td><td>820 – 1,900 h</td><td>27 – 36+ weeks</td><td>$400 – 1,500</td><td>40 – 120 h</td><td>16 – 60 h</td></tr>
       </tbody>
     </table>
     <div class="inv-note rv">Platform costs assume daily or weekly data refreshes with standard data retention. Costs scale primarily with the number of sources, data volume, and how frequently reports need updating. Add-on services carry their own incremental costs as listed.</div>
@@ -882,7 +944,7 @@ function doRec(){
   let t,c,e,r,w,tl;
   if(score<=2){t='Tier 1 — Foundation';c='var(--teal)';e='180 – 220 h';r='$50 – 300 /mo';tl='~ 5.5 weeks';w='Two core sources with basic quality checks is a good starting point. Quick to deliver with minimal running costs.';}
   else if(score<=5){t='Tier 2 — Multi-Source';c='var(--blue)';e='290 – 685 h';r='$150 – 600 /mo';tl='9 – 14 weeks';w='Multiple sources and/or stronger quality requirements point to Tier 2. A good balance of scope and speed.';}
-  else{t='Tier 3 — PortCo Convergence';c='var(--purple)';e='820 – 1,900 h';r='$400 – 1,500 /mo';tl='27 – 36+ weeks';w='Full traceability, cross-BU alignment, and enterprise-scale requirements call for the convergence tier.';}
+  else{t='Tier 3 — Enterprise';c='var(--purple)';e='820 – 1,900 h';r='$400 – 1,500 /mo';tl='27 – 36+ weeks';w='Full traceability, cross-BU alignment, and enterprise-scale requirements call for the Enterprise tier.';}
   let x='';
   if(scd==='yes')x+='<div class="ro-row"><span class="ro-rl">Add-on</span><span class="ro-rv">Historical Change Tracking (+30-50h)</span></div>';
   if(gov==='high')x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Stewardship Portal (+60-120h)</span></div>';
