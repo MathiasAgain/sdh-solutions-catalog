@@ -311,7 +311,7 @@ p{color:var(--muted);font-size:.97rem}
     <!-- Tier 4 strip -->
     <div class="tier4-strip rv rv-d3">
       <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
-        <span class="tier-badge badge-amber">Tier 4 &mdash; Optional Overlay</span>
+        <span class="tier-badge badge-amber">Optional Overlay</span>
         <div>
           <h4 style="margin-bottom:4px">Currency &amp; Fiscal Normalization</h4>
           <p style="font-size:.88rem">Multi-currency conversion, fiscal calendar alignment, and FX-rate management. Can be layered onto any tier.</p>
@@ -781,7 +781,7 @@ p{color:var(--muted);font-size:.97rem}
         <p class="phase-num" style="color:var(--purple)">Phase 3</p>
         <h4>Expand &amp; Operate</h4>
         <p style="font-size:.82rem;font-weight:600;color:var(--blue);margin:6px 0">Ongoing</p>
-        <p style="font-size:.85rem">New BUs and sources, Tier 4 overlay, lineage &amp; catalog, FinOps optimization, training rollout, and transition to BAU support model.</p>
+        <p style="font-size:.85rem">New BUs and sources, currency &amp; fiscal overlay, lineage &amp; catalog, FinOps optimization, training rollout, and transition to BAU support model.</p>
       </div>
     </div>
   </div>
@@ -1133,7 +1133,7 @@ function runTierEngine(){
   let tier,color,badge,desc,effort,timeline,platform,eng;
   if(score<=2){
     tier='Tier 1 \u2014 Foundation';color='var(--teal)';badge='badge-teal';
-    desc='Core harmonization with a single source is your best starting point. Fast time-to-value with minimal platform cost.';
+    desc='Single source with basic governance fits the foundation model. Fast time-to-value with minimal platform cost.';
     effort='180 \u2013 220 h';timeline='\u223C5.5 weeks';platform='$50 \u2013 300 /mo';eng='8 \u2013 20 h/mo';
   } else if(score<=5){
     tier='Tier 2 \u2014 Multi-Source';color='var(--blue)';badge='badge-blue';
@@ -1141,9 +1141,13 @@ function runTierEngine(){
     effort='290 \u2013 685 h';timeline='9 \u2013 14 weeks';platform='$150 \u2013 600 /mo';eng='16 \u2013 40 h/mo';
   } else {
     tier='Tier 3 \u2014 PortCo Convergence';color='var(--purple)';badge='badge-purple';
-    desc='Full governance, lineage, and multi-BU requirements call for the enterprise tier. Plan for a longer runway.';
+    desc='Full governance, lineage, and enterprise-scale requirements call for the convergence tier.';
     effort='820 \u2013 1,900 h';timeline='27 \u2013 36+ weeks';platform='$400 \u2013 1,500 /mo';eng='40 \u2013 120 h/mo';
   }
+  let addons='';
+  if(scd==='yes')addons+='<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:.85rem"><span style="color:var(--muted)">Add-on</span><span style="font-weight:600">SCD2 Historical Tracking (+30\u201350h)</span></div>';
+  if(gov==='high')addons+='<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:.85rem"><span style="color:var(--muted)">Suggested</span><span style="font-weight:600">Stewardship Portal (+60\u2013120h)</span></div>';
+  if(src==='3')addons+='<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);font-size:.85rem"><span style="color:var(--muted)">Suggested</span><span style="font-weight:600">Advanced DQ & Alerting (+30\u201360h)</span></div>';
   const out=document.getElementById('tr-output');
   out.style.display='block';
   out.innerHTML='<div style="text-align:center"><span class="tier-badge '+badge+'" style="font-size:.85rem">'+tier+'</span>'+
@@ -1155,7 +1159,7 @@ function runTierEngine(){
     '<div class="metric-row" style="margin-top:8px">'+
       '<div class="metric-box"><div class="mv" style="color:'+color+'">'+platform+'</div><div class="ml">Platform Cost</div></div>'+
       '<div class="metric-box"><div class="mv" style="color:'+color+'">'+eng+'</div><div class="ml">Engineering</div></div>'+
-    '</div></div>';
+    '</div></div>'+addons;
 }
 
 /* ── Business Case Calculator ── */
