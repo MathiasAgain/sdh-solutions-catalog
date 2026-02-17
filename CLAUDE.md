@@ -66,10 +66,11 @@ Internal consultants (not external vendors). We hand over everything — code, d
 | Stewardship Portal | 60–120h | $30–100 |
 | SCD2 Historical Tracking | 30–50h | +$10–40 |
 | Additional Source | 40–85h/src | +$30–100 |
-| Data Lineage & Catalog | 40–80h | $20–60 |
 | Currency & Fiscal Overlay | 120–320h | $50–200 |
-| FinOps Package | 20–40h | Net savings |
-| Training & Enablement | 20–40h | One-time |
+| API / Data Product Layer | 40–80h | $30–100 |
+| Automated Anomaly Detection | 40–80h | $20–80 |
+
+**Removed add-ons (Feb 2026)**: FinOps (folded into support retainer), Training (included in all tiers), Data Lineage & Catalog (included in Tier 3).
 
 **Important**: If you change a number, update it in BOTH HTML files. The same values appear in tier cards, investment tables, recommendation engines, and effort breakdowns.
 
