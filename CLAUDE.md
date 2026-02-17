@@ -54,20 +54,20 @@ Internal consultants (not external vendors). We hand over everything — code, d
 ### Tiers
 | Tier | Hours | Timeline | Platform/mo | Eng Support/mo |
 |------|-------|----------|-------------|----------------|
-| Foundation | 180–220h | ~5.5 weeks | $300–1,200 | 8–20h |
-| Multi-Source | 290–685h | 9–14 weeks | $800–3,500 | 16–40h |
-| PortCo Convergence | 820–1,900h | 27–36+ weeks | $3,000–15,000 | 40–120h |
+| Foundation | 180–220h | ~5.5 weeks | $50–300 | 8–20h |
+| Multi-Source | 290–685h | 9–14 weeks | $150–600 | 16–40h |
+| PortCo Convergence | 820–1,900h | 27–36+ weeks | $400–1,500 | 40–120h |
 
 ### Add-Ons
 | Add-On | Hours | Monthly |
 |--------|-------|---------|
-| Power BI Semantic Model | 40–80h | $200–600 |
-| Advanced DQ & Alerting | 30–60h | $100–400 |
-| Stewardship Portal | 60–120h | $150–500 |
-| SCD2 Historical Tracking | 30–50h | +$50–150 |
-| Additional Source | 40–85h/src | +$100–400 |
-| Data Lineage & Catalog | 40–80h | $100–400 |
-| Currency & Fiscal Overlay | 120–320h | $200–800 |
+| Power BI Semantic Model | 40–80h | $20–80 |
+| Advanced DQ & Alerting | 30–60h | $20–80 |
+| Stewardship Portal | 60–120h | $30–100 |
+| SCD2 Historical Tracking | 30–50h | +$10–40 |
+| Additional Source | 40–85h/src | +$30–100 |
+| Data Lineage & Catalog | 40–80h | $20–60 |
+| Currency & Fiscal Overlay | 120–320h | $50–200 |
 | FinOps Package | 20–40h | Net savings |
 | Training & Enablement | 20–40h | One-time |
 
