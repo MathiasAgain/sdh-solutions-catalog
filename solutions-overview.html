@@ -221,9 +221,10 @@ p{color:var(--muted)}
   <a href="#model">How We Work</a>
   <a href="#tiers">Tiers</a>
   <a href="#addons">Add-Ons</a>
-  <a href="#timeline">Timeline</a>
   <a href="#investment">Investment</a>
   <a href="#recommend">Recommend</a>
+  <a href="#tools">Tools</a>
+  <a href="#packs">Starter Packs</a>
 </nav>
 
 <!-- ═══ HERO ═══ -->
@@ -363,29 +364,6 @@ p{color:var(--muted)}
       </div>
     </div>
 
-    <!-- Engagement types -->
-    <div class="rv rv-d4" style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
-      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
-        <div style="font-size:.68rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.1em">Build</div>
-        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Project Engagement</p>
-        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Configure, deploy, tune, hand over</p>
-      </div>
-      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
-        <div style="font-size:.68rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.1em">Upgrade</div>
-        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Evolution Sprint</p>
-        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Apply latest accelerator improvements</p>
-      </div>
-      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
-        <div style="font-size:.68rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.1em">Support</div>
-        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">Retainer (Optional)</p>
-        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">For BUs that prefer managed ops</p>
-      </div>
-      <div style="flex:1;min-width:180px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center">
-        <div style="font-size:.68rem;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.1em">Expand</div>
-        <p style="font-size:.82rem;font-weight:700;color:var(--navy);margin-top:4px">New Use Cases</p>
-        <p style="font-size:.76rem;color:var(--muted);margin-top:2px">Analytics, ML, automation on top</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -526,8 +504,8 @@ p{color:var(--muted)}
   </div>
 </section>
 
-<!-- ═══ TIMELINE ═══ -->
-<section class="slide" id="timeline">
+<!-- Timeline Gantt removed — too detailed for business audience -->
+<section style="display:none" id="timeline">
   <div class="container">
     <div class="rv"><div class="label">Delivery Timeline</div>
     <h2>Indicative Project Plans by Tier</h2>
@@ -656,6 +634,86 @@ p{color:var(--muted)}
   </div>
 </section>
 
+<!-- ═══ INTERACTIVE TOOLS ═══ -->
+<section class="slide" id="tools">
+  <div class="container">
+    <div class="rv"><div class="label">Planning Tools</div>
+    <h2>Build Your Case</h2>
+    <p class="subtitle">Two interactive tools to help you quantify the value and assess readiness before kick-off.</p></div>
+
+    <!-- Business Case Calculator -->
+    <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);padding:28px;margin-top:28px">
+      <h3 style="margin-bottom:6px">Business Case Calculator</h3>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:20px">Quantify annual value, running costs, net benefit, and payback period.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div>
+          <div class="fg"><label>Manual Hours / Month</label><input type="number" id="bc-hours" value="80" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"></div>
+          <div class="fg"><label>Loaded Cost / Hour ($)</label><input type="number" id="bc-cost" value="75" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"></div>
+          <div class="fg"><label>Effort Reduction (%)</label><input type="number" id="bc-reduce" value="30" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"></div>
+          <div class="fg"><label>Decision Uplift / Month ($)</label><input type="number" id="bc-uplift" value="8000" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"></div>
+          <div class="fg"><label>Avoided Cost / Year ($)</label><input type="number" id="bc-avoided" value="30000" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"></div>
+          <div class="fg"><label>Run Cost / Month ($)</label><input type="number" id="bc-run" value="4000" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"></div>
+          <div class="fg"><label>Build Cost &mdash; One Time ($)</label><input type="number" id="bc-build" value="150000" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"></div>
+          <button onclick="runBizCase()" style="width:100%;padding:13px;font-size:.9rem;font-weight:600;background:var(--navy);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:inherit;margin-top:4px">Calculate Business Case</button>
+        </div>
+        <div id="bc-output" style="background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;align-items:center;justify-content:center;min-height:280px">
+          <p style="color:var(--faint);font-size:.9rem;text-align:center">Complete the inputs and click<br><strong>Calculate Business Case</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Readiness Scorecard -->
+    <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);padding:28px;margin-top:18px">
+      <h3 style="margin-bottom:6px">Readiness Scorecard</h3>
+      <p style="font-size:.88rem;color:var(--muted);margin-bottom:20px">Rate five dimensions to see if you're ready to start.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div>
+          <div class="fg"><label>Platform Access</label><select id="rd-plat" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"><option value="2">Green &mdash; ready</option><option value="1">Amber &mdash; partial</option><option value="0">Red &mdash; not ready</option></select></div>
+          <div class="fg"><label>Source Data Quality</label><select id="rd-qual" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"><option value="2">Green &mdash; clean &amp; documented</option><option value="1">Amber &mdash; usable with caveats</option><option value="0">Red &mdash; significant gaps</option></select></div>
+          <div class="fg"><label>Business Sponsorship</label><select id="rd-biz" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"><option value="2">Green &mdash; sponsor engaged</option><option value="1">Amber &mdash; sponsor identified</option><option value="0">Red &mdash; no sponsor</option></select></div>
+          <div class="fg"><label>Governance Maturity</label><select id="rd-gov" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"><option value="2">Green &mdash; policies in place</option><option value="1">Amber &mdash; some standards</option><option value="0">Red &mdash; none</option></select></div>
+          <div class="fg"><label>KPI &amp; Reporting Clarity</label><select id="rd-kpi" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;font-family:inherit"><option value="2">Green &mdash; KPIs defined</option><option value="1">Amber &mdash; partially defined</option><option value="0">Red &mdash; undefined</option></select></div>
+          <button onclick="runReadiness()" style="width:100%;padding:13px;font-size:.9rem;font-weight:600;background:var(--navy);color:#fff;border:none;border-radius:8px;cursor:pointer;font-family:inherit;margin-top:4px">Score Readiness</button>
+        </div>
+        <div id="rd-output" style="background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:24px;display:flex;align-items:center;justify-content:center;min-height:260px">
+          <p style="color:var(--faint);font-size:.9rem;text-align:center">Rate each dimension and click<br><strong>Score Readiness</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STARTER PACKS ═══ -->
+<section class="slide slide-alt" id="packs">
+  <div class="container">
+    <div class="rv"><div class="label">Starter Packs</div>
+    <h2>Pre-Configured for Your Audience</h2>
+    <p class="subtitle">Each Starter Pack bundles a tier with targeted add-ons for a specific functional group.</p></div>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px">
+      <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);border-top:3px solid var(--teal);padding:24px">
+        <div style="font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(13,124,102,.1);color:var(--teal);display:inline-block;text-transform:uppercase;letter-spacing:.05em">Sales Leadership</div>
+        <h3 style="margin-top:12px">Revenue &amp; Volume Trends</h3>
+        <p style="font-size:.85rem;margin-top:8px;color:var(--muted)">Unified view of sales performance across distributors. Revenue trends by channel, region, and product line.</p>
+      </div>
+      <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);border-top:3px solid var(--blue);padding:24px">
+        <div style="font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(46,80,144,.1);color:var(--blue);display:inline-block;text-transform:uppercase;letter-spacing:.05em">Category &amp; Trade</div>
+        <h3 style="margin-top:12px">SKU Mix &amp; Promo Analytics</h3>
+        <p style="font-size:.85rem;margin-top:8px;color:var(--muted)">Product-level insights powering assortment analysis, promotional effectiveness, and distribution gaps.</p>
+      </div>
+      <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);border-top:3px solid var(--amber);padding:24px">
+        <div style="font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(193,120,23,.1);color:var(--amber);display:inline-block;text-transform:uppercase;letter-spacing:.05em">Revenue Growth Management</div>
+        <h3 style="margin-top:12px">Price-Pack &amp; Net Revenue</h3>
+        <p style="font-size:.85rem;margin-top:8px;color:var(--muted)">Price-pack architecture analysis, trade spend decomposition, and net revenue waterfall views.</p>
+      </div>
+      <div class="rv rv-d4" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);border-top:3px solid var(--purple);padding:24px">
+        <div style="font-size:.68rem;font-weight:700;padding:3px 10px;border-radius:20px;background:rgba(107,79,160,.1);color:var(--purple);display:inline-block;text-transform:uppercase;letter-spacing:.05em">Portfolio Executive</div>
+        <h3 style="margin-top:12px">Cross-BU KPIs &amp; Portfolio View</h3>
+        <p style="font-size:.85rem;margin-top:8px;color:var(--muted)">Cross-BU performance comparison, portfolio-level dashboards, and M&amp;A integration readiness.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ CTA ═══ -->
 <section class="cta">
   <div class="container rv">
@@ -695,6 +753,66 @@ function doRec(){
     '<div class="ro-row"><span class="ro-rl">Build Estimate</span><span class="ro-rv">'+e+'</span></div>'+
     '<div class="ro-row"><span class="ro-rl">Timeline</span><span class="ro-rv">'+tl+'</span></div>'+
     '<div class="ro-row"><span class="ro-rl">Platform Cost</span><span class="ro-rv">'+r+'</span></div>'+x;
+}
+
+// Business Case Calculator
+function runBizCase(){
+  const hrs=+document.getElementById('bc-hours').value;
+  const cost=+document.getElementById('bc-cost').value;
+  const red=+document.getElementById('bc-reduce').value/100;
+  const uplift=+document.getElementById('bc-uplift').value;
+  const avoided=+document.getElementById('bc-avoided').value;
+  const run=+document.getElementById('bc-run').value;
+  const build=+document.getElementById('bc-build').value;
+  const laborSave=hrs*cost*red*12;
+  const decisionVal=uplift*12;
+  const grossAnnual=laborSave+decisionVal+avoided;
+  const annualRun=run*12;
+  const netAnnual=grossAnnual-annualRun;
+  const payback=netAnnual>0?(build/netAnnual*12):999;
+  const fmt=n=>'$'+Math.round(n).toLocaleString();
+  const maxBar=Math.max(grossAnnual,annualRun,Math.abs(netAnnual),build);
+  const bh=n=>Math.max(4,Math.round(Math.abs(n)/maxBar*160));
+  const out=document.getElementById('bc-output');
+  out.innerHTML=
+    '<div style="display:flex;align-items:flex-end;gap:16px;height:200px;padding:16px 0;margin-top:16px">'+
+      '<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="font-size:.8rem;font-weight:700;color:var(--navy)">'+fmt(grossAnnual)+'</div><div style="width:100%;border-radius:8px 8px 0 0;min-height:4px;height:'+bh(grossAnnual)+'px;background:linear-gradient(180deg,var(--teal-l),var(--teal))"></div><div style="font-size:.72rem;font-weight:600;color:var(--muted);text-align:center">Annual Gross</div></div>'+
+      '<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="font-size:.8rem;font-weight:700;color:var(--navy)">'+fmt(annualRun)+'</div><div style="width:100%;border-radius:8px 8px 0 0;min-height:4px;height:'+bh(annualRun)+'px;background:linear-gradient(180deg,var(--amber-l),var(--amber))"></div><div style="font-size:.72rem;font-weight:600;color:var(--muted);text-align:center">Annual Run</div></div>'+
+      '<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="font-size:.8rem;font-weight:700;color:var(--navy)">'+fmt(netAnnual)+'</div><div style="width:100%;border-radius:8px 8px 0 0;min-height:4px;height:'+bh(netAnnual)+'px;background:linear-gradient(180deg,var(--blue-l),var(--blue))"></div><div style="font-size:.72rem;font-weight:600;color:var(--muted);text-align:center">Annual Net</div></div>'+
+      '<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px"><div style="font-size:.8rem;font-weight:700;color:var(--navy)">'+fmt(build)+'</div><div style="width:100%;border-radius:8px 8px 0 0;min-height:4px;height:'+bh(build)+'px;background:linear-gradient(180deg,var(--faint),var(--muted))"></div><div style="font-size:.72rem;font-weight:600;color:var(--muted);text-align:center">Build Cost</div></div>'+
+    '</div>'+
+    '<div style="display:flex;gap:12px;margin-top:12px">'+
+      '<div style="flex:1;background:var(--card);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--line)"><div style="font-size:1.2rem;font-weight:800;color:var(--teal)">'+fmt(netAnnual)+'</div><div style="font-size:.72rem;color:var(--muted);margin-top:4px">Annual Net Value</div></div>'+
+      '<div style="flex:1;background:var(--card);border-radius:10px;padding:14px;text-align:center;border:1px solid var(--line)"><div style="font-size:1.2rem;font-weight:800;color:'+(payback<=12?'var(--green)':payback<=24?'var(--amber)':'var(--red)')+'">'+
+        (payback<999?payback.toFixed(1)+' mo':'N/A')+'</div><div style="font-size:.72rem;color:var(--muted);margin-top:4px">Payback Period</div></div>'+
+    '</div>';
+}
+
+// Readiness Scorecard
+function runReadiness(){
+  const dims=[{id:'rd-plat',label:'Platform Access'},{id:'rd-qual',label:'Source Quality'},{id:'rd-biz',label:'Business Sponsorship'},{id:'rd-gov',label:'Governance'},{id:'rd-kpi',label:'KPI / Reporting'}];
+  let total=0;
+  const results=dims.map(d=>{const v=+document.getElementById(d.id).value;total+=v;return{...d,v}});
+  const score=total;const max=10;
+  let rag,ragClass,advice;
+  if(score>=8){rag='Green';ragClass='rag-green';advice='Strong readiness. Proceed with confidence.';}
+  else if(score>=5){rag='Amber';ragClass='rag-amber';advice='Moderate readiness. Some areas need attention before kick-off.';}
+  else{rag='Red';ragClass='rag-red';advice='Significant gaps. Recommend a readiness sprint before project start.';}
+  const ringColor=score>=8?'var(--green)':score>=5?'var(--amber)':'var(--red)';
+  const dimHtml=results.map(r=>{
+    const s=r.v===2?'Green':r.v===1?'Amber':'Red';
+    const dc=r.v===2?'var(--green)':r.v===1?'var(--amber)':'var(--red)';
+    return '<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)">'+
+      '<span style="font-size:.85rem;color:var(--muted)">'+r.label+'</span>'+
+      '<span style="font-size:.75rem;font-weight:700;color:'+dc+'">'+s+'</span></div>';
+  }).join('');
+  const out=document.getElementById('rd-output');
+  out.style.display='block';
+  out.innerHTML='<div style="width:100%"><div style="text-align:center">'+
+    '<div style="width:80px;height:80px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:800;color:#fff;margin:0 auto 12px;background:'+ringColor+'">'+score+'/'+max+'</div>'+
+    '<div style="font-size:.9rem;font-weight:700;color:'+ringColor+'">'+rag+'</div>'+
+    '<p style="font-size:.85rem;margin-top:8px;color:var(--muted)">'+advice+'</p>'+
+    '</div><div style="margin-top:16px">'+dimHtml+'</div></div>';
 }
 
 // Nav active state
