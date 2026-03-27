@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sales Data Harmonization — Project Delivery Overview</title>
+<title>Engagement Guide — Orkla Data &amp; Analytics</title>
 <style>
 :root{
-  --navy:#1B2A4A;--navy2:#243656;--blue:#2E5090;--blue-l:#4A7FD4;
+  --navy:#7E0626;--navy2:#5A0419;--blue:#2E5090;--blue-l:#4A7FD4;
   --teal:#0D7C66;--teal-l:#10A37F;--amber:#C17817;--amber-l:#E09A30;
   --purple:#6B4FA0;--red:#C53030;--green:#276749;
-  --ink:#1A1A2E;--muted:#5A6B7F;--faint:#8896A6;
-  --bg:#F5F7FA;--card:#FFFFFF;--line:#E2E8F0;--line-l:#EDF2F7;
+  --ink:#1A1A2E;--muted:#5A6070;--faint:#8A8E9A;
+  --bg:#FAF8F6;--card:#FFFFFF;--line:#E6DED6;--line-l:#F0EBE5;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
@@ -73,7 +73,7 @@ p{color:var(--muted);font-size:.97rem}
 .chip .num{font-size:1rem;font-weight:800}
 
 /* ── Hero ── */
-.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 50%,var(--teal) 100%);color:#fff;padding:140px 0 80px;text-align:center}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 50%,#3D0812 100%);color:#fff;padding:140px 0 80px;text-align:center}
 .hero .sub{color:rgba(255,255,255,.8);margin:16px auto 0;font-size:1.1rem}
 .hero h1{color:#fff}
 .chips-center{justify-content:center}
@@ -115,7 +115,7 @@ p{color:var(--muted);font-size:.97rem}
 .fg select,.fg input{width:100%;padding:10px 14px;border:1px solid var(--line);border-radius:8px;font-size:.9rem;color:var(--ink);background:var(--card);transition:border-color .2s;font-family:inherit}
 .fg select:focus,.fg input:focus{outline:none;border-color:var(--blue-l);box-shadow:0 0 0 3px rgba(74,127,212,.15)}
 .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:10px;font-size:.9rem;font-weight:700;border:none;cursor:pointer;transition:all .2s;font-family:inherit}
-.btn-primary{background:linear-gradient(135deg,var(--blue),var(--teal));color:#fff}
+.btn-primary{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff}
 .btn-primary:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(46,80,144,.25)}
 .btn-outline{background:transparent;border:2px solid var(--blue);color:var(--blue)}
 .btn-outline:hover{background:rgba(46,80,144,.06)}
@@ -167,7 +167,7 @@ p{color:var(--muted);font-size:.97rem}
 .check-list li::before{content:'';display:block;width:20px;height:20px;border:2px solid var(--line);border-radius:6px;flex-shrink:0;margin-top:1px}
 
 /* ── CTA ── */
-.cta-section{background:linear-gradient(135deg,var(--navy),var(--blue) 60%,var(--teal));color:#fff;text-align:center;padding:80px 0}
+.cta-section{background:linear-gradient(135deg,var(--navy),var(--navy2) 60%,#3D0812);color:#fff;text-align:center;padding:80px 0}
 .cta-section h2{color:#fff}
 .cta-section p{color:rgba(255,255,255,.8)}
 .btn-white{background:#fff;color:var(--navy);font-weight:700;padding:14px 32px;border-radius:10px;border:none;cursor:pointer;font-size:.95rem;transition:all .2s;font-family:inherit}
@@ -196,24 +196,20 @@ p{color:var(--muted);font-size:.97rem}
 
 <!-- ══════════════════ NAV ══════════════════ -->
 <nav class="topnav" id="topnav">
-  <span class="topnav-brand">SDH Delivery</span>
+  <span class="topnav-brand">Orkla Engagement Guide</span>
   <button class="nav-toggle" id="navToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
   <div class="nav-links" id="navLinks">
     <a href="index.html" class="nav-link" style="color:var(--teal);margin-right:8px">← Catalog</a>
     <a href="#hero" class="nav-link active">Overview</a>
     <a href="#quickstart" class="nav-link">Quick Start</a>
     <a href="#tiers" class="nav-link">Tiers</a>
-    <a href="#autonomy" class="nav-link">Autonomy</a>
+    <a href="#autonomy" class="nav-link">Multi-BU</a>
     <a href="#addons" class="nav-link">Add-Ons</a>
     <a href="#effort" class="nav-link">Effort</a>
-    <a href="#mapping" class="nav-link">Mapping</a>
     <a href="#tools" class="nav-link">Tools</a>
     <a href="#packs" class="nav-link">Starter Packs</a>
     <a href="#roadmap" class="nav-link">Roadmap</a>
-    <a href="#model" class="nav-link">Model</a>
-    <a href="#sow" class="nav-link">SOW</a>
-    <a href="#risks" class="nav-link">Risks</a>
-    <a href="#prereqs" class="nav-link">Prerequisites</a>
+    <a href="#model" class="nav-link">How We Work</a>
   </div>
 </nav>
 
@@ -221,8 +217,8 @@ p{color:var(--muted);font-size:.97rem}
 <section class="hero" id="hero">
   <div class="wrap">
     <span class="label" style="background:rgba(255,255,255,.15);color:#fff">Project Delivery Overview</span>
-    <h1 class="rv">Sales Data Harmonization<br>Project Delivery Overview</h1>
-    <p class="sub rv rv-d1">The complete decision guide &mdash; scope, effort, costs, tooling, and readiness assessment for harmonizing distributor &amp; direct sales data across your portfolio.</p>
+    <h1 class="rv">Engagement Guide</h1>
+    <p class="sub rv rv-d1">The complete planning guide &mdash; scope, effort, costs, starter packs, and readiness assessment for unifying commercial data across your portfolio.</p>
     <div class="chips chips-center rv rv-d2">
       <span class="chip"><span class="num">3</span> Delivery Tiers</span>
       <span class="chip"><span class="num">8</span> Add-On Services</span>
@@ -268,8 +264,8 @@ p{color:var(--muted);font-size:.97rem}
       <!-- Tier 1 -->
       <div class="card card-accent rv rv-d1" style="border-top-color:var(--teal)">
         <span class="tier-badge badge-teal">Tier 1 &mdash; Foundation</span>
-        <h3 style="margin-top:16px">Core Harmonization</h3>
-        <p style="font-size:.88rem;margin-top:8px">Two-source ingestion, product &amp; customer matching, standard DQ, and a unified sales fact table ready for BI.</p>
+        <h3 style="margin-top:16px">Core Solution</h3>
+        <p style="font-size:.88rem;margin-top:8px">Two data sources combined into a single, trusted sales view — with product and customer matching, quality checks, and reporting-ready output.</p>
         <div class="divider" style="margin:20px 0"></div>
         <table class="tbl">
           <tr><td style="font-weight:600;color:var(--navy)">Effort</td><td>180 &ndash; 220 h</td></tr>
@@ -283,7 +279,7 @@ p{color:var(--muted);font-size:.97rem}
       <div class="card card-accent rv rv-d2" style="border-top-color:var(--blue)">
         <span class="tier-badge badge-blue">Tier 2 &mdash; Multi-Source</span>
         <h3 style="margin-top:16px">3–6 Sources, Cross-Market</h3>
-        <p style="font-size:.88rem;margin-top:8px">Additional POS/distributor sources, advanced data-quality rules, alerting, SCD2 historical tracking, and enriched analytics.</p>
+        <p style="font-size:.88rem;margin-top:8px">Additional retailer and distributor sources, stronger quality controls, alerting, historical tracking, and richer analytics.</p>
         <div class="divider" style="margin:20px 0"></div>
         <table class="tbl">
           <tr><td style="font-weight:600;color:var(--navy)">Effort</td><td>290 &ndash; 685 h</td></tr>
@@ -296,8 +292,8 @@ p{color:var(--muted);font-size:.97rem}
       <!-- Tier 3 -->
       <div class="card card-accent rv rv-d3" style="border-top-color:var(--purple)">
         <span class="tier-badge badge-purple">Tier 3 &mdash; Enterprise</span>
-        <h3 style="margin-top:16px">Multi-BU Portfolio Unification</h3>
-        <p style="font-size:.88rem;margin-top:8px">Enterprise data mesh, stewardship portal, data lineage &amp; catalog, FinOps, cross-BU federation, and full governance framework.</p>
+        <h3 style="margin-top:16px">Multi-BU Portfolio View</h3>
+        <p style="font-size:.88rem;margin-top:8px">Unified data across business units with shared standards, phased rollout, full traceability, and portfolio-wide governance.</p>
         <div class="divider" style="margin:20px 0"></div>
         <table class="tbl">
           <tr><td style="font-weight:600;color:var(--navy)">Effort</td><td>820 &ndash; 1,900 h</td></tr>
@@ -408,32 +404,32 @@ p{color:var(--muted);font-size:.97rem}
     <div class="g3 gap-top">
       <div class="card rv rv-d1">
         <span class="tag tag-blue">BI Layer</span>
-        <h4 style="margin-top:10px">Power BI Semantic Model</h4>
-        <p style="font-size:.85rem;margin-top:6px">Pre-built star schema, DAX measures, and report templates wired to the unified fact table.</p>
+        <h4 style="margin-top:10px">Power BI Reports</h4>
+        <p style="font-size:.85rem;margin-top:6px">Pre-built dashboards and report templates connected to your unified data.</p>
         <p style="font-size:.82rem;font-weight:700;color:var(--blue);margin-top:10px">40 &ndash; 80 h &nbsp;&middot;&nbsp; $20 &ndash; 80 /mo</p>
       </div>
       <div class="card rv rv-d1">
         <span class="tag tag-teal">Quality</span>
-        <h4 style="margin-top:10px">Advanced DQ &amp; Alerting</h4>
-        <p style="font-size:.85rem;margin-top:6px">Rule engine, anomaly detection, threshold alerting, and automated quarantine workflows.</p>
+        <h4 style="margin-top:10px">Advanced Quality &amp; Alerting</h4>
+        <p style="font-size:.85rem;margin-top:6px">Automated detection of data issues, trend monitoring, and alerts so problems are caught early.</p>
         <p style="font-size:.82rem;font-weight:700;color:var(--teal);margin-top:10px">30 &ndash; 60 h &nbsp;&middot;&nbsp; $20 &ndash; 80 /mo</p>
       </div>
       <div class="card rv rv-d2">
         <span class="tag tag-purple">Governance</span>
-        <h4 style="margin-top:10px">Stewardship Portal</h4>
-        <p style="font-size:.85rem;margin-top:6px">Web UI for business users to review, approve, and override mapping decisions with full audit trail.</p>
+        <h4 style="margin-top:10px">Business Review Portal</h4>
+        <p style="font-size:.85rem;margin-top:6px">Simple web interface for your team to review, approve, and manage matching decisions.</p>
         <p style="font-size:.82rem;font-weight:700;color:var(--purple);margin-top:10px">60 &ndash; 120 h &nbsp;&middot;&nbsp; $30 &ndash; 100 /mo</p>
       </div>
       <div class="card rv rv-d2">
         <span class="tag tag-blue">History</span>
-        <h4 style="margin-top:10px">SCD2 Historical Tracking</h4>
-        <p style="font-size:.85rem;margin-top:6px">Slowly-changing-dimension Type 2 tracking for product and customer attributes with effective dating.</p>
+        <h4 style="margin-top:10px">Historical Tracking</h4>
+        <p style="font-size:.85rem;margin-top:6px">Full history of how product and customer data changes over time, so you can report on "what it was then".</p>
         <p style="font-size:.82rem;font-weight:700;color:var(--blue);margin-top:10px">30 &ndash; 50 h &nbsp;&middot;&nbsp; +$10 &ndash; 40 /mo</p>
       </div>
       <div class="card rv rv-d2">
         <span class="tag tag-teal">Integration</span>
-        <h4 style="margin-top:10px">Additional Source Integration</h4>
-        <p style="font-size:.85rem;margin-top:6px">Each additional POS or distributor feed: connector build, schema mapping, DQ extension, and reconciliation.</p>
+        <h4 style="margin-top:10px">Additional Data Source</h4>
+        <p style="font-size:.85rem;margin-top:6px">Each additional retailer or distributor feed — connected, validated, and integrated.</p>
         <p style="font-size:.82rem;font-weight:700;color:var(--teal);margin-top:10px">40 &ndash; 85 h per source &nbsp;&middot;&nbsp; +$30 &ndash; 100 /mo</p>
       </div>
       <div class="card rv rv-d3">
@@ -444,14 +440,14 @@ p{color:var(--muted);font-size:.97rem}
       </div>
       <div class="card rv rv-d3">
         <span class="tag tag-blue">Integration</span>
-        <h4 style="margin-top:10px">API / Data Product Layer</h4>
-        <p style="font-size:.85rem;margin-top:6px">Expose harmonized data as REST APIs for other systems — CRM, planning tools, partner portals — to consume directly.</p>
+        <h4 style="margin-top:10px">Data Integration Layer</h4>
+        <p style="font-size:.85rem;margin-top:6px">Make unified data available to other systems — CRM, planning tools, partner portals — automatically.</p>
         <p style="font-size:.82rem;font-weight:700;color:var(--blue);margin-top:10px">40 &ndash; 80 h &nbsp;&middot;&nbsp; $30 &ndash; 100 /mo</p>
       </div>
       <div class="card rv rv-d4">
         <span class="tag tag-teal">Intelligence</span>
         <h4 style="margin-top:10px">Automated Anomaly Detection</h4>
-        <p style="font-size:.85rem;margin-top:6px">ML-based detection of unusual patterns — sudden drops, spikes, or missing feeds — with proactive alerting before issues reach reports.</p>
+        <p style="font-size:.85rem;margin-top:6px">Automatic detection of unusual patterns — sudden drops, spikes, or missing data — with alerts before issues reach reports.</p>
         <p style="font-size:.82rem;font-weight:700;color:var(--teal);margin-top:10px">40 &ndash; 80 h &nbsp;&middot;&nbsp; $20 &ndash; 80 /mo</p>
       </div>
     </div>
@@ -463,12 +459,12 @@ p{color:var(--muted);font-size:.97rem}
   <div class="wrap">
     <span class="label label-blue">Effort Estimates</span>
     <h2 class="rv">Detailed Effort Breakdown</h2>
-    <p class="sub rv rv-d1">Side-by-side comparison of Scenario A (no SCD) and Scenario B (with SCD2 historical tracking) for a two-source Tier 1 engagement.</p>
+    <p class="sub rv rv-d1">Side-by-side comparison of a standard engagement and one with historical tracking, for a two-source Tier 1 project.</p>
 
     <div class="scenario-grid gap-top">
       <!-- Scenario A -->
       <div class="card rv rv-d1">
-        <span class="tier-badge badge-teal" style="margin-bottom:16px">Scenario A &mdash; No SCD</span>
+        <span class="tier-badge badge-teal" style="margin-bottom:16px">Scenario A &mdash; Standard</span>
         <h4>180 &ndash; 220 h &nbsp;&middot;&nbsp; ~5 &ndash; 6 weeks</h4>
         <table class="tbl" style="margin-top:16px">
           <thead><tr><th>Workstream</th><th>Hours</th></tr></thead>
@@ -488,7 +484,7 @@ p{color:var(--muted);font-size:.97rem}
 
       <!-- Scenario B -->
       <div class="card rv rv-d2">
-        <span class="tier-badge badge-blue" style="margin-bottom:16px">Scenario B &mdash; With SCD2</span>
+        <span class="tier-badge badge-blue" style="margin-bottom:16px">Scenario B &mdash; With History</span>
         <h4>210 &ndash; 270 h &nbsp;&middot;&nbsp; ~6 &ndash; 7 weeks</h4>
         <table class="tbl" style="margin-top:16px">
           <thead><tr><th>Workstream</th><th>Hours</th></tr></thead>
@@ -500,10 +496,10 @@ p{color:var(--muted);font-size:.97rem}
             <tr><td>Mapping Operations</td><td>12 &ndash; 20 h</td></tr>
             <tr><td>DQ &amp; Reconciliation</td><td>22 &ndash; 32 h</td></tr>
             <tr><td>UAT &amp; Handover</td><td>16 &ndash; 24 h</td></tr>
-            <tr><td style="color:var(--blue);font-weight:600">+ Surrogate Key Mgmt</td><td>8 &ndash; 12 h</td></tr>
-            <tr><td style="color:var(--blue);font-weight:600">+ Effective Dating</td><td>8 &ndash; 14 h</td></tr>
+            <tr><td style="color:var(--blue);font-weight:600">+ Data Versioning</td><td>8 &ndash; 12 h</td></tr>
+            <tr><td style="color:var(--blue);font-weight:600">+ Change Tracking Setup</td><td>8 &ndash; 14 h</td></tr>
             <tr><td style="color:var(--blue);font-weight:600">+ Additional QA</td><td>6 &ndash; 10 h</td></tr>
-            <tr><td style="color:var(--blue);font-weight:600">+ Backfill</td><td>8 &ndash; 14 h</td></tr>
+            <tr><td style="color:var(--blue);font-weight:600">+ Historical Data Load</td><td>8 &ndash; 14 h</td></tr>
             <tr><td>Contingency (~10%)</td><td>12 &ndash; 22 h</td></tr>
           </tbody>
           <tfoot><tr><td style="font-weight:700;color:var(--navy)">Total</td><td style="font-weight:700;color:var(--navy)">210 &ndash; 270 h</td></tr></tfoot>
@@ -517,7 +513,7 @@ p{color:var(--muted);font-size:.97rem}
         <div class="step-num" style="background:var(--amber)">+</div>
         <div style="flex:1;min-width:200px">
           <h4>Additional POS Source</h4>
-          <p style="font-size:.88rem">Each additional distributor or POS source adds <strong>40 &ndash; 85 h</strong> (most likely <strong>~60 h</strong>) for connector build, schema mapping, DQ extension, and reconciliation.</p>
+          <p style="font-size:.88rem">Each additional data source (e.g. a new retailer or distributor) adds <strong>40 &ndash; 85 h</strong> (most likely <strong>~60 h</strong>) for integration, validation, and go-live.</p>
         </div>
       </div>
     </div>
@@ -534,8 +530,8 @@ p{color:var(--muted);font-size:.97rem}
   </div>
 </section>
 
-<!-- ══════════════════ MAPPING WORKSTREAM ══════════════════ -->
-<section id="mapping">
+<!-- Mapping workstream removed — technical content for internal twin -->
+<section style="display:none" id="mapping">
   <div class="wrap">
     <span class="label label-teal">Mapping Workstream</span>
     <h2 class="rv">Matching &amp; Mapping Deep Dive</h2>
@@ -792,16 +788,16 @@ p{color:var(--muted);font-size:.97rem}
       <div class="card card-accent rv rv-d1" style="border-top-color:var(--teal)">
         <div style="font-size:1.6rem;margin-bottom:8px">🚀</div>
         <span class="tier-badge badge-teal">Maintained by Us · Forked for You</span>
-        <h4 style="margin-top:12px">SDH Accelerator</h4>
-        <p style="font-size:.85rem;margin-top:8px">An internal, continuously-evolving library of battle-tested matching algorithms, pipeline templates, DQ rules, and source connectors — refined across every engagement we deliver.</p>
+        <h4 style="margin-top:12px">Orkla Accelerator</h4>
+        <p style="font-size:.85rem;margin-top:8px">A continuously-evolving toolkit of proven methods for matching products and customers, processing data, and catching quality issues — refined across every engagement we deliver.</p>
         <div class="divider" style="margin:16px 0"></div>
         <p style="font-size:.78rem;font-weight:600;color:var(--navy)">What's inside:</p>
         <ul style="margin-top:8px">
-          <li>Matching engine (deterministic + rules + fuzzy)</li>
-          <li>Pipeline factory (Bronze/Silver/Gold from config)</li>
-          <li>DQ rule library with tuned thresholds</li>
-          <li>Source connector templates (POS, distributor, API)</li>
-          <li>Crosswalk schemas &amp; reconciliation templates</li>
+          <li>Product &amp; customer matching — automatic linking across sources</li>
+          <li>Data processing — automated flows from raw data to clean reports</li>
+          <li>Quality rules — pre-built checks and alerting</li>
+          <li>Source connectors — ready-made integrations for common data formats</li>
+          <li>Reconciliation — built-in checks that numbers add up</li>
         </ul>
         <div style="margin-top:14px;padding:10px 14px;background:rgba(13,124,102,.06);border-radius:8px">
           <p style="font-size:.78rem;color:var(--teal);font-weight:600">Each engagement forks from the latest version. You get the snapshot; we keep the living, evolving version. After every engagement, we fold back what we learned.</p>
@@ -812,18 +808,18 @@ p{color:var(--muted);font-size:.97rem}
         <div style="font-size:1.6rem;margin-bottom:8px">📋</div>
         <span class="tier-badge badge-blue">Your Code · Your Repo</span>
         <h4 style="margin-top:12px">Configuration &amp; Logic</h4>
-        <p style="font-size:.85rem;margin-top:8px">Your business rules, source definitions, and matching thresholds. YAML/JSON configs plus orchestration notebooks — fully handed over in your Git repo.</p>
+        <p style="font-size:.85rem;margin-top:8px">Your business rules, source definitions, and matching logic — fully documented and handed over to you.</p>
         <div class="divider" style="margin:16px 0"></div>
         <p style="font-size:.78rem;font-weight:600;color:var(--navy)">What you own:</p>
         <ul style="margin-top:8px">
-          <li>Source schemas &amp; ingestion contracts</li>
-          <li>Matching rules &amp; confidence thresholds</li>
-          <li>DQ rule definitions &amp; alerting policies</li>
-          <li>KPI formulas &amp; business logic</li>
-          <li>All orchestration notebooks &amp; workflows</li>
+          <li>Source definitions — what data comes from where</li>
+          <li>Matching rules — how products &amp; customers are linked</li>
+          <li>Quality rules — what gets flagged and when</li>
+          <li>KPI formulas — how your key metrics are calculated</li>
+          <li>All processing logic and workflows</li>
         </ul>
         <div style="margin-top:14px;padding:10px 14px;background:rgba(46,80,144,.06);border-radius:8px">
-          <p style="font-size:.78rem;color:var(--blue);font-weight:600">Stored in your Azure DevOps or GitHub. Full audit trail, PR-based changes, CI/CD integration. You modify freely after handover.</p>
+          <p style="font-size:.78rem;color:var(--blue);font-weight:600">Everything is documented and versioned. You can modify freely after handover.</p>
         </div>
       </div>
 
@@ -831,14 +827,13 @@ p{color:var(--muted);font-size:.97rem}
         <div style="font-size:1.6rem;margin-bottom:8px">☁️</div>
         <span class="tier-badge badge-amber">Your Environment · Your Data</span>
         <h4 style="margin-top:12px">Infrastructure</h4>
-        <p style="font-size:.85rem;margin-top:8px">Your Databricks workspace, your Azure storage, your compute — managed by your IT team. We develop directly in your environment and hand over everything at project close.</p>
+        <p style="font-size:.85rem;margin-top:8px">Everything runs in your environment, managed by your IT team. We build it there and hand it over at project close.</p>
         <div class="divider" style="margin:16px 0"></div>
         <p style="font-size:.78rem;font-weight:600;color:var(--navy)">What you own:</p>
         <ul style="margin-top:8px">
-          <li>Databricks workspace &amp; Unity Catalog</li>
-          <li>ADLS / Blob storage accounts</li>
-          <li>SQL Warehouses &amp; job clusters</li>
-          <li>All data — Bronze, Silver, Gold, crosswalks</li>
+          <li>Your analytics platform and workspace</li>
+          <li>All data storage and processing</li>
+          <li>All data — from raw inputs to final reports</li>
           <li>Runbooks, documentation, &amp; knowledge transfer</li>
         </ul>
         <div style="margin-top:14px;padding:10px 14px;background:rgba(193,120,23,.06);border-radius:8px">
@@ -892,8 +887,8 @@ p{color:var(--muted);font-size:.97rem}
   </div>
 </section>
 
-<!-- ══════════════════ SOW SCOPE MATRIX ══════════════════ -->
-<section id="sow">
+<!-- ══════════════════ REMOVED: SOW, Risks, Prerequisites — technical content for internal twin ══════════════════ -->
+<section style="display:none">
   <div class="wrap">
     <span class="label label-blue">SOW Scope Matrix</span>
     <h2 class="rv">Scope, Assumptions &amp; Acceptance</h2>
@@ -1029,49 +1024,6 @@ p{color:var(--muted);font-size:.97rem}
   </div>
 </section>
 
-<!-- ══════════════════ PREREQUISITES ══════════════════ -->
-<section id="prereqs">
-  <div class="wrap">
-    <span class="label label-amber">Prerequisites</span>
-    <h2 class="rv">Engagement Prerequisites</h2>
-    <p class="sub rv rv-d1">Seven items to confirm before kick-off, plus gap-severity guidance if any are unmet.</p>
-
-    <div class="card rv rv-d1 gap-top">
-      <ul class="check-list">
-        <li><strong>Cloud platform access</strong> &mdash; Tenant, workspace, and service principal credentials provisioned (Azure / Databricks / Snowflake)</li>
-        <li><strong>Source data access</strong> &mdash; Read access to each in-scope distributor / POS source confirmed with IT and vendor</li>
-        <li><strong>Business sponsor identified</strong> &mdash; Named executive sponsor with authority to approve scope and sign off UAT</li>
-        <li><strong>SME availability committed</strong> &mdash; Minimum 2 h/week from product and customer domain experts during matching phases</li>
-        <li><strong>KPI definitions documented</strong> &mdash; At least draft definitions for primary sales KPIs (revenue, volume, ASP, distribution)</li>
-        <li><strong>Data governance baseline</strong> &mdash; Existing data classification, retention policies, or PII handling guidelines available</li>
-        <li><strong>Budget approval</strong> &mdash; Build cost and 12-month run cost approved through procurement / finance</li>
-      </ul>
-    </div>
-
-    <h4 class="rv rv-d2 gap-top" style="margin-bottom:16px">Gap Severity Guide</h4>
-    <div class="g3 rv rv-d3">
-      <div class="card" style="border-top:3px solid var(--green)">
-        <span class="rag rag-green"><span class="rag-dot"></span> Green</span>
-        <h4 style="margin-top:12px">Minor Gap</h4>
-        <p style="font-size:1.1rem;font-weight:800;color:var(--green);margin-top:8px">+10 &ndash; 25 h</p>
-        <p style="font-size:.85rem;margin-top:6px">Prerequisite partially met. Remediation can happen in parallel with Phase 0 / early Phase 1 without blocking delivery.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--amber)">
-        <span class="rag rag-amber"><span class="rag-dot"></span> Amber</span>
-        <h4 style="margin-top:12px">Moderate Gap</h4>
-        <p style="font-size:1.1rem;font-weight:800;color:var(--amber);margin-top:8px">+25 &ndash; 60 h</p>
-        <p style="font-size:.85rem;margin-top:6px">Prerequisite not met but path to resolution is clear. Requires dedicated remediation sprint before or during Phase 1.</p>
-      </div>
-      <div class="card" style="border-top:3px solid var(--red)">
-        <span class="rag rag-red"><span class="rag-dot"></span> Red</span>
-        <h4 style="margin-top:12px">Critical Gap</h4>
-        <p style="font-size:1.1rem;font-weight:800;color:var(--red);margin-top:8px">+1 &ndash; 3+ weeks</p>
-        <p style="font-size:.85rem;margin-top:6px">Prerequisite entirely unmet. Blocks project start. Requires executive intervention and dedicated remediation workstream.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ══════════════════ CTA ══════════════════ -->
 <section class="cta-section" id="cta">
   <div class="wrap">
@@ -1087,7 +1039,7 @@ p{color:var(--muted);font-size:.97rem}
 </section>
 
 <footer style="padding:24px;text-align:center;border-top:1px solid var(--line);background:var(--card)">
-  <p style="font-size:.75rem;color:var(--faint)">Sales Data Harmonization — Solutions Catalog v1.0 · February 2026 · Confidential</p>
+  <p style="font-size:.75rem;color:var(--faint)">Orkla Data &amp; Analytics — Solutions Catalog · March 2026 · Internal</p>
 </footer>
 
 <script>

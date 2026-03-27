@@ -3,24 +3,24 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Sales Data Harmonization — Solutions Overview</title>
+<title>Solutions Overview — Orkla Data &amp; Analytics</title>
 <style>
 :root {
-  --navy:#1B2A4A; --navy2:#243656; --blue:#2E5090; --blue-l:#4A7FD4;
+  --navy:#7E0626; --navy2:#5A0419; --blue:#2E5090; --blue-l:#4A7FD4;
   --teal:#0D7C66; --teal-l:#10A37F; --amber:#C17817; --amber-l:#E09A30;
   --purple:#6B4FA0; --red:#C53030; --green:#276749;
-  --ink:#1A1A2E; --muted:#5A6B7F; --faint:#8896A6;
-  --bg:#F5F7FA; --card:#FFFFFF; --line:#E2E8F0; --line-l:#EDF2F7;
-  --sh-s:0 1px 3px rgba(27,42,74,.05);
-  --sh-m:0 4px 16px rgba(27,42,74,.08);
-  --sh-l:0 12px 40px rgba(27,42,74,.1);
+  --ink:#1A1A2E; --muted:#5A6070; --faint:#8A8E9A;
+  --bg:#FAF8F6; --card:#FFFFFF; --line:#E6DED6; --line-l:#F0EBE5;
+  --sh-s:0 1px 3px rgba(126,6,38,.04);
+  --sh-m:0 4px 16px rgba(126,6,38,.07);
+  --sh-l:0 12px 40px rgba(126,6,38,.09);
   --r:12px; --rl:16px;
   --ease:.3s cubic-bezier(.4,0,.2,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
-.hero{order:1}#challenge{order:2}#outcomes{order:3}#model{order:4}#tiers{order:5}#architecture{order:6}#addons{order:7}#timeline{order:8}#investment{order:9}#recommend{order:10}.cta{order:11}.footer{order:12}
+.hero{order:1}#challenge{order:2}#outcomes{order:3}#model{order:4}#tiers{order:5}#addons{order:6}#timeline{order:7}#investment{order:8}#recommend{order:9}.cta{order:10}.footer{order:11}
 
 /* Typography */
 h1{font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.025em}
@@ -42,8 +42,8 @@ p{color:var(--muted)}
 .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.25s}.rv-d4{transition-delay:.35s}
 
 /* ═══════ HERO ═══════ */
-.hero{background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 45%,#1a4a7a 100%);color:#fff;padding:140px 0 88px;overflow:hidden;position:relative}
-.hero::after{content:'';position:absolute;top:-30%;right:-10%;width:55%;height:160%;background:radial-gradient(ellipse,rgba(13,124,102,.12),transparent 70%);pointer-events:none}
+.hero{background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 45%,#3D0812 100%);color:#fff;padding:140px 0 88px;overflow:hidden;position:relative}
+.hero::after{content:'';position:absolute;top:-30%;right:-10%;width:55%;height:160%;background:radial-gradient(ellipse,rgba(126,6,38,.15),transparent 70%);pointer-events:none}
 .hero .container{position:relative;z-index:1}
 .hero h1{color:#fff;margin-bottom:14px}
 .hero p{color:rgba(255,255,255,.68);font-size:1.12rem;max-width:640px;margin-bottom:44px}
@@ -151,7 +151,7 @@ p{color:var(--muted)}
 
 /* ═══════ INVESTMENT ═══════ */
 .inv-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:.88rem;margin-top:24px}
-.inv-table thead th{background:var(--navy);color:#fff;padding:14px 18px;font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;text-align:left}
+.inv-table thead th{background:#5A0419;color:#fff;padding:14px 18px;font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;text-align:left}
 .inv-table tbody td{padding:14px 18px;border-bottom:1px solid var(--line-l);vertical-align:middle}
 .inv-table tbody tr:last-child td{border-bottom:none}
 .inv-table tbody tr{transition:var(--ease)}.inv-table tbody tr:hover{background:rgba(13,124,102,.02)}
@@ -174,7 +174,7 @@ p{color:var(--muted)}
 .ro-rl{font-size:.84rem;color:var(--muted)}.ro-rv{font-size:.84rem;font-weight:700;color:var(--navy)}
 
 /* ═══════ CTA ═══════ */
-.cta{background:linear-gradient(140deg,var(--navy),var(--blue));color:#fff;text-align:center;padding:88px 0}
+.cta{background:linear-gradient(140deg,var(--navy),var(--navy2));color:#fff;text-align:center;padding:88px 0}
 .cta h2{color:#fff;margin-bottom:10px}
 .cta p{color:rgba(255,255,255,.65);max-width:500px;margin:0 auto 32px;font-size:1rem}
 .cta-btn{display:inline-block;padding:15px 40px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:var(--ease);font-family:inherit}
@@ -186,13 +186,13 @@ p{color:var(--muted)}
 @media(max-width:600px){.hero{padding:72px 0 56px}.slide{padding:56px 0}.hero-chips{gap:8px}.gantt-track{grid-template-columns:100px repeat(14,1fr)}}
 
 /* ═══════ NAV BAR ═══════ */
-.topbar{position:fixed;top:0;left:0;right:0;z-index:100;order:0;height:52px;display:flex;align-items:center;gap:6px;padding:0 28px;background:rgba(27,42,74,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;order:0;height:52px;display:flex;align-items:center;gap:6px;padding:0 28px;background:rgba(126,6,38,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
 .topbar a{font-size:.76rem;font-weight:600;color:rgba(255,255,255,.6);text-decoration:none;padding:5px 10px;border-radius:6px;transition:all .2s;white-space:nowrap}
 .topbar a:hover{color:#fff;background:rgba(255,255,255,.1)}
 .topbar a.active{color:#fff;background:rgba(255,255,255,.14)}
 .topbar .tb-brand{font-weight:700;font-size:.85rem;color:#fff;margin-right:auto;letter-spacing:.03em}
-.topbar .tb-brand span{color:var(--teal-l)}
-.topbar .tb-back{color:var(--teal-l);margin-right:8px}
+.topbar .tb-brand span{color:#E8B4C0}
+.topbar .tb-back{color:#E8B4C0;margin-right:8px}
 
 /* ═══════ ARCHITECTURE TOGGLE ═══════ */
 .arch-toggle{display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:12px 20px;background:var(--card);border:1px solid var(--line);border-radius:8px;font-size:.88rem;font-weight:600;color:var(--navy);cursor:pointer;transition:var(--ease);font-family:inherit}
@@ -216,11 +216,10 @@ p{color:var(--muted)}
 <body>
 <nav class="topbar">
   <a href="index.html" class="tb-back">← Catalog</a>
-  <span class="tb-brand"><span>SDH</span>&nbsp; Solutions Overview</span>
+  <span class="tb-brand"><span>Orkla</span>&nbsp; Solutions Overview</span>
   <a href="#outcomes">Outcomes</a>
-  <a href="#model">Model</a>
+  <a href="#model">How We Work</a>
   <a href="#tiers">Tiers</a>
-  <a href="#architecture">Architecture</a>
   <a href="#addons">Add-Ons</a>
   <a href="#timeline">Timeline</a>
   <a href="#investment">Investment</a>
@@ -230,8 +229,8 @@ p{color:var(--muted)}
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="container">
-    <div class="rv"><h1>Sales Data Harmonization</h1>
-    <p>Bring together fragmented sales data into one trusted, reporting-ready view — so commercial teams can stop reconciling spreadsheets and start making decisions.</p></div>
+    <div class="rv"><h1>Unified Commercial Data</h1>
+    <p>Turn fragmented sales data into one trusted, decision-ready view — so your commercial teams can focus on acting, not reconciling.</p></div>
     <div class="hero-chips rv rv-d1">
       <div class="chip"><div class="cv">What we do</div><div class="cl">Unify sales data across sources</div></div>
       <div class="chip"><div class="cv">How it works</div><div class="cl">Proven framework, full handover</div></div>
@@ -301,11 +300,11 @@ p{color:var(--muted)}
         <div class="tc-head"><div class="tc-badge">Tier 1</div><h3>Foundation</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 2 core sources</p></div>
         <div class="tc-body">
           <ul class="tc-feat">
-            <li>Unified product &amp; customer lists across sources</li>
-            <li>Automated data processing (raw &#8594; clean &#8594; reporting)</li>
-            <li>Data quality checks, reconciliation &amp; alerts</li>
-            <li>Review &amp; override workflow for matching decisions</li>
-            <li>Testing, documentation, training &amp; full handover</li>
+            <li>One unified list of products &amp; customers across your sources</li>
+            <li>Automated data processing — raw data in, clean reports out</li>
+            <li>Built-in quality checks and alerts when something looks wrong</li>
+            <li>Business review workflow for anything the system isn't sure about</li>
+            <li>Testing, documentation, training &amp; full handover to your team</li>
           </ul>
           <div class="tc-metrics">
             <div class="tc-m"><div class="mv">180 – 220 h</div><div class="ml">Build effort</div></div>
@@ -323,11 +322,11 @@ p{color:var(--muted)}
         <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 5 sources</p><p style="font-size:.78rem;color:var(--blue);margin-top:6px;font-weight:500">For when you need to bring in additional retailer feeds, distributor data, or POS channels beyond two core sources.</p></div>
         <div class="tc-body">
           <ul class="tc-feat">
-            <li>Repeatable process to add new data sources</li>
-            <li>Faster matching with more automation</li>
-            <li>Cross-source reconciliation &amp; validation</li>
-            <li>Automated quality gates on incoming data</li>
-            <li>Enhanced review workflows for larger volumes</li>
+            <li>Proven process to add new data sources quickly</li>
+            <li>Smarter matching — more automation, less manual work</li>
+            <li>Cross-source checks so numbers always reconcile</li>
+            <li>Automated quality checks on every incoming data feed</li>
+            <li>Streamlined review workflows for higher data volumes</li>
           </ul>
           <div class="tc-metrics">
             <div class="tc-m"><div class="mv">290 – 685 h</div><div class="ml">Build effort</div></div>
@@ -345,12 +344,12 @@ p{color:var(--muted)}
         <div class="tc-head"><div class="tc-badge">Tier 3</div><h3>Enterprise</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">4 – 6 BUs, 2+ sources each</p></div>
         <div class="tc-body">
           <ul class="tc-feat">
-            <li>Shared product &amp; customer hierarchy across BUs</li>
-            <li>Each BU keeps local definitions, mapped to a common standard</li>
-            <li>Phased rollout — one BU at a time</li>
-            <li>Full traceability of where every number comes from</li>
-            <li>Role-based access &amp; audit trail</li>
-            <li>Data lineage &amp; catalog included</li>
+            <li>Shared product &amp; customer lists across all business units</li>
+            <li>Each BU keeps their own definitions, mapped to a common standard</li>
+            <li>Phased rollout — one BU at a time, proving value before scaling</li>
+            <li>Full traceability — every number traces back to its source</li>
+            <li>Role-based access so each team sees what's relevant to them</li>
+            <li>Complete audit trail for governance and compliance</li>
           </ul>
           <div class="tc-metrics">
             <div class="tc-m"><div class="mv">820 – 1,900 h</div><div class="ml">Build effort</div></div>
@@ -380,30 +379,30 @@ p{color:var(--muted)}
       <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
         <div style="padding:4px 0;background:linear-gradient(90deg,var(--teal),var(--teal-l))"></div>
         <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Maintained by Us · Forked for You</div>
-          <h3 style="font-size:1.05rem">SDH Accelerator</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">A ready-made toolkit for matching products and customers, processing data, and checking quality — refined across every engagement we deliver.</p>
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Our Toolkit · Your Advantage</div>
+          <h3 style="font-size:1.05rem">Orkla Accelerator</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">A proven toolkit refined across every engagement we deliver. Instead of starting from scratch, you get a head start.</p>
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Matching engine</span> — links products &amp; customers across sources</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Pipeline templates</span> — automated data processing, ready to configure</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Quality rules</span> — pre-built checks and alerting</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Matching</span> — links products &amp; customers across sources automatically</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Processing</span> — automated data flows, ready to configure for your needs</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Quality</span> — pre-built checks and alerts when data doesn't look right</div>
           </div>
-          <p style="font-size:.75rem;color:var(--teal);font-weight:600;margin-top:12px">You get a proven starting point. We keep improving the toolkit with learnings from every engagement.</p>
+          <p style="font-size:.75rem;color:var(--teal);font-weight:600;margin-top:12px">You get a proven starting point. We keep improving the toolkit with every engagement.</p>
         </div>
       </div>
       <!-- Config -->
       <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
         <div style="padding:4px 0;background:linear-gradient(90deg,var(--blue),var(--blue-l))"></div>
         <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Your Code · Your Repo</div>
-          <h3 style="font-size:1.05rem">Configuration &amp; Logic</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your business rules, matching definitions, and KPI formulas. Fully handed over in your own code repository.</p>
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Your Rules · Your Ownership</div>
+          <h3 style="font-size:1.05rem">Business Rules &amp; Configuration</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your definitions, your matching rules, your KPI formulas — all fully handed over to you.</p>
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
             <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Source definitions</span> — what data comes from where</div>
             <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Matching rules</span> — how products &amp; customers are linked</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Processing logic</span> — the steps that run your pipelines</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">KPI formulas</span> — how your key metrics are calculated</div>
           </div>
-          <p style="font-size:.75rem;color:var(--blue);font-weight:600;margin-top:12px">Stored in your own repository. Full change history. You can modify freely after handover.</p>
+          <p style="font-size:.75rem;color:var(--blue);font-weight:600;margin-top:12px">Everything is documented and handed over. You can modify freely after go-live.</p>
         </div>
       </div>
       <!-- Infra -->
@@ -412,13 +411,13 @@ p{color:var(--muted)}
         <div style="padding:22px">
           <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:6px">Your Environment · Your Data</div>
           <h3 style="font-size:1.05rem">Infrastructure</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your Databricks workspace, Azure storage, compute, and all data — managed by your IT team. We develop in your environment and hand over.</p>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Everything runs in your own environment, managed by your IT team. We build it there and hand it over.</p>
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Databricks</span> — processing &amp; analytics workspace</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Azure Storage</span> — where all data lives</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">All data</span> — from raw inputs to final reports</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your platform</span> — processing and analytics in your workspace</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your storage</span> — all data lives in your environment</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your control</span> — from raw inputs to final reports, it's all yours</div>
           </div>
-          <p style="font-size:.75rem;color:var(--amber);font-weight:600;margin-top:12px">Your IT manages the environment. No lock-in, no dependencies on us to keep the lights on.</p>
+          <p style="font-size:.75rem;color:var(--amber);font-weight:600;margin-top:12px">No lock-in, no dependencies on us to keep the lights on.</p>
         </div>
       </div>
     </div>
@@ -468,259 +467,6 @@ p{color:var(--muted)}
   </div>
 </section>
 
-<!-- ═══ ARCHITECTURE ═══ -->
-<section class="slide" id="architecture">
-  <div class="container">
-    <div class="rv"><div class="label">How It Works</div>
-    <h2>From raw data to trusted reports</h2>
-    <p class="subtitle">Data flows through three layers: capture it as-is, clean and standardize it, then shape it for reporting and decisions.</p>
-    <button class="arch-toggle rv rv-d1" onclick="this.classList.toggle('open');document.getElementById('archContent').classList.toggle('open')"><span class="arrow">&#9654;</span> Show platform architecture diagram</button></div>
-    <div class="arch-content" id="archContent">
-    <div class="arch-blueprint rv rv-d1">
-      <svg class="arch-svg" viewBox="0 0 960 520" fill="none" xmlns="http://www.w3.org/2000/svg">
-
-        <!-- Grid zones (dashed outlines) -->
-        <rect class="zone-box" x="16" y="30" width="160" height="460"/>
-        <rect class="zone-box" x="210" y="30" width="160" height="460"/>
-        <rect class="zone-box" x="404" y="30" width="195" height="460"/>
-        <rect class="zone-box" x="633" y="30" width="160" height="460"/>
-        <rect class="zone-box" x="827" y="30" width="120" height="460"/>
-
-        <!-- Zone labels -->
-        <text class="zone-label" x="96" y="20" text-anchor="middle">DATA SOURCES</text>
-        <text class="zone-label" x="290" y="20" text-anchor="middle">INGESTION</text>
-        <text class="zone-label" x="501" y="20" text-anchor="middle">DATABRICKS LAKEHOUSE</text>
-        <text class="zone-label" x="713" y="20" text-anchor="middle">SERVING</text>
-        <text class="zone-label" x="887" y="20" text-anchor="middle">CONSUMPTION</text>
-
-        <!-- ═══ SOURCE NODES ═══ -->
-        <g class="arch-node" transform="translate(36,60)">
-          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <rect width="120" height="4" rx="2" fill="#10A37F"/>
-          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Internal Sales</text>
-          <text class="tech-tag" x="12" y="40">DELTA TABLE · DAILY</text>
-        </g>
-        <g class="arch-node" transform="translate(36,136)">
-          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <rect width="120" height="4" rx="2" fill="#10A37F"/>
-          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">POS Feeds</text>
-          <text class="tech-tag" x="12" y="40">CSV / SFTP · WEEKLY</text>
-        </g>
-        <g class="arch-node" transform="translate(36,212)">
-          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <rect width="120" height="4" rx="2" fill="#4A7FD4"/>
-          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Reference Data</text>
-          <text class="tech-tag" x="12" y="40">MASTER LISTS · STATIC</text>
-        </g>
-        <g class="arch-node" transform="translate(36,288)">
-          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <rect width="120" height="4" rx="2" fill="#4A7FD4"/>
-          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Stewardship</text>
-          <text class="tech-tag" x="12" y="40">MANUAL OVERRIDES</text>
-        </g>
-        <g class="arch-node" transform="translate(36,364)">
-          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <rect width="120" height="4" rx="2" fill="#E09A30"/>
-          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Add'l Sources</text>
-          <text class="tech-tag" x="12" y="40">PHARMACY / E-COM / API</text>
-        </g>
-
-        <!-- ═══ INGESTION NODES ═══ -->
-        <g class="arch-node" transform="translate(230,80)">
-          <rect width="120" height="50" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <text x="60" y="21" font-size="10" font-weight="700" fill="#10A37F" text-anchor="middle">Auto Loader</text>
-          <text class="tech-tag" x="60" y="36" text-anchor="middle">SCHEMA DETECTION</text>
-        </g>
-        <g class="arch-node" transform="translate(230,160)">
-          <rect width="120" height="50" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <text x="60" y="21" font-size="10" font-weight="700" fill="#10A37F" text-anchor="middle">File Ingestion</text>
-          <text class="tech-tag" x="60" y="36" text-anchor="middle">ADLS / BLOB MOUNT</text>
-        </g>
-        <g class="arch-node" transform="translate(230,250)">
-          <rect width="120" height="50" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <text x="60" y="21" font-size="10" font-weight="700" fill="#4A7FD4" text-anchor="middle">Schema Contracts</text>
-          <text class="tech-tag" x="60" y="36" text-anchor="middle">VALIDATION RULES</text>
-        </g>
-        <g class="arch-node" transform="translate(230,340)">
-          <rect width="120" height="50" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <text x="60" y="21" font-size="10" font-weight="700" fill="#E09A30" text-anchor="middle">DLT Pipeline</text>
-          <text class="tech-tag" x="60" y="36" text-anchor="middle">DELTA LIVE TABLES</text>
-        </g>
-
-        <!-- ═══ LAKEHOUSE LAYERS ═══ -->
-        <!-- Bronze -->
-        <g class="arch-node" transform="translate(414,55)">
-          <rect width="175" height="100" rx="8" fill="rgba(160,107,21,.08)" stroke="#A06B15" stroke-width="1.2" stroke-dasharray="0"/>
-          <rect width="175" height="5" rx="2.5" fill="#A06B15" opacity=".6"/>
-          <text x="14" y="26" font-size="11" font-weight="800" fill="#D4A03A">BRONZE</text>
-          <text x="14" y="42" font-size="9" fill="rgba(255,255,255,.55)">Raw append-only ingestion</text>
-          <text x="14" y="58" font-size="9" fill="rgba(255,255,255,.55)">Audit metadata &amp; lineage tags</text>
-          <text class="tech-tag" x="14" y="80">DELTA · UNITY CATALOG · APPEND</text>
-        </g>
-        <!-- Silver -->
-        <g class="arch-node" transform="translate(414,180)">
-          <rect width="175" height="130" rx="8" fill="rgba(46,80,144,.08)" stroke="#4A7FD4" stroke-width="1.2"/>
-          <rect width="175" height="5" rx="2.5" fill="#4A7FD4" opacity=".6"/>
-          <text x="14" y="26" font-size="11" font-weight="800" fill="#6BA3E8">SILVER</text>
-          <text x="14" y="42" font-size="9" fill="rgba(255,255,255,.55)">Cleansed &amp; standardized</text>
-          <text x="14" y="58" font-size="9" fill="rgba(255,255,255,.55)">Deduplication &amp; normalization</text>
-          <!-- Master Data Engine sub-block -->
-          <rect x="8" y="68" width="159" height="48" rx="5" fill="rgba(16,163,127,.08)" stroke="rgba(16,163,127,.3)" stroke-width="1"/>
-          <text x="16" y="84" font-size="8.5" font-weight="700" fill="#10A37F">MASTER DATA ENGINE</text>
-          <text x="16" y="100" font-size="7.5" fill="rgba(255,255,255,.4)">Deterministic → Rules → Fuzzy → Queue</text>
-        </g>
-        <!-- Gold -->
-        <g class="arch-node" transform="translate(414,335)">
-          <rect width="175" height="110" rx="8" fill="rgba(138,109,16,.08)" stroke="#C4A726" stroke-width="1.2"/>
-          <rect width="175" height="5" rx="2.5" fill="#C4A726" opacity=".6"/>
-          <text x="14" y="26" font-size="11" font-weight="800" fill="#E4C93A">GOLD</text>
-          <text x="14" y="42" font-size="9" fill="rgba(255,255,255,.55)">Conformed dimensions</text>
-          <text x="14" y="58" font-size="9" fill="rgba(255,255,255,.55)">Curated fact tables &amp; KPIs</text>
-          <text x="14" y="74" font-size="9" fill="rgba(255,255,255,.55)">SCD2 history (optional)</text>
-          <text class="tech-tag" x="14" y="95">STAR SCHEMA · SEMANTIC-READY</text>
-        </g>
-
-        <!-- Unity Catalog bar -->
-        <g transform="translate(414,470)">
-          <rect width="175" height="22" rx="4" fill="rgba(107,79,160,.15)" stroke="rgba(107,79,160,.4)" stroke-width="1"/>
-          <text x="87" y="15" font-size="8" font-weight="700" fill="#A78BDB" text-anchor="middle" letter-spacing=".12em">UNITY CATALOG · GOVERNANCE</text>
-        </g>
-
-        <!-- ═══ SERVING NODES ═══ -->
-        <g class="arch-node" transform="translate(653,70)">
-          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <rect width="120" height="4" rx="2" fill="#E4C93A"/>
-          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">SQL Warehouse</text>
-          <text class="tech-tag" x="12" y="40">SERVERLESS · LOW LATENCY</text>
-        </g>
-        <g class="arch-node" transform="translate(653,156)">
-          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <rect width="120" height="4" rx="2" fill="#10A37F"/>
-          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">DQ Monitor</text>
-          <text class="tech-tag" x="12" y="40">ALERTING · SLA CHECKS</text>
-        </g>
-        <g class="arch-node" transform="translate(653,242)">
-          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <rect width="120" height="4" rx="2" fill="#4A7FD4"/>
-          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Semantic Layer</text>
-          <text class="tech-tag" x="12" y="40">POWER BI DATASET</text>
-        </g>
-        <g class="arch-node" transform="translate(653,328)">
-          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <rect width="120" height="4" rx="2" fill="#A78BDB"/>
-          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Crosswalk API</text>
-          <text class="tech-tag" x="12" y="40">OVERRIDE / AUDIT</text>
-        </g>
-        <g class="arch-node" transform="translate(653,414)">
-          <rect width="120" height="56" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <rect width="120" height="4" rx="2" fill="#E09A30"/>
-          <text x="12" y="24" font-size="10.5" font-weight="700" fill="#fff">Lineage &amp; Catalog</text>
-          <text class="tech-tag" x="12" y="40">IMPACT ANALYSIS</text>
-        </g>
-
-        <!-- ═══ CONSUMPTION NODES ═══ -->
-        <g class="arch-node" transform="translate(843,80)">
-          <rect width="90" height="70" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <text x="45" y="30" font-size="18" text-anchor="middle">📊</text>
-          <text x="45" y="50" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">Power BI</text>
-          <text class="tech-tag" x="45" y="62" text-anchor="middle">DASHBOARDS</text>
-        </g>
-        <g class="arch-node" transform="translate(843,175)">
-          <rect width="90" height="70" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <text x="45" y="30" font-size="18" text-anchor="middle">🔔</text>
-          <text x="45" y="50" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">Alerts</text>
-          <text class="tech-tag" x="45" y="62" text-anchor="middle">TEAMS / EMAIL</text>
-        </g>
-        <g class="arch-node" transform="translate(843,270)">
-          <rect width="90" height="70" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <text x="45" y="30" font-size="18" text-anchor="middle">🖥️</text>
-          <text x="45" y="50" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">Stewardship UI</text>
-          <text class="tech-tag" x="45" y="62" text-anchor="middle">REVIEW / APPROVE</text>
-        </g>
-        <g class="arch-node" transform="translate(843,365)">
-          <rect width="90" height="70" rx="6" fill="#162848" stroke="#2a4a7a" stroke-width="1"/>
-          <text x="45" y="30" font-size="18" text-anchor="middle">⚙️</text>
-          <text x="45" y="50" font-size="9" font-weight="700" fill="#fff" text-anchor="middle">FinOps</text>
-          <text class="tech-tag" x="45" y="62" text-anchor="middle">COST MONITORING</text>
-        </g>
-
-        <!-- ═══ CONNECTION PATHS ═══ -->
-        <defs>
-          <!-- Source → Ingestion paths -->
-          <path id="p-s1" d="M156,88 C185,88 205,105 230,105" />
-          <path id="p-s2" d="M156,164 C185,164 205,185 230,185" />
-          <path id="p-s3" d="M156,240 C185,240 205,275 230,275" />
-          <path id="p-s4" d="M156,316 C185,316 210,350 230,365" />
-          <path id="p-s5" d="M156,392 C185,392 210,370 230,365" />
-          <!-- Ingestion → Bronze -->
-          <path id="p-i1" d="M350,105 C375,105 390,90 414,90" />
-          <path id="p-i2" d="M350,185 C375,185 390,110 414,110" />
-          <path id="p-i3" d="M350,275 C375,275 395,130 414,130" />
-          <path id="p-i4" d="M350,365 C375,365 395,140 414,140" />
-          <!-- Bronze → Silver -->
-          <path id="p-bs" d="M501,155 L501,180" />
-          <!-- Silver → Gold -->
-          <path id="p-sg" d="M501,310 L501,335" />
-          <!-- Gold → Serving -->
-          <path id="p-g1" d="M589,370 C610,370 630,98 653,98" />
-          <path id="p-g2" d="M589,390 C615,390 635,184 653,184" />
-          <path id="p-g3" d="M589,400 C620,400 640,270 653,270" />
-          <path id="p-g4" d="M589,410 C625,410 640,356 653,356" />
-          <path id="p-g5" d="M589,430 C625,430 640,442 653,442" />
-          <!-- Serving → Consumption -->
-          <path id="p-c1" d="M773,98 C800,98 820,115 843,115" />
-          <path id="p-c2" d="M773,184 C800,184 820,210 843,210" />
-          <path id="p-c3" d="M773,270 C800,270 820,305 843,305" />
-          <path id="p-c4" d="M773,356 C800,356 825,400 843,400" />
-        </defs>
-
-        <!-- Render paths (visible lines) -->
-        <g stroke="rgba(74,127,212,.18)" stroke-width="1.5" fill="none">
-          <use href="#p-s1"/><use href="#p-s2"/><use href="#p-s3"/><use href="#p-s4"/><use href="#p-s5"/>
-          <use href="#p-i1"/><use href="#p-i2"/><use href="#p-i3"/><use href="#p-i4"/>
-          <use href="#p-g1"/><use href="#p-g2"/><use href="#p-g3"/><use href="#p-g4"/><use href="#p-g5"/>
-          <use href="#p-c1"/><use href="#p-c2"/><use href="#p-c3"/><use href="#p-c4"/>
-        </g>
-        <!-- Vertical connectors between layers -->
-        <line x1="501" y1="155" x2="501" y2="180" stroke="rgba(74,127,212,.25)" stroke-width="2" stroke-dasharray="4 3"/>
-        <line x1="501" y1="310" x2="501" y2="335" stroke="rgba(74,127,212,.25)" stroke-width="2" stroke-dasharray="4 3"/>
-
-        <!-- Animated flow particles -->
-        <g>
-          <circle r="3" fill="#10A37F" opacity="0"><animateMotion dur="2.5s" repeatCount="indefinite" keyTimes="0;0.1;0.9;1" keySplines="0.4 0 0.2 1;0.4 0 0.2 1;0.4 0 0.2 1" calcMode="spline"><mpath href="#p-s1"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.5s" repeatCount="indefinite"/></circle>
-          <circle r="3" fill="#10A37F" opacity="0"><animateMotion dur="2.8s" repeatCount="indefinite" begin="0.6s"><mpath href="#p-s2"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.8s" repeatCount="indefinite" begin="0.6s"/></circle>
-          <circle r="3" fill="#4A7FD4" opacity="0"><animateMotion dur="2.2s" repeatCount="indefinite" begin="1.2s"><mpath href="#p-i1"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.2s" repeatCount="indefinite" begin="1.2s"/></circle>
-          <circle r="3" fill="#4A7FD4" opacity="0"><animateMotion dur="2.6s" repeatCount="indefinite" begin="0.3s"><mpath href="#p-i2"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.6s" repeatCount="indefinite" begin="0.3s"/></circle>
-          <circle r="3" fill="#E4C93A" opacity="0"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0.5s"><mpath href="#p-g1"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.4s" repeatCount="indefinite" begin="0.5s"/></circle>
-          <circle r="3" fill="#E4C93A" opacity="0"><animateMotion dur="2.7s" repeatCount="indefinite" begin="1s"><mpath href="#p-g3"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.7s" repeatCount="indefinite" begin="1s"/></circle>
-          <circle r="3" fill="#10A37F" opacity="0"><animateMotion dur="2.3s" repeatCount="indefinite" begin="0.8s"><mpath href="#p-c1"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.3s" repeatCount="indefinite" begin="0.8s"/></circle>
-          <circle r="3" fill="#A78BDB" opacity="0"><animateMotion dur="2.5s" repeatCount="indefinite" begin="1.4s"><mpath href="#p-c3"/></animateMotion><animate attributeName="opacity" values="0;.8;.8;0" dur="2.5s" repeatCount="indefinite" begin="1.4s"/></circle>
-        </g>
-
-        <!-- Arrow markers at key transition points -->
-        <g fill="rgba(74,127,212,.3)">
-          <polygon points="414,100 408,96 408,104" />
-          <polygon points="414,120 408,116 408,124" />
-          <polygon points="653,92 647,88 647,96" />
-          <polygon points="653,264 647,260 647,268" />
-          <polygon points="843,110 837,106 837,114" />
-          <polygon points="843,300 837,296 837,304" />
-        </g>
-      </svg>
-
-      <!-- Legend -->
-      <div class="arch-legend">
-        <div class="legend-item"><div class="legend-dot" style="background:#10A37F"></div> Ingestion flow</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#4A7FD4"></div> Processing</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#E4C93A"></div> Serving</div>
-        <div class="legend-item"><div class="legend-dot" style="background:#A78BDB"></div> Governance</div>
-        <div class="legend-item"><div class="legend-line" style="background:rgba(74,127,212,.25)"></div> Data path</div>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ ADD-ONS ═══ -->
 <section class="slide slide-alt" id="addons">
   <div class="container">
@@ -730,8 +476,8 @@ p{color:var(--muted)}
     <div class="addon-grid">
       <div class="addon ai-teal rv rv-d1">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 10l2 2 4-5"/></svg></div>
-        <h3>Power BI Semantic Model</h3>
-        <p>Pre-built reporting layer in Power BI — measures, relationships, and access controls ready for self-service analytics.</p>
+        <h3>Power BI Reports</h3>
+        <p>Pre-built dashboards and reports in Power BI — ready for your team to explore, filter, and share.</p>
         <div class="addon-meta"><span>+40 – 80 h build</span><span>+$20 – 80 /mo</span></div>
       </div>
       <div class="addon ai-blue rv rv-d1">
@@ -742,20 +488,20 @@ p{color:var(--muted)}
       </div>
       <div class="addon ai-purple rv rv-d2">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="14" height="12" rx="2"/><path d="M2 8h14"/><circle cx="6" cy="12" r="1" fill="currentColor"/></svg></div>
-        <h3>Stewardship Portal</h3>
-        <p>Web UI for business users to review matching suggestions, approve/reject, and manage override mappings.</p>
+        <h3>Business Review Portal</h3>
+        <p>A simple web interface where your team can review matching suggestions, approve or reject them, and track decisions.</p>
         <div class="addon-meta"><span>+60 – 120 h build</span><span>+$30 – 100 /mo</span></div>
       </div>
       <div class="addon ai-teal rv rv-d2">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg></div>
-        <h3>Historical Change Tracking</h3>
-        <p>Keep a full history of how product and customer attributes change over time — so you can report on "what it was then", not just "what it is now".</p>
+        <h3>Historical Tracking</h3>
+        <p>Keep a full history of how products and customers change over time — so you can report on "what it was then", not just "what it is now".</p>
         <div class="addon-meta"><span>+30 – 50 h build</span><span>+$10 – 40 /mo</span></div>
       </div>
       <div class="addon ai-amber rv rv-d3">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v14M2 9h14"/><circle cx="9" cy="9" r="7"/></svg></div>
-        <h3>Additional Source Integration</h3>
-        <p>Each additional data feed (e.g. a new retailer or distributor) goes through profiling, setup, mapping, and validation.</p>
+        <h3>Additional Data Source</h3>
+        <p>Each additional data feed — a new retailer, distributor, or channel — brought in, validated, and connected.</p>
         <div class="addon-meta"><span>+40 – 85 h build</span><span>+$30 – 100 /mo</span></div>
       </div>
       <div class="addon ai-purple rv rv-d3">
@@ -766,14 +512,14 @@ p{color:var(--muted)}
       </div>
       <div class="addon ai-blue rv rv-d3">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 2v16M8 6h8M8 10h6M8 14h10"/></svg></div>
-        <h3>API / Data Product Layer</h3>
-        <p>Expose harmonized data as APIs that other systems — CRM, planning tools, partner portals — can consume directly.</p>
+        <h3>Data Integration Layer</h3>
+        <p>Make unified data available to other systems — CRM, planning tools, partner portals — automatically and in real time.</p>
         <div class="addon-meta"><span>+40 – 80 h build</span><span>+$30 – 100 /mo</span></div>
       </div>
       <div class="addon ai-amber rv rv-d4">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v4M3 8l2 2M15 8l-2 2"/><circle cx="9" cy="12" r="4"/><path d="M9 10v4"/></svg></div>
         <h3>Automated Anomaly Detection</h3>
-        <p>ML-based detection of unusual patterns in sales data — sudden drops, spikes, or missing feeds — with proactive alerting before issues reach reports.</p>
+        <p>Automatic detection of unusual patterns — sudden drops, unexpected spikes, or missing data — with alerts before issues reach your reports.</p>
         <div class="addon-meta"><span>+40 – 80 h build</span><span>+$20 – 80 /mo</span></div>
       </div>
     </div>
@@ -900,7 +646,7 @@ p{color:var(--muted)}
         <div class="rec-form">
           <div class="fg"><label>Data Sources</label><select id="rS"><option value="1">2 sources</option><option value="2">3–4 sources</option><option value="3">5+ sources</option></select></div>
           <div class="fg"><label>Need historical tracking?</label><select id="rH"><option value="no">No — current state is enough</option><option value="yes">Yes — need to see how data changed over time</option></select></div>
-          <div class="fg"><label>Data quality &amp; oversight</label><select id="rG"><option value="low">Basic — catch obvious errors</option><option value="med">Moderate — alerts &amp; review workflows</option><option value="high">Comprehensive — full audit trail &amp; traceability</option></select></div>
+          <div class="fg"><label>Data quality &amp; oversight</label><select id="rG"><option value="low">Basic — catch obvious errors</option><option value="med">Moderate — alerts &amp; review process</option><option value="high">Comprehensive — full audit trail &amp; accountability</option></select></div>
           <div class="fg"><label>Timeline Constraint</label><select id="rT"><option value="fast">Under 8 weeks</option><option value="med">8–16 weeks</option><option value="long">16+ weeks OK</option></select></div>
           <button class="rec-btn" onclick="doRec()">Get Recommendation</button>
         </div>
@@ -918,7 +664,7 @@ p{color:var(--muted)}
     <a href="mailto:contact@example.com" class="cta-btn" style="text-decoration:none">Get in Touch</a>
   </div>
 </section>
-<footer class="footer"><div class="container">Sales Data Harmonization — Solutions Catalog v1.0 · February 2026 · Confidential</div></footer>
+<footer class="footer"><div class="container">Orkla Data &amp; Analytics — Solutions Catalog · March 2026 · Internal</div></footer>
 
 <script>
 // Scroll reveal
@@ -941,8 +687,8 @@ function doRec(){
   else if(score<=5){t='Tier 2 — Multi-Source';c='var(--blue)';e='290 – 685 h';r='$150 – 600 /mo';tl='9 – 14 weeks';w='Multiple sources and/or stronger quality requirements point to Tier 2. A good balance of scope and speed.';}
   else{t='Tier 3 — Enterprise';c='var(--purple)';e='820 – 1,900 h';r='$400 – 1,500 /mo';tl='27 – 36+ weeks';w='Full traceability, cross-BU alignment, and enterprise-scale requirements call for the Enterprise tier.';}
   let x='';
-  if(scd==='yes')x+='<div class="ro-row"><span class="ro-rl">Add-on</span><span class="ro-rv">Historical Change Tracking (+30-50h)</span></div>';
-  if(gov==='high')x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Stewardship Portal (+60-120h)</span></div>';
+  if(scd==='yes')x+='<div class="ro-row"><span class="ro-rl">Add-on</span><span class="ro-rv">Historical Tracking (+30-50h)</span></div>';
+  if(gov==='high')x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Business Review Portal (+60-120h)</span></div>';
   if(src==='3')x+='<div class="ro-row"><span class="ro-rl">Suggested</span><span class="ro-rv">Advanced Quality & Alerting (+30-60h)</span></div>';
   document.getElementById('rOut').innerHTML=
     '<div class="ro-tier" style="color:'+c+'">'+t+'</div><div class="ro-why">'+w+'</div>'+
