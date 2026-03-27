@@ -6,223 +6,476 @@
 <title>Data &amp; Analytics Solutions — Orkla</title>
 <meta name="description" content="Unified commercial data solutions for Orkla portfolio companies. Turn fragmented sales data into trusted, decision-ready insights."/>
 <meta property="og:title" content="Data &amp; Analytics Solutions — Orkla"/>
-<meta property="og:description" content="Turn fragmented sales data into trusted, decision-ready insights. Three delivery tiers, eight add-on services."/>
+<meta property="og:description" content="Turn fragmented sales data into trusted, decision-ready insights. Three delivery tiers, flexible add-on services."/>
 <meta property="og:type" content="website"/>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%237E0626'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' fill='%23FFFFFF' font-size='16' font-weight='800' font-family='sans-serif'>O</text></svg>"/>
 <style>
 :root {
   --navy:#7E0626; --navy2:#5A0419; --blue:#2E5090; --blue-l:#4A7FD4;
   --teal:#0D7C66; --teal-l:#10A37F; --amber:#C17817; --amber-l:#E09A30;
-  --purple:#6B4FA0;
+  --purple:#6B4FA0; --red:#C53030; --green:#276749;
   --ink:#1A1A2E; --muted:#5A6070; --faint:#8A8E9A;
-  --bg:#FAF8F6; --card:#FFFFFF; --line:#E6DED6;
-  --sh:0 4px 24px rgba(126,6,38,.07);
-  --sh-l:0 12px 48px rgba(126,6,38,.10);
-  --r:14px; --ease:.35s cubic-bezier(.4,0,.2,1);
+  --bg:#FAF8F6; --card:#FFFFFF; --line:#E6DED6; --line-l:#F0EBE5;
+  --sh-s:0 1px 3px rgba(126,6,38,.04);
+  --sh-m:0 4px 16px rgba(126,6,38,.07);
+  --sh-l:0 12px 40px rgba(126,6,38,.09);
+  --r:12px; --rl:16px;
+  --ease:.3s cubic-bezier(.4,0,.2,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;display:flex;flex-direction:column}
 
-/* ── Topbar ── */
-.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:56px;display:flex;align-items:center;padding:0 32px;background:rgba(126,6,38,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.topbar-brand{font-weight:700;font-size:.88rem;color:#fff;letter-spacing:.04em}
-.topbar-brand span{color:#E8B4C0;font-weight:800}
+/* Typography */
+h1{font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.025em}
+h2{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--navy)}
+h3{font-size:1.05rem;font-weight:600;color:var(--navy)}
+p{color:var(--muted)}
+.container{max-width:1200px;margin:0 auto;padding:0 28px}
 
-/* ── Hero ── */
-.hero{position:relative;padding:160px 0 120px;background:linear-gradient(155deg,var(--navy) 0%,#6B0520 35%,#4A1028 65%,var(--navy2) 100%);color:#fff;overflow:hidden;text-align:center}
-.hero::before{content:'';position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:140%;height:140%;background:radial-gradient(ellipse at 50% 30%,rgba(126,6,38,.15),transparent 60%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,var(--bg));pointer-events:none}
-.hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto;padding:0 28px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:24px;padding:6px 18px 6px 8px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.7);letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px;backdrop-filter:blur(4px)}
-.hero-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--teal-l);animation:pulse 2s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:.6;transform:scale(.9)}50%{opacity:1;transform:scale(1.15)}}
-.hero h1{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:18px}
-.hero h1 .accent{background:linear-gradient(135deg,#E8B4C0,#F0D0D8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{color:rgba(255,255,255,.6);font-size:1.1rem;max-width:560px;margin:0 auto 48px}
+/* Sections */
+.slide{padding:88px 0;position:relative}
+.slide-alt{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:14px}
+.label::before{content:'';width:22px;height:2px;background:var(--teal);border-radius:1px}
+.subtitle{margin-top:8px;max-width:620px;font-size:1.05rem}
 
-/* ── Cards Section ── */
-.cards-section{position:relative;z-index:2;margin-top:-60px;padding:0 28px 100px}
-.cards-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:28px}
-@media(max-width:680px){.cards-grid{grid-template-columns:1fr}}
-
-.doc-card{background:var(--card);border-radius:var(--r);border:1px solid var(--line);box-shadow:var(--sh);padding:44px 40px 40px;display:flex;flex-direction:column;transition:transform var(--ease),box-shadow var(--ease);position:relative;overflow:hidden}
-.doc-card:hover{transform:translateY(-4px);box-shadow:var(--sh-l)}
-.doc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px}
-.doc-card.pitch::before{background:linear-gradient(90deg,var(--teal),var(--blue))}
-.doc-card.detail::before{background:linear-gradient(90deg,var(--blue),var(--purple))}
-
-.card-icon{width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;font-size:24px}
-.pitch .card-icon{background:rgba(13,124,102,.08);color:var(--teal)}
-.detail .card-icon{background:rgba(46,80,144,.08);color:var(--blue)}
-
-.card-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px}
-.pitch .card-label{color:var(--teal)}
-.detail .card-label{color:var(--blue)}
-
-.doc-card h2{font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:10px;line-height:1.25}
-.doc-card .desc{color:var(--muted);font-size:.92rem;margin-bottom:24px;flex:1}
-
-.card-features{list-style:none;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
-.card-features li{font-size:.72rem;font-weight:600;padding:4px 12px;border-radius:6px;background:var(--bg);color:var(--faint)}
-
-.card-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-size:.88rem;font-weight:600;text-decoration:none;transition:all var(--ease);border:none;cursor:pointer}
-.pitch .card-btn{background:var(--teal);color:#fff}
-.pitch .card-btn:hover{background:var(--teal-l);box-shadow:0 4px 16px rgba(13,124,102,.25)}
-.detail .card-btn{background:var(--blue);color:#fff}
-.detail .card-btn:hover{background:var(--blue-l);box-shadow:0 4px 16px rgba(46,80,144,.25)}
-.card-btn .arrow{transition:transform .2s}
-.card-btn:hover .arrow{transform:translateX(3px)}
-
-/* ── Highlights ── */
-.highlights{max-width:960px;margin:0 auto;padding:0 28px 100px}
-.highlights h2{text-align:center;margin-bottom:12px;font-size:1.3rem}
-.highlights .sub{text-align:center;color:var(--muted);font-size:.92rem;margin-bottom:44px;max-width:500px;margin-left:auto;margin-right:auto}
-.hl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-@media(max-width:800px){.hl-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.hl-grid{grid-template-columns:1fr}}
-.hl-item{text-align:center;padding:28px 16px;background:var(--card);border-radius:var(--r);border:1px solid var(--line);transition:transform var(--ease)}
-.hl-item:hover{transform:translateY(-2px)}
-.hl-num{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;margin-bottom:4px}
-.hl-num.c1{color:var(--teal)}
-.hl-num.c2{color:var(--blue)}
-.hl-num.c3{color:var(--amber)}
-.hl-num.c4{color:var(--purple)}
-.hl-txt{font-size:.78rem;color:var(--faint);font-weight:600}
-
-/* ── Quick Glance ── */
-.glance{max-width:960px;margin:0 auto;padding:0 28px 100px}
-.glance h2{text-align:center;margin-bottom:40px;font-size:1.3rem}
-.glance-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media(max-width:700px){.glance-grid{grid-template-columns:1fr}}
-.glance-card{background:var(--card);border-radius:var(--r);border:1px solid var(--line);padding:28px 24px;position:relative}
-.glance-card h3{font-size:.95rem;margin-bottom:6px}
-.glance-card p{font-size:.82rem;color:var(--muted)}
-.glance-tier{position:absolute;top:16px;right:16px;font-size:.62rem;font-weight:700;padding:3px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.08em}
-.t1 .glance-tier{background:rgba(13,124,102,.1);color:var(--teal)}
-.t2 .glance-tier{background:rgba(46,80,144,.1);color:var(--blue)}
-.t3 .glance-tier{background:rgba(107,79,160,.1);color:var(--purple)}
-
-/* ── CTA ── */
-.cta{background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 60%,#3D0812 100%);color:#fff;text-align:center;padding:72px 28px}
-.cta h2{color:#fff;font-size:clamp(1.4rem,3vw,1.8rem);font-weight:700;margin-bottom:10px}
-.cta p{color:rgba(255,255,255,.6);font-size:.95rem;max-width:480px;margin:0 auto 28px}
-.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;background:var(--teal);color:#fff;border:none;border-radius:10px;font-size:.9rem;font-weight:600;text-decoration:none;cursor:pointer;transition:all var(--ease);font-family:inherit}
-.cta-btn:hover{background:var(--teal-l);transform:translateY(-2px);box-shadow:0 6px 20px rgba(13,124,102,.3)}
-.cta-sub{margin-top:14px;font-size:.82rem;color:rgba(255,255,255,.45)}
-
-/* ── Footer ── */
-.footer{margin-top:auto;padding:24px 28px;text-align:center;border-top:1px solid var(--line);background:var(--card)}
-.footer p{font-size:.75rem;color:var(--faint)}
-
-/* ── Reveal ── */
-.rv{opacity:0;transform:translateY(24px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+/* Reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
 .rv.vis{opacity:1;transform:none}
-.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.25s}.rv-d4{transition-delay:.35s}
 
-/* ── Particles ── */
-.particles{position:absolute;top:0;left:0;right:0;bottom:0;pointer-events:none;overflow:hidden}
-.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.12);animation:float linear infinite}
-@keyframes float{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-100vh) translateX(40px);opacity:0}}
+/* Hero */
+.hero{background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 45%,#3D0812 100%);color:#fff;padding:140px 0 88px;overflow:hidden;position:relative}
+.hero::after{content:'';position:absolute;top:-30%;right:-10%;width:55%;height:160%;background:radial-gradient(ellipse,rgba(126,6,38,.15),transparent 70%);pointer-events:none}
+.hero .container{position:relative;z-index:1}
+.hero h1{color:#fff;margin-bottom:14px}
+.hero p{color:rgba(255,255,255,.68);font-size:1.12rem;max-width:640px;margin-bottom:44px}
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:12px 20px;backdrop-filter:blur(6px);transition:var(--ease)}
+.chip:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+.chip .cv{font-size:1.15rem;font-weight:700}.chip .cl{font-size:.76rem;color:rgba(255,255,255,.5);margin-top:2px}
+
+/* Challenge */
+.pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
+.pain{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:var(--ease);position:relative;overflow:hidden}
+.pain:hover{box-shadow:var(--sh-m);transform:translateY(-3px)}
+.pain-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,rgba(13,124,102,.1),rgba(13,124,102,.04));display:grid;place-items:center;margin-bottom:14px}
+.pain h3{margin-bottom:6px}.pain p{font-size:.88rem}
+
+/* Tiers */
+.tier-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
+.tc{background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-s);transition:var(--ease)}
+.tc:hover{box-shadow:var(--sh-l);transform:translateY(-4px)}
+.tc-head{padding:22px 22px 14px}
+.tc.t1 .tc-head{background:linear-gradient(135deg,rgba(13,124,102,.06),transparent);border-bottom:2px solid var(--teal)}
+.tc.t2 .tc-head{background:linear-gradient(135deg,rgba(46,80,144,.06),transparent);border-bottom:2px solid var(--blue)}
+.tc.t3 .tc-head{background:linear-gradient(135deg,rgba(107,79,160,.06),transparent);border-bottom:2px solid var(--purple)}
+.tc-badge{display:inline-block;padding:3px 10px;border-radius:5px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.t1 .tc-badge{background:rgba(13,124,102,.1);color:var(--teal)}.t2 .tc-badge{background:rgba(46,80,144,.1);color:var(--blue)}.t3 .tc-badge{background:rgba(107,79,160,.1);color:var(--purple)}
+.tc-body{padding:18px 22px 22px}
+.tc-feat{list-style:none;margin-bottom:18px}
+.tc-feat li{padding:5px 0;font-size:.84rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px}
+.tc-feat li::before{content:'';width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
+.t1 .tc-feat li::before{background:var(--teal)}.t2 .tc-feat li::before{background:var(--blue)}.t3 .tc-feat li::before{background:var(--purple)}
+.tc-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:14px;border-top:1px solid var(--line-l)}
+.tc-m .mv{font-size:.95rem;font-weight:700;color:var(--navy)}.tc-m .ml{font-size:.7rem;color:var(--faint)}
+.tc-deliverables{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-l)}
+.tc-deliverables-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:6px}
+.tc-deliverables ul{list-style:none;display:flex;flex-wrap:wrap;gap:5px}
+.tc-deliverables li{font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:5px;background:var(--bg);color:var(--faint)}
+
+/* Add-ons */
+.addon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.addon{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;transition:var(--ease);position:relative;cursor:default}
+.addon:hover{border-color:var(--teal);box-shadow:var(--sh-m);transform:translateY(-2px)}
+.addon-icon{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;margin-bottom:12px;font-size:.9rem}
+.addon h3{font-size:.95rem;margin-bottom:4px}
+.addon p{font-size:.82rem;margin-bottom:12px}
+.addon-meta{display:flex;gap:12px;font-size:.75rem;color:var(--faint);font-weight:600}
+.addon-meta span{display:flex;align-items:center;gap:4px}
+.ai-teal .addon-icon{background:rgba(13,124,102,.08);color:var(--teal)}
+.ai-blue .addon-icon{background:rgba(46,80,144,.08);color:var(--blue)}
+.ai-amber .addon-icon{background:rgba(193,120,23,.08);color:var(--amber)}
+.ai-purple .addon-icon{background:rgba(107,79,160,.08);color:var(--purple)}
+
+/* Investment */
+.inv-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:.88rem;margin-top:24px}
+.inv-table thead th{background:#5A0419;color:#fff;padding:14px 18px;font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;text-align:left}
+.inv-table tbody td{padding:14px 18px;border-bottom:1px solid var(--line-l);vertical-align:middle}
+.inv-table tbody tr:last-child td{border-bottom:none}
+.inv-table tbody tr{transition:var(--ease)}.inv-table tbody tr:hover{background:rgba(13,124,102,.02)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
+.inv-note{margin-top:14px;padding:16px;background:var(--line-l);border-radius:var(--r);font-size:.84rem;color:var(--muted)}
+
+/* Outcomes */
+.outcome-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
+@media(max-width:600px){.outcome-grid{grid-template-columns:1fr}}
+
+/* CTA */
+.cta{background:linear-gradient(140deg,var(--navy),var(--navy2));color:#fff;text-align:center;padding:88px 0}
+.cta h2{color:#fff;margin-bottom:10px}
+.cta p{color:rgba(255,255,255,.65);max-width:500px;margin:0 auto 32px;font-size:1rem}
+.cta-btn{display:inline-block;padding:15px 40px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:var(--ease);font-family:inherit;text-decoration:none}
+.cta-btn:hover{background:var(--teal-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,124,102,.3)}
+.footer{padding:18px 0;text-align:center;font-size:.74rem;color:var(--faint);border-top:1px solid var(--line)}
+
+/* FAQ */
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;margin-bottom:12px}
+.faq-item h3{font-size:.95rem;margin-bottom:6px}
+.faq-item p{font-size:.88rem}
+
+/* Tier guide */
+.tier-guide{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.tier-guide-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;text-align:center}
+.tier-guide-card .tg-if{font-size:.82rem;color:var(--muted);margin-bottom:8px}
+.tier-guide-card .tg-then{font-size:.95rem;font-weight:700}
+
+/* Nav */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;gap:6px;padding:0 28px;background:rgba(126,6,38,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
+.topbar a{font-size:.76rem;font-weight:600;color:rgba(255,255,255,.6);text-decoration:none;padding:5px 10px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.topbar a:hover{color:#fff;background:rgba(255,255,255,.1)}
+.topbar a.active{color:#fff;background:rgba(255,255,255,.14)}
+.topbar .tb-brand{font-weight:700;font-size:.85rem;color:#fff;margin-right:auto;letter-spacing:.03em}
+.topbar .tb-brand span{color:#E8B4C0}
+
+/* Responsive */
+@media(max-width:960px){.tier-row,.addon-grid,.pain-grid,.tier-guide{grid-template-columns:1fr}#model .container>div:nth-child(2){grid-template-columns:1fr!important}}
+@media(max-width:600px){.hero{padding:72px 0 56px}.slide{padding:56px 0}.hero-chips{gap:8px}}
+@media print{.topbar{display:none}.rv{opacity:1!important;transform:none!important}.hero{padding:60px 0 40px}.slide{padding:40px 0}*{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 </style>
 </head>
 <body>
+<nav class="topbar">
+  <span class="tb-brand"><span>Orkla</span>&nbsp; Data &amp; Analytics</span>
+  <a href="#tiers">Tiers</a>
+  <a href="#outcomes">Outcomes</a>
+  <a href="#model">How We Work</a>
+  <a href="#addons">Add-Ons</a>
+  <a href="#investment">Investment</a>
+  <a href="#faq">FAQ</a>
+</nav>
 
-<!-- Topbar -->
-<div class="topbar">
-  <div class="topbar-brand"><span>Orkla</span> &nbsp;Solutions Catalog</div>
-</div>
-
-<!-- Hero -->
+<!-- ═══ HERO ═══ -->
 <section class="hero">
-  <div class="particles" id="particles"></div>
-  <div class="hero-inner">
-    <div class="hero-badge"><span class="dot"></span> Orkla Data &amp; Analytics</div>
-    <h1>Trusted Commercial<br/><span class="accent">Insights</span></h1>
-    <p>Turn fragmented sales data into one trusted, decision-ready view — so your commercial teams can stop reconciling spreadsheets and start acting on the numbers.</p>
+  <div class="container">
+    <div class="rv"><h1>Unified Commercial Data</h1>
+    <p>Turn fragmented sales data into one trusted, decision-ready view — so your commercial teams can focus on acting, not reconciling.</p>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.45);margin-top:-32px;margin-bottom:44px">For commercial leaders, category managers, and BU heads who need one trusted set of sales numbers — without depending on a data team for every report.</p></div>
+    <div class="hero-chips rv rv-d1">
+      <div class="chip"><div class="cv">What we do</div><div class="cl">Unify sales data across sources</div></div>
+      <div class="chip"><div class="cv">How it works</div><div class="cl">Proven framework, full handover</div></div>
+      <div class="chip"><div class="cv">What you get</div><div class="cl">One number everyone trusts</div></div>
+    </div>
   </div>
 </section>
 
-<!-- Document Cards -->
-<div class="cards-section">
-  <div class="cards-grid rv" id="cards">
-
-    <!-- Single entry point -->
-    <div class="doc-card pitch rv rv-d1" style="grid-column:1/-1;max-width:600px;margin:0 auto">
-      <div class="card-icon">
-        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="20" height="20" rx="3"/><path d="M8 12h10M8 8h6M8 16h8"/></svg>
+<!-- ═══ TIERS ═══ -->
+<section class="slide slide-alt" id="tiers">
+  <div class="container">
+    <div class="rv"><div class="label">Our Offerings</div>
+    <h2>Three levels of scope</h2>
+    <p class="subtitle">Each tier builds on the previous. Pick the one that matches where you are today — you can always grow from there.</p></div>
+    <div class="tier-row">
+      <div class="tc t1 rv rv-d1">
+        <div class="tc-head"><div class="tc-badge">Tier 1</div><h3>Foundation</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 2 core sources</p></div>
+        <div class="tc-body">
+          <ul class="tc-feat">
+            <li>One unified list of products &amp; customers across your sources</li>
+            <li>Automated data processing — raw data in, trusted data out</li>
+            <li>Built-in quality checks and alerts when something looks wrong</li>
+            <li>Business review workflow for anything the system isn't sure about</li>
+            <li>Testing, documentation, training &amp; full handover to your team</li>
+          </ul>
+          <div class="tc-metrics">
+            <div class="tc-m"><div class="mv">180 – 220 h</div><div class="ml">Build effort</div></div>
+            <div class="tc-m"><div class="mv">~ 5.5 weeks</div><div class="ml">Timeline</div></div>
+            <div class="tc-m"><div class="mv">$50 – 300</div><div class="ml">Platform /mo</div></div>
+            <div class="tc-m"><div class="mv">8 – 20 h</div><div class="ml">Ongoing support /mo</div></div>
+          </div>
+          <div class="tc-deliverables">
+            <div class="tc-deliverables-title">You receive</div>
+            <ul><li>Automated data processing</li><li>Matched product &amp; customer lists</li><li>Quality dashboard</li><li>Documentation package</li><li>Full handover</li></ul>
+          </div>
+        </div>
       </div>
-      <div class="card-label">Explore Our Offerings</div>
-      <h2>Solutions Overview</h2>
-      <p class="desc">What you get, how we deliver, and what it costs. Service tiers, add-on options, investment ranges, starter packs, and interactive planning tools.</p>
-      <ul class="card-features">
-        <li>Service Tiers</li>
-        <li>Delivery Model</li>
-        <li>Add-Ons</li>
-        <li>Investment</li>
-      </ul>
-      <a href="solutions-overview.html" class="card-btn">Open Solutions Overview <span class="arrow">&rarr;</span></a>
+      <div class="tc t2 rv rv-d2">
+        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 5 sources</p><p style="font-size:.78rem;color:var(--blue);margin-top:6px;font-weight:500">For when you need to bring in additional retailer feeds, distributor data, or retail sales channels beyond two core sources.</p></div>
+        <div class="tc-body">
+          <ul class="tc-feat">
+            <li>Proven process to add new data sources quickly</li>
+            <li>Smarter matching — more automation, less manual work</li>
+            <li>Cross-source checks so numbers always add up</li>
+            <li>Automated quality checks on every incoming data feed</li>
+            <li>Streamlined review workflows for higher data volumes</li>
+          </ul>
+          <div class="tc-metrics">
+            <div class="tc-m"><div class="mv">290 – 685 h</div><div class="ml">Build effort</div></div>
+            <div class="tc-m"><div class="mv">9 – 14 weeks</div><div class="ml">Timeline</div></div>
+            <div class="tc-m"><div class="mv">$150 – 600</div><div class="ml">Platform /mo</div></div>
+            <div class="tc-m"><div class="mv">16 – 40 h</div><div class="ml">Ongoing support /mo</div></div>
+          </div>
+          <div class="tc-deliverables">
+            <div class="tc-deliverables-title">You receive</div>
+            <ul><li>Everything in Tier 1</li><li>Source onboarding playbook</li><li>Cross-source validation</li><li>Automated quality checks</li></ul>
+          </div>
+        </div>
+      </div>
+      <div class="tc t3 rv rv-d3">
+        <div class="tc-head"><div class="tc-badge">Tier 3</div><h3>Enterprise</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">4 – 6 BUs, 2+ sources each</p></div>
+        <div class="tc-body">
+          <ul class="tc-feat">
+            <li>Shared product &amp; customer lists across all business units</li>
+            <li>Each BU keeps their own definitions, mapped to a common standard</li>
+            <li>Phased rollout — one BU at a time, proving value before scaling</li>
+            <li>Full traceability — every number traces back to its source</li>
+            <li>Each team sees only what's relevant to them</li>
+            <li>Full change history for governance and compliance</li>
+          </ul>
+          <div class="tc-metrics">
+            <div class="tc-m"><div class="mv">820 – 1,900 h</div><div class="ml">Build effort</div></div>
+            <div class="tc-m"><div class="mv">27 – 36+ weeks</div><div class="ml">Timeline</div></div>
+            <div class="tc-m"><div class="mv">$400 – 1,500</div><div class="ml">Platform /mo</div></div>
+            <div class="tc-m"><div class="mv">40 – 120 h</div><div class="ml">Ongoing support /mo</div></div>
+          </div>
+          <div class="tc-deliverables">
+            <div class="tc-deliverables-title">You receive</div>
+            <ul><li>Everything in Tier 2</li><li>Shared hierarchy model</li><li>BU-specific views</li><li>Governance framework</li><li>Rollout playbook</li></ul>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- Tier selection guide -->
+    <div class="tier-guide rv rv-d2">
+      <div class="tier-guide-card" style="border-top:2px solid var(--teal)">
+        <div class="tg-if">1 business unit, 2 data sources</div>
+        <div class="tg-then" style="color:var(--teal)">Start with Tier 1</div>
+      </div>
+      <div class="tier-guide-card" style="border-top:2px solid var(--blue)">
+        <div class="tg-if">1 business unit, 3–5 data sources</div>
+        <div class="tg-then" style="color:var(--blue)">Start with Tier 2</div>
+      </div>
+      <div class="tier-guide-card" style="border-top:2px solid var(--purple)">
+        <div class="tg-if">Multiple business units</div>
+        <div class="tg-then" style="color:var(--purple)">Start with Tier 3</div>
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- Quick Glance Tiers -->
-<div class="glance rv">
-  <h2>What We Offer</h2>
-  <div class="glance-grid">
-    <div class="glance-card t1 rv rv-d1">
-      <span class="glance-tier">Tier 1</span>
-      <h3>Foundation</h3>
-      <p>One business unit, two data sources — a unified view of your commercial data, ready for reporting.</p>
-    </div>
-    <div class="glance-card t2 rv rv-d2">
-      <span class="glance-tier">Tier 2</span>
-      <h3>Multi-Source</h3>
-      <p>One business unit, 3–5 sources — a repeatable process for bringing in new data feeds.</p>
-    </div>
-    <div class="glance-card t3 rv rv-d3">
-      <span class="glance-tier">Tier 3</span>
-      <h3>Enterprise</h3>
-      <p>Multiple business units with shared standards and phased rollout across the portfolio.</p>
-    </div>
-  </div>
-</div>
-
-<!-- CTA -->
-<section class="cta rv">
-  <h2>Ready to explore?</h2>
-  <p>Open the Solutions Overview to see what we offer, how we work, and explore the interactive planning tools.</p>
-  <a href="mailto:contact@example.com" class="cta-btn">Get in Touch &rarr;</a>
-  <div class="cta-sub">Or scroll up to explore the documents</div>
 </section>
 
-<!-- Footer -->
-<footer class="footer">
-  <p>Orkla Data &amp; Analytics &mdash; Solutions Catalog &middot; March 2026 &middot; Internal</p>
-</footer>
+<!-- ═══ PROOF POINT ═══ -->
+<div class="rv" style="background:linear-gradient(135deg,rgba(13,124,102,.04),rgba(126,6,38,.03));border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 28px;text-align:center">
+  <p style="font-size:.9rem;color:var(--muted);max-width:640px;margin:0 auto"><span style="color:var(--teal);font-weight:600">Shaped by real engagements.</span> Our toolkit is refined through deployments across Orkla portfolio companies. Each engagement makes it better — and yours benefits from everything we've learned.</p>
+</div>
+
+<!-- ═══ CHALLENGE ═══ -->
+<section class="slide" id="challenge">
+  <div class="container">
+    <div class="rv"><div class="label">The Challenge</div>
+    <h2>Sales data that doesn't add up</h2>
+    <p class="subtitle">Most organizations rely on multiple sales sources that never quite agree. The result: manual effort, inconsistent numbers, and slower commercial decisions.</p></div>
+    <div class="pain-grid">
+      <div class="pain rv rv-d1">
+        <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/><path d="M9 5.5h2.5V11"/></svg></div>
+        <h3>Orders vs Actual Sales</h3><p>What you ship and what actually sells at retail tell different stories. Without linking them, you can't see the full picture from factory to shelf — or spot where stock is building up.</p>
+      </div>
+      <div class="pain rv rv-d2">
+        <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="6" cy="8" r="4"/><circle cx="14" cy="8" r="4"/><path d="M10 5v6" opacity=".4"/></svg></div>
+        <h3>Distributor Format Chaos</h3><p>Every retailer and distributor sends data in their own format, product coding, and delivery schedule. Getting a like-for-like comparison across channels takes manual effort every single time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ OUTCOMES ═══ -->
+<section class="slide slide-alt" id="outcomes">
+  <div class="container">
+    <div class="rv"><div class="label">What You Get</div>
+    <h2>What changes for your team</h2>
+    <p class="subtitle">The end result is a single, trusted view of sales data — refreshed automatically and ready for reporting.</p></div>
+    <div class="outcome-grid">
+      <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
+        <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">One set of numbers</div>
+        <p style="font-size:.88rem;color:var(--muted)">Commercial reviews, forecasting, and executive reporting all work from the same figures. No more "my numbers say something different."</p>
+      </div>
+      <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
+        <div style="font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Reports in hours, not weeks</div>
+        <p style="font-size:.88rem;color:var(--muted)">Data refreshes daily or weekly, automatically. No manual stitching, no waiting for someone to update a spreadsheet.</p>
+      </div>
+      <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
+        <div style="font-size:.72rem;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Explore your own data</div>
+        <p style="font-size:.88rem;color:var(--muted)">Your team can slice and filter by channel, customer, product, and period — without waiting for someone to build each report.</p>
+      </div>
+      <div class="rv rv-d4" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
+        <div style="font-size:.72rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Clear ownership</div>
+        <p style="font-size:.88rem;color:var(--muted)">Every number traces back to its source. Business rules are documented. You know exactly what was matched, how, and when.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DELIVERY MODEL ═══ -->
+<section class="slide" id="model">
+  <div class="container">
+    <div class="rv"><div class="label">How We Work</div>
+    <h2>You Own What We Build</h2>
+    <p class="subtitle">Everything we deploy in your environment is fully yours — every workflow, every configuration, every report. No black boxes, no licensing, no ongoing dependencies.</p></div>
+
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px">
+      <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
+        <div style="padding:4px 0;background:linear-gradient(90deg,var(--teal),var(--teal-l))"></div>
+        <div style="padding:22px">
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Our Toolkit · Your Advantage</div>
+          <h3 style="font-size:1.05rem">Orkla Accelerator</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">A proven toolkit refined across every engagement. Instead of starting from scratch, you get a head start.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Matching</span> — links products &amp; customers across sources automatically</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Processing</span> — automated data flows, ready to configure for your needs</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Quality</span> — pre-built checks and alerts when data doesn't look right</div>
+          </div>
+        </div>
+      </div>
+      <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
+        <div style="padding:4px 0;background:linear-gradient(90deg,var(--blue),var(--blue-l))"></div>
+        <div style="padding:22px">
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Your Rules · Your Ownership</div>
+          <h3 style="font-size:1.05rem">Business Rules &amp; Configuration</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your definitions, your matching rules, your KPI formulas — all fully handed over to you.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Source definitions</span> — what data comes from where</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Matching rules</span> — how products &amp; customers are linked</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">KPI formulas</span> — how your key metrics are calculated</div>
+          </div>
+        </div>
+      </div>
+      <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
+        <div style="padding:4px 0;background:linear-gradient(90deg,var(--amber),var(--amber-l))"></div>
+        <div style="padding:22px">
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:6px">Managed by Orkla IT · Owned by You</div>
+          <h3 style="font-size:1.05rem">Infrastructure</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Everything runs on your dedicated platform, managed by Orkla IT — so you don't have to worry about the infrastructure.</p>
+          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your platform</span> — dedicated workspace for your analytics</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your data</span> — all data stays in your environment</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Orkla IT</span> — manages the infrastructure so your team can focus on the business</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ADD-ONS ═══ -->
+<section class="slide slide-alt" id="addons">
+  <div class="container">
+    <div class="rv"><div class="label">Optional Add-Ons</div>
+    <h2>Extend with what you need</h2>
+    <p class="subtitle">These can be added to any tier, independently scoped and delivered. Need to connect unified data to other business tools? We can scope that into any engagement.</p></div>
+    <div class="addon-grid">
+      <div class="addon ai-teal rv rv-d1">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 10l2 2 4-5"/></svg></div>
+        <h3>Power BI Reports</h3>
+        <p>Pre-built dashboards and reports in Power BI — ready for your team to explore, filter, and share.</p>
+        <div class="addon-meta"><span>+40 – 80 h build</span><span>+$20 – 80 /mo</span></div>
+      </div>
+      <div class="addon ai-blue rv rv-d1">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 14l4-4 3 3 5-6"/><circle cx="15" cy="4" r="2"/></svg></div>
+        <h3>Data Quality &amp; Alerts</h3>
+        <p>Automated checks on every data feed. Detects missing data, unexpected spikes, and format issues — with alerts before problems reach your reports.</p>
+        <div class="addon-meta"><span>+40 – 80 h build</span><span>+$20 – 80 /mo</span></div>
+      </div>
+      <div class="addon ai-purple rv rv-d2">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="14" height="12" rx="2"/><path d="M2 8h14"/><circle cx="6" cy="12" r="1" fill="currentColor"/></svg></div>
+        <h3>Business Review Portal</h3>
+        <p>A simple web interface where your team can review matching suggestions, approve or reject them, and track decisions.</p>
+        <div class="addon-meta"><span>+60 – 120 h build</span><span>+$30 – 100 /mo</span></div>
+      </div>
+      <div class="addon ai-teal rv rv-d2">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg></div>
+        <h3>Historical Tracking</h3>
+        <p>Keep a full history of how products and customers change over time — so you can report on "what it was then", not just "what it is now".</p>
+        <div class="addon-meta"><span>+30 – 50 h build</span><span>+$10 – 40 /mo</span></div>
+      </div>
+      <div class="addon ai-amber rv rv-d3">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v14M2 9h14"/><circle cx="9" cy="9" r="7"/></svg></div>
+        <h3>Additional Data Source</h3>
+        <p>Each additional data feed — a new retailer, distributor, or channel — brought in, validated, and connected.</p>
+        <div class="addon-meta"><span>+40 – 85 h build</span><span>+$30 – 100 /mo</span></div>
+      </div>
+      <div class="addon ai-purple rv rv-d3">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12l5-5 3 3 6-7"/><path d="M12 3h4v4"/></svg></div>
+        <h3>Currency &amp; Calendar Alignment</h3>
+        <p>Convert between currencies, align to fiscal calendars, and normalize periods for consistent cross-market reporting.</p>
+        <div class="addon-meta"><span>+120 – 320 h build</span><span>+$50 – 200 /mo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INVESTMENT ═══ -->
+<section class="slide" id="investment">
+  <div class="container">
+    <div class="rv"><div class="label">Investment</div>
+    <h2>Build Effort &amp; Monthly Costs</h2>
+    <p class="subtitle">What it takes to build, and what it costs to run.</p></div>
+    <table class="inv-table rv rv-d1">
+      <thead><tr><th>Tier</th><th>Build Effort</th><th>Timeline</th><th>Platform /mo</th><th>Ongoing Support /mo</th><th>Your Team's Involvement /mo</th></tr></thead>
+      <tbody>
+        <tr><td><span class="dot" style="background:var(--teal)"></span><strong>Tier 1</strong> Foundation</td><td>180 – 220 h</td><td>~5.5 weeks</td><td>$50 – 300</td><td>8 – 20 h</td><td>2 – 8 h</td></tr>
+        <tr><td><span class="dot" style="background:var(--blue)"></span><strong>Tier 2</strong> Multi-Source</td><td>290 – 685 h</td><td>9 – 14 weeks</td><td>$150 – 600</td><td>16 – 40 h</td><td>6 – 20 h</td></tr>
+        <tr><td><span class="dot" style="background:var(--purple)"></span><strong>Tier 3</strong> Enterprise</td><td>820 – 1,900 h</td><td>27 – 36+ weeks</td><td>$400 – 1,500</td><td>40 – 120 h</td><td>16 – 60 h</td></tr>
+      </tbody>
+    </table>
+    <div class="inv-note rv">All estimates are based on delivery on the <strong>Databricks</strong> platform. If a different platform is preferred, scope and timelines may need to be reassessed. Ranges reflect data complexity — the low end assumes clean, well-structured sources; the high end accounts for multiple formats, complex product hierarchies, or significant quality issues.</div>
+    <div class="inv-note rv" style="margin-top:8px"><strong>Ongoing support</strong> covers monitoring, issue resolution, and minor adjustments after go-live — included, not separately billed. <strong>Your team's involvement</strong> is the time your business team should expect to spend reviewing quality alerts and maintaining business rules. No technical skills required.</div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="slide slide-alt" id="faq">
+  <div class="container">
+    <div class="rv"><div class="label">Common Questions</div>
+    <h2>Frequently Asked</h2></div>
+    <div style="margin-top:28px">
+      <div class="faq-item rv rv-d1">
+        <h3>What if our data is messy?</h3>
+        <p>That's normal. The discovery phase maps exactly what you have. Our toolkit is designed for imperfect real-world data, not clean demos.</p>
+      </div>
+      <div class="faq-item rv rv-d2">
+        <h3>Do we need a dedicated technical team?</h3>
+        <p>No. We build and hand over. Your team's involvement is reviewing business logic and approving matching suggestions — typically a few hours per month.</p>
+      </div>
+      <div class="faq-item rv rv-d3">
+        <h3>Can we start small and expand later?</h3>
+        <p>Yes. Most engagements start with Tier 1 for one business unit. You can add sources, BUs, or add-ons at any time.</p>
+      </div>
+      <div class="faq-item rv rv-d4">
+        <h3>What happens after handover?</h3>
+        <p>Everything is yours. Optional ongoing support is available, but you are never locked in. If you have the team, you can take it forward independently.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta">
+  <div class="container rv">
+    <h2>Ready to explore?</h2>
+    <p>A 1 – 2 week discovery session helps us understand your data landscape and recommend the right scope.</p>
+    <a href="mailto:contact@example.com" class="cta-btn">Schedule a Discovery Session</a>
+  </div>
+</section>
+<footer class="footer"><div class="container">Orkla Data &amp; Analytics — Solutions Catalog · March 2026 · Internal</div></footer>
 
 <script>
-/* Reveal on scroll */
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+// Scroll reveal
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');obs.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 
-/* Particles */
-(function(){
-  const c = document.getElementById('particles');
-  for(let i = 0; i < 18; i++){
-    const p = document.createElement('div');
-    p.className = 'particle';
-    p.style.left = Math.random()*100 + '%';
-    p.style.top = (60 + Math.random()*40) + '%';
-    p.style.animationDuration = (6 + Math.random()*8) + 's';
-    p.style.animationDelay = Math.random()*6 + 's';
-    p.style.width = p.style.height = (2 + Math.random()*3) + 'px';
-    c.appendChild(p);
-  }
-})();
+// Nav active state
+const navObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){document.querySelectorAll('.topbar a[href^="#"]').forEach(a=>a.classList.remove('active'));const a=document.querySelector('.topbar a[href="#'+x.target.id+'"]');if(a)a.classList.add('active')}})},{threshold:.2,rootMargin:'-52px 0px -60% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>navObs.observe(s));
 </script>
 </body>
 </html>
