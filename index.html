@@ -65,7 +65,7 @@ p{color:var(--muted)}
 
 /* Tiers */
 .tier-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
-.tc{background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-s);transition:var(--ease)}
+.tc{background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden;box-shadow:var(--sh-s);transition:var(--ease);display:flex;flex-direction:column}
 .tc:hover{box-shadow:var(--sh-l);transform:translateY(-4px)}
 .tc-head{padding:22px 22px 14px}
 .tc.t1 .tc-head{background:linear-gradient(135deg,rgba(13,124,102,.06),transparent);border-bottom:2px solid var(--teal)}
@@ -73,12 +73,12 @@ p{color:var(--muted)}
 .tc.t3 .tc-head{background:linear-gradient(135deg,rgba(107,79,160,.06),transparent);border-bottom:2px solid var(--purple)}
 .tc-badge{display:inline-block;padding:3px 10px;border-radius:5px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
 .t1 .tc-badge{background:rgba(13,124,102,.1);color:var(--teal)}.t2 .tc-badge{background:rgba(46,80,144,.1);color:var(--blue)}.t3 .tc-badge{background:rgba(107,79,160,.1);color:var(--purple)}
-.tc-body{padding:18px 22px 22px}
+.tc-body{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}
 .tc-feat{list-style:none;margin-bottom:18px}
 .tc-feat li{padding:5px 0;font-size:.84rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px}
 .tc-feat li::before{content:'';width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
 .t1 .tc-feat li::before{background:var(--teal)}.t2 .tc-feat li::before{background:var(--blue)}.t3 .tc-feat li::before{background:var(--purple)}
-.tc-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:14px;border-top:1px solid var(--line-l)}
+.tc-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:14px;border-top:1px solid var(--line-l);margin-top:auto}
 .tc-m .mv{font-size:.95rem;font-weight:700;color:var(--navy)}.tc-m .ml{font-size:.7rem;color:var(--faint)}
 .tc-deliverables{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-l)}
 .tc-deliverables-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:6px}
@@ -163,9 +163,9 @@ p{color:var(--muted)}
     <p>Turn fragmented sales data into one trusted, decision-ready view — so your commercial teams can focus on acting, not reconciling.</p>
     <p style="font-size:.88rem;color:rgba(255,255,255,.45);margin-top:-32px;margin-bottom:44px">For commercial leaders, category managers, and BU heads who need one trusted set of sales numbers — without depending on a data team for every report.</p></div>
     <div class="hero-chips rv rv-d1">
-      <div class="chip"><div class="cv">What we do</div><div class="cl">Unify sales data across sources</div></div>
-      <div class="chip"><div class="cv">How it works</div><div class="cl">Proven framework, full handover</div></div>
-      <div class="chip"><div class="cv">What you get</div><div class="cl">One number everyone trusts</div></div>
+      <div class="chip"><div class="cv">The challenge</div><div class="cl">Every source tells a different story</div></div>
+      <div class="chip"><div class="cv">Our approach</div><div class="cl">Proven method, you own everything</div></div>
+      <div class="chip"><div class="cv">The outcome</div><div class="cl">Decisions in hours, not weeks</div></div>
     </div>
   </div>
 </section>
@@ -178,14 +178,13 @@ p{color:var(--muted)}
     <p class="subtitle">Each tier builds on the previous. Pick the one that matches where you are today — you can always grow from there.</p></div>
     <div class="tier-row">
       <div class="tc t1 rv rv-d1">
-        <div class="tc-head"><div class="tc-badge">Tier 1</div><h3>Foundation</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 2 core sources</p></div>
+        <div class="tc-head"><div class="tc-badge">Tier 1</div><h3>Foundation</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 2 core sources (e.g. Nielsen + SAP)</p></div>
         <div class="tc-body">
           <ul class="tc-feat">
             <li>One unified list of products &amp; customers across your sources</li>
             <li>Automated data processing — raw data in, trusted data out</li>
             <li>Built-in quality checks and alerts when something looks wrong</li>
-            <li>Business review workflow for anything the system isn't sure about</li>
-            <li>Testing, documentation, training &amp; full handover to your team</li>
+            <li>Testing, documentation &amp; full handover to your team</li>
           </ul>
           <div class="tc-metrics">
             <div class="tc-m"><div class="mv">180 – 220 h</div><div class="ml">Build effort</div></div>
@@ -200,14 +199,14 @@ p{color:var(--muted)}
         </div>
       </div>
       <div class="tc t2 rv rv-d2">
-        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 5 sources</p><p style="font-size:.78rem;color:var(--blue);margin-top:6px;font-weight:500">For when you need to bring in additional retailer feeds, distributor data, or retail sales channels beyond two core sources.</p></div>
+        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 5 sources (e.g. + POS, TPM)</p></div>
         <div class="tc-body">
           <ul class="tc-feat">
-            <li>Proven process to add new data sources quickly</li>
-            <li>Smarter matching — more automation, less manual work</li>
-            <li>Cross-source checks so numbers always add up</li>
-            <li>Automated quality checks and alerts on every data feed</li>
-            <li>Business review portal for matching decisions at scale</li>
+            <li>Everything in Tier 1, plus:</li>
+            <li>Plug in new sources (POS, TPM, distributor) without starting over</li>
+            <li>One view across all sources — discrepancies flagged automatically</li>
+            <li>Self-service portal to review and approve matching decisions</li>
+            <li>Each new source gets faster as the system learns your data</li>
           </ul>
           <div class="tc-metrics">
             <div class="tc-m"><div class="mv">290 – 685 h</div><div class="ml">Build effort</div></div>
@@ -222,15 +221,13 @@ p{color:var(--muted)}
         </div>
       </div>
       <div class="tc t3 rv rv-d3">
-        <div class="tc-head"><div class="tc-badge">Tier 3</div><h3>Enterprise</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">4 – 6 BUs, 2+ sources each</p></div>
+        <div class="tc-head"><div class="tc-badge">Tier 3</div><h3>PortCo</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Multiple BUs, multiple sources</p></div>
         <div class="tc-body">
           <ul class="tc-feat">
-            <li>Shared product &amp; customer lists across all business units</li>
-            <li>Each BU keeps their own definitions, mapped to a common standard</li>
-            <li>Phased rollout — one BU at a time, proving value before scaling</li>
-            <li>Full traceability — every number traces back to its source</li>
-            <li>Business review portal with role-based views per BU</li>
-            <li>Full change history for governance and compliance</li>
+            <li>Everything in Tier 2, plus:</li>
+            <li>Group-level view across all BUs — without overriding local definitions</li>
+            <li>Each BU runs independently, the PortCo sees the full picture</li>
+            <li>Every number traces back to its source — full audit trail</li>
           </ul>
           <div class="tc-metrics">
             <div class="tc-m"><div class="mv">820 – 1,900 h</div><div class="ml">Build effort</div></div>
@@ -246,21 +243,6 @@ p{color:var(--muted)}
       </div>
     </div>
 
-    <!-- Tier selection guide -->
-    <div class="tier-guide rv rv-d2">
-      <div class="tier-guide-card" style="border-top:2px solid var(--teal)">
-        <div class="tg-if">1 business unit, 2 data sources</div>
-        <div class="tg-then" style="color:var(--teal)">Start with Tier 1</div>
-      </div>
-      <div class="tier-guide-card" style="border-top:2px solid var(--blue)">
-        <div class="tg-if">1 business unit, 3–5 data sources</div>
-        <div class="tg-then" style="color:var(--blue)">Start with Tier 2</div>
-      </div>
-      <div class="tier-guide-card" style="border-top:2px solid var(--purple)">
-        <div class="tg-if">Multiple business units</div>
-        <div class="tg-then" style="color:var(--purple)">Start with Tier 3</div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -274,15 +256,15 @@ p{color:var(--muted)}
   <div class="container">
     <div class="rv"><div class="label">The Challenge</div>
     <h2>Sales data that doesn't add up</h2>
-    <p class="subtitle">Most organizations rely on multiple sales sources that never quite agree. The result: manual effort, inconsistent numbers, and slower commercial decisions.</p></div>
+    <p class="subtitle">Most BUs rely on multiple sales sources that never quite agree. The result: manual effort, inconsistent numbers, and slower commercial decisions.</p></div>
     <div class="pain-grid">
       <div class="pain rv rv-d1">
         <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/><path d="M9 5.5h2.5V11"/></svg></div>
-        <h3>Orders vs Actual Sales</h3><p>What you ship and what actually sells at retail tell different stories. Without linking them, you can't see the full picture from factory to shelf — or spot where stock is building up.</p>
+        <h3>Sell In vs Sell Out</h3><p>What you ship and what actually sells at retail tell different stories. Without linking them, you can't see the full picture from factory to shelf — or spot where stock is building up.</p>
       </div>
       <div class="pain rv rv-d2">
         <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="6" cy="8" r="4"/><circle cx="14" cy="8" r="4"/><path d="M10 5v6" opacity=".4"/></svg></div>
-        <h3>Distributor Format Chaos</h3><p>Every retailer and distributor sends data in their own format, product coding, and delivery schedule. Getting a like-for-like comparison across channels takes manual effort every single time.</p>
+        <h3>Format Chaos</h3><p>Every retailer and distributor sends data in their own format, product coding, and delivery schedule. Getting a like-for-like comparison across channels takes manual effort every single time.</p>
       </div>
     </div>
   </div>
@@ -319,46 +301,46 @@ p{color:var(--muted)}
 <section class="slide" id="model">
   <div class="container">
     <div class="rv"><div class="label">How We Work</div>
-    <h2>You Own What We Build</h2>
-    <p class="subtitle">Everything we deploy in your environment is fully yours — every workflow, every configuration, every report. No black boxes, no licensing, no ongoing dependencies.</p></div>
+    <h2>No Lock-In, No Dependencies</h2>
+    <p class="subtitle">We build it, hand it over, and you run it. No vendor lock-in, no recurring licenses.</p></div>
 
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px">
       <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
         <div style="padding:4px 0;background:linear-gradient(90deg,var(--teal),var(--teal-l))"></div>
         <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Our Toolkit · Your Advantage</div>
-          <h3 style="font-size:1.05rem">Orkla Accelerator</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">A proven toolkit refined across every engagement. Instead of starting from scratch, you get a head start.</p>
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Why It's Faster</div>
+          <h3 style="font-size:1.05rem">Head Start, Not From Scratch</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">We bring proven templates from past engagements so your team isn't reinventing the wheel.</p>
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Matching</span> — links products &amp; customers across sources automatically</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Processing</span> — automated data flows, ready to configure for your needs</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Quality</span> — pre-built checks and alerts when data doesn't look right</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Pre-built matching</span> — products &amp; customers linked automatically</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Ready-made pipelines</span> — data flows configured, not coded from zero</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Quality checks included</span> — alerts when something doesn't look right</div>
           </div>
         </div>
       </div>
       <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
         <div style="padding:4px 0;background:linear-gradient(90deg,var(--blue),var(--blue-l))"></div>
         <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Your Rules · Your Ownership</div>
-          <h3 style="font-size:1.05rem">Business Rules &amp; Configuration</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your definitions, your matching rules, your KPI formulas — all fully handed over to you.</p>
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Your Business, Your Rules</div>
+          <h3 style="font-size:1.05rem">Your Definitions, Your Logic</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">You decide how products match, how KPIs are calculated, and what "good data" means.</p>
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Source definitions</span> — what data comes from where</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Matching rules</span> — how products &amp; customers are linked</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">KPI formulas</span> — how your key metrics are calculated</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Product &amp; customer mapping</span> — your definitions, not ours</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">KPI formulas</span> — calculated the way your business thinks</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Full handover</span> — everything in your Git repo, nothing hidden</div>
           </div>
         </div>
       </div>
       <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
         <div style="padding:4px 0;background:linear-gradient(90deg,var(--amber),var(--amber-l))"></div>
         <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:6px">Managed by Orkla IT · Owned by You</div>
-          <h3 style="font-size:1.05rem">Infrastructure</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Everything runs on your dedicated platform, managed by Orkla IT — so you don't have to worry about the infrastructure.</p>
+          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:6px">Zero Hassle</div>
+          <h3 style="font-size:1.05rem">Runs on Your Platform</h3>
+          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your data stays in your environment. Orkla IT handles the platform so your team focuses on insights.</p>
           <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your platform</span> — dedicated workspace for your analytics</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your data</span> — all data stays in your environment</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Orkla IT</span> — manages the infrastructure so your team can focus on the business</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your data, your environment</span> — nothing leaves your tenant</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Managed by Orkla IT</span> — platform uptime is their problem, not yours</div>
+            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your team focuses on business</span> — not on infrastructure</div>
           </div>
         </div>
       </div>
@@ -458,14 +440,6 @@ p{color:var(--muted)}
   </div>
 </section>
 
-<!-- ═══ CTA ═══ -->
-<section class="cta">
-  <div class="container rv">
-    <h2>Ready to explore?</h2>
-    <p>A 1 – 2 week discovery session helps us understand your data landscape and recommend the right scope.</p>
-    <a href="mailto:contact@example.com" class="cta-btn">Schedule a Discovery Session</a>
-  </div>
-</section>
 <footer class="footer"><div class="container">Orkla Data &amp; Analytics — Solutions Catalog · March 2026 · Internal</div></footer>
 
 <script>
