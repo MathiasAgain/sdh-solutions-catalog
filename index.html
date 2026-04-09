@@ -3,22 +3,25 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Data &amp; Analytics Solutions — Orkla</title>
-<meta name="description" content="Unified commercial data solutions for Orkla portfolio companies. Turn fragmented sales data into trusted, decision-ready insights."/>
-<meta property="og:title" content="Data &amp; Analytics Solutions — Orkla"/>
-<meta property="og:description" content="Turn fragmented sales data into trusted, decision-ready insights. Three delivery tiers, flexible add-on services."/>
+<title>Commercial Data Platform — Orkla Data &amp; Analytics</title>
+<meta name="description" content="The Commercial Data Platform from Orkla Data & Analytics. Configure your solution in four steps — tier, support, up-skilling, and add-ons."/>
+<meta property="og:title" content="Commercial Data Platform — Orkla Data &amp; Analytics"/>
+<meta property="og:description" content="Configure your solution in four steps: pick a tier, choose your support level, add up-skilling, and extend with add-ons."/>
 <meta property="og:type" content="website"/>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%237E0626'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' fill='%23FFFFFF' font-size='16' font-weight='800' font-family='sans-serif'>O</text></svg>"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23003D1F'/><text x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' fill='%23FFFFFF' font-size='16' font-weight='800' font-family='sans-serif'>O</text></svg>"/>
 <style>
 :root {
-  --navy:#7E0626; --navy2:#5A0419; --blue:#2E5090; --blue-l:#4A7FD4;
-  --teal:#0D7C66; --teal-l:#10A37F; --amber:#C17817; --amber-l:#E09A30;
-  --purple:#6B4FA0; --red:#C53030; --green:#276749;
-  --ink:#1A1A2E; --muted:#5A6070; --faint:#8A8E9A;
-  --bg:#FAF8F6; --card:#FFFFFF; --line:#E6DED6; --line-l:#F0EBE5;
-  --sh-s:0 1px 3px rgba(126,6,38,.04);
-  --sh-m:0 4px 16px rgba(126,6,38,.07);
-  --sh-l:0 12px 40px rgba(126,6,38,.09);
+  --green-dark:#003D1F; --green-dark2:#002814; --green-mid:#276749; --green-l:#3A8A5F;
+  --green-pale:#E8F3DA; --green-faint:#F3F8E8;
+  --blue:#2E5090; --blue-l:#4A7FD4;
+  --teal:#0D7C66; --teal-l:#10A37F;
+  --amber:#C17817; --amber-l:#E09A30;
+  --purple:#6B4FA0;
+  --ink:#1A2E20; --muted:#56665A; --faint:#8A9A8E;
+  --bg:#EEF4DE; --card:#FFFFFF; --line:#D5E3C2; --line-l:#E8F0D9;
+  --sh-s:0 1px 3px rgba(0,61,31,.05);
+  --sh-m:0 4px 16px rgba(0,61,31,.08);
+  --sh-l:0 12px 40px rgba(0,61,31,.10);
   --r:12px; --rl:16px;
   --ease:.3s cubic-bezier(.4,0,.2,1);
 }
@@ -28,17 +31,17 @@ body{font-family:'Segoe UI',-apple-system,BlinkMacSystemFont,sans-serif;backgrou
 
 /* Typography */
 h1{font-size:clamp(2.2rem,4.5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.025em}
-h2{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--navy)}
-h3{font-size:1.05rem;font-weight:600;color:var(--navy)}
+h2{font-size:clamp(1.5rem,2.8vw,2rem);font-weight:700;line-height:1.2;letter-spacing:-.015em;color:var(--green-dark)}
+h3{font-size:1.05rem;font-weight:600;color:var(--green-dark)}
 p{color:var(--muted)}
 .container{max-width:1200px;margin:0 auto;padding:0 28px}
 
 /* Sections */
 .slide{padding:88px 0;position:relative}
 .slide-alt{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:14px}
-.label::before{content:'';width:22px;height:2px;background:var(--teal);border-radius:1px}
-.subtitle{margin-top:8px;max-width:620px;font-size:1.05rem}
+.label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--green-mid);margin-bottom:14px}
+.label::before{content:'';width:22px;height:2px;background:var(--green-mid);border-radius:1px}
+.subtitle{margin-top:8px;max-width:640px;font-size:1.05rem}
 
 /* Reveal */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
@@ -46,22 +49,27 @@ p{color:var(--muted)}
 .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.25s}.rv-d4{transition-delay:.35s}
 
 /* Hero */
-.hero{background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 45%,#3D0812 100%);color:#fff;padding:140px 0 88px;overflow:hidden;position:relative}
-.hero::after{content:'';position:absolute;top:-30%;right:-10%;width:55%;height:160%;background:radial-gradient(ellipse,rgba(126,6,38,.15),transparent 70%);pointer-events:none}
+.hero{background:linear-gradient(140deg,var(--green-dark) 0%,var(--green-dark2) 45%,#001A0D 100%);color:#fff;padding:140px 0 88px;overflow:hidden;position:relative}
+.hero::after{content:'';position:absolute;top:-30%;right:-10%;width:55%;height:160%;background:radial-gradient(ellipse,rgba(40,120,70,.18),transparent 70%);pointer-events:none}
 .hero .container{position:relative;z-index:1}
 .hero h1{color:#fff;margin-bottom:14px}
-.hero p{color:rgba(255,255,255,.68);font-size:1.12rem;max-width:640px;margin-bottom:44px}
+.hero p{color:rgba(255,255,255,.72);font-size:1.12rem;max-width:680px;margin-bottom:44px}
 .hero-chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:12px 20px;backdrop-filter:blur(6px);transition:var(--ease)}
+.chip{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:12px 20px;backdrop-filter:blur(6px);transition:var(--ease)}
 .chip:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
-.chip .cv{font-size:1.15rem;font-weight:700}.chip .cl{font-size:.76rem;color:rgba(255,255,255,.5);margin-top:2px}
+.chip .cv{font-size:1.15rem;font-weight:700}.chip .cl{font-size:.76rem;color:rgba(255,255,255,.55);margin-top:2px}
 
-/* Challenge */
-.pain-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:32px}
-.pain{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;transition:var(--ease);position:relative;overflow:hidden}
-.pain:hover{box-shadow:var(--sh-m);transform:translateY(-3px)}
-.pain-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,rgba(13,124,102,.1),rgba(13,124,102,.04));display:grid;place-items:center;margin-bottom:14px}
-.pain h3{margin-bottom:6px}.pain p{font-size:.88rem}
+/* Step strip */
+.step-strip{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;margin-top:24px}
+.step-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;text-decoration:none;transition:var(--ease);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.step-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--green-mid);opacity:.3;transition:var(--ease)}
+.step-card:hover{border-color:var(--green-mid);box-shadow:var(--sh-m);transform:translateY(-3px)}
+.step-card:hover::before{opacity:1;width:5px}
+.step-num{font-size:.66rem;font-weight:700;color:var(--green-mid);letter-spacing:.14em;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.step-title{font-size:.98rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.step-desc{font-size:.76rem;color:var(--muted);line-height:1.4}
+.step-arrow{display:grid;place-items:center;color:var(--green-mid);font-size:1.1rem;opacity:.5}
+@media(max-width:900px){.step-strip{grid-template-columns:1fr}.step-arrow{display:none}}
 
 /* Tiers */
 .tier-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:32px}
@@ -71,87 +79,312 @@ p{color:var(--muted)}
 .tc.t1 .tc-head{background:linear-gradient(135deg,rgba(13,124,102,.06),transparent);border-bottom:2px solid var(--teal)}
 .tc.t2 .tc-head{background:linear-gradient(135deg,rgba(46,80,144,.06),transparent);border-bottom:2px solid var(--blue)}
 .tc.t3 .tc-head{background:linear-gradient(135deg,rgba(107,79,160,.06),transparent);border-bottom:2px solid var(--purple)}
-.tc-badge{display:inline-block;padding:3px 10px;border-radius:5px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+.tc-topline{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:8px}
+.tc-badge{display:inline-block;padding:3px 10px;border-radius:5px;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
 .t1 .tc-badge{background:rgba(13,124,102,.1);color:var(--teal)}.t2 .tc-badge{background:rgba(46,80,144,.1);color:var(--blue)}.t3 .tc-badge{background:rgba(107,79,160,.1);color:var(--purple)}
+.tc-example{font-size:.66rem;font-weight:600;color:var(--faint);text-transform:uppercase;letter-spacing:.06em;padding:3px 8px;background:var(--bg);border:1px dashed var(--line);border-radius:5px;white-space:nowrap}
 .tc-body{padding:18px 22px 22px;display:flex;flex-direction:column;flex:1}
 .tc-feat{list-style:none;margin-bottom:18px}
 .tc-feat li{padding:5px 0;font-size:.84rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px}
 .tc-feat li::before{content:'';width:5px;height:5px;border-radius:50%;margin-top:8px;flex-shrink:0}
 .t1 .tc-feat li::before{background:var(--teal)}.t2 .tc-feat li::before{background:var(--blue)}.t3 .tc-feat li::before{background:var(--purple)}
 .tc-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding-top:14px;border-top:1px solid var(--line-l);margin-top:auto}
-.tc-m .mv{font-size:.95rem;font-weight:700;color:var(--navy)}.tc-m .ml{font-size:.7rem;color:var(--faint)}
+.tc-m .mv{font-size:.95rem;font-weight:700;color:var(--green-dark)}.tc-m .ml{font-size:.7rem;color:var(--faint)}
 .tc-deliverables{margin-top:14px;padding-top:14px;border-top:1px solid var(--line-l);min-height:121px}
 .tc-deliverables-title{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:6px}
 .tc-deliverables ul{list-style:none;display:flex;flex-wrap:wrap;gap:5px}
-.tc-deliverables li{font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:5px;background:var(--bg);color:var(--faint)}
+.tc-deliverables li{font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:5px;background:var(--bg);color:var(--muted)}
+
+/* Platform row */
+.plat-row{margin-top:32px;background:var(--card);border:1px solid var(--line);border-radius:var(--rl);padding:24px 28px}
+.plat-row-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.plat-row-title{font-size:.72rem;font-weight:700;color:var(--green-mid);text-transform:uppercase;letter-spacing:.1em}
+.plat-row-sub{font-size:.82rem;color:var(--muted)}
+.plat-chips{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.plat-chip{background:var(--green-faint);border:1px solid var(--line);border-radius:var(--r);padding:18px 22px;display:flex;align-items:center;gap:14px;transition:var(--ease);cursor:default}
+.plat-chip:hover{border-color:var(--green-mid);transform:translateY(-2px);box-shadow:var(--sh-s)}
+.plat-logo{width:36px;height:36px;border-radius:8px;background:var(--card);display:grid;place-items:center;font-weight:800;font-size:.88rem;color:var(--green-dark);flex-shrink:0;border:1px solid var(--line)}
+.plat-name{font-size:.92rem;font-weight:700;color:var(--ink)}
+.plat-note{font-size:.72rem;color:var(--faint);margin-top:1px}
+@media(max-width:780px){.plat-chips{grid-template-columns:1fr}}
+
+/* Support sub-sections */
+.sup-section{margin-top:40px}
+.sup-head{display:flex;align-items:baseline;gap:14px;margin-bottom:14px;flex-wrap:wrap}
+.sup-num{font-size:.68rem;font-weight:700;color:var(--green-mid);letter-spacing:.12em;font-variant-numeric:tabular-nums}
+.sup-title{font-size:1.2rem;font-weight:700;color:var(--green-dark)}
+.sup-tag{font-size:.78rem;color:var(--muted);font-weight:500}
+
+/* Master data */
+.md-paths{display:grid;grid-template-columns:2fr 1fr;gap:16px;margin-top:14px}
+@media(max-width:900px){.md-paths{grid-template-columns:1fr}}
+.md-path{background:var(--card);border:1px solid var(--line);border-radius:var(--rl);padding:24px;display:flex;flex-direction:column}
+.md-path-head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.md-path-num{width:26px;height:26px;border-radius:50%;background:var(--green-pale);color:var(--green-dark);display:grid;place-items:center;font-size:.78rem;font-weight:800;flex-shrink:0}
+.md-path-title{font-size:1rem;font-weight:700;color:var(--ink)}
+.md-path-desc{font-size:.84rem;color:var(--muted);margin-bottom:14px}
+.md-levels{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.md-level{background:var(--green-faint);border:1px solid var(--line-l);border-radius:var(--r);padding:14px 16px;display:flex;gap:14px;align-items:flex-start;transition:var(--ease);position:relative}
+.md-level:hover{border-color:var(--green-mid);background:var(--card)}
+.md-level-tag{font-size:.6rem;font-weight:700;color:var(--card);background:var(--green-mid);padding:3px 7px;border-radius:4px;letter-spacing:.06em;flex-shrink:0;margin-top:2px}
+.md-level-main{flex:1;min-width:0}
+.md-level-name{font-size:.86rem;font-weight:700;color:var(--ink)}
+.md-level-desc{font-size:.76rem;color:var(--muted);margin-top:2px}
+.md-level-ref{font-size:.68rem;color:var(--green-mid);font-weight:600;margin-top:4px;font-style:italic;text-decoration:none;display:inline-flex;align-items:center;gap:4px;transition:var(--ease)}
+.md-level-ref::after{content:'→';font-style:normal;font-size:.72rem;opacity:.6;transition:var(--ease)}
+.md-level-ref:hover{color:var(--green-dark)}
+.md-level-ref:hover::after{transform:translateX(2px);opacity:1}
+.md-path.path2{background:linear-gradient(160deg,var(--green-faint),var(--card))}
+.md-path.path2 .md-body{flex:1;display:flex;flex-direction:column;justify-content:center}
+.md-api-visual{margin-top:12px;padding:16px;background:var(--card);border:1px dashed var(--line);border-radius:var(--r);text-align:center}
+.md-api-flow{display:flex;align-items:center;justify-content:center;gap:10px;font-size:.78rem;color:var(--muted);font-weight:600}
+.md-api-flow span{padding:6px 12px;background:var(--bg);border-radius:6px}
+.md-api-flow .arr{font-size:1rem;color:var(--green-mid)}
+
+/* Governance spectrum */
+.gov-wrap{background:var(--card);border:1px solid var(--line);border-radius:var(--rl);padding:28px 32px;margin-top:14px}
+.gov-bar-wrap{position:relative;margin:12px 12px 44px}
+.gov-bar{height:8px;background:linear-gradient(90deg,var(--blue) 0%,var(--green-l) 50%,var(--green-dark) 100%);border-radius:4px;position:relative}
+.gov-stop{position:absolute;top:-6px;width:20px;height:20px;background:var(--card);border:3px solid var(--green-dark);border-radius:50%;transform:translateX(-50%);z-index:2}
+.gov-stop-label{position:absolute;top:26px;transform:translateX(-50%);font-size:.7rem;font-weight:700;color:var(--ink);white-space:nowrap;letter-spacing:.04em}
+.gov-stops{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.gov-stop-card{text-align:left;padding:18px 20px;background:var(--green-faint);border:1px solid var(--line-l);border-radius:10px;display:flex;flex-direction:column}
+.gov-stop-card .gsc-t{font-size:.92rem;font-weight:700;color:var(--green-dark);margin-bottom:6px}
+.gov-stop-card .gsc-d{font-size:.78rem;color:var(--muted);line-height:1.5}
+@media(max-width:780px){.gov-stops{grid-template-columns:1fr}}
+
+/* Info blocks (shared by Governance + Operations) */
+.info-block{margin-top:12px;padding:8px 0 4px 14px;border-left:2px solid var(--green-mid)}
+.info-block.biz{border-left-color:var(--amber)}
+.info-block-label{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green-mid);margin-bottom:3px;display:block}
+.info-block.biz .info-block-label{color:var(--amber)}
+.info-block-text{font-size:.75rem;color:var(--ink);line-height:1.55}
+
+/* Operations */
+.ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.ops-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;transition:var(--ease);position:relative;overflow:hidden}
+.ops-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--green-mid);transform:scaleX(.25);transform-origin:left;transition:var(--ease)}
+.ops-card:nth-child(2)::before{transform:scaleX(.6)}
+.ops-card:nth-child(3)::before{transform:scaleX(1)}
+.ops-card:hover{border-color:var(--green-mid);transform:translateY(-3px);box-shadow:var(--sh-m)}
+.ops-role{font-size:.64rem;font-weight:700;color:var(--green-mid);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
+.ops-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.ops-desc{font-size:.82rem;color:var(--muted)}
+@media(max-width:780px){.ops-grid{grid-template-columns:1fr}}
+
+/* Up-skilling */
+.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.skill-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;transition:var(--ease);position:relative}
+.skill-card:hover{border-color:var(--green-mid);box-shadow:var(--sh-m);transform:translateY(-3px)}
+.skill-icon{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,rgba(39,103,73,.12),rgba(39,103,73,.04));display:grid;place-items:center;margin-bottom:14px;color:var(--green-mid);font-size:1.1rem;font-weight:800}
+.skill-title{font-size:.96rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.skill-desc{font-size:.8rem;color:var(--muted);line-height:1.5;margin-bottom:12px}
+.skill-meta{display:flex;gap:10px;font-size:.7rem;color:var(--faint);font-weight:600;align-items:center}
+.skill-meta .smt{padding:3px 8px;background:var(--green-faint);border-radius:5px;color:var(--green-mid)}
+.skill-card.soon{opacity:.75}
+.skill-card.soon::after{content:'Coming soon';position:absolute;top:14px;right:14px;font-size:.6rem;font-weight:700;background:var(--amber);color:#fff;padding:3px 8px;border-radius:4px;letter-spacing:.04em;text-transform:uppercase}
+@media(max-width:1050px){.skill-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.skill-grid{grid-template-columns:1fr}}
 
 /* Add-ons */
-.addon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.addon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
 .addon{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;transition:var(--ease);position:relative;cursor:default}
-.addon:hover{border-color:var(--teal);box-shadow:var(--sh-m);transform:translateY(-2px)}
+.addon:hover{border-color:var(--green-mid);box-shadow:var(--sh-m);transform:translateY(-2px)}
 .addon-icon{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;margin-bottom:12px;font-size:.9rem}
-.addon h3{font-size:.95rem;margin-bottom:4px}
+.addon h3{font-size:.95rem;margin-bottom:4px;color:var(--ink)}
 .addon p{font-size:.82rem;margin-bottom:12px}
 .addon-meta{display:flex;gap:12px;font-size:.75rem;color:var(--faint);font-weight:600}
 .addon-meta span{display:flex;align-items:center;gap:4px}
-.ai-teal .addon-icon{background:rgba(13,124,102,.08);color:var(--teal)}
-.ai-blue .addon-icon{background:rgba(46,80,144,.08);color:var(--blue)}
-.ai-amber .addon-icon{background:rgba(193,120,23,.08);color:var(--amber)}
-.ai-purple .addon-icon{background:rgba(107,79,160,.08);color:var(--purple)}
+.ai-teal .addon-icon{background:rgba(13,124,102,.1);color:var(--teal)}
+.ai-blue .addon-icon{background:rgba(46,80,144,.1);color:var(--blue)}
+.ai-amber .addon-icon{background:rgba(193,120,23,.1);color:var(--amber)}
+.ai-purple .addon-icon{background:rgba(107,79,160,.1);color:var(--purple)}
+.ai-green .addon-icon{background:rgba(39,103,73,.12);color:var(--green-mid)}
+.addon.new::after{content:'New';position:absolute;top:12px;right:12px;font-size:.58rem;font-weight:700;background:var(--green-mid);color:#fff;padding:3px 7px;border-radius:4px;letter-spacing:.04em;text-transform:uppercase}
+.addon.soon::after{content:'Coming soon';position:absolute;top:12px;right:12px;font-size:.58rem;font-weight:700;background:var(--amber);color:#fff;padding:3px 7px;border-radius:4px;letter-spacing:.04em;text-transform:uppercase}
+@media(max-width:1050px){.addon-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.addon-grid{grid-template-columns:1fr}}
+
+/* Cases */
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
+.case-card{background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden;transition:var(--ease);display:flex;flex-direction:column;position:relative}
+.case-card:hover{border-color:var(--green-mid);box-shadow:var(--sh-l);transform:translateY(-4px)}
+.case-cover{height:120px;background:linear-gradient(135deg,var(--green-dark),var(--green-mid));position:relative;overflow:hidden}
+.case-cover::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at bottom right,rgba(255,255,255,.15),transparent 60%)}
+.case-cover.snacks{background:linear-gradient(135deg,#5A3D1F,#8A5C2D)}
+.case-cover .cc-tier{position:absolute;top:14px;left:18px;font-size:.62rem;font-weight:700;color:rgba(255,255,255,.9);background:rgba(255,255,255,.15);padding:4px 10px;border-radius:5px;backdrop-filter:blur(6px);letter-spacing:.08em;text-transform:uppercase}
+.case-cover .cc-label{position:absolute;bottom:14px;left:18px;font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:-.02em}
+.case-body{padding:22px 24px;flex:1;display:flex;flex-direction:column}
+.case-summary{font-size:.86rem;color:var(--muted);margin-bottom:14px}
+.case-highlights{list-style:none;margin-bottom:18px}
+.case-highlights li{padding:4px 0;font-size:.8rem;color:var(--ink);display:flex;align-items:flex-start;gap:8px}
+.case-highlights li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green-mid);margin-top:8px;flex-shrink:0}
+.case-link{margin-top:auto;font-size:.84rem;font-weight:700;color:var(--green-dark);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:var(--ease)}
+.case-link:hover{color:var(--green-mid);gap:10px}
+.case-link.muted{color:var(--faint);pointer-events:none}
+@media(max-width:780px){.case-grid{grid-template-columns:1fr}}
+
+/* Architecture v2 — interactive diagram */
+.arch-v2{background:var(--card);border:1px solid var(--line);border-radius:var(--rl);padding:28px 30px;margin-top:28px;box-shadow:var(--sh-m);position:relative;overflow:hidden}
+.arch-v2::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(39,103,73,.05),transparent 65%);pointer-events:none}
+
+/* Top bar: tier toggle + platform badge */
+.arch-topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px;position:relative;z-index:1;flex-wrap:wrap}
+.tier-toggle{display:inline-flex;background:var(--green-faint);border:1px solid var(--line);border-radius:10px;padding:4px;gap:2px}
+.tier-btn{background:transparent;border:none;padding:9px 18px;border-radius:7px;cursor:pointer;font-family:inherit;display:flex;flex-direction:column;align-items:flex-start;gap:1px;transition:var(--ease);color:var(--muted);min-width:96px}
+.tier-btn:hover{color:var(--green-dark)}
+.tier-btn.active{background:var(--card);box-shadow:0 2px 8px rgba(0,61,31,.12);color:var(--green-dark)}
+.tier-btn-label{font-size:.78rem;font-weight:700;letter-spacing:.02em}
+.tier-btn-sub{font-size:.62rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.72}
+.arch-platform-badge{display:inline-flex;align-items:center;gap:8px;font-size:.72rem;font-weight:600;color:var(--green-dark);padding:8px 14px;background:var(--green-faint);border:1px solid var(--line);border-radius:20px}
+.platform-dot{width:8px;height:8px;border-radius:50%;background:var(--green-l);box-shadow:0 0 0 3px rgba(58,138,95,.15);animation:arch-pulse 2.4s ease-in-out infinite}
+@keyframes arch-pulse{0%,100%{box-shadow:0 0 0 3px rgba(58,138,95,.15)}50%{box-shadow:0 0 0 6px rgba(58,138,95,.05)}}
+
+/* Stage pills */
+.stage-bar{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:6px;align-items:center;margin-bottom:20px;position:relative;z-index:1}
+.stage-pill{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:11px 16px;cursor:pointer;font-family:inherit;transition:var(--ease);display:flex;flex-direction:column;align-items:flex-start;gap:2px;position:relative;overflow:hidden;text-align:left}
+.stage-pill::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--green-mid);transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.stage-pill:hover{border-color:var(--green-mid);transform:translateY(-1px)}
+.stage-pill.active{border-color:var(--green-dark);box-shadow:0 6px 18px rgba(0,61,31,.12)}
+.stage-pill.active::before{transform:scaleX(1)}
+.stage-pill-num{font-size:.58rem;font-weight:700;color:var(--faint);letter-spacing:.1em;font-variant-numeric:tabular-nums}
+.stage-pill-name{font-size:.92rem;font-weight:700;color:var(--ink)}
+.stage-pill-sub{font-size:.62rem;font-weight:600;color:var(--green-mid);text-transform:uppercase;letter-spacing:.06em}
+.stage-arrow{display:grid;place-items:center;color:var(--green-mid);font-size:1.1rem;opacity:.5}
+
+/* Canvas */
+.arch-canvas{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:stretch;background:var(--green-faint);border:1px solid var(--line);border-radius:12px;padding:22px;position:relative;z-index:1}
+.arch-region{display:flex;flex-direction:column;gap:10px;min-width:140px}
+.arch-region.arch-pipeline{min-width:0;flex:1}
+.region-label{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--faint);text-align:center}
+
+/* Nodes (source + consumer) */
+.region-items{display:flex;flex-direction:column;gap:7px;flex:1}
+.node{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 12px;display:flex;align-items:center;gap:9px;font-size:.76rem;font-weight:600;color:var(--ink);transition:all .4s var(--ease)}
+.node-icon{width:18px;height:18px;fill:none;stroke:var(--green-mid);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.node.dim{opacity:.22;filter:grayscale(.7)}
+.node.dim .node-icon{stroke:var(--faint)}
+.source-node:hover:not(.dim){border-color:var(--green-mid);transform:translateX(2px)}
+.consumer-node:hover:not(.dim){border-color:var(--green-mid);transform:translateX(-2px)}
+
+/* Pipeline */
+.pipeline-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr auto 1fr;gap:6px;align-items:stretch;padding:6px 4px;flex:1}
+.layer-node{background:var(--card);border:2px solid var(--line);border-radius:10px;padding:16px 8px 14px;text-align:center;cursor:pointer;transition:var(--ease);display:flex;flex-direction:column;align-items:center;gap:6px;position:relative;min-width:0}
+.layer-node:hover{border-color:var(--green-mid);transform:translateY(-2px)}
+.layer-node.active{border-color:var(--green-dark);box-shadow:0 10px 28px rgba(0,61,31,.18);transform:translateY(-3px)}
+.layer-node.active::after{content:'';position:absolute;inset:-4px;border-radius:13px;border:1.5px solid var(--green-dark);pointer-events:none;opacity:.25}
+.layer-icon{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.layer-node-tag{font-size:.54rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;padding:2px 7px;border-radius:4px;color:#fff;line-height:1.5}
+.layer-node[data-stage="ingest"]{color:#8B6F2D}
+.layer-node[data-stage="ingest"] .layer-node-tag{background:#B8923E}
+.layer-node[data-stage="clean"]{color:#6E7C8E}
+.layer-node[data-stage="clean"] .layer-node-tag{background:#98A6B6}
+.layer-node[data-stage="harmonize"]{color:#B08727}
+.layer-node[data-stage="harmonize"] .layer-node-tag{background:#D4A538}
+.layer-node[data-stage="serve"]{color:var(--green-dark)}
+.layer-node[data-stage="serve"] .layer-node-tag{background:var(--green-dark)}
+.layer-node-name{font-size:.84rem;font-weight:700;color:var(--ink);line-height:1.2}
+.flow-connector{width:100%;max-width:32px;height:22px;align-self:center;color:var(--green-mid);fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;justify-self:center}
+
+/* BU multi-marker (tier 3 only) */
+.bu-marker{margin-top:12px;display:none;justify-content:center;gap:8px;align-items:center;font-size:.64rem;font-weight:700;color:var(--green-dark);text-transform:uppercase;letter-spacing:.08em;padding:8px 12px;background:rgba(39,103,73,.08);border:1px dashed var(--green-mid);border-radius:8px}
+.bu-marker-icon{display:inline-grid;grid-template-columns:repeat(3,6px);gap:2px}
+.bu-marker-icon span{width:6px;height:6px;background:var(--green-mid);border-radius:1px}
+.arch-v2[data-active-tier="3"] .bu-marker{display:inline-flex}
+
+/* Master data spine */
+.arch-md-wrap{margin-top:16px;position:relative;z-index:1}
+.md-connectors{display:grid;grid-template-columns:repeat(4,1fr);height:18px;pointer-events:none;padding:0 2px}
+.md-connector{display:flex;justify-content:center;position:relative}
+.md-connector::before{content:'';width:2px;background:repeating-linear-gradient(to bottom,var(--green-mid) 0,var(--green-mid) 3px,transparent 3px,transparent 6px);height:100%;opacity:.6}
+.md-connector::after{content:'';position:absolute;top:0;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:5px solid var(--green-mid);opacity:.7}
+.md-box{background:linear-gradient(135deg,var(--green-dark),var(--green-mid));color:#fff;border-radius:12px;padding:20px 26px;display:flex;gap:18px;align-items:center;box-shadow:0 10px 32px rgba(0,61,31,.22);position:relative}
+.md-icon-wrap{width:48px;height:48px;border-radius:12px;background:rgba(255,255,255,.15);display:grid;place-items:center;flex-shrink:0}
+.md-icon-wrap svg{width:26px;height:26px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.md-body{flex:1}
+.md-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px;color:rgba(255,255,255,.95)}
+.md-text{font-size:.82rem;color:rgba(255,255,255,.82);line-height:1.5}
+
+/* Detail panel */
+.arch-detail{margin-top:20px;background:var(--green-faint);border:1px solid var(--line-l);border-radius:12px;padding:22px 26px;position:relative;z-index:1}
+.detail-panel{display:none;animation:arch-fade .35s var(--ease)}
+.detail-panel.active{display:block}
+@keyframes arch-fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.detail-header{margin-bottom:14px}
+.detail-num{font-size:.6rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green-mid);margin-bottom:3px}
+.detail-title{font-size:1.08rem;font-weight:700;color:var(--green-dark);line-height:1.2}
+.detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.detail-item{border-left:2px solid var(--green-mid);padding-left:14px}
+.detail-item-label{font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--green-mid);margin-bottom:5px}
+.detail-item-text{font-size:.8rem;color:var(--ink);line-height:1.55}
+
+/* Tier dimming */
+.arch-v2[data-active-tier="1"] .node[data-min-tier="2"],
+.arch-v2[data-active-tier="1"] .node[data-min-tier="3"]{opacity:.22;filter:grayscale(.7)}
+.arch-v2[data-active-tier="2"] .node[data-min-tier="3"]{opacity:.22;filter:grayscale(.7)}
+
+/* Responsive */
+@media(max-width:1050px){
+  .arch-canvas{grid-template-columns:1fr;gap:20px}
+  .arch-region{min-width:0}
+  .region-items{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:6px}
+  .pipeline-flow{grid-template-columns:repeat(4,1fr);gap:6px}
+  .flow-connector{display:none}
+  .md-connectors{display:none}
+  .detail-grid{grid-template-columns:1fr;gap:14px}
+  .stage-bar{grid-template-columns:repeat(2,1fr);gap:8px}
+  .stage-arrow{display:none}
+  .arch-topbar{flex-direction:column;align-items:stretch}
+  .tier-toggle{justify-content:center}
+}
 
 /* Investment */
 .inv-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:.88rem;margin-top:24px}
-.inv-table thead th{background:#5A0419;color:#fff;padding:14px 18px;font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;text-align:left}
-.inv-table tbody td{padding:14px 18px;border-bottom:1px solid var(--line-l);vertical-align:middle}
+.inv-table thead th{background:var(--green-dark);color:#fff;padding:14px 18px;font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;text-align:left}
+.inv-table tbody td{padding:14px 18px;border-bottom:1px solid var(--line-l);vertical-align:middle;background:var(--card)}
 .inv-table tbody tr:last-child td{border-bottom:none}
-.inv-table tbody tr{transition:var(--ease)}.inv-table tbody tr:hover{background:rgba(13,124,102,.02)}
+.inv-table tbody tr{transition:var(--ease)}.inv-table tbody tr:hover td{background:var(--green-faint)}
 .dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px;vertical-align:middle}
-.inv-note{margin-top:14px;padding:16px;background:var(--line-l);border-radius:var(--r);font-size:.84rem;color:var(--muted)}
-
-/* Outcomes */
-.outcome-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px}
-@media(max-width:600px){.outcome-grid{grid-template-columns:1fr}}
+.inv-note{margin-top:14px;padding:16px;background:var(--green-faint);border:1px solid var(--line);border-radius:var(--r);font-size:.84rem;color:var(--muted)}
 
 /* CTA */
-.cta{background:linear-gradient(140deg,var(--navy),var(--navy2));color:#fff;text-align:center;padding:88px 0}
+.cta{background:linear-gradient(140deg,var(--green-dark),var(--green-dark2));color:#fff;text-align:center;padding:88px 0}
 .cta h2{color:#fff;margin-bottom:10px}
-.cta p{color:rgba(255,255,255,.65);max-width:500px;margin:0 auto 32px;font-size:1rem}
-.cta-btn{display:inline-block;padding:15px 40px;background:var(--teal);color:#fff;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:var(--ease);font-family:inherit;text-decoration:none}
-.cta-btn:hover{background:var(--teal-l);transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,124,102,.3)}
-.footer{padding:18px 0;text-align:center;font-size:.74rem;color:var(--faint);border-top:1px solid var(--line)}
+.cta p{color:rgba(255,255,255,.72);max-width:520px;margin:0 auto 32px;font-size:1rem}
+.cta-btn{display:inline-block;padding:15px 40px;background:var(--green-l);color:#fff;border:none;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:var(--ease);font-family:inherit;text-decoration:none}
+.cta-btn:hover{background:var(--green-mid);transform:translateY(-2px);box-shadow:0 8px 24px rgba(39,103,73,.35)}
+.footer{padding:18px 0;text-align:center;font-size:.74rem;color:var(--faint);border-top:1px solid var(--line);background:var(--card)}
 
 /* FAQ */
-.faq-item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;margin-bottom:12px}
-.faq-item h3{font-size:.95rem;margin-bottom:6px}
+.faq-item{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;margin-bottom:12px;transition:var(--ease)}
+.faq-item:hover{border-color:var(--green-mid)}
+.faq-item h3{font-size:.95rem;margin-bottom:6px;color:var(--ink)}
 .faq-item p{font-size:.88rem}
 
-/* Tier guide */
-.tier-guide{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
-.tier-guide-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px;text-align:center}
-.tier-guide-card .tg-if{font-size:.82rem;color:var(--muted);margin-bottom:8px}
-.tier-guide-card .tg-then{font-size:.95rem;font-weight:700}
-
 /* Nav */
-.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;gap:6px;padding:0 28px;background:rgba(126,6,38,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
-.topbar a{font-size:.76rem;font-weight:600;color:rgba(255,255,255,.6);text-decoration:none;padding:5px 10px;border-radius:6px;transition:all .2s;white-space:nowrap}
+.topbar{position:fixed;top:0;left:0;right:0;z-index:100;height:52px;display:flex;align-items:center;gap:6px;padding:0 28px;background:rgba(0,61,31,.94);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:box-shadow .3s}
+.topbar a{font-size:.76rem;font-weight:600;color:rgba(255,255,255,.66);text-decoration:none;padding:5px 10px;border-radius:6px;transition:all .2s;white-space:nowrap}
 .topbar a:hover{color:#fff;background:rgba(255,255,255,.1)}
-.topbar a.active{color:#fff;background:rgba(255,255,255,.14)}
+.topbar a.active{color:#fff;background:rgba(255,255,255,.16)}
 .topbar .tb-brand{font-weight:700;font-size:.85rem;color:#fff;margin-right:auto;letter-spacing:.03em}
-.topbar .tb-brand span{color:#E8B4C0}
+.topbar .tb-brand span{color:#B8D8B0}
 
 /* Responsive */
-@media(max-width:960px){.tier-row,.addon-grid,.pain-grid,.tier-guide{grid-template-columns:1fr}#model .container>div:nth-child(2){grid-template-columns:1fr!important}}
-@media(max-width:600px){.hero{padding:72px 0 56px}.slide{padding:56px 0}.hero-chips{gap:8px}}
+@media(max-width:960px){.tier-row{grid-template-columns:1fr}}
+@media(max-width:600px){.hero{padding:72px 0 56px}.slide{padding:56px 0}.hero-chips{gap:8px}.arch{padding:22px}}
 @media print{.topbar{display:none}.rv{opacity:1!important;transform:none!important}.hero{padding:60px 0 40px}.slide{padding:40px 0}*{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
 </style>
 </head>
 <body>
 <nav class="topbar">
   <span class="tb-brand"><span>Orkla</span>&nbsp; Data &amp; Analytics</span>
-  <a href="#tiers">Tiers</a>
-  <a href="#outcomes">Outcomes</a>
-  <a href="#model">How We Work</a>
-  <a href="#addons">Add-Ons</a>
+  <a href="#steps">Steps</a>
+  <a href="#step1">Tier</a>
+  <a href="#step2">Support</a>
+  <a href="#step3">Up-skilling</a>
+  <a href="#step4">Add-Ons</a>
+  <a href="#cases">Cases</a>
+  <a href="#architecture">Architecture</a>
   <a href="#investment">Investment</a>
   <a href="#faq">FAQ</a>
 </nav>
@@ -159,9 +392,9 @@ p{color:var(--muted)}
 <!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="container">
-    <div class="rv"><h1>Unified Commercial Data</h1>
+    <div class="rv"><h1>Commercial Data Platform</h1>
     <p>Turn fragmented sales data into one trusted, decision-ready view — so your commercial teams can focus on acting, not reconciling.</p>
-    <p style="font-size:.88rem;color:rgba(255,255,255,.45);margin-top:-32px;margin-bottom:44px">For commercial leaders, category managers, and BU heads who need one trusted set of sales numbers — without depending on a data team for every report.</p></div>
+    <p style="font-size:.88rem;color:rgba(255,255,255,.5);margin-top:-32px;margin-bottom:44px">For commercial leaders, category managers, and BU heads who need one trusted set of sales numbers — without depending on a data team for every report.</p></div>
     <div class="hero-chips rv rv-d1">
       <div class="chip"><div class="cv">The challenge</div><div class="cl">Every source tells a different story</div></div>
       <div class="chip"><div class="cv">Our approach</div><div class="cl">Proven method, you own everything</div></div>
@@ -170,15 +403,53 @@ p{color:var(--muted)}
   </div>
 </section>
 
-<!-- ═══ TIERS ═══ -->
-<section class="slide slide-alt" id="tiers">
+<!-- ═══ STEP OVERVIEW ═══ -->
+<section class="slide" id="steps" style="padding:64px 0 32px">
   <div class="container">
-    <div class="rv"><div class="label">Our Offerings</div>
-    <h2>Three levels of scope</h2>
-    <p class="subtitle">Each tier builds on the previous. Pick the one that matches where you are today — you can always grow from there.</p></div>
+    <div class="rv"><div class="label">Configure Your Solution</div>
+    <h2>Build it in four steps</h2>
+    <p class="subtitle">Pick a tier and platform, decide how involved you want us to be, add up-skilling where you need it, and extend with add-ons.</p></div>
+    <div class="step-strip rv rv-d1">
+      <a href="#step1" class="step-card">
+        <div class="step-num">STEP 01</div>
+        <div class="step-title">Tier &amp; Platform</div>
+        <div class="step-desc">Scope of the build and where it runs</div>
+      </a>
+      <div class="step-arrow">→</div>
+      <a href="#step2" class="step-card">
+        <div class="step-num">STEP 02</div>
+        <div class="step-title">Support Level</div>
+        <div class="step-desc">Master data, governance, operations</div>
+      </a>
+      <div class="step-arrow">→</div>
+      <a href="#step3" class="step-card">
+        <div class="step-num">STEP 03</div>
+        <div class="step-title">Up-skilling</div>
+        <div class="step-desc">Training where you need the skills</div>
+      </a>
+      <div class="step-arrow">→</div>
+      <a href="#step4" class="step-card">
+        <div class="step-num">STEP 04</div>
+        <div class="step-title">Add-Ons</div>
+        <div class="step-desc">Extras you can layer in anytime</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STEP 1 — TIER & PLATFORM ═══ -->
+<section class="slide slide-alt" id="step1">
+  <div class="container">
+    <div class="rv"><div class="label">Step 01 · Tier &amp; Platform</div>
+    <h2>Pick a tier and where it runs</h2>
+    <p class="subtitle">Each tier builds on the previous. Start where you are today — you can always grow from there.</p></div>
     <div class="tier-row">
       <div class="tc t1 rv rv-d1">
-        <div class="tc-head"><div class="tc-badge">Tier 1</div><h3>Foundation</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 2 core sources (e.g. Nielsen + SAP)</p></div>
+        <div class="tc-head">
+          <div class="tc-topline"><div class="tc-badge">Tier 1</div><div class="tc-example">Example · Care Finland</div></div>
+          <h3>Foundation</h3>
+          <p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 2 core sources (e.g. Nielsen + SAP)</p>
+        </div>
         <div class="tc-body">
           <ul class="tc-feat">
             <li>One unified list of products &amp; customers across your sources</li>
@@ -199,7 +470,11 @@ p{color:var(--muted)}
         </div>
       </div>
       <div class="tc t2 rv rv-d2">
-        <div class="tc-head"><div class="tc-badge">Tier 2</div><h3>Multi-Source</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 5 sources (e.g. + POS, TPM)</p></div>
+        <div class="tc-head">
+          <div class="tc-topline"><div class="tc-badge">Tier 2</div><div class="tc-example">Example · Coming soon</div></div>
+          <h3>Multi-Source</h3>
+          <p style="font-size:.84rem;color:var(--muted);margin-top:3px">Single BU, 3 – 5 sources (e.g. + POS, TPM)</p>
+        </div>
         <div class="tc-body">
           <ul class="tc-feat">
             <li>Everything in Tier 1, plus:</li>
@@ -220,7 +495,11 @@ p{color:var(--muted)}
         </div>
       </div>
       <div class="tc t3 rv rv-d3">
-        <div class="tc-head"><div class="tc-badge">Tier 3</div><h3>PortCo</h3><p style="font-size:.84rem;color:var(--muted);margin-top:3px">Multiple BUs, multiple sources</p></div>
+        <div class="tc-head">
+          <div class="tc-topline"><div class="tc-badge">Tier 3</div><div class="tc-example">Example · Snacks PortCo</div></div>
+          <h3>PortCo</h3>
+          <p style="font-size:.84rem;color:var(--muted);margin-top:3px">Multiple BUs, multiple sources</p>
+        </div>
         <div class="tc-body">
           <ul class="tc-feat">
             <li>Everything in Tier 2, plus:</li>
@@ -242,170 +521,458 @@ p{color:var(--muted)}
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ═══ PROOF POINT ═══ -->
-<div class="rv" style="background:linear-gradient(135deg,rgba(13,124,102,.04),rgba(126,6,38,.03));border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 28px;text-align:center">
-  <p style="font-size:.9rem;color:var(--muted);max-width:640px;margin:0 auto"><span style="color:var(--teal);font-weight:600">Shaped by real engagements.</span> Our toolkit is refined through deployments across Orkla portfolio companies. Each engagement makes it better — and yours benefits from everything we've learned.</p>
-</div>
-
-<!-- ═══ CHALLENGE ═══ -->
-<section class="slide" id="challenge">
-  <div class="container">
-    <div class="rv"><div class="label">The Challenge</div>
-    <h2>Sales data that doesn't add up</h2>
-    <p class="subtitle">Most BUs rely on multiple sales sources that never quite agree. The result: manual effort, inconsistent numbers, and slower commercial decisions.</p></div>
-    <div class="pain-grid">
-      <div class="pain rv rv-d1">
-        <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><rect x="2" y="2" width="7" height="7" rx="1"/><rect x="11" y="11" width="7" height="7" rx="1"/><path d="M9 5.5h2.5V11"/></svg></div>
-        <h3>Sell In vs Sell Out</h3><p>What you ship and what actually sells at retail tell different stories. Without linking them, you can't see the full picture from factory to shelf — or spot where stock is building up.</p>
+    <div class="plat-row rv rv-d4">
+      <div class="plat-row-head">
+        <div class="plat-row-title">Runs on your platform of choice</div>
+        <div class="plat-row-sub">Your data stays in your environment. Pick the platform your IT already runs.</div>
       </div>
-      <div class="pain rv rv-d2">
-        <div class="pain-icon"><svg width="20" height="20" fill="none" stroke="var(--teal)" stroke-width="2"><circle cx="6" cy="8" r="4"/><circle cx="14" cy="8" r="4"/><path d="M10 5v6" opacity=".4"/></svg></div>
-        <h3>Format Chaos</h3><p>Every retailer and distributor sends data in their own format, product coding, and delivery schedule. Getting a like-for-like comparison across channels takes manual effort every single time.</p>
+      <div class="plat-chips">
+        <div class="plat-chip"><div class="plat-logo">DB</div><div><div class="plat-name">Databricks</div><div class="plat-note">Default — most of our accelerator runs here</div></div></div>
+        <div class="plat-chip"><div class="plat-logo">MF</div><div><div class="plat-name">Microsoft Fabric</div><div class="plat-note">For Microsoft-native estates</div></div></div>
+        <div class="plat-chip"><div class="plat-logo">SF</div><div><div class="plat-name">Snowflake</div><div class="plat-note">For Snowflake-standardized BUs</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ OUTCOMES ═══ -->
-<section class="slide slide-alt" id="outcomes">
+<!-- ═══ STEP 2 — SUPPORT LEVEL ═══ -->
+<section class="slide" id="step2">
   <div class="container">
-    <div class="rv"><div class="label">What You Get</div>
-    <h2>What changes for your team</h2>
-    <p class="subtitle">The end result is a single, trusted view of sales data — refreshed automatically and ready for reporting.</p></div>
-    <div class="outcome-grid">
-      <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--teal);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">One set of numbers</div>
-        <p style="font-size:.88rem;color:var(--muted)">Commercial reviews, forecasting, and executive reporting all work from the same figures. No more "my numbers say something different."</p>
+    <div class="rv"><div class="label">Step 02 · Support Level</div>
+    <h2>Decide how involved you want us to be</h2>
+    <p class="subtitle">Three dimensions — master data, governance, and operations — each with a clear spectrum from do-it-yourself to fully managed.</p></div>
+
+    <!-- Master data -->
+    <div class="sup-section rv rv-d1">
+      <div class="sup-head"><div class="sup-num">02 · A</div><div class="sup-title">Master data</div><div class="sup-tag">How do you want to handle product &amp; customer mapping?</div></div>
+      <div class="md-paths">
+        <div class="md-path">
+          <div class="md-path-head"><div class="md-path-num">1</div><div class="md-path-title">Bring your own mapping</div></div>
+          <p class="md-path-desc">You keep ownership of the mapping. We deliver the rails — three complexity levels, pick the one that matches your team's capacity.</p>
+          <div class="md-levels">
+            <div class="md-level">
+              <div class="md-level-tag">LVL 1</div>
+              <div class="md-level-main">
+                <div class="md-level-name">Excel mapping table</div>
+                <div class="md-level-desc">You maintain the mapping in Excel. We load it into the platform and use it as the source of truth.</div>
+                <a class="md-level-ref" href="#case-care-fi">How Care Finland operates today</a>
+              </div>
+            </div>
+            <div class="md-level">
+              <div class="md-level-tag">LVL 2</div>
+              <div class="md-level-main">
+                <div class="md-level-name">Excel + Eddy UI on top</div>
+                <div class="md-level-desc">You still own the mapping, but you work in <strong>Eddy</strong> — our dedicated mapping tool — instead of Excel.</div>
+                <a class="md-level-ref" href="#cases">Coming soon</a>
+              </div>
+            </div>
+            <div class="md-level">
+              <div class="md-level-tag">LVL 3</div>
+              <div class="md-level-main">
+                <div class="md-level-name">Matching algorithm + Eddy</div>
+                <div class="md-level-desc">We build a matching algorithm on the platform. Eddy on top gives you a clean UI. You only validate the suggestions.</div>
+                <a class="md-level-ref" href="#cases">Coming soon</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="md-path path2">
+          <div class="md-path-head"><div class="md-path-num">2</div><div class="md-path-title">Bring your own MDM tool</div></div>
+          <p class="md-path-desc">You already own a master data tool. We establish a connection — API, integration, whatever fits — and consume your definitions directly.</p>
+          <div class="md-body">
+            <div class="md-api-visual">
+              <div class="md-api-flow"><span>Your MDM</span><span class="arr">→</span><span>API</span><span class="arr">→</span><span>Platform</span></div>
+              <div style="font-size:.72rem;color:var(--faint);margin-top:10px">Definitions stay in your tool. No duplication.</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Reports in hours, not weeks</div>
-        <p style="font-size:.88rem;color:var(--muted)">Data refreshes daily or weekly, automatically. No manual stitching, no waiting for someone to update a spreadsheet.</p>
+    </div>
+
+    <!-- Governance -->
+    <div class="sup-section rv rv-d2">
+      <div class="sup-head"><div class="sup-num">02 · B</div><div class="sup-title">Governance</div><div class="sup-tag">How much governance should we run vs. your team?</div></div>
+      <div class="gov-wrap">
+        <p style="font-size:.86rem;color:var(--muted);margin-bottom:6px">Governance is what keeps definitions honest as the business evolves — who can change a KPI, who approves a new source, how a mapping decision is documented. You pick the posture that fits your operating model.</p>
+        <div class="gov-bar-wrap">
+          <div class="gov-bar">
+            <div class="gov-stop" style="left:0%"><div class="gov-stop-label" style="margin-left:14px">Self-governed</div></div>
+            <div class="gov-stop" style="left:50%"><div class="gov-stop-label">Co-piloted</div></div>
+            <div class="gov-stop" style="left:100%"><div class="gov-stop-label" style="margin-left:-14px">Managed</div></div>
+          </div>
+        </div>
+        <div class="gov-stops">
+          <div class="gov-stop-card">
+            <div class="gsc-t">You govern</div>
+            <div class="gsc-d">You own every rule, every review, every approval. We deliver the platform and step back.</div>
+            <div class="info-block">
+              <span class="info-block-label">In practice</span>
+              <div class="info-block-text">A category manager wants to change how <em>promo share</em> is calculated. Your data steward updates the definition, your finance lead signs off, the change is logged in your governance wiki — all without us in the loop.</div>
+            </div>
+            <div class="info-block biz">
+              <span class="info-block-label">For your business</span>
+              <div class="info-block-text">Maximum control, zero vendor dependency. The trade-off: you need stewardship muscle in-house — a data lead, a cadence, and clear decision rights.</div>
+            </div>
+          </div>
+          <div class="gov-stop-card">
+            <div class="gsc-t">We co-pilot</div>
+            <div class="gsc-d">We propose rules, run reviews, flag inconsistencies — you keep the final word.</div>
+            <div class="info-block">
+              <span class="info-block-label">In practice</span>
+              <div class="info-block-text">A new Nielsen delivery includes 12 unfamiliar product variants. We draft the mapping and route it to your category manager in Eddy. They approve in two clicks, the history is captured automatically.</div>
+            </div>
+            <div class="info-block biz">
+              <span class="info-block-label">For your business</span>
+              <div class="info-block-text">You keep authority over the decisions that matter. We carry the admin — meetings, documentation, chasing approvals. Good balance of ownership and speed, and the most common choice.</div>
+            </div>
+          </div>
+          <div class="gov-stop-card">
+            <div class="gsc-t">We govern</div>
+            <div class="gsc-d">We run governance as a service on your behalf.</div>
+            <div class="info-block">
+              <span class="info-block-label">In practice</span>
+              <div class="info-block-text">We run a monthly governance board, track KPI change requests, chase approvals from stakeholders, and publish a quarterly summary. You see decisions, not the process.</div>
+            </div>
+            <div class="info-block biz">
+              <span class="info-block-label">For your business</span>
+              <div class="info-block-text">Zero governance overhead on your team. Your commercial people focus on insight while we keep definitions clean and documented in the background.</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--purple);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Explore your own data</div>
-        <p style="font-size:.88rem;color:var(--muted)">Your team can slice and filter by channel, customer, product, and period — without waiting for someone to build each report.</p>
-      </div>
-      <div class="rv rv-d4" style="background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px">
-        <div style="font-size:.72rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Clear ownership</div>
-        <p style="font-size:.88rem;color:var(--muted)">Every number traces back to its source. Business rules are documented. You know exactly what was matched, how, and when.</p>
+    </div>
+
+    <!-- Operations -->
+    <div class="sup-section rv rv-d3">
+      <div class="sup-head"><div class="sup-num">02 · C</div><div class="sup-title">Operations &amp; maintenance</div><div class="sup-tag">Can you run it? Do you want to?</div></div>
+      <div class="ops-grid">
+        <div class="ops-card">
+          <div class="ops-role">Option A</div>
+          <div class="ops-title">You run it</div>
+          <div class="ops-desc">Full handover. Your team owns monitoring, new features, and incident response.</div>
+          <div class="info-block">
+            <span class="info-block-label">In practice</span>
+            <div class="info-block-text">A pipeline fails at 03:00. Your on-call engineer gets the Teams alert, checks the logs in Databricks, fixes the source issue, and reruns the job before the morning commercial standup.</div>
+          </div>
+          <div class="info-block biz">
+            <span class="info-block-label">For your business</span>
+            <div class="info-block-text">Complete independence. No retainer costs after handover. But it only works if you have a capable data team — and the on-call commitment that comes with it.</div>
+          </div>
+        </div>
+        <div class="ops-card">
+          <div class="ops-role">Option B</div>
+          <div class="ops-title">We run it together</div>
+          <div class="ops-desc">Shared ops. You handle day-to-day, we pair with you on new sources, upgrades, and tricky incidents.</div>
+          <div class="info-block">
+            <span class="info-block-label">In practice</span>
+            <div class="info-block-text">Your team handles the Monday refresh and basic monitoring. When a new POS source lands, we pair with you for a week to onboard it. Quarterly accelerator upgrades are a joint exercise.</div>
+          </div>
+          <div class="info-block biz">
+            <span class="info-block-label">For your business</span>
+            <div class="info-block-text">Lower cost than fully managed, with a safety net when things get tricky. Your team keeps learning, so dependency on us decreases over time — the growth path.</div>
+          </div>
+        </div>
+        <div class="ops-card">
+          <div class="ops-role">Option C</div>
+          <div class="ops-title">We run it for you</div>
+          <div class="ops-desc">Managed service. We handle everything — monitoring, maintenance, new features — on an agreed retainer.</div>
+          <div class="info-block">
+            <span class="info-block-label">In practice</span>
+            <div class="info-block-text">We monitor pipelines around the clock, fix incidents before you notice, deliver new features on a sprint cadence, and send a monthly ops report. Your team just sees Power BI refreshed on time.</div>
+          </div>
+          <div class="info-block biz">
+            <span class="info-block-label">For your business</span>
+            <div class="info-block-text">Zero operational burden. Your team focuses entirely on commercial decisions. Cost is predictable and capped by the retainer, so there are no surprises at quarter-end.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ DELIVERY MODEL ═══ -->
-<section class="slide" id="model">
+<!-- ═══ STEP 3 — UP-SKILLING ═══ -->
+<section class="slide slide-alt" id="step3">
   <div class="container">
-    <div class="rv"><div class="label">How We Work</div>
-    <h2>No Lock-In, No Dependencies</h2>
-    <p class="subtitle">We build it, hand it over, and you run it. No vendor lock-in, no recurring licenses.</p></div>
-
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px">
-      <div class="rv rv-d1" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
-        <div style="padding:4px 0;background:linear-gradient(90deg,var(--teal),var(--teal-l))"></div>
-        <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--teal);margin-bottom:6px">Why It's Faster</div>
-          <h3 style="font-size:1.05rem">Head Start, Not From Scratch</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">We bring proven templates from past engagements so your team isn't reinventing the wheel.</p>
-          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Pre-built matching</span> — products &amp; customers linked automatically</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Ready-made pipelines</span> — data flows configured, not coded from zero</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--teal);font-weight:600;font-size:.78rem">Quality checks included</span> — alerts when something doesn't look right</div>
-          </div>
-        </div>
+    <div class="rv"><div class="label">Step 03 · Up-skilling</div>
+    <h2>We can train your team where you need it</h2>
+    <p class="subtitle">If you don't have the skills in-house today, we can deliver focused training so your team can own more of the stack over time — or just understand what's running under the hood.</p></div>
+    <div class="skill-grid">
+      <div class="skill-card rv rv-d1">
+        <div class="skill-icon">DB</div>
+        <div class="skill-title">Databricks fundamentals</div>
+        <div class="skill-desc">Notebooks, jobs, Unity Catalog, clusters — the basics your team needs to run and extend the platform.</div>
+        <div class="skill-meta"><span class="smt">Hands-on</span><span>1–3 days</span></div>
       </div>
-      <div class="rv rv-d2" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
-        <div style="padding:4px 0;background:linear-gradient(90deg,var(--blue),var(--blue-l))"></div>
-        <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue);margin-bottom:6px">Your Business, Your Rules</div>
-          <h3 style="font-size:1.05rem">Your Definitions, Your Logic</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">You decide how products match, how KPIs are calculated, and what "good data" means.</p>
-          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Product &amp; customer mapping</span> — your definitions, not ours</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">KPI formulas</span> — calculated the way your business thinks</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--blue);font-weight:600;font-size:.78rem">Full handover</span> — everything in your Git repo, nothing hidden</div>
-          </div>
-        </div>
+      <div class="skill-card rv rv-d1">
+        <div class="skill-icon">BI</div>
+        <div class="skill-title">Power BI for analysts</div>
+        <div class="skill-desc">Build reports on top of the unified data. Modeling, DAX basics, visual best practice, publishing and sharing.</div>
+        <div class="skill-meta"><span class="smt">Hands-on</span><span>2–4 days</span></div>
       </div>
-      <div class="rv rv-d3" style="background:var(--card);border:1px solid var(--line);border-radius:var(--rl);overflow:hidden">
-        <div style="padding:4px 0;background:linear-gradient(90deg,var(--amber),var(--amber-l))"></div>
-        <div style="padding:22px">
-          <div style="font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--amber);margin-bottom:6px">Zero Hassle</div>
-          <h3 style="font-size:1.05rem">Runs on Your Platform</h3>
-          <p style="font-size:.84rem;margin-top:6px;color:var(--muted)">Your data stays in your environment. Orkla IT handles the platform so your team focuses on insights.</p>
-          <div style="margin-top:14px;display:flex;flex-direction:column;gap:4px">
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your data, your environment</span> — nothing leaves your tenant</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Managed by Orkla IT</span> — platform uptime is their problem, not yours</div>
-            <div style="font-size:.76rem;color:var(--ink);padding:5px 10px;background:var(--bg);border-radius:5px"><span style="color:var(--amber);font-weight:600;font-size:.78rem">Your team focuses on business</span> — not on infrastructure</div>
-          </div>
-        </div>
+      <div class="skill-card rv rv-d2">
+        <div class="skill-icon">MD</div>
+        <div class="skill-title">Master data with Eddy</div>
+        <div class="skill-desc">How to maintain product &amp; customer mappings in Eddy, review algorithm suggestions, and keep definitions clean over time.</div>
+        <div class="skill-meta"><span class="smt">Hands-on</span><span>1–2 days</span></div>
+      </div>
+      <div class="skill-card rv rv-d2">
+        <div class="skill-icon">DQ</div>
+        <div class="skill-title">Data quality &amp; monitoring</div>
+        <div class="skill-desc">Read quality alerts, investigate root causes, decide when to fix at source vs. at platform. Practical, business-first.</div>
+        <div class="skill-meta"><span class="smt">Workshop</span><span>1 day</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ ADD-ONS ═══ -->
-<section class="slide slide-alt" id="addons">
+<!-- ═══ STEP 4 — ADD-ONS ═══ -->
+<section class="slide" id="step4">
   <div class="container">
-    <div class="rv"><div class="label">Optional Add-Ons</div>
+    <div class="rv"><div class="label">Step 04 · Add-Ons</div>
     <h2>Extend with what you need</h2>
-    <p class="subtitle">These can be added to any tier, independently scoped and delivered. Need to connect unified data to other business tools? We can scope that into any engagement.</p></div>
+    <p class="subtitle">An inspirational catalog — add any of these to any tier, independently scoped and delivered. Missing something? Ask us, we can scope most things.</p></div>
     <div class="addon-grid">
       <div class="addon ai-teal rv rv-d1">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 10l2 2 4-5"/></svg></div>
-        <h3>Power BI Reports</h3>
-        <p>Pre-built dashboards and reports in Power BI — ready for your team to explore, filter, and share.</p>
+        <h3>Generic Power BI Reports</h3>
+        <p>Pre-built dashboards and reports in Power BI — ready for your team to explore, filter, and share from day one.</p>
         <div class="addon-meta"><span>+40 – 80 h build</span><span>+$20 – 80 /mo</span></div>
       </div>
       <div class="addon ai-blue rv rv-d1">
-        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 4h14M2 9h10M2 14h12"/><path d="M16 12l-3 3-2-2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <h3>Automated Report Distribution</h3>
-        <p>Scheduled executive packs and KPI summaries delivered automatically to email or Teams — so the numbers come to you, not the other way around.</p>
-        <div class="addon-meta"><span>+30 – 60 h build</span><span>+$10 – 40 /mo</span></div>
-      </div>
-      <div class="addon ai-amber rv rv-d1">
-        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 14l4-4 3 3 5-6"/><circle cx="15" cy="4" r="2"/></svg></div>
-        <h3>Advanced Monitoring</h3>
-        <p>Beyond standard email alerts: Teams notifications, self-repairing agents that fix issues automatically, and monitoring dashboards for full visibility.</p>
-        <div class="addon-meta"><span>+40 – 80 h build</span><span>+$20 – 80 /mo</span></div>
-      </div>
-      <div class="addon ai-teal rv rv-d2">
-        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="9" r="7"/><path d="M9 5v4l3 2"/></svg></div>
-        <h3>Historical Tracking</h3>
-        <p>Keep a full history of how products and customers change over time — so you can report on "what it was then", not just "what it is now".</p>
-        <div class="addon-meta"><span>+30 – 50 h build</span><span>+$10 – 40 /mo</span></div>
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 15V9M7 15V5M11 15V7M15 15V3"/></svg></div>
+        <h3>Commercial Framework Automation</h3>
+        <p>Ready-made automation for <strong>PSE</strong> and <strong>NRM</strong> — price ladders, promo effectiveness, trade terms impact, and mix contribution, all running on the unified data.</p>
+        <div class="addon-meta"><span>+100 – 200 h build</span><span>+$40 – 120 /mo</span></div>
       </div>
       <div class="addon ai-amber rv rv-d2">
-        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 2v14M2 9h14"/><circle cx="9" cy="9" r="7"/></svg></div>
-        <h3>Additional Data Source</h3>
-        <p>Each additional data feed — a new retailer, distributor, or channel — brought in, validated, and connected.</p>
-        <div class="addon-meta"><span>+40 – 85 h build</span><span>+$30 – 100 /mo</span></div>
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M10 2L4 10h5l-1 6 6-8h-5l1-6z"/></svg></div>
+        <h3>Agentic Monitoring</h3>
+        <p>AI agents detect pipeline failures and propose fixes. Your team reviews the suggestion and approves with one click — the platform self-heals before anyone notices.</p>
+        <div class="addon-meta"><span>+80 – 160 h build</span><span>+$50 – 150 /mo</span></div>
       </div>
-      <div class="addon ai-purple rv rv-d3">
-        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12l5-5 3 3 6-7"/><path d="M12 3h4v4"/></svg></div>
-        <h3>Currency &amp; Calendar Alignment</h3>
-        <p>Convert between currencies, align to fiscal calendars, and normalize periods for consistent cross-market reporting.</p>
-        <div class="addon-meta"><span>+120 – 320 h build</span><span>+$50 – 200 /mo</span></div>
+      <div class="addon ai-green rv rv-d2">
+        <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="14" height="11" rx="2"/><path d="M5 7h8M5 10h5"/></svg></div>
+        <h3>ThinkCell Automation</h3>
+        <p>Auto-populate ThinkCell charts in your business review decks straight from the unified data. No more copy-paste between Excel and PowerPoint.</p>
+        <div class="addon-meta"><span>+60 – 120 h build</span><span>+$20 – 60 /mo</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CASES ═══ -->
+<section class="slide slide-alt" id="cases">
+  <div class="container">
+    <div class="rv"><div class="label">Cases</div>
+    <h2>What we've already delivered</h2>
+    <p class="subtitle">Real engagements across Orkla — each one sharpens the accelerator for the next.</p></div>
+    <div class="case-grid">
+      <div class="case-card rv rv-d1" id="case-care-fi">
+        <div class="case-cover">
+          <div class="cc-tier">Tier 1 · Foundation</div>
+          <div class="cc-label">Care Finland</div>
+        </div>
+        <div class="case-body">
+          <p class="case-summary">A brand new Databricks platform unifying 2 POS sources with internal SAP sales data into one trusted view for commercial decisions.</p>
+          <ul class="case-highlights">
+            <li>Brand new Databricks platform delivered and handed over</li>
+            <li>2 POS sources blended with internal SAP sales data</li>
+            <li>Excel-based master data mapping with <strong>Eddy</strong> on top, owned by the business team</li>
+            <li>Automated processing of sell-in and sell-out data, quality alerts included</li>
+          </ul>
+          <span class="case-link muted">Full write-up coming soon</span>
+        </div>
+      </div>
+      <div class="case-card rv rv-d2">
+        <div class="case-cover snacks">
+          <div class="cc-tier">Tier 3 · PortCo</div>
+          <div class="cc-label">Snacks PortCo</div>
+        </div>
+        <div class="case-body">
+          <p class="case-summary">Group-level commercial data across multiple BUs without local definitions. A brand new central Databricks platform on Azure consolidating 6 Business Units across 6 markets — Denmark, Sweden, Norway, Finland, Estonia, and Latvia.</p>
+          <ul class="case-highlights">
+            <li>Central Databricks platform on Azure, delivered and handed over</li>
+            <li>Product names, categories, and barcodes harmonized across 6 countries</li>
+            <li>Shared product &amp; customer master data with <strong>Eddy</strong> on top</li>
+            <li>Analysts moved from stitching files to routine cross-market analysis</li>
+          </ul>
+          <a href="https://www.backstagecph.dk/orklacase" target="_blank" rel="noopener" class="case-link">View case on Backstage →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ARCHITECTURE ═══ -->
+<section class="slide" id="architecture">
+  <div class="container">
+    <div class="rv"><div class="label">Architecture</div>
+    <h2>Medallion pipeline with master data at the core</h2>
+    <p class="subtitle">A brand new Databricks-style platform with four pipeline stages and master data feeding every layer. Click a tier to see the scope, click a stage to see what happens there.</p></div>
+    <div class="arch-v2 rv rv-d1" data-active-tier="1">
+
+      <!-- Top bar: tier toggle + platform badge -->
+      <div class="arch-topbar">
+        <div class="tier-toggle" role="tablist" aria-label="Select tier scope">
+          <button class="tier-btn active" type="button" data-tier="1"><span class="tier-btn-label">Tier 1</span><span class="tier-btn-sub">Foundation</span></button>
+          <button class="tier-btn" type="button" data-tier="2"><span class="tier-btn-label">Tier 2</span><span class="tier-btn-sub">Multi-Source</span></button>
+          <button class="tier-btn" type="button" data-tier="3"><span class="tier-btn-label">Tier 3</span><span class="tier-btn-sub">PortCo</span></button>
+        </div>
+        <div class="arch-platform-badge"><span class="platform-dot"></span>Databricks · Fabric · Snowflake</div>
+      </div>
+
+      <!-- Stage selector pills -->
+      <div class="stage-bar" role="tablist" aria-label="Select pipeline stage">
+        <button class="stage-pill active" type="button" data-stage="ingest"><span class="stage-pill-num">01</span><span class="stage-pill-name">Ingest</span><span class="stage-pill-sub">Bronze</span></button>
+        <div class="stage-arrow">→</div>
+        <button class="stage-pill" type="button" data-stage="clean"><span class="stage-pill-num">02</span><span class="stage-pill-name">Clean</span><span class="stage-pill-sub">Silver</span></button>
+        <div class="stage-arrow">→</div>
+        <button class="stage-pill" type="button" data-stage="harmonize"><span class="stage-pill-num">03</span><span class="stage-pill-name">Harmonize</span><span class="stage-pill-sub">Gold</span></button>
+        <div class="stage-arrow">→</div>
+        <button class="stage-pill" type="button" data-stage="serve"><span class="stage-pill-num">04</span><span class="stage-pill-name">Serve</span><span class="stage-pill-sub">Consumption</span></button>
+      </div>
+
+      <!-- Canvas: sources · pipeline · consumers -->
+      <div class="arch-canvas">
+        <div class="arch-region arch-sources">
+          <div class="region-label">Data sources</div>
+          <div class="region-items">
+            <div class="node source-node" data-min-tier="1"><svg class="node-icon" viewBox="0 0 20 20"><ellipse cx="10" cy="4" rx="7" ry="2"/><path d="M3 4v12c0 1.2 3.1 2 7 2s7-.8 7-2V4"/><path d="M3 10c0 1.2 3.1 2 7 2s7-.8 7-2"/></svg><span>Nielsen</span></div>
+            <div class="node source-node" data-min-tier="1"><svg class="node-icon" viewBox="0 0 20 20"><ellipse cx="10" cy="4" rx="7" ry="2"/><path d="M3 4v12c0 1.2 3.1 2 7 2s7-.8 7-2V4"/><path d="M3 10c0 1.2 3.1 2 7 2s7-.8 7-2"/></svg><span>SAP</span></div>
+            <div class="node source-node" data-min-tier="2"><svg class="node-icon" viewBox="0 0 20 20"><ellipse cx="10" cy="4" rx="7" ry="2"/><path d="M3 4v12c0 1.2 3.1 2 7 2s7-.8 7-2V4"/><path d="M3 10c0 1.2 3.1 2 7 2s7-.8 7-2"/></svg><span>POS</span></div>
+            <div class="node source-node" data-min-tier="2"><svg class="node-icon" viewBox="0 0 20 20"><ellipse cx="10" cy="4" rx="7" ry="2"/><path d="M3 4v12c0 1.2 3.1 2 7 2s7-.8 7-2V4"/><path d="M3 10c0 1.2 3.1 2 7 2s7-.8 7-2"/></svg><span>TPM</span></div>
+            <div class="node source-node" data-min-tier="3"><svg class="node-icon" viewBox="0 0 20 20"><ellipse cx="10" cy="4" rx="7" ry="2"/><path d="M3 4v12c0 1.2 3.1 2 7 2s7-.8 7-2V4"/><path d="M3 10c0 1.2 3.1 2 7 2s7-.8 7-2"/></svg><span>Distributor</span></div>
+          </div>
+        </div>
+
+        <div class="arch-region arch-pipeline">
+          <div class="region-label">Medallion pipeline</div>
+          <div class="pipeline-flow">
+            <div class="layer-node" data-stage="ingest">
+              <div class="layer-node-tag">Bronze</div>
+              <svg class="layer-icon" viewBox="0 0 24 24"><path d="M3 5h18l-7 9v6l-4-2v-4z"/></svg>
+              <div class="layer-node-name">Ingest</div>
+            </div>
+            <svg class="flow-connector" viewBox="0 0 32 22"><path d="M2 11h24m-5-5 5 5-5 5"/></svg>
+            <div class="layer-node" data-stage="clean">
+              <div class="layer-node-tag">Silver</div>
+              <svg class="layer-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12l3 3 5-6"/></svg>
+              <div class="layer-node-name">Clean</div>
+            </div>
+            <svg class="flow-connector" viewBox="0 0 32 22"><path d="M2 11h24m-5-5 5 5-5 5"/></svg>
+            <div class="layer-node" data-stage="harmonize">
+              <div class="layer-node-tag">Gold</div>
+              <svg class="layer-icon" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 16h18M9 4v16M15 4v16"/></svg>
+              <div class="layer-node-name">Harmonize</div>
+            </div>
+            <svg class="flow-connector" viewBox="0 0 32 22"><path d="M2 11h24m-5-5 5 5-5 5"/></svg>
+            <div class="layer-node" data-stage="serve">
+              <div class="layer-node-tag">Serve</div>
+              <svg class="layer-icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 17v-4M11 17v-7M15 17v-3M19 17v-6"/></svg>
+              <div class="layer-node-name">Serve</div>
+            </div>
+          </div>
+          <div class="bu-marker" aria-label="Multi-BU aggregation">
+            <span class="bu-marker-icon"><span></span><span></span><span></span><span></span><span></span><span></span></span>
+            Multi-BU aggregation · shared master data across BUs
+          </div>
+        </div>
+
+        <div class="arch-region arch-consumers">
+          <div class="region-label">Consumers</div>
+          <div class="region-items">
+            <div class="node consumer-node" data-min-tier="1"><svg class="node-icon" viewBox="0 0 20 20"><path d="M3 17V9M8 17V5M13 17V11M18 17V7"/></svg><span>Power BI</span></div>
+            <div class="node consumer-node" data-min-tier="1"><svg class="node-icon" viewBox="0 0 20 20"><path d="M4 2h9l4 4v12H4z"/><path d="M13 2v4h4M7 11h6M7 14h5"/></svg><span>Executive packs</span></div>
+            <div class="node consumer-node" data-min-tier="2"><svg class="node-icon" viewBox="0 0 20 20"><path d="M3 4h14v9H7l-4 4z"/><path d="M6 8h8M6 11h5"/></svg><span>Chat analytics</span></div>
+            <div class="node consumer-node" data-min-tier="2"><svg class="node-icon" viewBox="0 0 20 20"><rect x="2" y="3" width="16" height="11" rx="1"/><path d="M10 14v3M6 17h8M5 10l3-3 3 3 4-4"/></svg><span>ThinkCell decks</span></div>
+            <div class="node consumer-node" data-min-tier="3"><svg class="node-icon" viewBox="0 0 20 20"><path d="M8 4L4 10l4 6M12 4l4 6-4 6"/></svg><span>APIs</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Master data spine -->
+      <div class="arch-md-wrap">
+        <div class="md-connectors" aria-hidden="true">
+          <div class="md-connector"></div>
+          <div class="md-connector"></div>
+          <div class="md-connector"></div>
+          <div class="md-connector"></div>
+        </div>
+        <div class="md-box">
+          <div class="md-icon-wrap">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="4" cy="5" r="2"/><circle cx="4" cy="19" r="2"/><circle cx="20" cy="5" r="2"/><circle cx="20" cy="19" r="2"/><path d="M6 6l4 4M6 18l4-4M18 6l-4 4M18 18l-4-4"/></svg>
+          </div>
+          <div class="md-body">
+            <div class="md-title">Master Data · Eddy</div>
+            <div class="md-text">Product and customer definitions feed every layer. A mapping change flows consistently from raw through consumption — so the business review deck, the executive pack, and the chat answer all agree.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dynamic detail panel -->
+      <div class="arch-detail">
+        <div class="detail-panel active" data-stage="ingest">
+          <div class="detail-header">
+            <div class="detail-num">Stage 01 · Ingest</div>
+            <div class="detail-title">Bronze — raw landing</div>
+          </div>
+          <div class="detail-grid">
+            <div class="detail-item"><div class="detail-item-label">What happens</div><div class="detail-item-text">Raw data lands from every source exactly as delivered. No transformations, no cleaning — just a faithful copy, with full traceability back to source for audit.</div></div>
+            <div class="detail-item"><div class="detail-item-label">Tools &amp; tech</div><div class="detail-item-text">Auto Loader, Delta Live Tables, Unity Catalog volumes as the source of truth store.</div></div>
+            <div class="detail-item"><div class="detail-item-label">Master data role</div><div class="detail-item-text">Source-side product and customer codes captured as-is. Mapping to your canonical definitions happens later in the Harmonize stage.</div></div>
+          </div>
+        </div>
+        <div class="detail-panel" data-stage="clean">
+          <div class="detail-header">
+            <div class="detail-num">Stage 02 · Clean</div>
+            <div class="detail-title">Silver — validated and typed</div>
+          </div>
+          <div class="detail-grid">
+            <div class="detail-item"><div class="detail-item-label">What happens</div><div class="detail-item-text">Schema enforced, types cast, duplicates removed, invalid records quarantined. Quality tests run on every record and fire alerts when expectations break.</div></div>
+            <div class="detail-item"><div class="detail-item-label">Tools &amp; tech</div><div class="detail-item-text">Delta Live Tables expectations, data quality rules, alert dashboards in Power BI or Teams.</div></div>
+            <div class="detail-item"><div class="detail-item-label">Master data role</div><div class="detail-item-text">Potential duplicate product and customer records flagged for steward review in Eddy before they reach the harmonized layer.</div></div>
+          </div>
+        </div>
+        <div class="detail-panel" data-stage="harmonize">
+          <div class="detail-header">
+            <div class="detail-num">Stage 03 · Harmonize</div>
+            <div class="detail-title">Gold — one set of trusted numbers</div>
+          </div>
+          <div class="detail-grid">
+            <div class="detail-item"><div class="detail-item-label">What happens</div><div class="detail-item-text">Source identifiers resolved to your canonical master data. Business logic applied, KPIs computed, hierarchies joined. The result: one set of trusted facts every consumer agrees on.</div></div>
+            <div class="detail-item"><div class="detail-item-label">Tools &amp; tech</div><div class="detail-item-text">SQL models (dbt-style), Delta tables, Unity Catalog lineage for full traceability from source to KPI.</div></div>
+            <div class="detail-item"><div class="detail-item-label">Master data role</div><div class="detail-item-text">This is where Eddy earns its keep — every source-side product and customer code gets resolved to a single canonical ID, then joined to your hierarchy.</div></div>
+          </div>
+        </div>
+        <div class="detail-panel" data-stage="serve">
+          <div class="detail-header">
+            <div class="detail-num">Stage 04 · Serve</div>
+            <div class="detail-title">Consumption — ready for the business</div>
+          </div>
+          <div class="detail-grid">
+            <div class="detail-item"><div class="detail-item-label">What happens</div><div class="detail-item-text">Harmonized data exposed through governed views. Power BI connects via DirectQuery or import, Chat analytics runs on the same tables, ThinkCell decks and exec packs all read from one layer.</div></div>
+            <div class="detail-item"><div class="detail-item-label">Tools &amp; tech</div><div class="detail-item-text">Unity Catalog grants, Databricks SQL, Power BI, REST APIs for downstream applications.</div></div>
+            <div class="detail-item"><div class="detail-item-label">Master data role</div><div class="detail-item-text">Definitions are already resolved upstream — consumers see consistent names and hierarchies without ever touching mapping logic.</div></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- ═══ INVESTMENT ═══ -->
-<section class="slide" id="investment">
+<section class="slide slide-alt" id="investment">
   <div class="container">
     <div class="rv"><div class="label">Investment</div>
-    <h2>Build Effort &amp; Monthly Costs</h2>
+    <h2>Build effort &amp; monthly costs</h2>
     <p class="subtitle">What it takes to build, and what it costs to run.</p></div>
     <table class="inv-table rv rv-d1">
       <thead><tr><th>Tier</th><th>Build Effort</th><th>Timeline</th><th>Platform /mo</th><th>Ongoing Support /mo</th><th>Your Team's Involvement /mo</th></tr></thead>
       <tbody>
         <tr><td><span class="dot" style="background:var(--teal)"></span><strong>Tier 1</strong> Foundation</td><td>180 – 220 h</td><td>~5.5 weeks</td><td>$50 – 300</td><td>8 – 20 h</td><td>2 – 8 h</td></tr>
         <tr><td><span class="dot" style="background:var(--blue)"></span><strong>Tier 2</strong> Multi-Source</td><td>290 – 685 h</td><td>9 – 14 weeks</td><td>$150 – 600</td><td>16 – 40 h</td><td>6 – 20 h</td></tr>
-        <tr><td><span class="dot" style="background:var(--purple)"></span><strong>Tier 3</strong> Enterprise</td><td>820 – 1,900 h</td><td>27 – 36+ weeks</td><td>$400 – 1,500</td><td>40 – 120 h</td><td>16 – 60 h</td></tr>
+        <tr><td><span class="dot" style="background:var(--purple)"></span><strong>Tier 3</strong> PortCo</td><td>820 – 1,900 h</td><td>27 – 36+ weeks</td><td>$400 – 1,500</td><td>40 – 120 h</td><td>16 – 60 h</td></tr>
       </tbody>
     </table>
     <div class="inv-note rv">All estimates are based on delivery on the <strong>Databricks</strong> platform. If a different platform is preferred, scope and timelines may need to be reassessed. Ranges reflect data complexity — the low end assumes clean, well-structured sources; the high end accounts for multiple formats, complex product hierarchies, or significant quality issues.</div>
@@ -414,10 +981,10 @@ p{color:var(--muted)}
 </section>
 
 <!-- ═══ FAQ ═══ -->
-<section class="slide slide-alt" id="faq">
+<section class="slide" id="faq">
   <div class="container">
     <div class="rv"><div class="label">Common Questions</div>
-    <h2>Frequently Asked</h2></div>
+    <h2>Frequently asked</h2></div>
     <div style="margin-top:28px">
       <div class="faq-item rv rv-d1">
         <h3>What if our data is messy?</h3>
@@ -425,21 +992,81 @@ p{color:var(--muted)}
       </div>
       <div class="faq-item rv rv-d2">
         <h3>Do we need a dedicated technical team?</h3>
-        <p>No. We build and hand over. Your team's involvement is reviewing business logic and approving matching suggestions — typically a few hours per month.</p>
+        <p>No. We build and hand over. Your team's involvement is reviewing business logic and approving matching suggestions — typically a few hours per month. If you want to grow the skills in-house, that's what Step 3 is for.</p>
       </div>
       <div class="faq-item rv rv-d3">
         <h3>Can we start small and expand later?</h3>
-        <p>Yes. Most engagements start with Tier 1 for one business unit. You can add sources, BUs, or add-ons at any time.</p>
+        <p>Yes. Most engagements start with Tier 1 for one BU. You can add sources, BUs, up-skilling, or add-ons at any time.</p>
       </div>
       <div class="faq-item rv rv-d4">
         <h3>What happens after handover?</h3>
-        <p>Everything is yours. Optional ongoing support is available, but you are never locked in. If you have the team, you can take it forward independently.</p>
+        <p>Everything is yours. Optional ongoing support is available, but you are never locked in. If you have the team — or want to build one via Step 3 — you can take it forward independently.</p>
       </div>
     </div>
   </div>
 </section>
 
-<footer class="footer"><div class="container">Orkla Data &amp; Analytics — Solutions Catalog · March 2026 · Internal</div></footer>
+<!-- ═══ CTA ═══ -->
+<section class="cta">
+  <div class="container">
+    <div class="rv"><h2>Ready to configure your solution?</h2>
+    <p>Let's talk about where you are today and which tier, support level, and add-ons fit your BU.</p>
+    <a href="mailto:contact@example.com" class="cta-btn">Get in touch →</a></div>
+  </div>
+</section>
+
+<footer class="footer"><div class="container">Orkla Data &amp; Analytics — Commercial Data Platform · Solutions Catalog · April 2026 · Internal</div></footer>
+
+<!--
+  ═══════════════════════════════════════════════════════════════════════════
+  PRESERVED SECTIONS — hidden from the page but kept in source for future use.
+  These were live in earlier versions (Challenge, Outcomes, How We Work, Proof).
+  Uncomment to restore.
+  ═══════════════════════════════════════════════════════════════════════════
+
+  <div class="rv" style="background:linear-gradient(135deg,rgba(13,124,102,.04),rgba(126,6,38,.03));border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:24px 28px;text-align:center">
+    <p style="font-size:.9rem;color:var(--muted);max-width:640px;margin:0 auto"><span style="color:var(--teal);font-weight:600">Shaped by real engagements.</span> Our toolkit is refined through deployments across Orkla portfolio companies. Each engagement makes it better — and yours benefits from everything we've learned.</p>
+  </div>
+
+  <section class="slide" id="challenge">
+    <div class="container">
+      <div class="rv"><div class="label">The Challenge</div>
+      <h2>Sales data that doesn't add up</h2>
+      <p class="subtitle">Most BUs rely on multiple sales sources that never quite agree. The result: manual effort, inconsistent numbers, and slower commercial decisions.</p></div>
+      <div class="pain-grid">
+        <div class="pain rv rv-d1">
+          <h3>Sell In vs Sell Out</h3><p>What you ship and what actually sells at retail tell different stories. Without linking them, you can't see the full picture from factory to shelf — or spot where stock is building up.</p>
+        </div>
+        <div class="pain rv rv-d2">
+          <h3>Format Chaos</h3><p>Every retailer and distributor sends data in their own format, product coding, and delivery schedule. Getting a like-for-like comparison across channels takes manual effort every single time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide slide-alt" id="outcomes">
+    <div class="container">
+      <div class="rv"><div class="label">What You Get</div>
+      <h2>What changes for your team</h2>
+      <p class="subtitle">The end result is a single, trusted view of sales data — refreshed automatically and ready for reporting.</p></div>
+      <div class="outcome-grid">
+        <div>One set of numbers — commercial reviews, forecasting, and executive reporting all work from the same figures.</div>
+        <div>Reports in hours, not weeks — data refreshes daily or weekly, automatically.</div>
+        <div>Explore your own data — slice and filter by channel, customer, product, and period.</div>
+        <div>Clear ownership — every number traces back to its source; business rules are documented.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide" id="model">
+    <div class="container">
+      <div class="rv"><div class="label">How We Work</div>
+      <h2>No Lock-In, No Dependencies</h2>
+      <p class="subtitle">We build it, hand it over, and you run it. No vendor lock-in, no recurring licenses.</p></div>
+      [Three pillars: Head Start Not From Scratch / Your Definitions Your Logic / Runs on Your Platform]
+    </div>
+  </section>
+-->
 
 <script>
 // Scroll reveal
@@ -449,6 +1076,30 @@ document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
 // Nav active state
 const navObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){document.querySelectorAll('.topbar a[href^="#"]').forEach(a=>a.classList.remove('active'));const a=document.querySelector('.topbar a[href="#'+x.target.id+'"]');if(a)a.classList.add('active')}})},{threshold:.2,rootMargin:'-52px 0px -60% 0px'});
 document.querySelectorAll('section[id]').forEach(s=>navObs.observe(s));
+
+// Architecture diagram — tier toggle + stage selector
+(function(){
+  const arch = document.querySelector('.arch-v2');
+  if (!arch) return;
+  // Tier scope toggle
+  const tierBtns = arch.querySelectorAll('.tier-btn');
+  tierBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      arch.dataset.activeTier = btn.dataset.tier;
+      tierBtns.forEach(b => b.classList.toggle('active', b === btn));
+    });
+  });
+  // Stage selector — updates pills, layer nodes, and detail panels
+  const setStage = (stage) => {
+    arch.querySelectorAll('.stage-pill').forEach(p => p.classList.toggle('active', p.dataset.stage === stage));
+    arch.querySelectorAll('.layer-node').forEach(l => l.classList.toggle('active', l.dataset.stage === stage));
+    arch.querySelectorAll('.detail-panel').forEach(d => d.classList.toggle('active', d.dataset.stage === stage));
+  };
+  arch.querySelectorAll('.stage-pill').forEach(p => p.addEventListener('click', () => setStage(p.dataset.stage)));
+  arch.querySelectorAll('.layer-node').forEach(l => l.addEventListener('click', () => setStage(l.dataset.stage)));
+  // Initialize: Ingest layer active by default
+  setStage('ingest');
+})();
 </script>
 </body>
 </html>
