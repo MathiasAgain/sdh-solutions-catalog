@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -215,7 +216,7 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
 .case-card:hover{border-color:var(--green-mid);box-shadow:var(--sh-l);transform:translateY(-4px)}
 .case-cover{height:120px;background:linear-gradient(135deg,var(--green-dark),var(--green-mid));position:relative;overflow:hidden}
 .case-cover::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at bottom right,rgba(255,255,255,.15),transparent 60%)}
-.case-cover.snacks{background:linear-gradient(135deg,#5A3D1F,#8A5C2D)}
+.case-cover.snacks{background:linear-gradient(135deg,#2D1E52,#6B4FA0)}
 .case-cover .cc-tier{position:absolute;top:14px;left:18px;font-size:.62rem;font-weight:700;color:rgba(255,255,255,.9);background:rgba(255,255,255,.15);padding:4px 10px;border-radius:5px;backdrop-filter:blur(6px);letter-spacing:.08em;text-transform:uppercase}
 .case-cover .cc-label{position:absolute;bottom:14px;left:18px;font-size:1.4rem;font-weight:800;color:#fff;letter-spacing:-.02em}
 .case-body{padding:22px 24px;flex:1;display:flex;flex-direction:column}
@@ -330,6 +331,105 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
   .tier-toggle{justify-content:center}
 }
 
+/* ═══ TECHNICAL SECTION ═══ */
+.tech-wrap{margin-top:28px}
+.tech-viz{background:linear-gradient(160deg,#0A1628 0%,#0F2138 45%,#091322 100%);border:1px solid #1A2B48;border-radius:var(--rl);padding:22px 26px 18px;position:relative;overflow:hidden;box-shadow:0 16px 48px rgba(0,20,40,.25),inset 0 1px 0 rgba(255,255,255,.04)}
+.tech-viz::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 0%,rgba(16,209,164,.1),transparent 70%),radial-gradient(ellipse 50% 40% at 10% 100%,rgba(74,127,212,.08),transparent 70%);pointer-events:none}
+.tech-viz::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(120,160,220,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,220,.025) 1px,transparent 1px);background-size:24px 24px;pointer-events:none;opacity:.6}
+
+.tech-stage{position:relative;z-index:2}
+.tech-svg{display:block;width:100%;height:auto}
+
+/* Cursor-following tooltip — always in user's focus area */
+.tech-tooltip{position:fixed;top:0;left:0;width:min(320px,72vw);pointer-events:none;background:linear-gradient(180deg,rgba(12,22,40,.97),rgba(8,16,30,.97));border:1px solid rgba(16,209,164,.35);border-radius:10px;padding:13px 15px;z-index:999;box-shadow:0 18px 48px rgba(0,0,0,.55),0 0 0 1px rgba(16,209,164,.1);backdrop-filter:blur(10px);opacity:0;transform:translateY(4px);transition:opacity .15s var(--ease),transform .15s var(--ease)}
+.tech-tooltip.visible{opacity:1;transform:none}
+.tech-tooltip-label{font-size:.6rem;font-weight:700;color:#10D1A4;letter-spacing:.14em;text-transform:uppercase;margin-bottom:4px}
+.tech-tooltip-title{font-size:.88rem;font-weight:700;color:#F2F6FC;margin-bottom:10px;line-height:1.3;padding-bottom:8px;border-bottom:1px solid rgba(16,209,164,.15)}
+.tech-tooltip-contract{display:flex;flex-direction:column;gap:7px}
+.ttc-row{display:grid;grid-template-columns:74px 1fr;gap:9px;font-size:.7rem;line-height:1.45}
+.ttc-key{font-family:'Consolas','Monaco',monospace;font-size:.56rem;font-weight:700;color:#64E6BE;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+.ttc-val{color:#B4C5DC}
+.ttc-fail .ttc-key{color:#E8A870}
+.ttc-fail .ttc-val{color:#B4C5DC;font-style:italic}
+
+/* Master Data core column */
+.tech-md-core .md-slab{filter:drop-shadow(0 0 12px rgba(16,209,164,.2))}
+.tech-md-core .md-name{font-size:12.5px;font-weight:800;fill:#F2F6FC;letter-spacing:-.01em}
+.tech-md-core .md-sub{font-size:9px;font-weight:500;fill:#4FE6B8;font-family:'Consolas','Monaco',monospace;letter-spacing:.04em;text-transform:uppercase}
+.tech-md-core .md-header{font-size:7.5px;font-weight:700;fill:rgba(16,209,164,.85);font-family:'Consolas','Monaco',monospace;letter-spacing:.14em}
+.tech-md-core .md-item{font-size:9px;font-weight:600;fill:#D5E5F0;font-family:'Segoe UI',sans-serif}
+.tech-md-core .md-footer{font-size:7.5px;font-weight:700;fill:rgba(16,209,164,.75);font-family:'Consolas','Monaco',monospace;letter-spacing:.14em}
+
+/* MD → layer feed connectors */
+.md-feeds{pointer-events:none}
+.md-feed{stroke:rgba(16,209,164,.75);stroke-width:1.5;stroke-dasharray:3 3;fill:none;stroke-linecap:round;animation:dashFlowMd 2.4s linear infinite}
+.md-feed-glow{stroke:rgba(16,209,164,.2);stroke-width:5;fill:none;stroke-linecap:round}
+.md-feed-dock{fill:rgba(16,209,164,.55);stroke:rgba(16,209,164,.9);stroke-width:1}
+@keyframes dashFlowMd{to{stroke-dashoffset:-12}}
+
+/* SVG layer styling */
+.tech-layer{cursor:pointer;transition:opacity .35s var(--ease)}
+.tech-layer .layer-slab{transition:filter .35s,opacity .35s}
+.tech-layer .layer-name{font-family:'Segoe UI',sans-serif;font-size:13px;font-weight:700;fill:#F2F6FC;pointer-events:none;letter-spacing:-.01em}
+.tech-layer .layer-sub{font-family:'Consolas','Monaco',monospace;font-size:9.5px;font-weight:500;fill:#8FA4C0;pointer-events:none;letter-spacing:.02em}
+.tech-layer .layer-icon{font-family:'Segoe UI',sans-serif;font-size:15px;font-weight:800;pointer-events:none}
+.tech-viz.has-active .tech-layer:not(.active) .layer-slab{opacity:.3}
+.tech-viz.has-active .tech-layer:not(.active) .layer-name,
+.tech-viz.has-active .tech-layer:not(.active) .layer-sub,
+.tech-viz.has-active .tech-layer:not(.active) .layer-icon{opacity:.35}
+.tech-layer.active .layer-slab{filter:url(#techGlowStrong) drop-shadow(0 0 12px rgba(16,209,164,.35))}
+
+@keyframes techBreathe{0%,100%{opacity:.92}50%{opacity:1}}
+.tech-layer .layer-slab{animation:techBreathe 4.5s ease-in-out infinite}
+.tech-layer:nth-of-type(1) .layer-slab{animation-delay:0s}
+.tech-layer:nth-of-type(2) .layer-slab{animation-delay:.4s}
+.tech-layer:nth-of-type(3) .layer-slab{animation-delay:.8s}
+.tech-layer:nth-of-type(4) .layer-slab{animation-delay:1.2s}
+.tech-layer:nth-of-type(5) .layer-slab{animation-delay:1.6s}
+.tech-layer:nth-of-type(6) .layer-slab{animation-delay:2.0s}
+.tech-layer:nth-of-type(7) .layer-slab{animation-delay:2.4s}
+
+/* Modules */
+.tech-module{cursor:pointer;transition:var(--ease)}
+.tech-module .mod-bg{fill:rgba(22,38,64,.85);stroke:rgba(120,160,220,.25);stroke-width:1;transition:var(--ease)}
+.tech-module .mod-title{font-family:'Segoe UI',sans-serif;font-size:10.5px;font-weight:700;fill:#E8EEF7;pointer-events:none}
+.tech-module .mod-sub{font-family:'Consolas','Monaco',monospace;font-size:8.5px;font-weight:500;fill:#7A8BA8;pointer-events:none}
+.tech-module .mod-icon{font-size:12px;pointer-events:none}
+.tech-module:hover .mod-bg{fill:rgba(30,54,90,.95);stroke:rgba(16,209,164,.6)}
+.tech-module .mod-connector{stroke:rgba(16,209,164,.5);stroke-width:1.3;stroke-dasharray:3 4;fill:none;stroke-linecap:round}
+.tech-module .mod-connector-glow{stroke:rgba(16,209,164,.15);stroke-width:4;fill:none;stroke-linecap:round}
+@keyframes dashFlow{to{stroke-dashoffset:-14}}
+.tech-module .mod-connector{animation:dashFlow 1.8s linear infinite}
+.tech-module:hover .mod-connector{stroke:rgba(16,209,164,.95);stroke-width:1.8}
+.tech-module .mod-dock{fill:rgba(16,209,164,.6);stroke:rgba(16,209,164,.9);stroke-width:1}
+
+/* Q&A header above the engineer-question cards */
+.tech-qa-head{margin-top:32px;padding-top:24px;border-top:1px solid var(--line)}
+.tech-qa-label{display:inline-flex;align-items:center;gap:8px;font-size:.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--teal);margin-bottom:6px}
+.tech-qa-label::before{content:'';width:22px;height:2px;background:var(--teal);border-radius:1px}
+.tech-qa-title{font-size:1.1rem;font-weight:700;color:var(--green-dark);letter-spacing:-.01em}
+
+/* Engineer Q&A cards (formerly benefit cards) */
+.tech-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+@media(max-width:960px){.tech-benefits{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.tech-benefits{grid-template-columns:1fr}}
+.tech-ben{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px 16px;transition:var(--ease);position:relative;overflow:hidden}
+.tech-ben::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--teal),var(--teal-l));opacity:.8}
+.tech-ben::after{content:'';position:absolute;right:-30px;top:-30px;width:100px;height:100px;background:radial-gradient(circle,rgba(16,163,127,.08),transparent 70%);pointer-events:none;opacity:0;transition:var(--ease)}
+.tech-ben:hover{border-color:var(--teal);box-shadow:0 6px 20px rgba(13,124,102,.12);transform:translateY(-2px)}
+.tech-ben:hover::after{opacity:1}
+.tech-ben-head{display:flex;align-items:center;gap:11px;margin-bottom:8px}
+.tech-ben-icon{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,rgba(13,124,102,.12),rgba(16,163,127,.06));display:grid;place-items:center;font-size:1.05rem;border:1px solid rgba(13,124,102,.15);flex-shrink:0}
+.tech-ben-title{font-size:.98rem;font-weight:800;color:var(--green-dark);letter-spacing:-.01em}
+.tech-ben-body{font-size:.78rem;color:var(--muted);line-height:1.55}
+.tech-ben-tech{display:inline-block;margin-top:10px;font-size:.6rem;font-weight:600;color:var(--teal);padding:3px 9px;background:rgba(13,124,102,.08);border-radius:5px;font-family:'Consolas','Monaco',monospace;letter-spacing:.01em}
+
+@media(max-width:780px){
+  .tech-viz{padding:16px 14px}
+  .tech-stage{overflow-x:auto}
+  .tech-svg{min-width:720px}
+}
+
 /* Investment */
 .inv-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:.88rem;margin-top:24px}
 .inv-table thead th{background:var(--green-dark);color:#fff;padding:14px 18px;font-weight:600;font-size:.76rem;text-transform:uppercase;letter-spacing:.04em;text-align:left}
@@ -377,6 +477,7 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
   <a href="#step4">Add-Ons</a>
   <a href="#cases">Cases</a>
   <a href="#architecture">Architecture</a>
+  <a href="#technical">Technical</a>
   <a href="#investment">Investment</a>
   <a href="#faq">FAQ</a>
 </nav>
@@ -1244,6 +1345,257 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
   </div>
 </section>
 
+<!-- ═══ TECHNICAL ═══ -->
+<section class="slide" id="technical">
+  <div class="container">
+    <div class="rv"><div class="label">Technical landscape</div>
+    <h2>Scales with your data. Bends with your choices. Belongs entirely to you.</h2>
+    <p class="subtitle">For the technically-minded in the room: here's what's under the hood, and why this architecture stays yours — to grow, to change, to own. Hover a layer to inspect its role and the tools it runs on.</p></div>
+
+    <div class="tech-wrap rv rv-d1">
+      <div class="tech-viz" id="techViz">
+
+        <div class="tech-stage">
+          <svg class="tech-svg" id="techSvg" viewBox="0 0 1000 560" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Live technical architecture diagram">
+            <defs>
+              <!-- Layer gradients -->
+              <linearGradient id="tgConsumption" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#0F3D2A"/><stop offset=".5" stop-color="#1B6B4A"/><stop offset="1" stop-color="#0F3D2A"/>
+              </linearGradient>
+              <linearGradient id="tgSemantic" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#0D5247"/><stop offset=".5" stop-color="#0D7C66"/><stop offset="1" stop-color="#0D5247"/>
+              </linearGradient>
+              <linearGradient id="tgGold" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#7A5C10"/><stop offset=".5" stop-color="#C58E15"/><stop offset="1" stop-color="#7A5C10"/>
+              </linearGradient>
+              <linearGradient id="tgSilver" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#4A5668"/><stop offset=".5" stop-color="#8592A6"/><stop offset="1" stop-color="#4A5668"/>
+              </linearGradient>
+              <linearGradient id="tgBronze" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#6B4518"/><stop offset=".5" stop-color="#B8782E"/><stop offset="1" stop-color="#6B4518"/>
+              </linearGradient>
+              <linearGradient id="tgPlatform" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#1E3560"/><stop offset=".5" stop-color="#3B5FA0"/><stop offset="1" stop-color="#1E3560"/>
+              </linearGradient>
+              <linearGradient id="tgInfra" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#1A2B4A"/><stop offset=".5" stop-color="#2E4770"/><stop offset="1" stop-color="#1A2B4A"/>
+              </linearGradient>
+              <linearGradient id="tgMdCore" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#0A3428"/><stop offset=".5" stop-color="#0D7C66"/><stop offset="1" stop-color="#0A3428"/>
+              </linearGradient>
+
+              <filter id="techGlowStrong" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+
+            <!-- Master Data Management core (cross-cutting, left column) -->
+            <g class="tech-layer tech-md-core" data-layer="master-data" data-y="60">
+              <rect class="layer-slab md-slab" x="30" y="60" width="110" height="426" rx="12" fill="url(#tgMdCore)" stroke="rgba(16,209,164,.5)" stroke-width="1.2"/>
+              <!-- Eddytor owl badge (cream roundel + owl SVG from eddytor.com) -->
+              <circle cx="85" cy="118" r="32" fill="#F7FCEC" stroke="rgba(16,209,164,.65)" stroke-width="1.5"/>
+              <g transform="translate(85,120) scale(0.52) translate(-27,-36)">
+                <!-- Body: blue circle -->
+                <circle cx="26.6964" cy="39.2665" r="25.0174" fill="#024b7a"/>
+                <!-- White face mask (figure-8) -->
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M21.1398 39.5681C23.4335 39.5681 25.4656 38.2786 26.7193 36.2948C27.9322 38.308 29.9177 39.6201 32.1612 39.6201C35.8542 39.6201 38.8479 36.065 38.8479 31.6796C38.8479 27.2942 35.8542 23.7391 32.1612 23.7391C29.9373 23.7391 27.967 25.0283 26.7513 27.0116C25.5004 24.9989 23.4532 23.6871 21.1398 23.6871C17.3315 23.6871 14.2441 27.2422 14.2441 31.6276C14.2441 36.0131 17.3315 39.5681 21.1398 39.5681Z" fill="white"/>
+                <!-- Beak -->
+                <path d="M26.5196 43.7492L24.6289 40.4745L28.4086 40.4743L26.5196 43.7492Z" fill="white" stroke="#024b7a" stroke-width="0.2"/>
+                <!-- Right eye -->
+                <path d="M36.3828 33.3091C36.3828 35.6172 34.5117 37.4883 32.2036 37.4883C29.8955 37.4883 28.0244 35.6172 28.0244 33.3091C28.0244 31.001 29.8955 29.1299 32.2036 29.1299C31.3156 32.6201 33.3422 33.8939 36.3828 33.3091Z" fill="#024b7a"/>
+                <circle cx="30.6881" cy="35.2674" r="0.85" fill="white"/>
+                <!-- Left eye -->
+                <path d="M25.2173 33.3508C25.2173 35.659 23.3462 37.5301 21.0381 37.5301C18.73 37.5301 16.8589 35.659 16.8589 33.3508C16.8589 31.0427 18.73 29.1716 21.0381 29.1716C20.1501 32.6618 22.1767 33.9357 25.2173 33.3508Z" fill="#024b7a"/>
+                <circle cx="19.4547" cy="35.2674" r="0.85" fill="white"/>
+                <!-- Wings -->
+                <ellipse cx="47.5371" cy="46.5582" rx="5.96387" ry="13.2595" fill="#024b7a"/>
+                <ellipse cx="5.96387" cy="46.5582" rx="5.96387" ry="13.2595" fill="#024b7a"/>
+                <!-- Branch -->
+                <path d="M6.02197 71.398C19.2773 67.3195 33.4399 67.2324 46.7445 71.1476L47.5954 71.398" stroke="#024b7a" stroke-width="1.3" fill="none"/>
+                <!-- Feet -->
+                <rect x="30.4561" y="65.1447" width="2.54767" height="3.5899" rx="0.69482" fill="#024b7a"/>
+                <rect x="33.4673" y="64.1025" width="2.50753" height="5.01506" rx="0.69482" fill="#024b7a"/>
+                <rect x="36.3623" y="65.1447" width="2.43187" height="4.28472" rx="0.69482" fill="#024b7a"/>
+                <rect x="14.2441" y="65.1447" width="2.54767" height="4.28472" rx="0.463213" fill="#024b7a"/>
+                <rect x="17.1924" y="64.1025" width="2.50753" height="5.01506" rx="0.463213" fill="#024b7a"/>
+                <rect x="20.1499" y="65.1447" width="2.43187" height="3.5899" rx="0.463213" fill="#024b7a"/>
+              </g>
+              <!-- Labels -->
+              <text class="layer-name md-name" x="85" y="188" text-anchor="middle">Master Data</text>
+              <text class="layer-sub md-sub" x="85" y="206" text-anchor="middle">Eddytor</text>
+              <!-- Section label -->
+              <line x1="48" y1="228" x2="122" y2="228" stroke="rgba(16,209,164,.25)" stroke-width="1"/>
+              <text class="md-header" x="85" y="244" text-anchor="middle">4 WAYS TO RUN IT</text>
+              <!-- MD delivery options (matches step 02·A) -->
+              <text class="md-item" x="85" y="268" text-anchor="middle">Excel mapping</text>
+              <text class="md-item" x="85" y="288" text-anchor="middle">Excel + Eddy UI</text>
+              <text class="md-item" x="85" y="308" text-anchor="middle">Auto-match + Eddy</text>
+              <text class="md-item" x="85" y="328" text-anchor="middle">Your own MDM tool</text>
+              <!-- Feed indicator -->
+              <line x1="50" y1="360" x2="120" y2="360" stroke="rgba(16,209,164,.25)" stroke-width="1" stroke-dasharray="2 3"/>
+              <text class="md-footer" x="85" y="400" text-anchor="middle">FEEDS</text>
+              <text class="md-footer" x="85" y="415" text-anchor="middle">3 LAYERS</text>
+              <text class="md-footer" x="85" y="463" text-anchor="middle" opacity=".5">◀ CROSS-CUTTING</text>
+            </g>
+
+            <!-- MD → Layer connectors (feeds into Semantic, Gold, Silver) -->
+            <g class="md-feeds">
+              <path class="md-feed-glow" d="M140,149 L170,149"/>
+              <path class="md-feed" d="M140,149 L170,149"/>
+              <rect class="md-feed-dock" x="164" y="143" width="6" height="12" rx="1"/>
+
+              <path class="md-feed-glow" d="M140,211 L170,211"/>
+              <path class="md-feed" d="M140,211 L170,211"/>
+              <rect class="md-feed-dock" x="164" y="205" width="6" height="12" rx="1"/>
+
+              <path class="md-feed-glow" d="M140,273 L170,273"/>
+              <path class="md-feed" d="M140,273 L170,273"/>
+              <rect class="md-feed-dock" x="164" y="267" width="6" height="12" rx="1"/>
+            </g>
+
+            <!-- Layer slabs (top → bottom) -->
+            <g class="tech-layer" data-layer="consumption" data-y="60">
+              <rect class="layer-slab" x="170" y="60" width="470" height="54" rx="9" fill="url(#tgConsumption)" stroke="rgba(16,209,164,.35)" stroke-width="1"/>
+              <text class="layer-icon" x="188" y="93" fill="#10D1A4">◆</text>
+              <text class="layer-name" x="212" y="85">Consumption</text>
+              <text class="layer-sub" x="212" y="102">Power BI · Apps · REST · ODBC</text>
+              <rect class="layer-port" x="630" y="81" width="14" height="12" rx="2" fill="rgba(16,209,164,.4)" stroke="rgba(16,209,164,.7)" stroke-width="1"/>
+            </g>
+            <g class="tech-layer" data-layer="semantic" data-y="122">
+              <rect class="layer-slab" x="170" y="122" width="470" height="54" rx="9" fill="url(#tgSemantic)" stroke="rgba(16,163,127,.35)" stroke-width="1"/>
+              <text class="layer-icon" x="188" y="155" fill="#4FD4B0">◈</text>
+              <text class="layer-name" x="212" y="147">Semantic</text>
+              <text class="layer-sub" x="212" y="164">Metrics · KPIs · Business definitions</text>
+              <rect class="layer-port" x="630" y="143" width="14" height="12" rx="2" fill="rgba(16,163,127,.4)" stroke="rgba(16,163,127,.7)" stroke-width="1"/>
+            </g>
+            <g class="tech-layer" data-layer="gold" data-y="184">
+              <rect class="layer-slab" x="170" y="184" width="470" height="54" rx="9" fill="url(#tgGold)" stroke="rgba(240,200,80,.4)" stroke-width="1"/>
+              <text class="layer-icon" x="188" y="217" fill="#FFD96B">●</text>
+              <text class="layer-name" x="212" y="209">Gold</text>
+              <text class="layer-sub" x="212" y="226">Harmonized facts &amp; dimensions · Delta</text>
+              <rect class="layer-port" x="630" y="205" width="14" height="12" rx="2" fill="rgba(240,200,80,.4)" stroke="rgba(240,200,80,.8)" stroke-width="1"/>
+            </g>
+            <g class="tech-layer" data-layer="silver" data-y="246">
+              <rect class="layer-slab" x="170" y="246" width="470" height="54" rx="9" fill="url(#tgSilver)" stroke="rgba(200,210,230,.35)" stroke-width="1"/>
+              <text class="layer-icon" x="188" y="279" fill="#D5DEED">●</text>
+              <text class="layer-name" x="212" y="271">Silver</text>
+              <text class="layer-sub" x="212" y="288">Cleaned · typed · validated · deduped</text>
+              <rect class="layer-port" x="630" y="267" width="14" height="12" rx="2" fill="rgba(200,210,230,.4)" stroke="rgba(200,210,230,.7)" stroke-width="1"/>
+            </g>
+            <g class="tech-layer" data-layer="bronze" data-y="308">
+              <rect class="layer-slab" x="170" y="308" width="470" height="54" rx="9" fill="url(#tgBronze)" stroke="rgba(232,181,112,.4)" stroke-width="1"/>
+              <text class="layer-icon" x="188" y="341" fill="#EAB06A">●</text>
+              <text class="layer-name" x="212" y="333">Bronze</text>
+              <text class="layer-sub" x="212" y="350">Raw landing zone</text>
+              <rect class="layer-port" x="630" y="329" width="14" height="12" rx="2" fill="rgba(232,181,112,.4)" stroke="rgba(232,181,112,.8)" stroke-width="1"/>
+            </g>
+            <g class="tech-layer" data-layer="platform" data-y="370">
+              <rect class="layer-slab" x="170" y="370" width="470" height="54" rx="9" fill="url(#tgPlatform)" stroke="rgba(100,140,220,.35)" stroke-width="1"/>
+              <text class="layer-icon" x="188" y="403" fill="#7AA5E8">▣</text>
+              <text class="layer-name" x="212" y="395">Platform</text>
+              <text class="layer-sub" x="212" y="412">Databricks · Fabric · Snowflake</text>
+            </g>
+            <g class="tech-layer" data-layer="infra" data-y="432">
+              <rect class="layer-slab" x="170" y="432" width="470" height="54" rx="9" fill="url(#tgInfra)" stroke="rgba(100,130,180,.3)" stroke-width="1"/>
+              <text class="layer-icon" x="188" y="465" fill="#8FA8D4">☁</text>
+              <text class="layer-name" x="212" y="457">Cloud Infrastructure</text>
+              <text class="layer-sub" x="212" y="474">Azure</text>
+            </g>
+
+            <!-- Pluggable modules (right) — the 4 add-ons from the catalog -->
+            <g class="tech-module" data-target="consumption" data-target-y="87">
+              <path class="mod-connector-glow" d="M640,87 Q670,89 686,95"/>
+              <path class="mod-connector" d="M644,87 Q670,89 686,95"/>
+              <rect class="mod-dock" x="686" y="90" width="6" height="10" rx="1"/>
+              <rect class="mod-bg" x="692" y="70" width="268" height="50" rx="8"/>
+              <text class="mod-icon" x="708" y="98" fill="#10D1A4">▣</text>
+              <text class="mod-title" x="730" y="91">Generic Power BI Reports</text>
+              <text class="mod-sub" x="730" y="108">Pre-built dashboards</text>
+            </g>
+            <g class="tech-module" data-target="semantic" data-target-y="149">
+              <path class="mod-connector-glow" d="M640,149 Q670,149 680,149"/>
+              <path class="mod-connector" d="M644,149 L686,149"/>
+              <rect class="mod-dock" x="686" y="144" width="6" height="10" rx="1"/>
+              <rect class="mod-bg" x="692" y="124" width="268" height="50" rx="8"/>
+              <text class="mod-icon" x="708" y="152" fill="#10D1A4">⚑</text>
+              <text class="mod-title" x="730" y="145">ThinkCell Automation</text>
+              <text class="mod-sub" x="730" y="162">Auto-populate into PowerPoint · No copy-paste</text>
+            </g>
+            <g class="tech-module" data-target="semantic" data-target-y="149">
+              <path class="mod-connector-glow" d="M640,149 Q680,149 686,235"/>
+              <path class="mod-connector" d="M644,149 Q680,149 686,235"/>
+              <rect class="mod-dock" x="686" y="230" width="6" height="10" rx="1"/>
+              <rect class="mod-bg" x="692" y="210" width="268" height="50" rx="8"/>
+              <text class="mod-icon" x="708" y="238" fill="#10D1A4">⚖</text>
+              <text class="mod-title" x="730" y="231">Commercial Framework Automation</text>
+              <text class="mod-sub" x="730" y="248">PSE · NRM</text>
+            </g>
+            <g class="tech-module" data-target="silver" data-target-y="273">
+              <!-- Connector to Gold (top of module) -->
+              <path class="mod-connector-glow" d="M640,211 Q670,211 686,375"/>
+              <path class="mod-connector" d="M644,211 Q670,211 686,375"/>
+              <rect class="mod-dock" x="686" y="370" width="6" height="10" rx="1"/>
+              <!-- Connector to Silver (middle of module) -->
+              <path class="mod-connector-glow" d="M640,273 Q670,273 686,395"/>
+              <path class="mod-connector" d="M644,273 Q670,273 686,395"/>
+              <rect class="mod-dock" x="686" y="390" width="6" height="10" rx="1"/>
+              <!-- Connector to Bronze (bottom of module) -->
+              <path class="mod-connector-glow" d="M640,335 Q670,335 686,415"/>
+              <path class="mod-connector" d="M644,335 Q670,335 686,415"/>
+              <rect class="mod-dock" x="686" y="410" width="6" height="10" rx="1"/>
+              <rect class="mod-bg" x="692" y="370" width="268" height="50" rx="8"/>
+              <text class="mod-icon" x="708" y="398" fill="#10D1A4">⚡</text>
+              <text class="mod-title" x="730" y="391">Agentic Monitoring</text>
+              <text class="mod-sub" x="730" y="408">AI self-heal across the data pipeline</text>
+            </g>
+
+          </svg>
+        </div>
+
+      </div>
+      <div class="tech-tooltip" id="techTooltip" aria-hidden="true"></div>
+
+      <div class="tech-qa-head rv rv-d2">
+        <div class="tech-qa-label">Engineers ask</div>
+        <h3 class="tech-qa-title">Real questions, concrete answers</h3>
+      </div>
+      <div class="tech-benefits">
+        <div class="tech-ben">
+          <div class="tech-ben-head"><div class="tech-ben-icon">⚡</div><div class="tech-ben-title">What happens at 10× volume?</div></div>
+          <div class="tech-ben-body">Serverless compute scales horizontally, storage grows linearly, per-query cost stays predictable. No forklift upgrade — same code, more partitions, more parallel tasks.</div>
+          <div class="tech-ben-tech">Serverless · Linear cost</div>
+        </div>
+        <div class="tech-ben">
+          <div class="tech-ben-head"><div class="tech-ben-icon">▦</div><div class="tech-ben-title">What's the blast radius when something breaks?</div></div>
+          <div class="tech-ben-body">Each BU runs in an isolated workspace with its own compute, its own Unity Catalog grants, its own schedules. A broken job in one BU never touches another.</div>
+          <div class="tech-ben-tech">Isolated workspaces</div>
+        </div>
+        <div class="tech-ben">
+          <div class="tech-ben-head"><div class="tech-ben-icon">⇄</div><div class="tech-ben-title">Can we swap tools mid-flight?</div></div>
+          <div class="tech-ben-body">Yes — any layer. Power BI → Tableau, Fivetran → Auto Loader, even Databricks → Fabric. The contracts between layers stay the same, so swapping one component doesn't break the rest.</div>
+          <div class="tech-ben-tech">Stable contracts</div>
+        </div>
+        <div class="tech-ben">
+          <div class="tech-ben-head"><div class="tech-ben-icon">🛡</div><div class="tech-ben-title">What if we decide to leave?</div></div>
+          <div class="tech-ben-body">Data stays in open formats (Delta/Parquet) in Azure storage. Notebooks live in Git. The semantic layer is versioned code. Nothing is locked inside a proprietary SaaS — the whole stack is portable by design.</div>
+          <div class="tech-ben-tech">Git · Delta · Parquet</div>
+        </div>
+        <div class="tech-ben">
+          <div class="tech-ben-head"><div class="tech-ben-icon">⟷</div><div class="tech-ben-title">Can we plug in our existing tools?</div></div>
+          <div class="tech-ben-body">Yes. Unity Catalog exposes ODBC, JDBC, and REST. Any tool that speaks SQL or REST can read the data — existing notebooks, BI tools, Python scripts, custom apps — without modification.</div>
+          <div class="tech-ben-tech">SQL · REST · Open</div>
+        </div>
+        <div class="tech-ben">
+          <div class="tech-ben-head"><div class="tech-ben-icon">↑</div><div class="tech-ben-title">How does this evolve without breaking my stack?</div></div>
+          <div class="tech-ben-body">The Accelerator is versioned. Upgrade engagements pull new capabilities into your workspace deliberately — not automatically. Layer contracts stay stable, so upgrades add features rather than force migrations.</div>
+          <div class="tech-ben-tech">Versioned · Opt-in upgrades</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══ INVESTMENT ═══ -->
 <section class="slide slide-alt" id="investment">
   <div class="container">
@@ -1382,6 +1734,135 @@ document.querySelectorAll('section[id]').forEach(s=>navObs.observe(s));
   arch.querySelectorAll('.svg-stage').forEach(l => l.addEventListener('click', () => setStage(l.dataset.stage)));
   // Initialize: Ingest layer active by default
   setStage('ingest');
+})();
+
+// Technical section — layered architecture visual
+(function(){
+  const viz = document.getElementById('techViz');
+  if (!viz) return;
+  const tooltip = document.getElementById('techTooltip');
+  const layers = viz.querySelectorAll('.tech-layer');
+
+  // Layer contracts — what each layer promises to the layer above
+  const layerDetails = {
+    consumption: {
+      label:'Layer 07 · Consumption',
+      title:'Contract: stable read surface',
+      input:'Gold tables + Semantic metrics',
+      output:'Governed views, dashboards, REST endpoints',
+      guarantees:'ANSI SQL, DirectQuery-stable, no silent schema changes',
+      failsWhen:'A KPI is renamed or dropped without a version bump'
+    },
+    semantic: {
+      label:'Layer 06 · Semantic',
+      title:'Contract: versioned business logic',
+      input:'Gold dimensions and facts',
+      output:'Named metrics, KPIs, business filters',
+      guarantees:'Logic lives in code, reviewed in Git, versioned',
+      failsWhen:'A definition changes without review or version bump'
+    },
+    gold: {
+      label:'Layer 05 · Gold',
+      title:'Contract: conformed dimensional model',
+      input:'Silver tables + Master Data references',
+      output:'Star-schema facts and conformed dimensions in Delta',
+      guarantees:'Referential integrity, SCD Type 2, partitioned for query speed',
+      failsWhen:'Master data resolves to an orphan key (caught by QA tests)'
+    },
+    silver: {
+      label:'Layer 04 · Silver',
+      title:'Contract: typed, deduped, validated',
+      input:'Bronze raw tables',
+      output:'Typed columns, unique rows, expectation-passed records',
+      guarantees:'Schema versioned, DLT expectations enforced, freshness < 1 hour',
+      failsWhen:'Upstream schema drift or a quality expectation is breached'
+    },
+    bronze: {
+      label:'Layer 03 · Bronze',
+      title:'Contract: immutable raw capture',
+      input:'Source systems — ERP, POS, files, APIs',
+      output:'Exact-copy Delta tables with ingested_at + source_file columns',
+      guarantees:'Full history preserved, time-travel queryable, fully replayable',
+      failsWhen:'Source connection breaks — captured and alerted, never swallowed'
+    },
+    platform: {
+      label:'Layer 02 · Platform',
+      title:'Contract: unified lakehouse engine',
+      input:'Your code, your data, Orkla credentials',
+      output:'Compute, storage, orchestration, Unity Catalog governance',
+      guarantees:'Serverless scaling, version-pinned runtimes, full audit log',
+      failsWhen:'Budget quota exceeded — platform halts, your code stays intact'
+    },
+    infra: {
+      label:'Layer 01 · Cloud Infrastructure',
+      title:'Contract: Orkla-managed Azure',
+      input:'Orkla IT service agreement',
+      output:'Azure tenant, network, identity, encryption keys',
+      guarantees:'Entra-backed auth, Orkla IT incident response, paired regions',
+      failsWhen:'Regional Azure outage — handled by Orkla IT, not by your team'
+    },
+    'master-data': {
+      label:'Core · Master Data Management',
+      title:'Contract: authoritative reference data',
+      input:'Steward-reviewed mappings (Excel, Eddy, algo, or your MDM)',
+      output:'Product, customer, location, organization hierarchies',
+      guarantees:'Conformed across BUs, versioned, steward-approved before release',
+      failsWhen:'Unmapped source key — flagged for review, never silently dropped'
+    }
+  };
+
+  // Layer hover → highlight + cursor-following tooltip
+  function setActiveLayer(layerKey){
+    if (!layerKey){
+      viz.classList.remove('has-active');
+      layers.forEach(l => l.classList.remove('active'));
+      tooltip.classList.remove('visible');
+      return;
+    }
+    viz.classList.add('has-active');
+    layers.forEach(l => l.classList.toggle('active', l.dataset.layer === layerKey));
+    const d = layerDetails[layerKey];
+    if (!d) return;
+    tooltip.innerHTML =
+      '<div class="tech-tooltip-label">' + d.label + '</div>' +
+      '<div class="tech-tooltip-title">' + d.title + '</div>' +
+      '<div class="tech-tooltip-contract">' +
+        '<div class="ttc-row"><span class="ttc-key">Input</span><span class="ttc-val">' + d.input + '</span></div>' +
+        '<div class="ttc-row"><span class="ttc-key">Output</span><span class="ttc-val">' + d.output + '</span></div>' +
+        '<div class="ttc-row"><span class="ttc-key">Guarantees</span><span class="ttc-val">' + d.guarantees + '</span></div>' +
+        '<div class="ttc-row ttc-fail"><span class="ttc-key">Fails when</span><span class="ttc-val">' + d.failsWhen + '</span></div>' +
+      '</div>';
+    tooltip.classList.add('visible');
+  }
+
+  function positionTooltip(e){
+    const tw = tooltip.offsetWidth;
+    const th = tooltip.offsetHeight;
+    let x = e.clientX + 18;
+    let y = e.clientY + 18;
+    if (x + tw > window.innerWidth - 8)  x = e.clientX - tw - 18;
+    if (y + th > window.innerHeight - 8) y = e.clientY - th - 18;
+    if (x < 8) x = 8;
+    if (y < 8) y = 8;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top  = y + 'px';
+  }
+
+  layers.forEach(l => {
+    l.addEventListener('mouseenter', (e) => { setActiveLayer(l.dataset.layer); positionTooltip(e); });
+    l.addEventListener('mousemove',  (e) => { positionTooltip(e); });
+    l.addEventListener('focus',      ()  => { setActiveLayer(l.dataset.layer); });
+  });
+  viz.querySelector('.tech-stage').addEventListener('mouseleave', () => setActiveLayer(null));
+
+  // Module hover → highlight target layer + show tooltip
+  viz.querySelectorAll('.tech-module').forEach(m => {
+    m.addEventListener('mouseenter', (e) => {
+      const target = m.dataset.target;
+      if (target) { setActiveLayer(target); positionTooltip(e); }
+    });
+    m.addEventListener('mousemove', (e) => { positionTooltip(e); });
+  });
 })();
 </script>
 </body>
