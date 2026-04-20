@@ -177,8 +177,14 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
 .ops-card .info-block{margin-top:0;align-self:start}
 @media(max-width:780px){.ops-grid{grid-template-columns:1fr;grid-template-rows:none}.ops-card{grid-template-rows:none;grid-row:auto;display:flex;flex-direction:column}}
 
+/* Engagement note (top-line callout) */
+.engage-note{margin:24px 0 0;padding:18px 22px;border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,.65),rgba(255,255,255,.35));display:flex;flex-direction:column;gap:6px}
+.engage-note .en-label{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+.engage-note p{font-size:.92rem;color:var(--ink);margin:0;line-height:1.55}
+.engage-note p strong{color:var(--green-dark)}
+
 /* Up-skilling */
-.skill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+.skill-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:28px}
 .skill-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;transition:var(--ease);position:relative}
 .skill-card:hover{border-color:var(--green-mid);box-shadow:var(--sh-m);transform:translateY(-3px)}
 .skill-icon{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,rgba(39,103,73,.12),rgba(39,103,73,.04));display:grid;place-items:center;margin-bottom:14px;color:var(--green-mid);font-size:1.1rem;font-weight:800}
@@ -601,6 +607,10 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
     <div class="rv"><div class="label">Configure Your Solution</div>
     <h2>Build it in 4 steps</h2>
     <p class="subtitle">Pick a tier and platform, decide how involved you want us to be, add up-skilling where you need it, and extend with add-ons.</p></div>
+    <div class="engage-note rv rv-d1">
+      <div class="en-label">What you bring to the table</div>
+      <p>Every engagement requires <strong>some investment from your side</strong> - the size depends on the tier and add-ons you pick. Plan for business resources to engage actively during the build (validating mappings, signing off on KPIs, reviewing outputs) and to own the platform in day-to-day operations after handover.</p>
+    </div>
     <div class="step-strip rv rv-d1">
       <a href="#step1" class="step-card">
         <div class="step-num">STEP 01</div>
@@ -652,8 +662,8 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
           <div class="tc-metrics">
             <div class="tc-m"><div class="mv">180 - 220 h</div><div class="ml">Build effort</div></div>
             <div class="tc-m"><div class="mv">~ 5.5 weeks</div><div class="ml">Timeline</div></div>
-            <div class="tc-m"><div class="mv">$50 - 300</div><div class="ml">Platform /mo</div></div>
-            <div class="tc-m"><div class="mv">8 - 20 h</div><div class="ml">Ongoing support /mo</div></div>
+            <div class="tc-m"><div class="mv">$50 - 300</div><div class="ml">Platform per month</div></div>
+            <div class="tc-m"><div class="mv">8 - 20 h</div><div class="ml">Ongoing support per month</div></div>
           </div>
           <div class="tc-deliverables">
             <div class="tc-deliverables-title">You receive</div>
@@ -677,8 +687,8 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
           <div class="tc-metrics">
             <div class="tc-m"><div class="mv">290 - 685 h</div><div class="ml">Build effort</div></div>
             <div class="tc-m"><div class="mv">9 - 14 weeks</div><div class="ml">Timeline</div></div>
-            <div class="tc-m"><div class="mv">$150 - 600</div><div class="ml">Platform /mo</div></div>
-            <div class="tc-m"><div class="mv">16 - 40 h</div><div class="ml">Ongoing support /mo</div></div>
+            <div class="tc-m"><div class="mv">$150 - 600</div><div class="ml">Platform per month</div></div>
+            <div class="tc-m"><div class="mv">16 - 40 h</div><div class="ml">Ongoing support per month</div></div>
           </div>
           <div class="tc-deliverables">
             <div class="tc-deliverables-title">You receive</div>
@@ -702,8 +712,8 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
           <div class="tc-metrics">
             <div class="tc-m"><div class="mv">820 - 1,900 h</div><div class="ml">Build effort</div></div>
             <div class="tc-m"><div class="mv">27 - 36+ weeks</div><div class="ml">Timeline</div></div>
-            <div class="tc-m"><div class="mv">$400 - 1,500</div><div class="ml">Platform /mo</div></div>
-            <div class="tc-m"><div class="mv">40 - 120 h</div><div class="ml">Ongoing support /mo</div></div>
+            <div class="tc-m"><div class="mv">$400 - 1,500</div><div class="ml">Platform per month</div></div>
+            <div class="tc-m"><div class="mv">40 - 120 h</div><div class="ml">Ongoing support per month</div></div>
           </div>
           <div class="tc-deliverables">
             <div class="tc-deliverables-title">You receive</div>
@@ -919,6 +929,12 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
         <div class="skill-desc">Read quality alerts, investigate root causes, decide when to fix at source vs. at platform. Practical, business-first.</div>
         <div class="skill-meta"><span class="smt">Workshop</span><span>1 day</span></div>
       </div>
+      <div class="skill-card rv rv-d2">
+        <div class="skill-icon">SF</div>
+        <div class="skill-title">Orkla commercial frameworks</div>
+        <div class="skill-desc">Joint sessions with the Sales CoE to train your team on Orkla frameworks - Growth Wheel, PSE, NRM, Profit Pool - conceptually, analytically, and in Power BI.</div>
+        <div class="skill-meta"><span class="smt">Workshop</span><span>2-4 days</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -934,25 +950,25 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="14" height="14" rx="2"/><path d="M6 10l2 2 4-5"/></svg></div>
         <h3>Generic Power BI Reports</h3>
         <p>Pre-built dashboards and reports in Power BI - ready for your team to explore, filter, and share from day one.</p>
-        <div class="addon-meta"><span>+40 - 80 h build</span><span>+$20 - 80 /mo</span></div>
+        <div class="addon-meta"><span>+40 - 80 h build</span><span>+$20 - 80 per month</span></div>
       </div>
       <div class="addon ai-blue rv rv-d1">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 15V9M7 15V5M11 15V7M15 15V3"/></svg></div>
         <h3>Commercial Framework Automation</h3>
         <p>Ready-made automation for <strong>PSE</strong> and <strong>NRM</strong> - price ladders, promo effectiveness, trade terms impact, and mix contribution, all running on the unified data.</p>
-        <div class="addon-meta"><span>+100 - 200 h build</span><span>+$40 - 120 /mo</span></div>
+        <div class="addon-meta"><span>+100 - 200 h build</span><span>+$40 - 120 per month</span></div>
       </div>
       <div class="addon ai-amber rv rv-d2">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M10 2L4 10h5l-1 6 6-8h-5l1-6z"/></svg></div>
         <h3>Agentic Monitoring</h3>
         <p>AI agents detect pipeline failures and propose fixes. Your team reviews the suggestion and approves with one click - the platform self-heals before anyone notices.</p>
-        <div class="addon-meta"><span>+80 - 160 h build</span><span>+$50 - 150 /mo</span></div>
+        <div class="addon-meta"><span>+80 - 160 h build</span><span>+$50 - 150 per month</span></div>
       </div>
       <div class="addon ai-green rv rv-d2">
         <div class="addon-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="14" height="11" rx="2"/><path d="M5 7h8M5 10h5"/></svg></div>
         <h3>ThinkCell Automation</h3>
         <p>Auto-populate ThinkCell charts in your business review decks straight from the unified data. No more copy-paste between Excel and PowerPoint.</p>
-        <div class="addon-meta"><span>+60 - 120 h build</span><span>+$20 - 60 /mo</span></div>
+        <div class="addon-meta"><span>+60 - 120 h build</span><span>+$20 - 60 per month</span></div>
       </div>
     </div>
   </div>
@@ -1974,7 +1990,7 @@ a.tc-example:hover{color:var(--green-dark);border-color:var(--green-mid);border-
     <h2>Build effort &amp; monthly costs</h2>
     <p class="subtitle">What it takes to build, and what it costs to run.</p></div>
     <table class="inv-table rv rv-d1">
-      <thead><tr><th>Tier</th><th>Build Effort</th><th>Timeline</th><th>Platform /mo</th><th>Ongoing Support /mo</th><th>Your Team's Involvement /mo</th></tr></thead>
+      <thead><tr><th>Tier</th><th>Build Effort</th><th>Timeline</th><th>Platform per month</th><th>Ongoing Support per month</th><th>Your Team's Involvement per month</th></tr></thead>
       <tbody>
         <tr><td><span class="dot" style="background:var(--teal)"></span><strong>Tier 1</strong> Foundation</td><td>180 - 220 h</td><td>~5.5 weeks</td><td>$50 - 300</td><td>8 - 20 h</td><td>2 - 8 h</td></tr>
         <tr><td><span class="dot" style="background:var(--blue)"></span><strong>Tier 2</strong> Multi-Source</td><td>290 - 685 h</td><td>9 - 14 weeks</td><td>$150 - 600</td><td>16 - 40 h</td><td>6 - 20 h</td></tr>
